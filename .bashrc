@@ -30,20 +30,19 @@ xterm*|rxvt*)
 esac
 
 # prompt
-c1="\[\033[0;40;32m\]"  # green on black
-c2="\[\033[1;32m\]"     # bright green
-c3="\[\033[1;30m\]"     # grey
-c_reset="\[\033[0m\]"
-export PS1="${c1}\u.\h${c3}[${c2}\w${c3}]${c1}\$${c_reset} "
+c0="\[\033[0m\]"
+c1="\[\033[0;40m\]"
+c2="\[\033[1;30m\]"
+export PS1="$c1\u$c2@$c1\h$c2:$c1\w$c2\$$c0 "
 
 # tab completion
 [ -e /etc/bash_completion ] && . /etc/bash_completion
 
 # ls colours
-if [ "$TERM" != "dumb" ]; then
-    [ -n "`which dircolors`" ] && eval "`dircolors -b`" 2>/dev/null
-    alias ls='ls --color=auto' 2>/dev/null
-fi
+#if [ "$TERM" != "dumb" ]; then
+    #[ -n "`which dircolors`" ] && eval "`dircolors -b`" 2>/dev/null
+    #alias ls='ls --color=auto' 2>/dev/null
+#fi
 
 # shortcuts
 alias ..='cd ..'
@@ -51,6 +50,7 @@ alias :q='exit' :wq='exit'  # really wish I didn't need these
 alias d='dict'
 alias fo='kill -9' foad='killall -9'
 alias l='ls -Fhlv' la='ls -AFv' ll='ls -AFhlv'
+alias lc='ls -Fv --color=auto'
 alias m='mutt -y'
 alias s='screen -DRA && stty sane && echo'
 alias v='vim'
@@ -91,7 +91,7 @@ alias zim='zpool import' zex='zpool export'
 
 # partial download
 alias scpr="rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
-alias nscpr="nice -n18 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
+alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 
 # other useful commands
 alias calc='python -ic "from math import *; from random import *"'

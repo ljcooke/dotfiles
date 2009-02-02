@@ -31,18 +31,17 @@ esac
 
 # prompt
 c0="\[\033[0m\]"
-c1="\[\033[0;40m\]"
-c2="\[\033[1;30m\]"
-export PS1="$c1$c2\u@\h:$c1\w$c2\$$c0 "
+c1="\[\033[1;40m\]"
+export PS1="$c1\u@\h:\w\n\$$c0 "
 
 # tab completion
 [ -e /etc/bash_completion ] && . /etc/bash_completion
 
 # ls colours
-#if [ "$TERM" != "dumb" ]; then
-    #[ -n "`which dircolors`" ] && eval "`dircolors -b`" 2>/dev/null
-    #alias ls='ls --color=auto' 2>/dev/null
-#fi
+if [ "$TERM" != "dumb" ]; then
+    [ -n "`which dircolors`" ] && eval "`dircolors -b`" 2>/dev/null
+    alias ls='ls --color=auto' 2>/dev/null
+fi
 
 # shortcuts
 alias ..='cd ..'

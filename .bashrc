@@ -32,7 +32,7 @@ esac
 # prompt
 c0="\[\033[0m\]"
 c1="\[\033[1;40m\]"
-export PS1="$c1\u@\h:\w\n\$$c0 "
+export PS1="$c1\u@\h:\w\n$c1\$$c0 "
 
 # tab completion
 [ -e /etc/bash_completion ] && . /etc/bash_completion

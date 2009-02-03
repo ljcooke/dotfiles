@@ -30,9 +30,10 @@ xterm*|rxvt*)
 esac
 
 # prompt
-c0="\[\033[0m\]"
-c1="\[\033[1;40m\]"
-export PS1="$c1\u@\h:\w\n$c1\$$c0 "
+c0="\[\033[0m\]"        # reset
+c1="\[\033[1;30;40m\]"  # grey on black
+c2="\[\033[0;40m\]"     # white on black
+export PS1="$c1\u@\h:$c2\w\n$c1\$ $c0"
 
 # tab completion
 [ -e /etc/bash_completion ] && . /etc/bash_completion

@@ -1,0 +1,23 @@
+include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+
+# http://cyberborean.wordpress.com/2008/01/06/compose-key-magic/
+<Multi_key> <colon> <parenright> : "☺" U263A  # :)
+<Multi_key> <less> <minus> : "←"  U2190  # <-
+<Multi_key> <minus> <less> : "←"  U2190  # -<
+<Multi_key> <minus> <greater> : "→" U2192  # ->
+<Multi_key> <t> <m> : "™" U2122
+<Multi_key> <T> <M> : "™" U2122
+<Multi_key> <less> <3> : "♥" U2665  # <3
+
+# inky
+<Multi_key> <period> <space> : "…"  # ellipsis
+<Multi_key> <asterisk> : "★"
+<Multi_key> <n> <o> : "Nº"  # Numero
+<Multi_key> <N> <o> : "№"  # Numero
+<Multi_key> <t> <h> <x> : "http://x.boxofjunk.ws/thanks-capn-obvious.jpg"
+<Multi_key> <r> <i> <m> : "http://instantrimshot.com/"
+<Multi_key> <s> <a> <d> : "http://sadtrombone.com/"
+<Multi_key> <o> <underscore> <o> : "ಠ_ಠ"
+<Multi_key> <O> <underscore> <o> : "¯\\(º_o)/¯"
+<Multi_key> <colon> <s> : "⍨"
+<Multi_key> <s> <n> <o> : "☃"  # Snowman!

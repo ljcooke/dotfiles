@@ -82,7 +82,7 @@ function p_mem()
 function p_user() { ps aux | grep "^$USER" | pr -TW$COLUMNS; }
 alias p='p_user'
 
-# zfs
+# zfs
 function zshot() { [ -n "$1" ] \
     && zfs snapshot "$1@`date +%Y-%m-%d-%H%M`" \
     || zfs list -t snapshot; }

@@ -17,7 +17,7 @@ endif
 
 set ttyfast                 " using a fast connection
 set cmdheight=2             " command line height
-set number nuw=4            " line numbers
+set number                  " line numbers
 set ruler                   " show 'line,column' ruler
 set nohlsearch              " don't highlight search results (enable with :hls)
 set background=dark         " light on dark

@@ -1,0 +1,30 @@
+startup_message  off
+vbell            off
+
+altscreen        on   # hide leftovers from vim, man, etc.
+autodetach       on
+defutf8          on
+
+shelltitle ''
+sorendition =s Yk     # set screen messages to yellow on black
+zombie kr             # keep zombie windows (k=kill, r=reload)
+
+# see http://unixhelp.ed.ac.uk/CGI/man-cgi?termcap+5 for key syntax
+bindkey -k k9 windowlist -b    # F9
+bindkey -k k; detach           # F10
+bindkey -k F1 other            # F11
+
+bind s                         # disable C-a s (freeze)
+
+# status bar with window list & clock
+hardstatus on
+hardstatus alwayslastline
+hardstatus string '%{= kK}%-Lw%{= KW}%50>%n%f %t%{= kK}%+Lw%< %{=kG}%-= %D %Y-%m-%d %c:%s%{-}'
+
+screen -t irc    0 irssi
+screen -t hey    1 bash
+screen -t sh     2 bash
+screen -t www    3 bash
+screen -t alch   4 bash
+screen -t hax    5 bash
+select 1

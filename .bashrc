@@ -64,32 +64,6 @@ alias gl='git pull'
 alias gp='git push'
 alias gst='git status'
 
-# simple encryption
-function blow()
-{
-    [ -z "$1" ] && echo 'Encrypt: blow FILE' && return 1
-    openssl bf-cbc -salt -in "$1" -out "$1.bf"
-}
-function fish()
-{
-    test -z "$1" -o -z "$2" && echo \
-        'Decrypt: fish INFILE OUTFILE' && return 1
-    openssl bf-cbc -d -salt -in "$1" -out "$2"
-}
-
-# processes
-function p_cpu()
-{
-    ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu \
-        | sed '/^ 0.0 /d' | pr -TW$COLUMNS
-}
-function p_mem()
-{
-    ps -e -orss=,args= | sort -b -k1,1n | pr -TW$COLUMNS
-}
-function p_user() { ps aux | grep "^$USER" | pr -TW$COLUMNS; }
-alias p='p_user'
-
 # zfs
 function zshot() { [ -n "$1" ] \
     && zfs snapshot "$1@`date +%Y-%m-%d-%H%M`" \
@@ -101,9 +75,8 @@ alias zim='zpool import' zex='zpool export'
 alias scpr="rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 
-# other useful commands
+# misc
 alias calc='python -ic "from math import *; from random import *"'
-alias pwds='pwds -Bcn 11'
 
 # local settings
 [ -e $HOME/.inkyrc ] && . $HOME/.inkyrc

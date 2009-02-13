@@ -56,6 +56,14 @@ alias s='screen -DRA && stty sane && echo'
 alias v='vim'
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 
+# git
+alias gb='git branch' gba='git branch -a'
+alias gc='git commit -v' gca='git commit -a'
+alias gd='git diff'
+alias gl='git pull'
+alias gp='git push'
+alias gst='git status'
+
 # simple encryption
 function blow()
 {

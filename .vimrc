@@ -79,19 +79,19 @@ nnoremap <F5> ggVG
 nnoremap <C-Space> :s///<Left><Left>
 
 " switching/closing buffers
-nnoremap <silent> <Tab> :bn<CR>
-nnoremap <silent> <S-Tab> :bp<CR>
-nnoremap <C-Tab> <C-w><C-w>
+nnoremap <Tab> <C-w><C-w>
 nnoremap <C-F4> :bn<CR>:bd #<CR>
 
 " comment out lines
 nnoremap <silent> ;# :s:^:#:<CR>
+nnoremap <silent> ;3 :s:^:#:<CR>
 nnoremap <silent> ;/ :s:^://:<CR>
 nnoremap <silent> ;' :s:^:':<CR>
 nnoremap <silent> ;" :s:^:":<CR>
 nnoremap <silent> ;; :s:^:;:<CR>
 nnoremap <silent> ;% :s:^:%:<CR>
 vnoremap <silent> ;# :s:^:#:<CR>
+vnoremap <silent> ;3 :s:^:#:<CR>
 vnoremap <silent> ;/ :s:^://:<CR>
 vnoremap <silent> ;' :s:^:':<CR>
 vnoremap <silent> ;" :s:^:":<CR>

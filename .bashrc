@@ -33,7 +33,7 @@ esac
 c0="\[\033[0m\]"        # reset
 c1="\[\033[1;30;40m\]"  # grey on black
 c2="\[\033[0;40m\]"     # white on black
-export PS1="$c1\u@\h:$c2\w\n$c1\$ $c0"
+export PS1="$c1\u@\h:$c2\w$c1\$\n>>> $c0"
 
 # tab completion
 [ -e /etc/bash_completion ] && . /etc/bash_completion
@@ -82,7 +82,7 @@ function p_mem()
 function p_user() { ps aux | grep "^$USER" | pr -TW$COLUMNS; }
 alias p='p_user'
 
-# zfs
+# zfs
 function zshot() { [ -n "$1" ] \
     && zfs snapshot "$1@`date +%Y-%m-%d-%H%M`" \
     || zfs list -t snapshot; }

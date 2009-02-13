@@ -1,11 +1,10 @@
 [ -z "$PS1" ] && return  # return if not running interactively
-shopt -s checkwinsize    # check and update lines & cols after each cmd
-shopt -s cmdhist  # multiline commands saved in history as oneliners
-shopt -s histappend
+shopt -s checkwinsize  # check and update lines & cols after each cmd
+shopt -s cmdhist   # multiline commands saved in history as oneliners
 export EDITOR=vim
+export HISTFILE='/dev/null'
 export HISTCONTROL='ignoreboth:erasedups'
 export HISTIGNORE='&:l:l[sla]:c[dl]:[bf]g:exit:logout:#'
-export HISTSIZE=1000
 export LC_ALL=en_IE.UTF-8 LC_CTYPE=en_IE.UTF-8
 export LESSCHARSET=utf-8
 export PYTHONPATH=$HOME/lib/python
@@ -79,4 +78,5 @@ alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc
 alias calc='python -ic "from math import *; from random import *"'
 
 # local settings
-[ -e $HOME/.inkyrc ] && . $HOME/.inkyrc
+local="$HOME/.bashrc.local"
+[ -e "$local" ] && . "$local"

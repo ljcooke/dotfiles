@@ -149,8 +149,8 @@ if has('autocmd')
     autocmd FileType *tex setlocal textwidth=78
 
     " Markdown
-    augroup mkd
-        autocmd BufRead *.mkd
+    augroup markdown
+        autocmd BufRead *.markdown
         \   setlocal ai nosi formatoptions=tcroqn2 comments=n:>
     augroup END
 

@@ -13,6 +13,6 @@ My configuration files.
 
 * `.screenrc` -- Used with Debian; will probably work in other environments.
 
-* `.vimrc` -- Works with vim (OS X, Linux, Solaris), MacVim and gVim.
+* `.vimrc`, `.vim/*` -- Works with vim (OS X, Linux, Solaris), MacVim and gVim.
 
 * `.XCompose` -- Putting the meta key to good use. Used with Debian and Ubuntu.

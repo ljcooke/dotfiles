@@ -16,6 +16,8 @@ My configuration files.
 
 * **.nanorc** -- No longer used.
 
+* **.pythonrc.py** -- Python interactive startup file.
+
 * **.screenrc** -- Used with Debian; will probably work in other environments.
 
 * **.vimrc**, **.vim/*** -- Works with vim (OS X, Linux, Solaris), MacVim and gVim.

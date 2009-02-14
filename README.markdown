@@ -7,6 +7,9 @@ My configuration files.
   Machine-specific settings are saved to .bashrc.local, which is included by
   this file.
 
+* `.lineak/lineakd.conf` -- Lineak settings, for mapping music keys in Linux.
+  (Tested with a Dell Inspiron 9300.)
+
 * `.mplayer/config` -- My old mplayer settings. Used with Debian and Ubuntu.
 
 * `.nanorc` -- No longer used.

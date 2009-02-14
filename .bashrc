@@ -2,12 +2,11 @@
 shopt -s checkwinsize  # check and update lines & cols after each cmd
 shopt -s cmdhist   # multiline commands saved in history as oneliners
 export EDITOR=vim
-export HISTFILE='/dev/null'
-export HISTCONTROL='ignoreboth:erasedups'
+export HISTFILE='/dev/null' HISTCONTROL='ignoreboth:erasedups'
 export HISTIGNORE='&:l:l[sla]:c[dl]:[bf]g:exit:logout:#'
 export LC_ALL=en_IE.UTF-8 LC_CTYPE=en_IE.UTF-8
 export LESSCHARSET=utf-8
-export PYTHONPATH=$HOME/lib/python
+export PYTHONPATH="$HOME/lib/python" PYTHONSTARTUP="$HOME/.pythonrc.py"
 set -o emacs
 
 # pager colours

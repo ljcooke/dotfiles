@@ -145,7 +145,7 @@ if has('autocmd')
     autocmd FileType make,sshconfig setlocal nolist noexpandtab
     autocmd FileType html,xhtml setlocal ts=2 sts=2 sw=2
     autocmd FileType php setlocal autoindent smartindent
-    autocmd FileType python setlocal textwidth=78
+    "autocmd FileType python setlocal textwidth=78
     autocmd FileType *tex setlocal textwidth=78
 
     " Markdown

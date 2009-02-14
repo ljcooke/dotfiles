@@ -7,6 +7,8 @@ My configuration files.
   Machine-specific settings are saved to .bashrc.local, which is included by
   this file.
 
+* **.irssi/inky.theme** -- My Irssi theme; just a modification of the default theme.
+
 * **.lineak/lineakd.conf** -- Lineak settings, for mapping music keys in Linux.
   (Tested with a Dell Inspiron 9300.)
 

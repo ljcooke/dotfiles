@@ -65,6 +65,7 @@ alias gb='git branch' gba='git branch -a'
 alias gc='git commit -v' gca='git commit -a'
 alias gd='git diff'
 alias gl='git pull'
+alias glog='git log --stat'
 alias gp='git push'
 alias gst='git status'
 

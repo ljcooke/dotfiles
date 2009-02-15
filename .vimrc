@@ -174,6 +174,7 @@ if has('autocmd')
     "-----------------------------
 
     autocmd BufNewFile *.html 0r ~/.vim/skeleton.html "| normal! Gdd8<CR>o
+    autocmd BufNewFile *.io   0r ~/.vim/skeleton.io | normal! G
     autocmd BufNewFile *.py   0r ~/.vim/skeleton.py | normal! G
     autocmd BufNewFile *.sh   0r ~/.vim/skeleton.sh | normal! G
 

@@ -2,6 +2,7 @@
 shopt -s checkwinsize  # check and update lines & cols after each cmd
 shopt -s cmdhist   # multiline commands saved in history as oneliners
 export EDITOR=vim
+export IGNOREEOF=$([ $SHLVL -eq 1 ] && echo 1 || echo 0)
 export HISTFILE='/dev/null' HISTCONTROL='ignoreboth:erasedups'
 export HISTIGNORE='&:l:l[sla]:c[dl]:[bf]g:exit:logout:#'
 export LC_ALL=en_IE.UTF-8 LC_CTYPE=en_IE.UTF-8
@@ -22,21 +23,27 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # terminal title
 case "$TERM" in
 xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"' ;;
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
+    ;;
 *)
     ;;
 esac
 
 # git branch (slightly modified version of http://gist.github.com/5129)
-function gitbranch() {
+gitbranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # prompt
-c0="\[\033[0m\]"        # reset
-c1="\[\033[1;30;40m\]"  # grey on black
-c2="\[\033[0;40m\]"     # white on black
-export PS1="$c1\u@\h:$c2\w$c1\$$c2\$(gitbranch)\n$c1>>> $c0"
+bash_prompt() {
+    c0="\[\033[0m\]"        # reset
+    c1="\[\033[1;30;40m\]"  # grey on black
+    c2="\[\033[0;40m\]"     # white on black
+    [ $SHLVL -gt 1 ] && lvl="$SHLVL" || lvl=""  # reveal nested sessions
+    info="${c1}\u@\h:${c2}\w${c1}\$${c2}`gitbranch`\n"
+    echo "${info}${c1}sh${lvl}> ${c0}"
+}
+PS1="`bash_prompt`"
 
 # tab completion
 [ -e /etc/bash_completion ] && . /etc/bash_completion

@@ -275,7 +275,7 @@ abstracts = {
   # "{sbstart $*}";
   topicsbend = "{sbend $*}";
 
-  prompt = "%0%K>>>%w ";
+  prompt = "%0%K>%w ";
   #prompt = "%0$*%K> %n";
 
   sb = "%K$* %K- ";

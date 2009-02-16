@@ -1,8 +1,8 @@
 IRB.conf[:PROMPT][:INKY] = {
-    :PROMPT_I => "rb> ",  # normal
-    :PROMPT_S => "  . ",  # continuing strings
-    :PROMPT_C => "  . ",  # continuing statements
-    :RETURN => "%s\n\n",
+    :PROMPT_I => "> ",  # normal
+    :PROMPT_S => ". ",  # continuing strings
+    :PROMPT_C => ". ",  # continuing statements
+    :RETURN =>   "%s\n",
 }
 
 IRB.conf[:PROMPT_MODE] = :INKY

@@ -39,9 +39,9 @@ bash_prompt() {
     c0="\[\033[0m\]"        # reset
     c1="\[\033[1;30;40m\]"  # grey on black
     c2="\[\033[0;40m\]"     # white on black
-    [ $SHLVL -gt 1 ] && lvl="$SHLVL" || lvl=""  # reveal nested sessions
-    info="${c1}\u@\h:${c2}\w${c1}\$${c2}`gitbranch`\n"
-    echo "${info}${c1}sh${lvl}> ${c0}"
+    [ $SHLVL -gt 1 ] && lvl="$SHLVL " || lvl=""  # reveal nested sessions
+    info="${c1}\u@\h:${c2}\w${c1}\$(gitbranch)\n"
+    echo "${info}${c1}${lvl}\$ ${c0}"
 }
 PS1="`bash_prompt`"
 

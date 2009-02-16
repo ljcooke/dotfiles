@@ -22,10 +22,10 @@ def see(obj):
     # http://docs.python.org/reference/datamodel.html#specialnames
     symbols = (
         ('__call__', '()'),
-        ('__getattr__', '.'),
-        ('__setattr__', '.'),
-        ('__delattr__', '.'),
-        ('__getattribute__', '.'),
+        #('__getattr__', '.'),
+        #('__setattr__', '.'),
+        #('__delattr__', '.'),
+        #('__getattribute__', '.'),
         ('__getitem__', '[]'),
         ('__setitem__', '[]'),
         ('__delitem__', '[]'),
@@ -88,8 +88,11 @@ def see(obj):
     actions = []
     name = lambda a: '.%s%s' % (a, callable(getattr(obj, a)) and '()' or '')
 
-    if attrs.__doc__ is str and obj.__doc__.strip():
-        actions.append('?')
+    try:
+        if obj.__doc__.strip():
+            actions.append('?')
+    except AttributeError:
+        pass
     for attr, symbol in symbols:
         if attr in attrs and symbol not in actions:
             actions.append(symbol)

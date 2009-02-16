@@ -1,12 +1,13 @@
+require 'irb/completion'
+
 IRB.conf[:PROMPT][:INKY] = {
     :PROMPT_I => "> ",  # normal
     :PROMPT_S => ". ",  # continuing strings
     :PROMPT_C => ". ",  # continuing statements
-    :RETURN =>   "%s\n",
+    :RETURN =>   "= %s\n",
 }
 
 IRB.conf[:PROMPT_MODE] = :INKY
-IRB.conf[:AUTO_INDENT] = true
 
 # http://blog.evanweaver.com/articles/2006/12/13/benchmark/
 def benchmark(times = 1000, samples = 20)

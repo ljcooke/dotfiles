@@ -1,3 +1,5 @@
+# echo 'export PYTHONSTARTUP=$HOME/.pythonrc.py' >> ~/.bashrc
+
 import os, sys
 import math, random
 import textwrap

@@ -86,7 +86,7 @@ def see(obj):
     actions = []
     name = lambda a: '.%s%s' % (a, callable(getattr(obj, a)) and '()' or '')
 
-    if '__doc__' in attrs and obj.__doc__.strip():
+    if attrs.__doc__ and obj.__doc__.strip():
         actions.append('?')
     for attr, symbol in symbols:
         if attr in attrs and symbol not in actions:

@@ -20,13 +20,16 @@ aliases = {
 files = []
 
 if not [1,2].include? ARGV.length
-    puts 'Usage: ./script fileset [destination]'
-    puts '  e.g. fileset = common, destination = me@server:'
+    puts 'Usage: ./script [fileset] destination'
+    puts '  e.g. fileset = bash, destination = me@server:'
     exit
 end
 
-fileset = ARGV[0].to_sym
-dest = ARGV[1]
+dest = ARGV[-1]
+fileset = :common
+if not ARGV[-2].nil?
+    fileset = ARGV[-2].to_sym
+end
 
 if fileset == :all
     dotfiles.each {|f| files += f}
@@ -42,12 +45,6 @@ elsif aliases.has_key? fileset
     }
 end
 
-if files.empty?
-    puts 'No files selected!'; exit
-end
-
-if dest.nil?
-    puts files
-else
+unless files.empty?
     Kernel::system ['rsync -Phavz',files,dest].join(' ')
 end

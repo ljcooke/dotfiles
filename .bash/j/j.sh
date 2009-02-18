@@ -67,4 +67,4 @@ j() {
 # prepend to PROMPT_COMMAND
 PROMPT_COMMAND='j --add "$(pwd -P)";'"$PROMPT_COMMAND"
 # bash completions for j
-complete -o dirnames -o filenames -C "j --complete" j
+complete -o dirnames -o filenames -C "j --complete" j 2>/dev/null

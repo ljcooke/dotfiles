@@ -9,6 +9,9 @@ from pydoc import pager
 # http://github.com/inky/see/tree/master
 from see import see
 
+# http://github.com/darius/columnize/tree/master
+from columnize import see as cee
+
 sys.ps1 = '> '
 sys.ps2 = '. '
 

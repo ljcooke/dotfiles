@@ -72,7 +72,7 @@ alias s='screen -DRA && stty sane && echo'
 alias v='vim'
 
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
-function calc() { echo "$@" | bc -l; }  # http://akkartik.name/bash.html
+function calc() { [ -z "$@" ] && bc -ql || echo "$@" | bc -l; }
 
 # git
 alias gb='git branch' gba='git branch -a'

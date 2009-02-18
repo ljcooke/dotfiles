@@ -71,8 +71,8 @@ alias m='mutt -y'
 alias s='screen -DRA && stty sane && echo'
 alias v='vim'
 
-mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
-calc() { echo "$@" | bc -l; }  # http://akkartik.name/bash.html
+function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
+function calc() { echo "$@" | bc -l; }  # http://akkartik.name/bash.html
 
 # git
 alias gb='git branch' gba='git branch -a'

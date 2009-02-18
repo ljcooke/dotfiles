@@ -3,20 +3,20 @@
 # Update dotfiles on another server
 #
 dotfiles = {
-    'bash' => ['.bashrc', '.inputrc'],
-    'python' => ['.pythonrc.py'],
-    'ruby' => ['.irbrc'],
-    'screen' => ['.screenrc'],
-    'vim' => ['.vimrc', '.vim'],
-    'x' => ['.XCompose'],
+    :bash => ['.bashrc', '.inputrc'],
+    :irc => ['.irssi'],
+    :lineak => ['.lineak'],
+    :mplayer => ['.mplayer'],
+    :python => ['.pythonrc.py'],
+    :ruby => ['.irbrc'],
+    :screen => ['.screenrc'],
+    :vim => ['.vimrc', '.vim'],
+    :x => ['.XCompose'],
 }
 aliases = {
-    'all' => :all,
-    'common' => ['bash', 'python', 'ruby', 'vim'],
-    'editor' => ['vim', '.nanorc'],
+    :common => [:bash, :python, :ruby, :vim],
+    :editor => [:vim, '.nanorc'],
 }
-cmd = 'rsync -Phavz'
-
 files = []
 
 if not [1,2].include? ARGV.length
@@ -25,21 +25,21 @@ if not [1,2].include? ARGV.length
     exit
 end
 
-fileset, dest = ARGV
+fileset = ARGV[0].to_sym
+dest = ARGV[1]
 
-if dotfiles.has_key? fileset
+if fileset == :all
+    dotfiles.each {|f| files += f}
+elsif dotfiles.has_key? fileset
     files += dotfiles[fileset]
 elsif aliases.has_key? fileset
-    a = aliases[fileset]
-    if a == :all
-        dotfiles.each {|f| files += f}
-    else
-        a.each {|fs|
-            if dotfiles.has_key? fs
-                files += dotfiles[fs]
-            end
-        }
-    end
+    aliases[fileset].each {|fset|
+        if fset.class == Symbol and dotfiles.has_key? fset
+            files += dotfiles[fset]
+        elsif fset.class == String
+            files.push fset
+        end
+    }
 end
 
 if files.empty?

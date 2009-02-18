@@ -1,17 +1,19 @@
 dotfiles
 ========
 
+My precious config files, and a script to keep them updated on various machines.
+
 Scripts
 -------
 
-* __update.rb__ -- Update dotfiles on a server, in $HOME, etc.
+* __update.rb__ -- Update dotfiles in $HOME, on another machine, etc.
 
-        ./update.rb common user@host:
+        ./update.rb vim user@host:
 
 Configuration files
 -------------------
 
-* __.bashrc__ -- Synchronised across OS X, Linux and Solaris machines.
+* __.bash__, __.bashrc__ -- Synchronised across OS X, Linux and Solaris machines.
   Machine-specific settings are saved to .bashrc.local, which is included by
   this file.
 

@@ -12,6 +12,11 @@ from see import see
 sys.ps1 = '> '
 sys.ps2 = '. '
 
+# http://tinyurl.com/bjtwrm
+prettydict = lambda d:"\n".join(map("%s: %s".__mod__, d.items()))
+def printdict(d):
+    print prettydict(d)
+
 def enable_tab_completion():
     import rlcompleter, readline
     readline.parse_and_bind("tab: complete")

@@ -36,13 +36,14 @@ if fileset == :all
 elsif dotfiles.has_key? fileset
     files += dotfiles[fileset]
 elsif aliases.has_key? fileset
-    aliases[fileset].each {|fset|
-        if fset.class == Symbol and dotfiles.has_key? fset
-            files += dotfiles[fset]
-        elsif fset.class == String
+    aliases[fileset].each do |fset|
+        case fset.class
+        when Symbol
+            files += dotfiles[fset] if dotfiles.has_key? fset
+        when String
             files.push fset
         end
-    }
+    end
 end
 
 unless files.empty?

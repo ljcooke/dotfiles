@@ -30,12 +30,13 @@ xterm*|rxvt*)
     ;;
 esac
 
-# j gives a directory jump list
-[ -e "$HOME/.bash/j/j.sh" ] && source "$HOME/.bash/j/j.sh"
+# extras
+function _extra() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
+_extra 'tabcomplete'
+_extra 'j/j.sh'
 
 # git branch (slightly modified version of http://gist.github.com/5129)
-gitbranch()
-{
+function gitbranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
@@ -50,9 +51,6 @@ bash_prompt()
 }
 PS1="`bash_prompt`"
 PS2="$c1. $c0"
-
-# tab completion
-[ -e /etc/bash_completion ] && . /etc/bash_completion
 
 # ls colours
 if [ "$TERM" != "dumb" ]; then

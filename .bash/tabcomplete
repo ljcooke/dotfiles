@@ -1,2 +1,6 @@
 #!/bin/bash
-[ -e /etc/bash_completion ] && . /etc/bash_completion
+
+bcfile="/etc/bash_completion"
+for f in $bcfile /opt/local/$bcfile; do
+    [ -e "$f" ] && source "$f" && break
+done

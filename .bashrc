@@ -1,4 +1,5 @@
 [ -z "$PS1" ] && return  # return if not running interactively
+source /etc/profile
 shopt -s checkwinsize  # check and update lines & cols after each cmd
 shopt -s cmdhist   # multiline commands saved in history as oneliners
 export EDITOR=vim
@@ -30,7 +31,7 @@ xterm*|rxvt*)
 esac
 
 # j gives a directory jump list
-[ -e "$HOME/.bash/j/j.sh" ] && . "$HOME/.bash/j/j.sh"
+[ -e "$HOME/.bash/j/j.sh" ] && source "$HOME/.bash/j/j.sh"
 
 # git branch (slightly modified version of http://gist.github.com/5129)
 gitbranch()

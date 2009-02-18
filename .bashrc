@@ -70,7 +70,9 @@ alias lc='ls -Fv --color=auto'
 alias m='mutt -y'
 alias s='screen -DRA && stty sane && echo'
 alias v='vim'
-function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
+
+mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
+calc() { echo "$@" | bc -l; }  # http://akkartik.name/bash.html
 
 # git
 alias gb='git branch' gba='git branch -a'
@@ -91,9 +93,6 @@ alias zim='zpool import' zex='zpool export'
 # partial download
 alias scpr="rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
-
-# misc
-alias calc='python -ic "from math import *; from random import *"'
 
 # local settings
 local="$HOME/.bashrc.local"

@@ -30,10 +30,9 @@ xterm*|rxvt*)
     ;;
 esac
 
-# extras
 function _extra() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
 _extra 'tabcomplete'
-_extra 'j/j.sh'
+_extra 'j/j.sh' 2>/dev/null
 
 # git branch (slightly modified version of http://gist.github.com/5129)
 function gitbranch() {

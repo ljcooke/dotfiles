@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+$VERBOSE = true
+
+raise unless ARGV.length == 1
+best = path = ARGV[0]
+ENV.each do |k, v|
+  next if k.include?('PWD')
+  next unless (path+'/')[0..v.length] == v+'/'
+  k = '\\$' + k
+  k = '~' if k == '\\$HOME'
+  newpath = k + path[v.length..-1]
+  best = newpath if newpath.length < best.length
+end
+puts best
+
+# http://pastie.org/392520

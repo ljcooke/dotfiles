@@ -3,7 +3,7 @@
 # Update dotfiles on another server
 #
 dotfiles = {
-    :bash => ['.bashrc', '.inputrc'],
+    :bash => ['.bash', '.bashrc', '.inputrc'],
     :irc => ['.irssi'],
     :lineak => ['.lineak'],
     :mplayer => ['.mplayer'],

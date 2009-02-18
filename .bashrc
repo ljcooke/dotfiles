@@ -29,6 +29,9 @@ xterm*|rxvt*)
     ;;
 esac
 
+# j gives a directory jump list
+[ -e "$HOME/.bash/j/j.sh" ] && . "$HOME/.bash/j/j.sh"
+
 # git branch (slightly modified version of http://gist.github.com/5129)
 gitbranch()
 {

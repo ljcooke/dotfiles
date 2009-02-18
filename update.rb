@@ -46,5 +46,5 @@ elsif aliases.has_key? fileset
 end
 
 unless files.empty?
-    Kernel::system ['rsync -Phavz',files,dest].join(' ')
+    Kernel::system ['rsync -FPhavz',files,dest].join(' ')
 end

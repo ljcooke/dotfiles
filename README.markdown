@@ -9,7 +9,9 @@ Scripts
 
 * __update.rb__ -- Update dotfiles in $HOME, on another machine, etc.
 
-        ./update.rb vim user@host:
+        ./update.rb user@host:  # defaults to 'common' fileset
+        ./update.rb vim ~/
+        ./update.rb --dry-run host:
 
 
 Configuration files

@@ -18,17 +18,24 @@ dotfiles = {
     :x => ['.XCompose'],
 }
 files = []
+args = ARGV.clone
+dry_run = false
 
-if not [1,2].include? ARGV.length
-    puts 'Usage: ./script [fileset] destination'
+if ['-n', '--dry-run'].include? args[0]
+    dry_run = true
+    args.delete_at 0
+end
+
+if args.empty?
+    puts 'Usage: ./script [--dry-run] [fileset] destination'
     puts '  e.g. fileset = bash, destination = me@server:'
     exit
 end
 
-dest = ARGV[-1]
+dest = args[-1]
 fileset = :common
-if not ARGV[-2].nil?
-    fileset = ARGV[-2].to_sym
+if not args[-2].nil?
+    fileset = args[-2].to_sym
 end
 
 if fileset == :all
@@ -45,6 +52,9 @@ elsif aliases.has_key? fileset
     end
 end
 
-unless files.empty?
-    Kernel::system ['rsync -FPhavz',files,dest].join(' ')
+if dry_run
+    puts "fileset: " + fileset.to_s
+    puts files.collect{|f| '  '+f}.join("\n") unless files.empty?
+elsif not files.empty?
+    Kernel::system ['rsync -FPhacvz',files,dest].join(' ')
 end

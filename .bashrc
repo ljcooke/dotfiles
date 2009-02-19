@@ -1,5 +1,17 @@
 [ -z "$PS1" ] && return  # return if not running interactively
 source /etc/profile
+
+function _import()
+{
+    # source a file from ~/.bash/
+    [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1";
+}
+function gitbranch()
+{
+    # slightly modified version of http://gist.github.com/5129
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 shopt -s checkwinsize  # check and update lines & cols after each cmd
 shopt -s cmdhist   # multiline commands saved in history as oneliners
 export EDITOR=vim
@@ -30,20 +42,11 @@ xterm*|rxvt*)
     ;;
 esac
 
-function _import() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
-_import 'complete'
-#_import 'j/j.sh' 2>/dev/null
-
-# git branch (slightly modified version of http://gist.github.com/5129)
-function gitbranch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-# prompt
+# prompt
 c0="\[\033[0m\]"        # reset
 c1="\[\033[1;30;40m\]"  # grey on black
 c2="\[\033[0;40m\]"     # white on black
-bash_prompt()
+function bash_prompt()
 {
     info="${c1}\u@\h:${c2}\w${c1}\$(gitbranch)\n"
     echo "${info}${c1}${lvl}\$ ${c0}"
@@ -91,6 +94,9 @@ alias zim='zpool import' zex='zpool export'
 alias scpr="rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 
+_import 'complete'
+_import 'gitcomplete'
+
 # local settings
 local="$HOME/.bashrc.local"
-[ -e "$local" ] && . "$local"
+[ -e "$local" ] && source "$local"

@@ -8,10 +8,3 @@ bcfile="bash_completion"
 for f in /etc/$bcfile /opt/local/etc/$bcfile; do
     [ -e "$f" ] && source "$f" && break
 done
-
-customdir=$HOME/.bash/complete.d
-if [ -d $customdir ]; then
-    :
-    #for i in $customdir/*; do
-    #done
-fi

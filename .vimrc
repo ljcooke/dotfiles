@@ -27,7 +27,7 @@ set showmatch               " highlight matching brackets when typing
 set ignorecase smartcase    " ignorecase implied if search string is lowercase
 set viminfo=""              " don't use a viminfo file
 set nobackup writebackup    " temporary backup before writing
-set textwidth=0             " text width (use gq to wrap)
+set textwidth=0 nojs        " text width (use gqap to wrap)
 set ts=4 softtabstop=4      " spaces per tab
 set shiftwidth=4 sta        " spaces per indentation
 set ai si "cpo+=I           " autoindent + smartindent

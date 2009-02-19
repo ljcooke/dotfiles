@@ -1,9 +1,22 @@
 [ -z "$PS1" ] && return  # return if not running interactively
 source /etc/profile
 
+set -o emacs
+
+shopt -s checkwinsize  # check and update lines & cols after each cmd
+shopt -s cmdhist   # multiline commands saved in history as oneliners
+
+export EDITOR=vim
+export IGNOREEOF=1
+export HISTCONTROL='ignoreboth:erasedups'
+export HISTFILE='/dev/null'
+export LC_ALL=en_IE.UTF-8 LC_CTYPE=en_IE.UTF-8
+export PYTHONPATH="$HOME/lib/python"
+export PYTHONSTARTUP="$HOME/.pythonrc.py"
+
 function _import()
 {
-    # source a file from ~/.bash/
+    # source a file
     [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1";
 }
 function gitbranch()
@@ -12,19 +25,9 @@ function gitbranch()
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-shopt -s checkwinsize  # check and update lines & cols after each cmd
-shopt -s cmdhist   # multiline commands saved in history as oneliners
-export EDITOR=vim
-export IGNOREEOF=1
-export HISTFILE='/dev/null' HISTCONTROL='ignoreboth:erasedups'
-export HISTIGNORE='&:l:l[sla]:c[dl]:[bf]g:exit:logout:#'
-export LC_ALL=en_IE.UTF-8 LC_CTYPE=en_IE.UTF-8
-export LESSCHARSET=utf-8
-export PYTHONPATH="$HOME/lib/python" PYTHONSTARTUP="$HOME/.pythonrc.py"
-set -o emacs
-
-# pager colours
+# pager
 export PAGER=less
+export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;37m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -62,11 +65,11 @@ fi
 
 # shortcuts
 alias ..='cd ..'
-alias :q='exit' :wq='exit'  # really wish I didn't need these
 alias d='dict'
-alias fo='kill -9' foad='killall -9'
-alias l='ls -Fhlv' la='ls -AFv' ll='ls -AFhlv'
+alias l='ls -Fhlv'
+alias la='ls -AFv'
 alias lc='ls -Fv --color=auto'
+alias ll='ls -AFhlv'
 alias m='mutt -y'
 alias s='screen -DRA && stty sane && echo'
 alias v='vim'
@@ -89,6 +92,4 @@ _import 'complete'
 _import 'git'
 _import 'gitcomplete'
 
-# local settings
-local="$HOME/.bashrc.local"
-[ -e "$local" ] && source "$local"
+_import '../.bashrc.local'

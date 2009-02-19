@@ -2,6 +2,10 @@
 #
 # Update dotfiles on another server
 #
+aliases = {
+    :common => [:bash, :python, :ruby, :vim],
+    :editor => [:vim, '.nanorc'],
+}
 dotfiles = {
     :bash => ['.bash', '.bashrc', '.inputrc'],
     :irc => ['.irssi'],
@@ -12,10 +16,6 @@ dotfiles = {
     :screen => ['.screenrc'],
     :vim => ['.vimrc', '.vim'],
     :x => ['.XCompose'],
-}
-aliases = {
-    :common => [:bash, :python, :ruby, :vim],
-    :editor => [:vim, '.nanorc'],
 }
 files = []
 

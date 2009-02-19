@@ -3,12 +3,14 @@ dotfiles
 
 My precious config files, and a script to keep them updated on various machines.
 
+
 Scripts
 -------
 
 * __update.rb__ -- Update dotfiles in $HOME, on another machine, etc.
 
         ./update.rb vim user@host:
+
 
 Configuration files
 -------------------
@@ -30,6 +32,6 @@ Configuration files
 
 * __.screenrc__ -- Used with Debian; will probably work in other environments.
 
-* __.vimrc__, __.vim/__ -- Works with vim (OS X, Linux, Solaris), MacVim and gVim.
+* __.vim__, __.vimrc__ -- Works with vim (OS X, Linux, Solaris), MacVim and gVim.
 
 * __.XCompose__ -- Putting the meta key to good use. Used with Debian and Ubuntu.

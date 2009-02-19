@@ -74,15 +74,6 @@ alias v='vim'
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 function calc() { [ -z "$@" ] && bc -ql || echo "$@" | bc -l; }
 
-# git
-alias gb='git branch' gba='git branch -a'
-alias gc='git commit -v' gca='git commit -a'
-alias gd='git diff'
-alias gl='git pull'
-alias glog='git log --stat'
-alias gp='git push'
-alias gst='git status'
-
 # zfs
 function zshot() { [ -n "$1" ] \
     && zfs snapshot "$1@`date +%Y-%m-%d-%H%M`" \
@@ -95,6 +86,7 @@ alias scpr="rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 
 _import 'complete'
+_import 'git'
 _import 'gitcomplete'
 
 # local settings

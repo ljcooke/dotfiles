@@ -30,9 +30,9 @@ xterm*|rxvt*)
     ;;
 esac
 
-function _extra() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
-_extra 'tabcomplete'
-_extra 'j/j.sh' 2>/dev/null
+function _import() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
+_import 'complete'
+_import 'j/j.sh' 2>/dev/null
 
 # git branch (slightly modified version of http://gist.github.com/5129)
 function gitbranch() {

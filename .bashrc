@@ -32,7 +32,7 @@ esac
 
 function _import() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
 _import 'complete'
-_import 'j/j.sh' 2>/dev/null
+#_import 'j/j.sh' 2>/dev/null
 
 # git branch (slightly modified version of http://gist.github.com/5129)
 function gitbranch() {

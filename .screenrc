@@ -5,9 +5,11 @@ altscreen        on   # hide leftovers from vim, man, etc.
 autodetach       on
 defutf8          on
 
-shelltitle ''
-sorendition =s Yk     # set screen messages to yellow on black
-zombie kr             # keep zombie windows (k=kill, r=reload)
+defmonitor off          # no monitoring
+shell bash              # don't start login shells
+shelltitle ''           # no title by default
+sorendition =s Yk       # set screen messages to yellow on black
+zombie kr               # keep zombie windows (k=kill, r=reload)
 
 # see http://unixhelp.ed.ac.uk/CGI/man-cgi?termcap+5 for key syntax
 bindkey -k k9 windowlist -b    # F9

@@ -3,14 +3,8 @@
 import os, sys
 import math, random
 import textwrap
-
 from pydoc import pager
-
-# http://github.com/inky/see/tree/master
-from see import see
-
-# http://github.com/darius/columnize/tree/master
-from columnize import see as cee
+from see import see  # http://github.com/inky/see
 
 sys.ps1 = '> '
 sys.ps2 = '. '

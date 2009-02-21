@@ -1,5 +1,5 @@
 [ -z "$PS1" ] && return  # return if not running interactively
-source /etc/profile
+source /etc/profile >/dev/null
 
 set -o emacs
 

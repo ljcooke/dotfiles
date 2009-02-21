@@ -42,13 +42,14 @@ c2="\[\033[0;40m\]"     # white on black
 
 function parse_git_branch()
 {
-    # http://gist.github.com/{5129,31631,47186}
-    b=$(git branch --no-color 2>/dev/null \
-        | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
-    if [ -n "$b" ]; then
-        git diff --quiet HEAD &>/dev/null
-        [[ $? == 1 ]] && b="$b*"
-        echo " [$b]"
+    # http://gist.github.com/31675
+    status="$(git status 2>/dev/null)"
+    re="^# On branch ([^${IFS}]*)"
+    state=""
+    [[ ! ${status} =~ "working directory clean" ]] && state='*'
+    if [[ ${status} =~ ${re} ]]; then
+        branch=${BASH_REMATCH[1]}
+        echo " [${branch}${state}]"
     fi
 }
 

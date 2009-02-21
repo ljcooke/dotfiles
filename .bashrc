@@ -43,6 +43,7 @@ c2="\[\033[0;40m\]"     # white on black
 function parse_git_branch()
 {
     # http://gist.github.com/{5129,31631,47186}
+    [ -d .git ] || return 1
     b=$(git branch --no-color 2>/dev/null \
         | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
     if [ -n "$b" ]; then

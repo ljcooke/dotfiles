@@ -42,14 +42,16 @@ c2="\[\033[0;40m\]"     # white on black
 
 function parse_git_branch()
 {
-    # http://gist.github.com/{5129,31631,47186}
-    b=$(git branch --no-color 2>/dev/null \
-        | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
-    if [ -n "$b" ]; then
-        git diff --quiet HEAD &>/dev/null
-        [[ $? == 1 ]] && b="$b*"
+    # get the branch -- http://gist.github.com/5129
+    b="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+    [ -n "$b" ] && {
+        # check if branch is dirty (set $OLD_GIT to disable this if
+        # needed -- old version of git complain about --quiet)
+        [ -z $OLD_GIT ] && {
+            git diff --quiet 2>/dev/null || b="$b*"
+        }
         echo " [$b]"
-    fi
+    }
 }
 
 function bash_prompt()

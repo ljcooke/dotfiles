@@ -6,6 +6,7 @@ import exceptions
 import math
 import random
 import pickle
+import pprint
 import textwrap
 from pydoc import pager
 from see import see  # http://github.com/inky/see
@@ -13,8 +14,10 @@ from see import see  # http://github.com/inky/see
 sys.ps1 = '> '
 sys.ps2 = '. '
 
+pp = pprint.PrettyPrinter(indent=2).pprint
+
 # http://tinyurl.com/bjtwrm
-prettydict = lambda d:"\n".join(map("%s: %s".__mod__, d.items()))
+prettydict = lambda d: "\n".join(map("%s: %s".__mod__, d.items()))
 def printdict(d):
     print prettydict(d)
 

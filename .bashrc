@@ -49,13 +49,13 @@ function parse_git_branch()
     if [ -n "$b" ]; then
         git diff --quiet HEAD &>/dev/null
         [[ $? == 1 ]] && b="$b*"
-        echo " ($b)"
+        echo " [$b]"
     fi
 }
 
 function bash_prompt()
 {
-    info="${c1}\u@\h:${c2}\w${c1}\$(parse_git_branch)\n"
+    info="${c1}\u·\h ${c2}\w${c1}\$(parse_git_branch)\n"
     echo "${info}${c1}${lvl}\$ ${c0}"
 }
 

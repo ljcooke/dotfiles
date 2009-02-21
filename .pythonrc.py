@@ -1,4 +1,5 @@
-# echo 'export PYTHONSTARTUP=$HOME/.pythonrc.py' >> ~/.bashrc
+#!/usr/bin/env python
+# vim: set fileencoding=utf-8 :
 
 import os, sys
 import collections
@@ -9,10 +10,10 @@ import pickle
 import pprint
 import textwrap
 from pydoc import pager
-from see import see  # http://github.com/inky/see
+from see import see
 
 sys.ps1 = '> '
-sys.ps2 = '. '
+sys.ps2 = '· '
 
 pp = pprint.PrettyPrinter(indent=2).pprint
 

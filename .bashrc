@@ -14,23 +14,6 @@ export LC_ALL=en_IE.UTF-8 LC_CTYPE=en_IE.UTF-8
 export PYTHONPATH="$HOME/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 
-function _import()
-{
-    [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1";
-}
-
-function parse_git_branch()
-{
-    # http://gist.github.com/{5129,31631,47186}
-    b=$(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
-    if [ -n "$b" ]; then
-        git diff --quiet HEAD &>/dev/null
-        [[ $? == 1 ]] && b="$b*"
-        echo " ($b)"
-    fi
-}
-
-# pager
 export PAGER=less
 export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -41,6 +24,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+
 # terminal title
 case "$TERM" in
 xterm*|rxvt*)
@@ -50,23 +34,40 @@ xterm*|rxvt*)
     ;;
 esac
 
+
 # prompt
 c0="\[\033[0m\]"        # reset
 c1="\[\033[1;30;40m\]"  # grey on black
 c2="\[\033[0;40m\]"     # white on black
+
+function parse_git_branch()
+{
+    # http://gist.github.com/{5129,31631,47186}
+    b=$(git branch --no-color 2>/dev/null \
+        | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+    if [ -n "$b" ]; then
+        git diff --quiet HEAD &>/dev/null
+        [[ $? == 1 ]] && b="$b*"
+        echo " ($b)"
+    fi
+}
+
 function bash_prompt()
 {
     info="${c1}\u@\h:${c2}\w${c1}\$(parse_git_branch)\n"
     echo "${info}${c1}${lvl}\$ ${c0}"
 }
+
 PS1="`bash_prompt`"
 PS2="$c1. $c0"
+
 
 # ls colours
 if [ "$TERM" != "dumb" ]; then
     [ -n "`which dircolors`" ] && eval "`dircolors -b`" 2>/dev/null
     alias ls='ls --color=auto' 2>/dev/null
 fi
+
 
 # shortcuts
 alias ..='cd ..'
@@ -93,8 +94,12 @@ alias zim='zpool import' zex='zpool export'
 alias scpr="rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 
+
+function _import() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
+
 _import 'complete'
 _import 'git'
 _import 'gitcomplete'
 
+# store machine-specific settings in ~/.bashrc.local
 _import '../.bashrc.local'

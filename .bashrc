@@ -16,13 +16,18 @@ export PYTHONSTARTUP="$HOME/.pythonrc.py"
 
 function _import()
 {
-    # source a file
     [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1";
 }
-function gitbranch()
+
+function parse_git_branch()
 {
-    # slightly modified version of http://gist.github.com/5129
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    # http://gist.github.com/{5129,31631}
+    b=$(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+    if [ -n "$b" ]; then
+        [[ -n $(git status 2>/dev/null | tail -n1 \
+            | grep -v 'nothing to commit') ]] && b="$b*"
+        echo " ($b)"
+    fi
 }
 
 # pager
@@ -51,7 +56,7 @@ c1="\[\033[1;30;40m\]"  # grey on black
 c2="\[\033[0;40m\]"     # white on black
 function bash_prompt()
 {
-    info="${c1}\u@\h:${c2}\w${c1}\$(gitbranch)\n"
+    info="${c1}\u@\h:${c2}\w${c1}\$(parse_git_branch)\n"
     echo "${info}${c1}${lvl}\$ ${c0}"
 }
 PS1="`bash_prompt`"

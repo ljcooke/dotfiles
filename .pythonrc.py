@@ -1,7 +1,10 @@
 # echo 'export PYTHONSTARTUP=$HOME/.pythonrc.py' >> ~/.bashrc
 
 import os, sys
-import math, random
+import exceptions
+import math
+import random
+import pickle
 import textwrap
 from pydoc import pager
 from see import see  # http://github.com/inky/see

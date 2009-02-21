@@ -44,6 +44,7 @@ function parse_git_branch()
 {
     # http://gist.github.com/31675
     status="$(git status 2>/dev/null)"
+    [[ -z ${status} ]] && return 1
     re="^# On branch ([^${IFS}]*)"
     state=""
     [[ ! ${status} =~ "working directory clean" ]] && state='*'

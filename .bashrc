@@ -21,11 +21,11 @@ function _import()
 
 function parse_git_branch()
 {
-    # http://gist.github.com/{5129,31631}
+    # http://gist.github.com/{5129,31631,47186}
     b=$(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
     if [ -n "$b" ]; then
-        [[ -n $(git status 2>/dev/null | tail -n1 \
-            | grep -v 'nothing to commit') ]] && b="$b*"
+        git diff --quiet HEAD &>/dev/null
+        [[ $? == 1 ]] && b="$b*"
         echo " ($b)"
     fi
 }

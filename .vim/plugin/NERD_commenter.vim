@@ -12,7 +12,7 @@
 "
 " ============================================================================
 
-" Section: script init stuff {{{1
+" Section: script init stuff 
 if exists("loaded_nerd_comments")
     finish
 endif
@@ -22,7 +22,7 @@ if v:version < 700
 endif
 let loaded_nerd_comments = 1
 
-" Function: s:InitVariable() function {{{2
+" Function: s:InitVariable() function 
 " This function is used to initialise a given variable to a given value. The
 " variable is only initialised if it does not exist prior
 "
@@ -40,14 +40,14 @@ function s:InitVariable(var, value)
     return 0
 endfunction
 
-" Section: space string init{{{2
+" Section: space string init
 " When putting spaces after the left delim and before the right we use
 " s:spaceStr for the space char. This way we can make it add anything after
 " the left and before the right by modifying this variable
 let s:spaceStr = ' '
 let s:lenSpaceStr = strlen(s:spaceStr)
 
-" Section: variable init calls {{{2
+" Section: variable init calls 
 call s:InitVariable("g:NERDAllowAnyVisualDelims", 1)
 call s:InitVariable("g:NERDBlockComIgnoreEmpty", 0)
 call s:InitVariable("g:NERDCommentWholeLinesInVMode", 0)
@@ -68,9 +68,9 @@ call s:InitVariable("g:NERDDelimiterRequests", 1)
 
 let s:NERDFileNameEscape="[]#*$%'\" ?`!&();<>\\"
 
-" Section: Comment mapping functions, autocommands and commands {{{1
+" Section: Comment mapping functions, autocommands and commands 
 " ============================================================================
-" Section: Comment enabler autocommands {{{2
+" Section: Comment enabler autocommands 
 " ============================================================================
 
 augroup commentEnablers
@@ -85,7 +85,7 @@ augroup commentEnablers
 augroup END
 
 
-" Function: s:SetUpForNewFiletype(filetype) function {{{2
+" Function: s:SetUpForNewFiletype(filetype) function 
 " This function is responsible for setting up buffer scoped variables for the
 " given filetype.
 "
@@ -945,9 +945,9 @@ function s:SetUpForNewFiletype(filetype, forceReset)
         "get them from &commentstring.
     else
         "print a disclaimer to the user :)
-        if !g:NERDShutUp
-            call s:NerdEcho("Unknown filetype '".a:filetype."', setting delimiters by &commentstring.\nPleeeeease email the author of the NERD commenter with this filetype\nand its delimiters!", 0)
-        endif
+        "if !g:NERDShutUp
+            "call s:NerdEcho("Unknown filetype '".a:filetype."', setting delimiters by &commentstring.\nPleeeeease email the author of the NERD commenter with this filetype\nand its delimiters!", 0)
+        "endif
 
         "extract the delims from &commentstring
         let left= substitute(&commentstring, '\(.*\)%s.*', '\1', '')
@@ -957,7 +957,7 @@ function s:SetUpForNewFiletype(filetype, forceReset)
     endif
 endfunction
 
-" Function: s:MapDelimiters(left, right) function {{{2
+" Function: s:MapDelimiters(left, right) function 
 " This function is a wrapper for s:MapDelimiters(left, right, leftAlt, rightAlt, useAlt) and is called when there
 " is no alternative comment delimiters for the current filetype
 "
@@ -968,7 +968,7 @@ function s:MapDelimiters(left, right)
     call s:MapDelimitersWithAlternative(a:left, a:right, "", "")
 endfunction
 
-" Function: s:MapDelimitersWithAlternative(left, right, leftAlt, rightAlt) function {{{2
+" Function: s:MapDelimitersWithAlternative(left, right, leftAlt, rightAlt) function 
 " this function sets up the comment delimiter buffer variables
 "
 " Args:
@@ -990,7 +990,7 @@ function s:MapDelimitersWithAlternative(left, right, leftAlt, rightAlt)
     endif
 endfunction
 
-" Function: s:SwitchToAlternativeDelimiters(printMsgs) function {{{2
+" Function: s:SwitchToAlternativeDelimiters(printMsgs) function 
 " This function is used to swap the delimiters that are being used to the
 " alternative delimiters for that filetype. For example, if a c++ file is
 " being edited and // comments are being used, after this function is called
@@ -1031,9 +1031,9 @@ function s:SwitchToAlternativeDelimiters(printMsgs)
     return 1
 endfunction
 
-" Section: Comment delimiter add/removal functions {{{1
+" Section: Comment delimiter add/removal functions 
 " ============================================================================
-" Function: s:AppendCommentToLine(){{{2
+" Function: s:AppendCommentToLine()
 " This function appends comment delimiters at the EOL and places the cursor in
 " position to start typing the comment
 function s:AppendCommentToLine()
@@ -1059,7 +1059,7 @@ function s:AppendCommentToLine()
     startinsert
 endfunction
 
-" Function: s:CommentBlock(top, bottom, lSide, rSide, forceNested ) {{{2
+" Function: s:CommentBlock(top, bottom, lSide, rSide, forceNested ) 
 " This function is used to comment out a region of code. This region is
 " specified as a bounding box by arguments to the function.
 "
@@ -1189,7 +1189,7 @@ function s:CommentBlock(top, bottom, lSide, rSide, forceNested )
     endif
 endfunction
 
-" Function: s:CommentLines(forceNested, alignLeft, alignRight, firstLine, lastLine) {{{2
+" Function: s:CommentLines(forceNested, alignLeft, alignRight, firstLine, lastLine) 
 " This function comments a range of lines.
 "
 " Args:
@@ -1254,7 +1254,7 @@ function s:CommentLines(forceNested, align, firstLine, lastLine)
 
 endfunction
 
-" Function: s:CommentLinesMinimal(firstLine, lastLine) {{{2
+" Function: s:CommentLinesMinimal(firstLine, lastLine) 
 " This function comments a range of lines in a minimal style. I
 "
 " Args:
@@ -1306,7 +1306,7 @@ function s:CommentLinesMinimal(firstLine, lastLine)
     call setline(a:lastLine, theLine)
 endfunction
 
-" Function: s:CommentLinesSexy(topline, bottomline) function {{{2
+" Function: s:CommentLinesSexy(topline, bottomline) function 
 " This function is used to comment lines in the 'Sexy' style. eg in c:
 " /*
 "  * This is a sexy comment
@@ -1412,7 +1412,7 @@ function s:CommentLinesSexy(topline, bottomline)
 
 endfunction
 
-" Function: s:CommentLinesToggle(forceNested, firstLine, lastLine) {{{2
+" Function: s:CommentLinesToggle(forceNested, firstLine, lastLine) 
 " Applies "toggle" commenting to the given range of lines
 "
 " Args:
@@ -1451,7 +1451,7 @@ function s:CommentLinesToggle(forceNested, firstLine, lastLine)
 
 endfunction
 
-" Function: s:CommentRegion(topline, topCol, bottomLine, bottomCol) function {{{2
+" Function: s:CommentRegion(topline, topCol, bottomLine, bottomCol) function 
 " This function comments chunks of text selected in visual mode.
 " It will comment exactly the text that they have selected.
 " Args:
@@ -1503,7 +1503,7 @@ function s:CommentRegion(topLine, topCol, bottomLine, bottomCol, forceNested)
 
 endfunction
 
-" Function: s:InvertComment(firstLine, lastLine) function {{{2
+" Function: s:InvertComment(firstLine, lastLine) function 
 " Inverts the comments on the lines between and including the given line
 " numbers i.e all commented lines are uncommented and vice versa
 " Args:
@@ -1541,7 +1541,7 @@ function s:InvertComment(firstLine, lastLine)
     endwhile
 endfunction
 
-" Function: NERDComment(isVisual, type) function {{{2
+" Function: NERDComment(isVisual, type) function 
 " This function is a Wrapper for the main commenting functions
 "
 " Args:
@@ -1645,7 +1645,7 @@ function! NERDComment(isVisual, type) range
     let &ignorecase = oldIgnoreCase
 endfunction
 
-" Function: s:PlaceDelimitersAndInsBetween() function {{{2
+" Function: s:PlaceDelimitersAndInsBetween() function 
 " This is function is called to place comment delimiters down and place the
 " cursor between them
 function s:PlaceDelimitersAndInsBetween()
@@ -1699,7 +1699,7 @@ function s:PlaceDelimitersAndInsBetween()
     startinsert
 endfunction
 
-" Function: s:RemoveDelimiters(left, right, line) {{{2
+" Function: s:RemoveDelimiters(left, right, line) 
 " this function is called to remove the first left comment delimiter and the
 " last right delimiter of the given line.
 "
@@ -1748,7 +1748,7 @@ function s:RemoveDelimiters(left, right, line)
     return line
 endfunction
 
-" Function: s:UncommentLines(topLine, bottomLine) {{{2
+" Function: s:UncommentLines(topLine, bottomLine) 
 " This function uncomments the given lines
 "
 " Args:
@@ -1794,7 +1794,7 @@ function s:UncommentLines(topLine, bottomLine)
 
 endfunction
 
-" Function: s:UncommentLinesSexy(topline, bottomline) {{{2
+" Function: s:UncommentLinesSexy(topline, bottomline) 
 " This function removes all the comment characters associated with the sexy
 " comment spanning the given lines
 " Args:
@@ -1911,7 +1911,7 @@ function s:UncommentLinesSexy(topline, bottomline)
     endif
 endfunction
 
-" Function: s:UncommentLineNormal(line) {{{2
+" Function: s:UncommentLineNormal(line) 
 " uncomments the given line and returns the result
 " Args:
 "   -line: the line to uncomment
@@ -1989,7 +1989,7 @@ function s:UncommentLineNormal(line)
     return line
 endfunction
 
-" Function: s:UncommentLinesNormal(topline, bottomline) {{{2
+" Function: s:UncommentLinesNormal(topline, bottomline) 
 " This function is called to uncomment lines that arent a sexy comment
 " Args:
 "   -topline/bottomline: the top/bottom line numbers of the comment
@@ -2003,16 +2003,16 @@ function s:UncommentLinesNormal(topline, bottomline)
 endfunction
 
 
-" Section: Other helper functions {{{1
+" Section: Other helper functions 
 " ============================================================================
 
-" Function: s:AddLeftDelim(delim, theLine) {{{2
+" Function: s:AddLeftDelim(delim, theLine) 
 " Args:
 function s:AddLeftDelim(delim, theLine)
     return substitute(a:theLine, '^\([ \t]*\)', '\1' . a:delim, '')
 endfunction
 
-" Function: s:AddLeftDelimAligned(delim, theLine) {{{2
+" Function: s:AddLeftDelimAligned(delim, theLine) 
 " Args:
 function s:AddLeftDelimAligned(delim, theLine, alignIndx)
 
@@ -2026,7 +2026,7 @@ function s:AddLeftDelimAligned(delim, theLine, alignIndx)
     return strpart(theLine, 0, a:alignIndx) . a:delim . strpart(theLine, a:alignIndx)
 endfunction
 
-" Function: s:AddRightDelim(delim, theLine) {{{2
+" Function: s:AddRightDelim(delim, theLine) 
 " Args:
 function s:AddRightDelim(delim, theLine)
     if a:delim == ''
@@ -2036,7 +2036,7 @@ function s:AddRightDelim(delim, theLine)
     endif
 endfunction
 
-" Function: s:AddRightDelimAligned(delim, theLine, alignIndx) {{{2
+" Function: s:AddRightDelimAligned(delim, theLine, alignIndx) 
 " Args:
 function s:AddRightDelimAligned(delim, theLine, alignIndx)
     if a:delim == ""
@@ -2054,13 +2054,13 @@ function s:AddRightDelimAligned(delim, theLine, alignIndx)
     endif
 endfunction
 
-" Function: s:AltMultipart() {{{2
+" Function: s:AltMultipart() 
 " returns 1 if the alternative delims are multipart
 function s:AltMultipart()
     return b:rightAlt != ''
 endfunction
 
-" Function: s:CanCommentLine(forceNested, line) {{{2
+" Function: s:CanCommentLine(forceNested, line) 
 "This function is used to determine whether the given line can be commented.
 "It returns 1 if it can be and 0 otherwise
 "
@@ -2096,7 +2096,7 @@ function s:CanCommentLine(forceNested, lineNum)
     return 0
 endfunction
 
-" Function: s:CanPlaceCursor(line, col) {{{2
+" Function: s:CanPlaceCursor(line, col) 
 " returns 1 if the cursor can be placed exactly in the given position
 function s:CanPlaceCursor(line, col)
     let c = col(".")
@@ -2107,7 +2107,7 @@ function s:CanPlaceCursor(line, col)
     return success
 endfunction
 
-" Function: s:CanSexyCommentLines(topline, bottomline) {{{2
+" Function: s:CanSexyCommentLines(topline, bottomline) 
 " Return: 1 if the given lines can be commented sexually, 0 otherwise
 function s:CanSexyCommentLines(topline, bottomline)
     " see if the selected regions have any sexy comments
@@ -2120,7 +2120,7 @@ function s:CanSexyCommentLines(topline, bottomline)
     endwhile
     return 1
 endfunction
-" Function: s:CanToggleCommentLine(forceNested, line) {{{2
+" Function: s:CanToggleCommentLine(forceNested, line) 
 "This function is used to determine whether the given line can be toggle commented.
 "It returns 1 if it can be and 0 otherwise
 "
@@ -2145,7 +2145,7 @@ function s:CanToggleCommentLine(forceNested, lineNum)
     return 1
 endfunction
 
-" Function: s:ConvertLeadingSpacesToTabs(line) {{{2
+" Function: s:ConvertLeadingSpacesToTabs(line) 
 " This function takes a line and converts all leading tabs on that line into
 " spaces
 "
@@ -2161,7 +2161,7 @@ function s:ConvertLeadingSpacesToTabs(line)
 endfunction
 
 
-" Function: s:ConvertLeadingTabsToSpaces(line) {{{2
+" Function: s:ConvertLeadingTabsToSpaces(line) 
 " This function takes a line and converts all leading spaces on that line into
 " tabs
 "
@@ -2176,7 +2176,7 @@ function s:ConvertLeadingTabsToSpaces(line)
     return toReturn
 endfunction
 
-" Function: s:ConvertLeadingWhiteSpace(line) {{{2
+" Function: s:ConvertLeadingWhiteSpace(line) 
 " Converts the leading white space to tabs/spaces depending on &ts
 "
 " Args:
@@ -2195,7 +2195,7 @@ function s:ConvertLeadingWhiteSpace(line)
 endfunction
 
 
-" Function: s:CountNonESCedOccurances(str, searchstr, escChar) {{{2
+" Function: s:CountNonESCedOccurances(str, searchstr, escChar) 
 " This function counts the number of substrings contained in another string.
 " These substrings are only counted if they are not escaped with escChar
 " Args:
@@ -2222,7 +2222,7 @@ function s:CountNonESCedOccurances(str, searchstr, escChar)
         endif
     endif
 endfunction
-" Function: s:DoesBlockHaveDelim(delim, top, bottom) {{{2
+" Function: s:DoesBlockHaveDelim(delim, top, bottom) 
 " Returns 1 if the given block of lines has a delimiter (a:delim) in it
 " Args:
 "   -delim: the comment delimiter to check the block for
@@ -2240,7 +2240,7 @@ function s:DoesBlockHaveDelim(delim, top, bottom)
     return 0
 endfunction
 
-" Function: s:DoesBlockHaveMultipartDelim(top, bottom) {{{2
+" Function: s:DoesBlockHaveMultipartDelim(top, bottom) 
 " Returns 1 if the given block has a >= 1 multipart delimiter in it
 " Args:
 "   -top: the top line number of the block
@@ -2257,14 +2257,14 @@ function s:DoesBlockHaveMultipartDelim(top, bottom)
 endfunction
 
 
-" Function: s:Esc(str) {{{2
+" Function: s:Esc(str) 
 " Escapes all the tricky chars in the given string
 function s:Esc(str)
     let charsToEsc = '*/\."&$+'
     return escape(a:str, charsToEsc)
 endfunction
 
-" Function: s:FindDelimiterIndex(delimiter, line) {{{2
+" Function: s:FindDelimiterIndex(delimiter, line) 
 " This function is used to get the string index of the input comment delimiter
 " on the input line. If no valid comment delimiter is found in the line then
 " -1 is returned
@@ -2317,7 +2317,7 @@ function s:FindDelimiterIndex(delimiter, line)
     return -1
 endfunction
 
-" Function: s:FindBoundingLinesOfSexyCom(lineNum) {{{2
+" Function: s:FindBoundingLinesOfSexyCom(lineNum) 
 " This function takes in a line number and tests whether this line number is
 " the top/bottom/middle line of a sexy comment. If it is then the top/bottom
 " lines of the sexy comment are returned
@@ -2392,7 +2392,7 @@ function s:FindBoundingLinesOfSexyCom(lineNum)
 endfunction
 
 
-" Function: s:GetLeft(alt, space, esc) {{{2
+" Function: s:GetLeft(alt, space, esc) 
 " returns the left/left-alternative delimiter
 " Args:
 "   -alt: specifies whether to get left or left-alternative delim
@@ -2424,7 +2424,7 @@ function s:GetLeft(alt, space, esc)
     return delim
 endfunction
 
-" Function: s:GetRight(alt, space, esc) {{{2
+" Function: s:GetRight(alt, space, esc) 
 " returns the right/right-alternative delimiter
 " Args:
 "   -alt: specifies whether to get right or right-alternative delim
@@ -2457,7 +2457,7 @@ function s:GetRight(alt, space, esc)
 endfunction
 
 
-" Function: s:GetSexyComMarker() {{{2
+" Function: s:GetSexyComMarker() 
 " Returns the sexy comment marker for the current filetype.
 "
 " C style sexy comments are assumed if possible. If not then the sexy comment
@@ -2509,7 +2509,7 @@ function s:GetSexyComMarker(space, esc)
     return sexyComMarker
 endfunction
 
-" Function: s:GetSexyComLeft(space, esc) {{{2
+" Function: s:GetSexyComLeft(space, esc) 
 " Returns the left delimiter for sexy comments for this filetype or -1 if
 " there is none. C style sexy comments are used if possible
 " Args:
@@ -2546,7 +2546,7 @@ function s:GetSexyComLeft(space, esc)
     return left
 endfunction
 
-" Function: s:GetSexyComRight(space, esc) {{{2
+" Function: s:GetSexyComRight(space, esc) 
 " Returns the right delimiter for sexy comments for this filetype or -1 if
 " there is none. C style sexy comments are used if possible.
 " Args:
@@ -2584,13 +2584,13 @@ function s:GetSexyComRight(space, esc)
     return right
 endfunction
 
-" Function: s:HasMultipartDelims() {{{2
+" Function: s:HasMultipartDelims() 
 " Returns 1 iff the current filetype has at least one set of multipart delims
 function s:HasMultipartDelims()
     return s:Multipart() || s:AltMultipart()
 endfunction
 
-" Function: s:HasLeadingTabs(...) {{{2
+" Function: s:HasLeadingTabs(...) 
 " Returns 1 if any of the given strings have leading tabs
 function s:HasLeadingTabs(...)
     for s in a:000
@@ -2600,13 +2600,13 @@ function s:HasLeadingTabs(...)
     endfor
     return 0
 endfunction
-" Function: s:HasCStyleComments() {{{2
+" Function: s:HasCStyleComments() 
 " Returns 1 iff the current filetype has c style comment delimiters
 function s:HasCStyleComments()
     return (b:left == '/*' && b:right == '*/') || (b:leftAlt == '/*' && b:rightAlt == '*/')
 endfunction
 
-" Function: s:IsCommentedNormOrSexy(lineNum) {{{2
+" Function: s:IsCommentedNormOrSexy(lineNum) 
 "This function is used to determine whether the given line is commented with
 "either set of delimiters or if it is part of a sexy comment
 "
@@ -2627,7 +2627,7 @@ function s:IsCommentedNormOrSexy(lineNum)
     return 0
 endfunction
 
-" Function: s:IsCommented(left, right, line) {{{2
+" Function: s:IsCommented(left, right, line) 
 "This function is used to determine whether the given line is commented with
 "the given delimiters
 "
@@ -2642,7 +2642,7 @@ function s:IsCommented(left, right, line)
     return 0
 endfunction
 
-" Function: s:IsCommentedFromStartOfLine(left, line) {{{2
+" Function: s:IsCommentedFromStartOfLine(left, line) 
 "This function is used to determine whether the given line is commented with
 "the given delimiters at the start of the line i.e the left delimiter is the
 "first thing on the line (apart from spaces\tabs)
@@ -2657,7 +2657,7 @@ function s:IsCommentedFromStartOfLine(left, line)
     return delimIndx == numSpaces
 endfunction
 
-" Function: s:IsCommentedOuttermost(left, right, leftAlt, rightAlt, line) {{{2
+" Function: s:IsCommentedOuttermost(left, right, leftAlt, rightAlt, line) 
 " Finds the type of the outtermost delims on the line
 "
 " Args:
@@ -2700,7 +2700,7 @@ function s:IsCommentedOuttermost(left, right, leftAlt, rightAlt, line)
 endfunction
 
 
-" Function: s:IsDelimValid(delimiter, delIndx, line) {{{2
+" Function: s:IsDelimValid(delimiter, delIndx, line) 
 " This function is responsible for determining whether a given instance of a
 " comment delimiter is a real delimiter or not. For example, in java the
 " // string is a comment delimiter but in the line:
@@ -2777,7 +2777,7 @@ function s:IsDelimValid(delimiter, delIndx, line)
 
 endfunction
 
-" Function: s:IsNumEven(num) {{{2
+" Function: s:IsNumEven(num) 
 " A small function the returns 1 if the input number is even and 0 otherwise
 " Args:
 "   -num: the number to check
@@ -2785,7 +2785,7 @@ function s:IsNumEven(num)
     return (a:num % 2) == 0
 endfunction
 
-" Function: s:IsEscaped(str, indx, escChar) {{{2
+" Function: s:IsEscaped(str, indx, escChar) 
 " This function takes a string, an index into that string and an esc char and
 " returns 1 if the char at the index is escaped (i.e if it is preceded by an
 " odd number of esc chars)
@@ -2814,13 +2814,13 @@ function s:IsEscaped(str, indx, escChar)
     return !s:IsNumEven(numEscChars)
 endfunction
 
-" Function: s:IsInSexyComment(line) {{{2
+" Function: s:IsInSexyComment(line) 
 " returns 1 if the given line number is part of a sexy comment
 function s:IsInSexyComment(line)
     return !empty(s:FindBoundingLinesOfSexyCom(a:line))
 endfunction
 
-" Function: s:IsSexyComment(topline, bottomline) {{{2
+" Function: s:IsSexyComment(topline, bottomline) 
 " This function takes in 2 line numbers and returns 1 if the lines between and
 " including the given line numbers are a sexy comment. It returns 0 otherwise.
 " Args:
@@ -2901,7 +2901,7 @@ function s:IsSexyComment(topline, bottomline)
 
 endfunction
 
-" Function: s:LastIndexOfDelim(delim, str) {{{2
+" Function: s:LastIndexOfDelim(delim, str) 
 " This function takes a string and a delimiter and returns the last index of
 " that delimiter in string
 " Args:
@@ -2939,7 +2939,7 @@ function s:LastIndexOfDelim(delim, str)
 
 endfunction
 
-" Function: s:LeftMostIndx(countCommentedLines, countEmptyLines, topline, bottomline) {{{2
+" Function: s:LeftMostIndx(countCommentedLines, countEmptyLines, topline, bottomline) 
 " This function takes in 2 line numbers and returns the index of the left most
 " char (that is not a space or a tab) on all of these lines.
 " Args:
@@ -2983,13 +2983,13 @@ function s:LeftMostIndx(countCommentedLines, countEmptyLines, topline, bottomlin
     endif
 endfunction
 
-" Function: s:Multipart() {{{2
+" Function: s:Multipart() 
 " returns 1 if the current delims are multipart
 function s:Multipart()
     return b:right != ''
 endfunction
 
-" Function: s:NerdEcho(msg, typeOfMsg) {{{2
+" Function: s:NerdEcho(msg, typeOfMsg) 
 " Args:
 "   -msg: the message to echo
 "   -typeOfMsg: 0 = warning message
@@ -3004,19 +3004,19 @@ function s:NerdEcho(msg, typeOfMsg)
     endif
 endfunction
 
-" Function: s:NumberOfLeadingTabs(s) {{{2
+" Function: s:NumberOfLeadingTabs(s) 
 " returns the number of leading tabs in the given string
 function s:NumberOfLeadingTabs(s)
     return strlen(substitute(a:s, '^\(\t*\).*$', '\1', ""))
 endfunction
 
-" Function: s:NumLinesInBuf() {{{2
+" Function: s:NumLinesInBuf() 
 " Returns the number of lines in the current buffer
 function s:NumLinesInBuf()
     return line('$')
 endfunction
 
-" Function: s:ReplaceDelims(toReplace1, toReplace2, replacor1, replacor2, str) {{{2
+" Function: s:ReplaceDelims(toReplace1, toReplace2, replacor1, replacor2, str) 
 " This function takes in a string, 2 delimiters in that string and 2 strings
 " to replace these delimiters with.
 "
@@ -3032,7 +3032,7 @@ function s:ReplaceDelims(toReplace1, toReplace2, replacor1, replacor2, str)
     return line
 endfunction
 
-" Function: s:ReplaceLeftMostDelim(toReplace, replacor, str) {{{2
+" Function: s:ReplaceLeftMostDelim(toReplace, replacor, str) 
 " This function takes a string and a delimiter and replaces the left most
 " occurrence of this delimiter in the string with a given string
 "
@@ -3056,7 +3056,7 @@ function s:ReplaceLeftMostDelim(toReplace, replacor, str)
     return a:str
 endfunction
 
-" Function: s:ReplaceRightMostDelim(toReplace, replacor, str) {{{2
+" Function: s:ReplaceRightMostDelim(toReplace, replacor, str) 
 " This function takes a string and a delimiter and replaces the right most
 " occurrence of this delimiter in the string with a given string
 "
@@ -3081,7 +3081,7 @@ function s:ReplaceRightMostDelim(toReplace, replacor, str)
     return line
 endfunction
 
-"FUNCTION: s:RestoreScreenState() {{{2
+"FUNCTION: s:RestoreScreenState() 
 "
 "Sets the screen state back to what it was when s:SaveScreenState was last
 "called.
@@ -3096,7 +3096,7 @@ function s:RestoreScreenState()
     call setpos(".", t:NERDComOldPos)
 endfunction
 
-" Function: s:RightMostIndx(countCommentedLines, countEmptyLines, topline, bottomline) {{{2
+" Function: s:RightMostIndx(countCommentedLines, countEmptyLines, topline, bottomline) 
 " This function takes in 2 line numbers and returns the index of the right most
 " char on all of these lines.
 " Args:
@@ -3135,7 +3135,7 @@ function s:RightMostIndx(countCommentedLines, countEmptyLines, topline, bottomli
     return rightMostIndx
 endfunction
 
-"FUNCTION: s:SaveScreenState() {{{2
+"FUNCTION: s:SaveScreenState() 
 "Saves the current cursor position in the current buffer and the window
 "scroll position
 function s:SaveScreenState()
@@ -3143,7 +3143,7 @@ function s:SaveScreenState()
     let t:NERDComOldTopLine = line("w0")
 endfunction
 
-" Function: s:SwapOutterMultiPartDelimsForPlaceHolders(line) {{{2
+" Function: s:SwapOutterMultiPartDelimsForPlaceHolders(line) 
 " This function takes a line and swaps the outter most multi-part delims for
 " place holders
 " Args:
@@ -3171,7 +3171,7 @@ function s:SwapOutterMultiPartDelimsForPlaceHolders(line)
     return line2
 endfunction
 
-" Function: s:SwapOutterPlaceHoldersForMultiPartDelims(line) {{{2
+" Function: s:SwapOutterPlaceHoldersForMultiPartDelims(line) 
 " This function takes a line and swaps the outtermost place holders for
 " multi-part delims
 " Args:
@@ -3191,7 +3191,7 @@ function s:SwapOutterPlaceHoldersForMultiPartDelims(line)
     let line = s:ReplaceDelims(g:NERDLPlace, g:NERDRPlace, left, right, a:line)
     return line
 endfunction
-" Function: s:TabbedCol(line, col) {{{2
+" Function: s:TabbedCol(line, col) 
 " Gets the col number for given line and existing col number. The new col
 " number is the col number when all leading spaces are converted to tabs
 " Args:
@@ -3202,7 +3202,7 @@ function s:TabbedCol(line, col)
     let lineSpacesToTabs = substitute(lineTruncated, s:TabSpace(), '\t', 'g')
     return strlen(lineSpacesToTabs)
 endfunction
-"FUNCTION: s:TabSpace() {{{2
+"FUNCTION: s:TabSpace() 
 "returns a string of spaces equal in length to &tabstop
 function s:TabSpace()
     let tabSpace = ""
@@ -3214,7 +3214,7 @@ function s:TabSpace()
     return tabSpace
 endfunction
 
-" Function: s:UnEsc(str, escChar) {{{2
+" Function: s:UnEsc(str, escChar) 
 " This function removes all the escape chars from a string
 " Args:
 "   -str: the string to remove esc chars from
@@ -3223,7 +3223,7 @@ function s:UnEsc(str, escChar)
     return substitute(a:str, a:escChar, "", "g")
 endfunction
 
-" Function: s:UntabbedCol(line, col) {{{2
+" Function: s:UntabbedCol(line, col) 
 " Takes a line and a col and returns the absolute column of col taking into
 " account that a tab is worth 3 or 4 (or whatever) spaces.
 " Args:
@@ -3234,7 +3234,7 @@ function s:UntabbedCol(line, col)
     let lineTabsToSpaces = substitute(lineTruncated, '\t', s:TabSpace(), 'g')
     return strlen(lineTabsToSpaces)
 endfunction
-" Section: Comment mapping setup {{{1
+" Section: Comment mapping setup 
 " ===========================================================================
 
 " switch to/from alternative delimiters
@@ -3321,7 +3321,7 @@ endif
 
 
 
-" Section: Menu item setup {{{1
+" Section: Menu item setup 
 " ===========================================================================
 "check if the user wants the menu to be displayed
 if g:NERDMenuMode != 0

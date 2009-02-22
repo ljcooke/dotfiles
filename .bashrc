@@ -96,6 +96,9 @@ alias zim='zpool import' zex='zpool export'
 alias scpr="rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 
+# http://www.netsoc.tcd.ie/~inky/sigs
+alias newsig='vim scp://inky@spoon/sigs.txt'
+
 
 function _import() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
 

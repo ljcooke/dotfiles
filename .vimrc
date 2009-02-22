@@ -58,8 +58,7 @@ if has('gui_running')
     set go=aeimrL
     set mousehide
 
-    set guifont=Monaco,DejaVu\ Sans\ Mono\ 11,Terminal
-    "set t_Co=256
+    set guifont=Monaco,DejaVu\ Sans\ Mono\ 11,Consolas,Courier\ New,Terminal
     colors desert
 else
     colors elflord
@@ -148,7 +147,6 @@ if has('autocmd')
     autocmd FileType make,sshconfig setlocal nolist noexpandtab
     autocmd FileType html,xhtml setlocal ts=2 sts=2 sw=2
     autocmd FileType php setlocal autoindent smartindent
-    "autocmd FileType python setlocal textwidth=78
     autocmd FileType *tex setlocal textwidth=78
 
     " closetag
@@ -160,20 +158,6 @@ if has('autocmd')
         autocmd BufRead *.markdown
         \   setlocal ai nosi formatoptions=tcroqn2 comments=n:>
     augroup END
-
-    " return to the previous point in the file
-    autocmd BufReadPost *
-    \   if line("'\"") > 0 && line("'\"") <= line("$") |
-    \       exe "normal g'\"" |
-    \   endif
-
-    " ebooks
-    autocmd BufReadPre *.book
-    \   setlocal viminfo='100,\"10,:10,%,n~/.viminfo |
-    \   setlocal nowrite nomodifiable nonumber nolist
-    autocmd BufReadPost *.book
-    \   nnoremap <Up> (zz |
-    \   nnoremap <Down> )zz
 
 
     "-----------------------------

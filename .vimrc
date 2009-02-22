@@ -58,7 +58,7 @@ if has('gui_running')
     set go=aeimrL
     set mousehide
 
-    set guifont=DejaVu\ Sans\ Mono\ 11,Terminal
+    set guifont=Monaco,DejaVu\ Sans\ Mono\ 11,Terminal
     "set t_Co=256
     colors desert
 else

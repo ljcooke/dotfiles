@@ -151,6 +151,10 @@ if has('autocmd')
     "autocmd FileType python setlocal textwidth=78
     autocmd FileType *tex setlocal textwidth=78
 
+    " closetag
+    let g:unaryTagsStack='area base br hr img link meta param'
+    au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+
     " Markdown
     augroup markdown
         autocmd BufRead *.markdown

@@ -17,7 +17,7 @@ if exists("loaded_nerd_comments")
     finish
 endif
 if v:version < 700
-    echoerr "NERDCommenter: this plugin requires vim >= 7. DOWNLOAD IT! You'll thank me later!"
+    "echoerr "NERDCommenter: this plugin requires vim >= 7. DOWNLOAD IT! You'll thank me later!"
     finish
 endif
 let loaded_nerd_comments = 1

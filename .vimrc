@@ -22,6 +22,7 @@ set ruler                   " show 'line,column' ruler
 set nohlsearch              " don't highlight search results (enable with :hls)
 set background=dark         " light on dark
 
+set incsearch               " jump to search result while typing
 set ff=unix ffs=unix,dos    " unix newlines
 set cindent                 " fix # indentation
 set modeline                " read modelines (e.g. 'vim: set blah=blah :')

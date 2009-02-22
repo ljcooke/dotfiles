@@ -16,12 +16,13 @@ endif
     "-----------------------------
 
 set ttyfast                 " using a fast connection
-set cmdheight=2             " command line height
+set cmdheight=1             " command line height
 set number                  " line numbers
 set ruler                   " show 'line,column' ruler
 set nohlsearch              " don't highlight search results (enable with :hls)
 set background=dark         " light on dark
 
+set ff=unix ffs=unix,dos    " unix newlines
 set cindent                 " fix # indentation
 set modeline                " read modelines (e.g. 'vim: set blah=blah :')
 set showmatch               " highlight matching brackets when typing
@@ -58,7 +59,7 @@ if has('gui_running')
     set go=aeimrL
     set mousehide
 
-    set guifont=Monaco,DejaVu\ Sans\ Mono\ 11,Consolas,Courier\ New,Terminal
+    set guifont=Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
     colors desert
 else
     colors elflord

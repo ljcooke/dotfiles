@@ -22,6 +22,7 @@ set ruler                   " show 'line,column' ruler
 set nohlsearch              " don't highlight search results (enable with :hls)
 set background=dark         " light on dark
 
+set cindent                 " fix # indentation
 set modeline                " read modelines (e.g. 'vim: set blah=blah :')
 set showmatch               " highlight matching brackets when typing
 set ignorecase smartcase    " ignorecase implied if search string is lowercase
@@ -43,6 +44,8 @@ set list                    " show tab characters and trailing whitespace
 
 " OSX weirdness
 set backupskip="/tmp/*,/private/tmp/*"
+set t_kb=ctrl-vBACKSPACE
+fixdel
 
 if &encoding == 'utf-8'
     set listchars=tab:·\ ,trail:.

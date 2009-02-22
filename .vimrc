@@ -78,8 +78,9 @@ nnoremap <C-s> :w<CR>
 " select all
 nnoremap <F5> ggVG
 
-" quick regex
+" quick regex (D -> Cmd in OS X)
 nnoremap <C-Space> :s///<Left><Left>
+nnoremap <D-/> :s///<Left><Left>
 
 " switching/closing buffers
 nnoremap <Tab> <C-w><C-w>

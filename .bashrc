@@ -7,7 +7,7 @@ shopt -s checkwinsize  # check and update lines & cols after each cmd
 shopt -s cmdhist   # multiline commands saved in history as oneliners
 
 export EDITOR=vim
-export IGNOREEOF=1
+#export IGNOREEOF=1
 export HISTCONTROL='ignoreboth:erasedups'
 export HISTFILE='/dev/null'
 export LC_ALL=en_IE.UTF-8 LC_CTYPE=en_IE.UTF-8

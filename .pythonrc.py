@@ -3,7 +3,6 @@
 
 import os, sys
 import collections
-import exceptions
 import math
 import random
 import pickle
@@ -20,7 +19,7 @@ pp = pprint.PrettyPrinter(indent=2).pprint
 # http://tinyurl.com/bjtwrm
 prettydict = lambda d: "\n".join(map("%s: %s".__mod__, d.items()))
 def printdict(d):
-    print prettydict(d)
+    print(prettydict(d))
 
 def enable_tab_completion():
     import rlcompleter, readline
@@ -28,4 +27,4 @@ def enable_tab_completion():
 try:
     enable_tab_completion()
 except:
-    print "No tab completion. :("
+    print("No tab completion. :(")

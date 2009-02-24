@@ -56,7 +56,7 @@ else
 endif
 
 if has('gui_running')
-    set lines=36 columns=90
+    set lines=40 columns=100
     set go=aeimrL
     set mousehide
 

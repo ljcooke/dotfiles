@@ -76,6 +76,9 @@ nnoremap <Space> :
 nnoremap <F1> :help<Space>
 nnoremap <C-s> :w<CR>
 
+" show/hide unprintable characters
+nnoremap ,p :set invlist<CR>
+
 " select all
 nnoremap <F5> ggVG
 

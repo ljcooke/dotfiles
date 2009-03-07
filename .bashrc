@@ -101,10 +101,16 @@ alias newsig='vim + scp://inky@spoon/sigs.txt'
 
 
 function _import() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
+case "`uname`" in
+SunOS)
+    ;;
+*)
+    _import 'complete'
+    _import 'git'
+    _import 'gitcomplete'
+    ;;
+esac
 
-_import 'complete'
-_import 'git'
-_import 'gitcomplete'
 
 # store machine-specific settings in ~/.bashrc.local
 _import '../.bashrc.local'

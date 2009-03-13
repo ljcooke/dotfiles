@@ -159,6 +159,8 @@ if has('autocmd')
     let g:unaryTagsStack='area base br hr img link meta param'
     au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
+    autocmd BufRead *.plist setlocal ft=xml
+
     " Markdown
     augroup markdown
         autocmd BufRead *.markdown

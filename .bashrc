@@ -72,7 +72,6 @@ fi
 
 
 # shortcuts
-alias ..='cd ..'
 alias d='dict'
 alias l='ls -Fhlv'
 alias la='ls -AFv'
@@ -84,6 +83,11 @@ alias v='vim'
 
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 function calc() { [ -z "$@" ] && bc -ql || echo "$@" | bc -l; }
+function .. () {
+  local arg=${1:-1}; while [ $arg -gt 0 ]; do
+    cd .. >&/dev/null; arg=$(($arg - 1))
+  done
+}
 
 # zfs
 function zshot() { [ -n "$1" ] \

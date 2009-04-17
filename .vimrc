@@ -1,7 +1,11 @@
+" ensure useful vim-specific features are available
 set nocompatible
 scriptencoding utf8
 
+" enable syntax highlighting
 syntax on
+
+" indentation & formatting
 if exists(':filetype')
     filetype plugin indent on
 endif
@@ -76,8 +80,16 @@ nnoremap <Space> :
 nnoremap <F1> :help<Space>
 nnoremap <C-s> :w<CR>
 
+" Ctrl/Shift-Enter in insert mode to insert a new line
+" (disabled -- doesn't autoindent)
+"inoremap <C-CR> <Esc>o<Esc>a
+"inoremap <S-CR> <Esc>O<Esc>a
+
 " show/hide unprintable characters
 nnoremap <silent> ,p :set invlist<CR>
+
+" toggle line numbers
+nnoremap <silent> <F2> :set nonumber!<CR>
 
 " select all
 nnoremap <F5> ggVG

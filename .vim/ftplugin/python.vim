@@ -1,5 +1,9 @@
-iab <buffer> <silent> #! #!/usr/bin/env python
-iab <buffer> <silent> £! #!/usr/bin/env python
+" Save and execute current file
+nnoremap <silent> <S-e> :w<CR>:!/usr/bin/env python %<CR>
+
+
+"iab <buffer> <silent> #! #!/usr/bin/env python
+"iab <buffer> <silent> £! #!/usr/bin/env python
 
 iab <buffer> <silent> imp import
 "iab <buffer> <silent> from from import<Esc>6<Left>i

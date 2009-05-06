@@ -48,7 +48,8 @@ set noshortname             " don't use dos-style filenames
 set expandtab               " <Tab> inserts spaces (insert a tab with ^V<Tab>)
 set list                    " show tab characters and trailing whitespace
 
-" OSX weirdness
+" OS X stuff
+" TODO: figure out how to make this only apply to OS X
 set backupskip="/tmp/*,/private/tmp/*"
 set t_kb=ctrl-vBACKSPACE
 fixdel

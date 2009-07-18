@@ -10,7 +10,7 @@ export EDITOR=vim
 #export IGNOREEOF=1
 export HISTCONTROL='ignoreboth:erasedups'
 export HISTFILE='/dev/null'
-export LC_ALL=en_IE.UTF-8 LC_CTYPE=en_IE.UTF-8
+export LC_ALL="en_IE.UTF-8" LC_CTYPE="en_IE.UTF-8" LANG="en_IE.UTF-8"
 export PYTHONPATH="$HOME/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 

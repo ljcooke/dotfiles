@@ -1,14 +1,19 @@
 #!/usr/bin/env python
 # vim: set fileencoding=utf-8 :
 
-import os, sys
+import os
 import collections
 import math
 import random
 import pickle
 import pprint
+import sys
 import textwrap
+
+from os import path
 from pydoc import pager
+
+# http://inky.github.com/see/
 from see import see
 
 sys.ps1 = '> '
@@ -28,3 +33,5 @@ try:
     enable_tab_completion()
 except:
     print("No tab completion. :(")
+
+print('')  # I always hit enter after it loads anyway...

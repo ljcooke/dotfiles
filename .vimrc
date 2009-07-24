@@ -174,11 +174,8 @@ if has('autocmd')
 
     autocmd BufRead *.plist setlocal ft=xml
 
-    " Markdown
-    augroup markdown
-        autocmd BufRead *
-        \   setlocal ai nosi formatoptions=tcroqn2 comments=n:>
-    augroup END
+    autocmd FileType markdown setlocal
+    \   ai nosi tw=78 formatoptions=tcroqn2 comments=n:>
 
 
     "-----------------------------

@@ -176,7 +176,7 @@ if has('autocmd')
 
     " Markdown
     augroup markdown
-        autocmd BufRead *.markdown
+        autocmd BufRead *
         \   setlocal ai nosi formatoptions=tcroqn2 comments=n:>
     augroup END
 

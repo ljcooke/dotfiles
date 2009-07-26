@@ -119,6 +119,9 @@ vnoremap <silent> ;" :s:^:":<CR>
 vnoremap <silent> ;; :s:^:;:<CR>
 vnoremap <silent> ;% :s:^:%:<CR>
 
+" replace non-breaking spaces
+nnoremap ;<space> :%s:[\u00A0]:\ :g<CR>
+
 " use the cut buffer register (accessible outside vim)
 vnoremap <silent> <C-x> "+x
 vnoremap <silent> <C-c> "+y

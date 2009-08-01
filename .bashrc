@@ -44,14 +44,7 @@ function parse_git_branch()
 {
     # get the branch -- http://gist.github.com/5129
     b="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
-    [ -n "$b" ] && {
-        # check if branch is dirty (set $OLD_GIT to disable this if
-        # needed -- old version of git complain about --quiet)
-        [ -z $OLD_GIT ] && {
-            git diff --quiet 2>/dev/null || b="$b*"
-        }
-        echo " [$b]"
-    }
+    [ -n "$b" ] && echo " [$b]";
 }
 
 function bash_prompt()

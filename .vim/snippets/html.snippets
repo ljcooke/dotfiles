@@ -1,3 +1,46 @@
+# -----------
+# my snippets
+# -----------
+# Hyde page templates
+snippet blog
+	{% extends "_blog.html" %}
+	{%hyde
+	  created: ${2:2009}-${3:01}-${4:01} ${5:00:00}:00 +${6:00}:00
+	  title: ${1:}
+	%}
+	
+	{% block article %}
+	{% article %}
+	
+	{% excerpt %}
+	
+	${7:}
+	
+	{% endexcerpt %}
+	
+	{% endarticle %}
+	{% endblock %}
+snippet page
+	{% extends "_${7:project}.html" %}
+	{%hyde
+	  created: ${2:2009}-${3:01}-${4:01} ${5:00:00}:00 +${6:00}:00
+	  title: ${1:}
+	%}
+	
+	{% block article %}
+	{% article %}
+	
+	{% excerpt %}
+	
+	${8:}
+	
+	{% endexcerpt %}
+	
+	{% endarticle %}
+	{% endblock %}
+# -----------------
+# standard snippets
+# -----------------
 # Some useful Unicode entities
 # Non-Breaking Space
 snippet nbs

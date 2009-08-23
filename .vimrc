@@ -185,27 +185,12 @@ if has('autocmd')
     " Templates
     "-----------------------------
 
-    " highlight %VAR% placeholders
-    function! HighlightPlaceholders()
-        syn match Todo "%\u\+%" containedIn=ALL
-    endfunction
-
-    " look for a template matching the file extension
-    function! LoadTemplate()
-        silent! 0r ~/.vim/skel/skeleton.%:e
-        call HighlightPlaceholders()
-    endfunction
-
-    autocmd! BufNewFile * call LoadTemplate()
+    " highlight %VAR placeholders
+    autocmd! BufRead * syn match Todo "%\u\+%" containedIn=ALL
 
     " jump between %VAR% placeholders with Ctrl-p
     nnoremap <silent> <C-p> /%\u.\{-1,}%<CR>c/%/e<CR>
     inoremap <silent> <C-p> <ESC>/%\u.\{-1,}%<CR>c/%/e<CR>
-
-"    autocmd BufNewFile *.html 0r ~/.vim/skeleton.html "| normal! Gdd8<CR>o
-"    autocmd BufNewFile *.io   0r ~/.vim/skeleton.io | normal! G
-"    autocmd BufNewFile *.py   0r ~/.vim/skeleton.py | normal! G
-"    autocmd BufNewFile *.sh   0r ~/.vim/skeleton.sh | normal! G
 
     " C/C++ header files
     " http://vim.wikia.com/wiki/Automatic_insertion_of_C/C%2B%2B_header_gates

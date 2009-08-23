@@ -34,7 +34,7 @@ set showmatch               " highlight matching brackets when typing
 set ignorecase smartcase    " ignorecase implied if search string is lowercase
 set viminfo=""              " don't use a viminfo file
 set nobackup writebackup    " temporary backup before writing
-set textwidth=0 nojs        " text width (use gqap to wrap)
+set textwidth=0 wrap nojs linebreak   " text width (use gqap to wrap)
 set ts=4 softtabstop=4      " spaces per tab
 set shiftwidth=4 sta        " spaces per indentation
 set ai si "cpo+=I           " autoindent + smartindent
@@ -167,13 +167,13 @@ if has('autocmd')
     "-----------------------------
 
     autocmd FileType make,sshconfig setlocal nolist noexpandtab
-    autocmd FileType html,xhtml setlocal ts=2 sts=2 sw=2
+    autocmd FileType html,xhtml,htmldjango setlocal ts=2 sts=2 sw=2
     autocmd FileType php setlocal autoindent smartindent
     autocmd FileType *tex setlocal textwidth=78
 
     " closetag
-    let g:unaryTagsStack='area base br hr img link meta param'
-    au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+    "let g:unaryTagsStack='area base br hr img link meta param'
+    "au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
     autocmd BufRead *.plist setlocal ft=xml
 
@@ -185,15 +185,32 @@ if has('autocmd')
     " Templates
     "-----------------------------
 
-    autocmd BufNewFile *.html 0r ~/.vim/skeleton.html "| normal! Gdd8<CR>o
-    autocmd BufNewFile *.io   0r ~/.vim/skeleton.io | normal! G
-    autocmd BufNewFile *.py   0r ~/.vim/skeleton.py | normal! G
-    autocmd BufNewFile *.sh   0r ~/.vim/skeleton.sh | normal! G
+    " highlight %VAR% placeholders
+    function! HighlightPlaceholders()
+        syn match Todo "%\u\+%" containedIn=ALL
+    endfunction
+
+    " look for a template matching the file extension
+    function! LoadTemplate()
+        silent! 0r ~/.vim/skel/skeleton.%:e
+        call HighlightPlaceholders()
+    endfunction
+
+    autocmd! BufNewFile * call LoadTemplate()
+
+    " jump between %VAR% placeholders with Ctrl-p
+    nnoremap <silent> <C-p> /%\u.\{-1,}%<CR>c/%/e<CR>
+    inoremap <silent> <C-p> <ESC>/%\u.\{-1,}%<CR>c/%/e<CR>
+
+"    autocmd BufNewFile *.html 0r ~/.vim/skeleton.html "| normal! Gdd8<CR>o
+"    autocmd BufNewFile *.io   0r ~/.vim/skeleton.io | normal! G
+"    autocmd BufNewFile *.py   0r ~/.vim/skeleton.py | normal! G
+"    autocmd BufNewFile *.sh   0r ~/.vim/skeleton.sh | normal! G
 
     " C/C++ header files
     " http://vim.wikia.com/wiki/Automatic_insertion_of_C/C%2B%2B_header_gates
     function! s:template_h()
-        let gatename = '__'.substitute(toupper(expand('%:t')), '\\.', '_', 'g')
+        let gatename = '__'.substitute(toupper(expand('%:t')), '\.', '_', 'g')
         execute "normal! i#ifndef " . gatename
         execute "normal! o#define " . gatename
         execute "normal! Go#endif /* " . gatename . " */"

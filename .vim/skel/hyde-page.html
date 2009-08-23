@@ -1,0 +1,17 @@
+{% extends "_blog.html" %}
+{%hyde
+  created: %DATE% %TIME%
+  title: %TITLE%
+%}
+
+{% block article %}
+{% article %}
+
+{% excerpt %}
+
+%CONTENT%
+
+{% endexcerpt %}
+
+{% endarticle %}
+{% endblock %}

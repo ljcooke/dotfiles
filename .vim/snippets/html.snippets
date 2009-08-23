@@ -5,8 +5,8 @@
 snippet blog
 	{% extends "_blog.html" %}
 	{%hyde
-	  created: ${2:2009}-${3:01}-${4:01} ${5:00:00}:00 +${6:00}:00
 	  title: ${1:}
+	  created: ${2:2009}-${3:01}-${4:01} ${5:00:00}:00 +${6:00}:00
 	%}
 	
 	{% block article %}
@@ -21,10 +21,11 @@ snippet blog
 	{% endarticle %}
 	{% endblock %}
 snippet page
-	{% extends "_${7:project}.html" %}
+	{% extends "_${8:project}.html" %}
 	{%hyde
-	  created: ${2:2009}-${3:01}-${4:01} ${5:00:00}:00 +${6:00}:00
 	  title: ${1:}
+	  subtitle: ${2:}
+	  created: ${3:2009}-${4:01}-${5:01} ${6:00:00}:00 +${7:00}:00
 	%}
 	
 	{% block article %}
@@ -32,12 +33,22 @@ snippet page
 	
 	{% excerpt %}
 	
-	${8:}
+	${9:}
 	
 	{% endexcerpt %}
 	
 	{% endarticle %}
 	{% endblock %}
+snippet quote
+	<div class="quote">
+	  <blockquote cite="${3:http://}">
+	    <p>${1:quote}</p>
+	  </blockquote>
+	  <p class="source">-- <cite><a
+	    href="${3:http://}"
+	    title="Source">${2:source}</a></cite>
+	  </p>
+	</div>
 # -----------------
 # standard snippets
 # -----------------

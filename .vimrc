@@ -204,3 +204,11 @@ if has('autocmd')
     autocmd BufNewFile *.{h,hpp} call <SID>template_h()
 
 endif  " has('autocmd')
+
+
+    "-----------------------------
+    " Hyde
+    "-----------------------------
+
+" TODO: figure out a good way to do this
+"nnoremap <idontknow> gg/^\s\screated<CR>v$:!date '+\%F \%k:\%M:\%S \%:z'<CR>>>

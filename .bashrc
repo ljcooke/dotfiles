@@ -63,7 +63,9 @@ if [ "$TERM" != "dumb" ]; then
         eval "`dircolors -b`" 2>/dev/null
         alias ls='ls --color=auto' 2>/dev/null
     elif [ "`uname -s`" = "FreeBSD" ]; then
-        export CLICOLOR=
+        export CLICOLOR=1
+        # use a more legible blue for directories
+        export LSCOLORS="Exfxcxdxbxegedabagacad"
     fi
 fi
 

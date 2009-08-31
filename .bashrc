@@ -59,10 +59,12 @@ PS2="$c1. $c0"
 
 # ls colours
 if [ "$TERM" != "dumb" ]; then
-    [ -n "`which dircolors`" ] && {
+    if [ -n "`which dircolors`" ]; then
         eval "`dircolors -b`" 2>/dev/null
         alias ls='ls --color=auto' 2>/dev/null
-    }
+    elif [ "`uname -s`" = "FreeBSD" ]; then
+        export CLICOLOR=
+    fi
 fi
 
 

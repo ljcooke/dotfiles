@@ -37,7 +37,7 @@ esac
 
 # prompt
 c0="\[\033[0m\]"        # reset
-c1="\[\033[1;30;40m\]"  # grey on black
+c1="\[\033[1;30m\]"     # dark grey
 c2="\[\033[0;40m\]"     # white on black
 
 function parse_git_branch()
@@ -59,8 +59,10 @@ PS2="$c1. $c0"
 
 # ls colours
 if [ "$TERM" != "dumb" ]; then
-    [ -n "`which dircolors`" ] && eval "`dircolors -b`" 2>/dev/null
-    alias ls='ls --color=auto' 2>/dev/null
+    [ -n "`which dircolors`" ] && {
+        eval "`dircolors -b`" 2>/dev/null
+        alias ls='ls --color=auto' 2>/dev/null
+    }
 fi
 
 

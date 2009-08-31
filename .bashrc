@@ -70,10 +70,10 @@ fi
 
 # shortcuts
 alias d='dict'
-alias l='ls -Fhlv'
-alias la='ls -AFv'
-alias lc='ls -Fv --color=auto'
-alias ll='ls -AFhlv'
+alias l='ls -Fhl'
+alias la='ls -AF'
+alias lc='ls -F'
+alias ll='ls -AFhl'
 alias m='mutt -y'
 alias s='screen -DRA && stty sane && echo'
 alias v='vim'

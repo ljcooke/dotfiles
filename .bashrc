@@ -100,12 +100,14 @@ alias scpr="rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
 
 
+export BASH_COMPLETION="$HOME/.bash/bash_completion"
+source "$BASH_COMPLETION"
+
 function _import() { [ -e "$HOME/.bash/$1" ] && source "$HOME/.bash/$1"; }
 case "`uname`" in
 SunOS)
     ;;
 *)
-    _import 'complete'
     _import 'git'
     _import 'gitcomplete'
     ;;

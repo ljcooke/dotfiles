@@ -95,10 +95,13 @@ function zshot() { [ -n "$1" ] \
 alias zlist='zfs list -t filesystem'
 alias zim='zpool import' zex='zpool export'
 
-# partial download
-alias scpr="rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
-alias nscpr="nice -n19 rsync --modify-window=1 -Phavze 'ssh -4 -xac blowfish-cbc'"
-
+scpr="rsync -Phavz --modify-window=1 \
+      --exclude '.DS_Store' --exclude 'Thumbs.db' --exclude '*.swp' \
+      -e 'ssh -4 -xac blowfish-cbc'"
+rsync_v="`rsync --version`"
+[ -n "`echo $rsync_v | grep xattrs`" ] && scpr="$scpr --xattrs"
+alias scpr="$scpr"
+alias nscpr="nice -n19 $scpr"
 
 export BASH_COMPLETION="$HOME/.bash/bash_completion"
 source "$BASH_COMPLETION"

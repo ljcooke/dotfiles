@@ -115,7 +115,7 @@ alias gst='git status'
 scpr="rsync -Phavz --modify-window=1 \
       --exclude '.DS_Store' --exclude 'Thumbs.db' --exclude '*.swp' \
       -e 'ssh -4 -xac blowfish-cbc'"
-rsync_v="`rsync --version`"
+rsync_v="`rsync --version 2>/dev/null`"
 [ -n "`echo $rsync_v | grep xattrs`" ] && scpr="$scpr --xattrs"
 alias scpr="$scpr"
 alias nscpr="nice -n19 $scpr"

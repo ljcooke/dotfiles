@@ -128,10 +128,10 @@ scpr="$cpr -e 'ssh -4 -xac blowfish-cbc'"
 rsync_v="`rsync --version 2>/dev/null`"
 [ -n "`echo $rsync_v | grep xattrs`" ] && cpr="$cpr --xattrs"
 
-alias scpr="$scpr"
-alias cpr="$cpr"
-alias nscpr="nice -n19 $scpr"
-alias ncpr="nice -n19 $cpr"
+alias cpr="$cpr" ncpr="nice -n19 $cpr"
+alias scpr="$scpr" nscpr="nice -n19 $scpr"
+
+unset cpr scpr rsync_v
 #----------------------------------------------------------------------
 
 # zfs

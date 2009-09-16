@@ -145,15 +145,15 @@ function zshot() {
     fi
 }
 
-# bash completion
-export BASH_COMPLETION="$HOME/.bash/bash_completion"
-source "$BASH_COMPLETION"
-
-# more scripts in ~/.bash/
 case $uname in
 SunOS)
     ;;
 *)
+    # bash completion
+    export BASH_COMPLETION="$HOME/.bash/bash_completion"
+    source "$BASH_COMPLETION"
+
+    # more scripts in ~/.bash/
     source "$HOME/.bash/gitcomplete"
     ;;
 esac

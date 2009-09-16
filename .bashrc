@@ -111,14 +111,28 @@ alias glog='git log --stat'
 alias gp='git push'
 alias gst='git status'
 
-# rsync
-scpr="rsync -Phavz --modify-window=1 \
-      --exclude '.DS_Store' --exclude 'Thumbs.db' --exclude '*.swp' \
-      -e 'ssh -4 -xac blowfish-cbc'"
+#----------------------------------------------------------------------
+# rsync shortcut for backing up / mirroring files.
+#
+# 'cpr src/ dest/' will copy files from src to dest. Note the trailing
+# slash after src -- if this is omitted, the command will look for or
+# create a folder in dest named after src, and copy to that instead.
+#
+# Replace 'cpr' with 'scpr' when transferring between servers.
+# To run with low priority, prepend 'n' to the command.
+#----------------------------------------------------------------------
+cpr="rsync -Phavz --modify-window=1 \
+        --exclude '.DS_Store' --exclude 'Thumbs.db' --exclude '*.swp'"
+scpr="$cpr -e 'ssh -4 -xac blowfish-cbc'"
+
 rsync_v="`rsync --version 2>/dev/null`"
-[ -n "`echo $rsync_v | grep xattrs`" ] && scpr="$scpr --xattrs"
+[ -n "`echo $rsync_v | grep xattrs`" ] && cpr="$cpr --xattrs"
+
 alias scpr="$scpr"
+alias cpr="$cpr"
 alias nscpr="nice -n19 $scpr"
+alias ncpr="nice -n19 $cpr"
+#----------------------------------------------------------------------
 
 # zfs
 alias zlist='zfs list -t filesystem'

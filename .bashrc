@@ -154,8 +154,14 @@ SunOS)
     ;;
 *)
     # bash completion
-    export BASH_COMPLETION="$HOME/.bash/bash_completion"
-    source "$BASH_COMPLETION"
+    for f in /usr/local/etc/bash_completion "$HOME/.bash/bash_completion"
+    do
+        if [ -f "$f" ]; then
+            export BASH_COMPLETION="$f"
+            source "$f"
+            break
+        fi
+    done
 
     # more scripts in ~/.bash/
     source "$HOME/.bash/gitcomplete"

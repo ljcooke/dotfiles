@@ -69,14 +69,18 @@ PS2="$c1. $c0"
 
 # ls colours
 if [ "$TERM" != "dumb" ]; then
-    if [ -n "`which dircolors`" ]; then
-        eval "`dircolors -b`" 2>/dev/null
-        alias ls='ls --color=auto' 2>/dev/null
-    elif [ $uname = "FreeBSD" ]; then
+    case "$uname" in
+    Darwin|FreeBSD)
         export CLICOLOR=1
-        # use a more legible blue for directories
-        export LSCOLORS="Exfxcxdxbxegedabagacad"
-    fi
+        export LSCOLORS="ExFxCxDxBxegedabagacad"  # legible colours
+        ;;
+    *)
+        if [ -n "`which dircolors`" ]; then
+            eval "`dircolors -b`" 2>/dev/null
+            alias ls='ls --color=auto' 2>/dev/null
+        fi
+        ;;
+    esac
 fi
 
 # shortcuts

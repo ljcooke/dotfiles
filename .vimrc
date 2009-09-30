@@ -28,7 +28,7 @@ set background=dark         " light on dark
 
 set incsearch               " jump to search result while typing
 set ff=unix ffs=unix,dos    " unix newlines
-set cindent                 " fix # indentation
+set nocindent               " <del>fix # indentation</del>
 set modeline                " read modelines (e.g. 'vim: set blah=blah :')
 set showmatch               " highlight matching brackets when typing
 set ignorecase smartcase    " ignorecase implied if search string is lowercase

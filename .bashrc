@@ -93,6 +93,10 @@ alias m='mutt -y'
 alias s='screen -DRA && stty sane && echo'
 alias v='vim'
 
+# help me
+alias :e='vim'
+alias :q='logout'
+
 # `.. 3` will `cd ..` 3 times
 function .. () {
     local arg=${1:-1}; while [ $arg -gt 0 ]; do
@@ -156,7 +160,7 @@ SunOS)
     # bash completion
     for f in /usr/local/etc/bash_completion "$HOME/.bash/bash_completion"
     do
-        if [ -f "$f" ]; then
+        if [ -e "$f" ]; then
             export BASH_COMPLETION="$f"
             source "$f"
             break

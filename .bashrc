@@ -142,6 +142,18 @@ alias scpr="$scpr" nscpr="nice -n19 $scpr"
 unset cpr scpr rsync_v
 #----------------------------------------------------------------------
 
+# colour diff for scm/vcs
+function dif {
+    for scm in git hg; do
+        if [ -d ".$scm" ]; then
+            $scm diff $1 | colordiff | less -R
+            return 0
+        fi
+    done
+    echo 'cannot find SCM type'
+    return 1
+}
+
 # zfs
 alias zlist='zfs list -t filesystem'
 alias zim='zpool import' zex='zpool export'

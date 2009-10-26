@@ -119,6 +119,10 @@ vnoremap <silent> ;" :s:^:":<CR>
 vnoremap <silent> ;; :s:^:;:<CR>
 vnoremap <silent> ;% :s:^:%:<CR>
 
+" use tabs instead of spaces
+nnoremap <silent> ;t :setlocal nolist noexpandtab<CR>
+nnoremap <silent> ;s :setlocal list expandtab<CR>
+
 " replace non-breaking spaces
 nnoremap ;<space> :%s:[\u00A0]:\ :g<CR>
 
@@ -167,7 +171,7 @@ if has('autocmd')
     "-----------------------------
 
     autocmd FileType make,sshconfig setlocal nolist noexpandtab
-    autocmd FileType html,xhtml,htmldjango setlocal ts=2 sts=2 sw=2
+    autocmd FileType html,xhtml,htmldjango,php setlocal ts=2 sts=2 sw=2
     autocmd FileType php setlocal autoindent smartindent
     autocmd FileType *tex setlocal textwidth=78
 

@@ -61,11 +61,11 @@ else
 endif
 
 if has('gui_running')
-    set lines=40 columns=100
+    set lines=30 columns=100
     set go=aeimrL
     set mousehide
 
-    set guifont=Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
+    set guifont=Glass\ TTY\ VT220:h20,Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
     colors ir_black  "desert
 else
     colors elflord

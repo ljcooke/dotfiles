@@ -130,7 +130,8 @@ alias gst='git status'
 # To run with low priority, prepend 'n' to the command.
 #----------------------------------------------------------------------
 cpr="rsync -Phavz --modify-window=1 \
-        --exclude '.DS_Store' --exclude 'Thumbs.db' --exclude '*.swp'"
+        --exclude '.DS_Store' --exclude 'Thumbs.db' --exclude '*.swp' \
+        --exclude '.Trashes' --exclude '.fseventsd'"
 scpr="$cpr -e 'ssh -4 -xac blowfish-cbc'"
 
 rsync_v="`rsync --version 2>/dev/null`"
@@ -143,6 +144,7 @@ unset cpr scpr rsync_v
 #----------------------------------------------------------------------
 
 # colour diff for scm/vcs
+# requires: colordiff
 function dif {
     for scm in git hg; do
         if [ -d ".$scm" ]; then

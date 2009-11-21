@@ -61,11 +61,11 @@ else
 endif
 
 if has('gui_running')
-    set lines=30 columns=100
+    set lines=40 columns=120
     set go=aeimrL
     set mousehide
 
-    set guifont=Glass\ TTY\ VT220:h20,Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
+    set guifont=Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
     colors ir_black  "desert
 else
     colors elflord
@@ -174,6 +174,7 @@ if has('autocmd')
     autocmd FileType html,xhtml,htmldjango,php setlocal ts=2 sts=2 sw=2
     autocmd FileType php setlocal autoindent smartindent
     autocmd FileType *tex setlocal textwidth=78
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 
     " closetag
     "let g:unaryTagsStack='area base br hr img link meta param'

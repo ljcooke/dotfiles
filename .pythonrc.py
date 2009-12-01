@@ -1,19 +1,26 @@
 #!/usr/bin/env python
 # vim: set fileencoding=utf-8 :
 
+import datetime
 import math
 import os
 import pprint
 import random
+import re
 import sys
 import textwrap
 
 from pydoc import pager
-from see import see
+
+try:
+    from see import see
+except ImportError:
+    see = dir
 
 sys.ps1 = '> '
 sys.ps2 = '· '
 
+find = re.findall
 path = os.path
 pp = pprint.PrettyPrinter(indent=2).pprint
 

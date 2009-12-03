@@ -180,6 +180,8 @@ if has('autocmd')
     "let g:unaryTagsStack='area base br hr img link meta param'
     "au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
+    " known filetypes with unknown extensions
+    autocmd BufRead *.less setlocal ft=css
     autocmd BufRead *.plist setlocal ft=xml
 
     autocmd FileType markdown setlocal

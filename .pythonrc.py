@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-# vim: set fileencoding=utf-8 :
-
 import datetime
 import math
 import os
@@ -18,7 +16,7 @@ except ImportError:
     see = dir
 
 sys.ps1 = '> '
-sys.ps2 = '· '
+sys.ps2 = '. '
 
 find = re.findall
 path = os.path

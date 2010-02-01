@@ -51,23 +51,24 @@ dumb|vt100)
     c0=''; c1=''; c2=''
     ;;
 *)
-    c0="\[\033[0m\]"        # reset
-    c1="\[\033[1;30m\]"     # dark grey
-    c2="\[\033[0;40m\]"     # white on black
+    c0="\[\033[0m\]"     # reset
+    c1="\[\033[1;30m\]"  # dark grey
+    c2="\[\033[0;40m\]"  # white on black
     ;;
 esac
 
-function parse_git_branch()
+function get_branch()
 {
-    # get the branch -- http://gist.github.com/5129
+    # get the git branch -- http://gist.github.com/5129
     b="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
     [ -n "$b" ] && echo " [$b]";
 }
 
 function bash_prompt()
 {
-    info="${c1}\u@\h ${c2}\w${c1}\$(parse_git_branch)${c0}\n"
-    echo "${info}${c1}${lvl}\$ ${c0}"
+    echo
+    echo "${c1}\u@\h ${c2}\w${c1}\$(get_branch)${c0}"
+    echo "${c1}${lvl}\$ ${c0}"
 }
 
 PS1="`bash_prompt`"

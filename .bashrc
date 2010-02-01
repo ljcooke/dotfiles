@@ -6,7 +6,7 @@ set -o emacs  # input style
 shopt -s checkwinsize  # check and update lines & cols after each cmd
 shopt -s cmdhist   # multiline commands saved in history as oneliners
 export EDITOR=vim
-export IGNOREEOF=1  # ignore accidental Ctrl-D's
+export IGNOREEOF=0  # set to 1 to ignore accidental Ctrl-D's
 
 # locale
 export LC_ALL="en_IE.UTF-8"

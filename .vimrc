@@ -151,6 +151,7 @@ fun! WordProcessing()
     set lbr nolist textwidth=78
     if has('gui_running')
         set columns=80
+        set guifont=Inconsolata:h13,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
     endif
     source ~/.vim/autocorrect.vim
     "if filereadable("~/Documents/.autocorrect.vim")

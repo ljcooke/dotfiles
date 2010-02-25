@@ -148,7 +148,10 @@ vnoremap <Up>   gk
 cabbr wp call WordProcessing()
 autocmd BufNewFile,BufRead *.text call WordProcessing()
 fun! WordProcessing()
-    set lbr nolist textwidth=78 columns=80
+    set lbr nolist textwidth=78
+    if has('gui_running')
+        set columns=80
+    endif
     source ~/.vim/autocorrect.vim
     "if filereadable("~/Documents/.autocorrect.vim")
         source ~/Documents/.autocorrect.vim

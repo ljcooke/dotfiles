@@ -150,9 +150,9 @@ autocmd BufNewFile,BufRead *.text call WordProcessing()
 fun! WordProcessing()
     set lbr nolist textwidth=78 columns=80
     source ~/.vim/autocorrect.vim
-    if filereadable('~/Documents/.autocorrect.vim')
+    "if filereadable("~/Documents/.autocorrect.vim")
         source ~/Documents/.autocorrect.vim
-    endif
+    "endif
     nnoremap j gj
     nnoremap k gk
     nnoremap 0 g0

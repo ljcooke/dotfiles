@@ -134,14 +134,33 @@ nnoremap <silent> <C-p>i "+gP
 nnoremap <silent> <C-p>a "+gp
 
 " scroll by visual lines (easier to edit wrapped text)
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+"nnoremap j gj
+"nnoremap k gk
+"vnoremap j gj
+"vnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up>   gk
 vnoremap <Down> gj
 vnoremap <Up>   gk
+
+
+" word processing mode
+cabbr wp call WordProcessing()
+autocmd BufNewFile,BufRead *.text call WordProcessing()
+fun! WordProcessing()
+    set lbr nolist textwidth=78 columns=80
+    source ~/.vim/autocorrect.vim
+    if filereadable('~/Documents/.autocorrect.vim')
+        source ~/Documents/.autocorrect.vim
+    endif
+    nnoremap j gj
+    nnoremap k gk
+    nnoremap 0 g0
+    nnoremap $ g$
+    set nonumber
+    set spell spelllang=en_gb
+endfu
+
 
 
     "-----------------------------

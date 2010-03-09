@@ -191,6 +191,12 @@ SunOS)
 
     # more scripts in ~/.bash/
     source "$HOME/.bash/gitcomplete"
+
+    # homebrew
+    if [ -n "$(which brew)" ]; then
+        bc="/usr/local/homebrew/Library/Contributions/brew_bash_completion.sh"
+        [ -e $bc ] && source $bc
+    fi
     ;;
 esac
 

@@ -1,0 +1,3 @@
+[submodule "modules/tumblr"]
+	path = modules/tumblr
+	url = git://github.com/inky/tumblr.git

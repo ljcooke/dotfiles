@@ -56,5 +56,5 @@ if dry_run
     puts "fileset: " + fileset.to_s
     puts files.collect{|f| '  '+f}.join("\n") unless files.empty?
 elsif not files.empty?
-    system ['rsync -FPhacvz --exclude .git', files, dest].join(' ')
+    system ['rsync -FPhacvz --exclude .git --copy-links', files, dest].join(' ')
 end

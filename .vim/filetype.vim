@@ -1,4 +1,4 @@
-if exists("did\_load\_filetypes")
+if exists("did_load_filetypes")
     finish
 endif
 
@@ -8,4 +8,8 @@ augroup END
 
 augroup textile
     au! BufRead,BufNewFile *.textile setfiletype textile
+augroup END
+
+augroup tumblr
+    au! BufRead,BufNewFile *.tumblr.html setfiletype tumblr
 augroup END

@@ -146,7 +146,7 @@ vnoremap <Up>   gk
 
 " word processing mode
 cabbr wp call WordProcessing()
-autocmd BufNewFile,BufRead *.text call WordProcessing()
+"autocmd BufNewFile,BufRead *.text call WordProcessing()
 fun! WordProcessing()
     set lbr nolist textwidth=78
     if has('gui_running')
@@ -161,7 +161,6 @@ fun! WordProcessing()
     nnoremap k gk
     nnoremap 0 g0
     nnoremap $ g$
-    set nonumber
     set spell spelllang=en_gb
 endfu
 
@@ -234,11 +233,3 @@ if has('autocmd')
     autocmd BufNewFile *.{h,hpp} call <SID>template_h()
 
 endif  " has('autocmd')
-
-
-    "-----------------------------
-    " Hyde
-    "-----------------------------
-
-" TODO: figure out a good way to do this
-"nnoremap <idontknow> gg/^\s\screated<CR>v$:!date '+\%F \%k:\%M:\%S \%:z'<CR>>>

@@ -209,6 +209,9 @@ if has('autocmd')
     autocmd FileType markdown setlocal
     \   ai nosi tw=78 formatoptions=tcroqn2 comments=n:>
 
+    " http://www.codeography.com/2010/02/20/making-vim-play-nice-with-jekylls-yaml-front-matter.html
+    autocmd FileType markdown,textile syntax match Comment /\%^---\_.\{-}---$/
+
 
     "-----------------------------
     " Templates

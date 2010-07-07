@@ -206,6 +206,9 @@ if has('autocmd')
     autocmd BufRead *.less setlocal ft=css
     autocmd BufRead *.plist setlocal ft=xml
 
+    " .cue sheet
+    autocmd BufRead *.cue setlocal ts=2 softtabstop=2 shiftwidth=2
+
     autocmd FileType markdown setlocal
     \   ai nosi tw=78 formatoptions=tcroqn2 comments=n:>
 

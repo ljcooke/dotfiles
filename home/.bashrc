@@ -66,8 +66,11 @@ function get_branch()
 
 function bash_prompt()
 {
-    echo
+    # title bar + blank line
+    echo "\[\033]0;\w\$(get_branch)\007\]"
+    # user@host /path [branch]
     echo "${c1}\u@\h ${c2}\w${c1}\$(get_branch)${c0}"
+    # $
     echo "${c1}${lvl}\$ ${c0}"
 }
 
@@ -117,6 +120,12 @@ function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
 
 # calculator
 function calc() { [ -z "$@" ] && bc -ql || echo "$@" | bc -l; }
+
+# open man pages in vim and Preview
+function vman() { MANWIDTH=100 MANPAGER='col -bx' man $@ | vim -; }
+if [ "$uname" = 'Darwin' ]; then
+    function pman() { man -t $* | ps2pdf - - | open -f -a /Applications/Preview.app; }
+fi
 
 # git
 alias gb='git branch' gba='git branch -a'
@@ -175,15 +184,11 @@ function zshot() {
     fi
 }
 
-case $uname in
-SunOS)
-    ;;
-*)
+if [ ! "$uname" = 'SunOS' ]; then
     # bash completion
     for f in /usr/local/etc/bash_completion "$HOME/.bash/bash_completion"
     do
         if [ -e "$f" ]; then
-            export BASH_COMPLETION="$f"
             source "$f"
             break
         fi
@@ -197,8 +202,7 @@ SunOS)
         bc="/usr/local/homebrew/Library/Contributions/brew_bash_completion.sh"
         [ -e $bc ] && source $bc
     fi
-    ;;
-esac
+fi
 
 # store machine-specific settings in ~/.bashrc.local
 [ -e "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"

@@ -147,7 +147,7 @@ alias gst='git status'
 # To run with low priority, prepend 'n' to the command.
 #----------------------------------------------------------------------
 cpr="rsync -Phavz --modify-window=1 \
-        --exclude '.DS_Store' --exclude 'Thumbs.db' --exclude '*.swp' \
+        --exclude '*.swp' \
         --exclude '.Trashes' --exclude '.fseventsd'"
 scpr="$cpr -e 'ssh -4 -xac blowfish-cbc'"
 

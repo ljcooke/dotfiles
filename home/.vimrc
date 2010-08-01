@@ -103,6 +103,9 @@ nnoremap <D-/> :s///<Left><Left>
 nnoremap <Tab> <C-w><C-w>
 nnoremap <C-F4> :bn<CR>:bd #<CR>
 
+" Shift-Tab to toggle a fold
+nnoremap <S-Tab> za
+
 " comment out lines
 nnoremap <silent> ;# :s:^:#:<CR>
 nnoremap <silent> ;3 :s:^:#:<CR>

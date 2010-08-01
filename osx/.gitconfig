@@ -1,0 +1,27 @@
+# vim:set noexpandtab nolist:
+
+[user]
+	name = <FULL_NAME>
+	email = <EMAIL>
+[core]
+	excludesfile = /Users/<USER>/.gitignore
+	filemode = true
+	quotepath = false
+	fsyncobjectfiles = true  # possibly needed for Mac OS Extended?
+[color]
+	ui = auto
+	diff = auto
+	branch = auto
+	status = auto
+[diff]
+	renames = copies
+[github]
+	user = <USER>
+	token = <TOKEN>
+[alias]
+	cheat = !cheat git | less
+	co = checkout
+	log1 = log --oneline --decorate
+	low = !open 'http://www.youtube.com/watch?v=DQFCugSRjQQ'
+	s = status -s
+	whoops = reset --soft HEAD^

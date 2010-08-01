@@ -48,6 +48,9 @@ set noshortname             " don't use dos-style filenames
 set expandtab               " <Tab> inserts spaces (insert a tab with ^V<Tab>)
 set list                    " show tab characters and trailing whitespace
 
+" keep swap files in a separate location (to keep Dropbox from going nuts)
+set directory=/var/tmp/$USER,~/.vim/tmp
+
 " OS X stuff
 " TODO: figure out how to make this only apply to OS X
 set backupskip="/tmp/*,/private/tmp/*"

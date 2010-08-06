@@ -102,9 +102,17 @@ nnoremap <F5> ggVG
 nnoremap <C-Space> :s///<Left><Left>
 nnoremap <D-/> :s///<Left><Left>
 
-" switching/closing buffers
-nnoremap <Tab> <C-w><C-w>
-nnoremap <C-F4> :bn<CR>:bd #<CR>
+" new tab
+nnoremap <Tab>n :tabnew<Space>
+" next tab
+nnoremap <Tab>l gt
+nnoremap <Tab><Right> gt
+" previous tab
+nnoremap <Tab>h gT
+nnoremap <Tab><Left> gT
+
+" switch buffers
+nnoremap <C-Tab> <C-w><C-w>
 
 " Shift-Tab to toggle a fold
 nnoremap <S-Tab> za

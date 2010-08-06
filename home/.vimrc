@@ -101,7 +101,7 @@ nnoremap <Tab>h gT
 nnoremap <Tab><Left> gT
 
 " switch buffers
-nnoremap <C-Tab> <C-w><C-w>
+nnoremap <Tab><Tab> <C-w><C-w>
 
 " toggle a fold
 nnoremap <S-Tab> za

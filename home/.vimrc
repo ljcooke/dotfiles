@@ -93,6 +93,7 @@ nnoremap <D-/> :s///<Left><Left>
 
 " new tab
 nnoremap <Tab>n :tabnew<Space>
+nnoremap <Tab>t :tabnew<Space>
 " go to next tab
 nnoremap <Tab>l gt
 nnoremap <Tab><Right> gt

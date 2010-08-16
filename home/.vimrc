@@ -31,15 +31,19 @@ set ignorecase smartcase    " ignorecase implied if search string is lowercase
 set viminfo=""              " don't use a viminfo file
 set nobackup writebackup    " temporary backup before writing
 set textwidth=0 wrap nojs linebreak   " text width (use gqap to wrap)
-set ts=4 softtabstop=4      " spaces per tab
-set shiftwidth=4 sta        " spaces per indentation
-set ai si "cpo+=I           " autoindent + smartindent
-set shiftround              " round indent to a multiple of shiftwidth
+set showtabline=1           " show tabs if more than 1
 set bs=eol,start,indent     " allow backspacing over everything
 set scrolloff=2             " a few lines of offset when scrolling
 set mouse=a                 " allow mouse in all modes
 set shm=flmnrxoOstTI        " make some messages less verbose
 set noshortname             " don't use dos-style filenames
+
+" tabs + indentation
+set tabstop=4               " how existing tabs are displayed
+set softtabstop=4           " tabs in insert mode
+set shiftwidth=4            " for indent operations
+set shiftround              " round indent to a multiple of shiftwidth
+set ai si                   " autoindent + smartindent
 
 " expand tabs to spaces, and show tab characters and trailing whitespace
 set expandtab list
@@ -48,9 +52,15 @@ if &encoding == 'utf-8'
 else
     set listchars=tab:>\ ,trail:.
 endif
+
 " temporarily turn off expandtab
 nnoremap <silent> ;t :setlocal nolist noexpandtab<CR>
 nnoremap <silent> ;s :setlocal list expandtab<CR>
+
+" temporarily change tab size
+nnoremap <Tab>2 :setlocal tabstop=2 softtabstop=2 shiftwidth=2<CR>
+nnoremap <Tab>4 :setlocal tabstop=4 softtabstop=4 shiftwidth=4<CR>
+nnoremap <Tab>8 :setlocal tabstop=8 softtabstop=8 shiftwidth=8<CR>
 
 " keep swap files in a separate location (mainly to keep Dropbox from going nuts)
 set directory=~/.vim/tmp,/var/tmp/$USER

@@ -88,6 +88,15 @@ endif
 " if I could pick just one key mapping...
 nnoremap <Space> :
 
+" easy brackets
+inoremap '' ''<Left>
+inoremap "" ""<Left>
+inoremap () ()<Left>
+inoremap <> <><Left>
+inoremap {} {}<Left>
+inoremap [] []<Left>
+inoremap () ()<Left>
+
 " toggle paste mode
 set pastetoggle=<F4>
 
@@ -107,9 +116,13 @@ nnoremap <Tab>t :tabnew<Space>
 " go to next tab
 nnoremap <Tab>l gt
 nnoremap <Tab><Right> gt
+nnoremap <Tab>] gt
 " go to previous tab
 nnoremap <Tab>h gT
 nnoremap <Tab><Left> gT
+nnoremap <Tab>[ gT
+" move tab
+nnoremap <Tab>m :tabm<Space>
 
 " switch buffers
 nnoremap <Tab><Tab> <C-w><C-w>
@@ -168,6 +181,9 @@ if has('autocmd')
     " .cue sheet
     autocmd BufRead *.cue setlocal ts=2 softtabstop=2 shiftwidth=2
 
+    " python
+    autocmd FileType python inoremap :: <End>:
+
     " markdown
     autocmd FileType markdown setlocal
     \   ai nosi tw=78 formatoptions=tcroqn2 comments=n:>
@@ -188,3 +204,8 @@ if has('autocmd')
     autocmd BufNewFile *.{h,hpp} call <SID>template_h()
 
 endif  " has('autocmd')
+
+
+
+if has('python')
+end

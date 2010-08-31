@@ -77,7 +77,7 @@ if has('gui_running')
     set go=aeimrL
     set mousehide
 
-    set guifont=Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
+    set guifont=AnonymousPro,Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
     colors ir_black  "desert
 else
     colors elflord
@@ -89,13 +89,13 @@ endif
 nnoremap <Space> :
 
 " easy brackets
-inoremap '' ''<Left>
-inoremap "" ""<Left>
-inoremap () ()<Left>
-inoremap <> <><Left>
-inoremap {} {}<Left>
-inoremap [] []<Left>
-inoremap () ()<Left>
+"inoremap '' ''<Left>
+"inoremap "" ""<Left>
+"inoremap () ()<Left>
+"inoremap <> <><Left>
+"inoremap {} {}<Left>
+"inoremap [] []<Left>
+"inoremap () ()<Left>
 
 " toggle paste mode
 set pastetoggle=<F4>

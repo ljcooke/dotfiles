@@ -156,6 +156,9 @@ nnoremap <Up>   gk
 vnoremap <Down> gj
 vnoremap <Up>   gk
 
+" select recently pasted text
+nnoremap <Leader>v V`]
+
 
 
 " buffer options

@@ -15,6 +15,9 @@ if has('unix')
     let shell='bash'
 endif
 
+" set the <Leader> key, for user-specific mappings
+let mapleader=';'
+
 " general settings
 set ttyfast                 " using a fast connection
 set cmdheight=1             " command line height
@@ -25,7 +28,7 @@ set background=dark         " light on dark
 set incsearch               " jump to search result while typing
 set ff=unix ffs=unix,dos    " unix newlines
 set nocindent               " <del>fix # indentation</del>
-set modeline                " read modelines (e.g. 'vim: set blah=blah :')
+set nomodeline              " don't read modelines
 set showmatch               " highlight matching brackets when typing
 set ignorecase smartcase    " ignorecase implied if search string is lowercase
 set viminfo=""              " don't use a viminfo file
@@ -54,13 +57,13 @@ else
 endif
 
 " temporarily turn off expandtab
-nnoremap <silent> ;t :setlocal nolist noexpandtab<CR>
-nnoremap <silent> ;s :setlocal list expandtab<CR>
+nnoremap <Leader><Tab>t :setlocal nolist noexpandtab<CR>
+nnoremap <Leader><Tab>s :setlocal list expandtab<CR>
 
 " temporarily change tab size
-nnoremap <Tab>2 :setlocal tabstop=2 softtabstop=2 shiftwidth=2<CR>
-nnoremap <Tab>4 :setlocal tabstop=4 softtabstop=4 shiftwidth=4<CR>
-nnoremap <Tab>8 :setlocal tabstop=8 softtabstop=8 shiftwidth=8<CR>
+nnoremap <Leader><Tab>2 :setlocal tabstop=2 softtabstop=2 shiftwidth=2<CR>
+nnoremap <Leader><Tab>4 :setlocal tabstop=4 softtabstop=4 shiftwidth=4<CR>
+nnoremap <Leader><Tab>8 :setlocal tabstop=8 softtabstop=8 shiftwidth=8<CR>
 
 " keep swap files in a separate location (mainly to keep Dropbox from going nuts)
 set directory=~/.vim/tmp,/var/tmp/$USER
@@ -85,17 +88,8 @@ endif
 
 
 
-" if I could pick just one key mapping...
+" if I could pick just one shortcut...
 nnoremap <Space> :
-
-" easy brackets
-"inoremap '' ''<Left>
-"inoremap "" ""<Left>
-"inoremap () ()<Left>
-"inoremap <> <><Left>
-"inoremap {} {}<Left>
-"inoremap [] []<Left>
-"inoremap () ()<Left>
 
 " toggle paste mode
 set pastetoggle=<F4>
@@ -104,25 +98,22 @@ set pastetoggle=<F4>
 nnoremap <silent> <F2> :set nonumber!<CR>
 
 " select all
-nnoremap <F5> ggVG
+nnoremap <Leader>sa ggVG
+nnoremap <Leader>% ggVG
 
-" quick regex (D = Cmd in OS X)
-nnoremap <C-Space> :s///<Left><Left>
-nnoremap <D-/> :s///<Left><Left>
+" regular expressions (with \v for more sane character matching)
+nnoremap <Leader>s/ :s/\v//g<Left><Left><Left>
 
 " new tab
-nnoremap <Tab>n :tabnew<Space>
-nnoremap <Tab>t :tabnew<Space>
-" go to next tab
-nnoremap <Tab>l gt
-nnoremap <Tab><Right> gt
-nnoremap <Tab>] gt
-" go to previous tab
-nnoremap <Tab>h gT
-nnoremap <Tab><Left> gT
-nnoremap <Tab>[ gT
+nnoremap <Leader>t :tabnew<Space>
+" previous tab
+nnoremap <Leader>[ gT
+nnoremap <Leader>ht gT
+" next tab
+nnoremap <Leader>] gt
+nnoremap <Leader>lt gt
 " move tab
-nnoremap <Tab>m :tabm<Space>
+nnoremap <Leader>mt :tabm<Space>
 
 " switch buffers
 nnoremap <Tab><Tab> <C-w><C-w>
@@ -131,23 +122,25 @@ nnoremap <Tab><Tab> <C-w><C-w>
 nnoremap <S-Tab> za
 
 " comment out lines
-nnoremap <silent> ;# :s:^:#:<CR>
-nnoremap <silent> ;3 :s:^:#:<CR>
-nnoremap <silent> ;/ :s:^://:<CR>
-nnoremap <silent> ;' :s:^:':<CR>
-nnoremap <silent> ;" :s:^:":<CR>
-nnoremap <silent> ;; :s:^:;:<CR>
-nnoremap <silent> ;% :s:^:%:<CR>
-vnoremap <silent> ;# :s:^:#:<CR>
-vnoremap <silent> ;3 :s:^:#:<CR>
-vnoremap <silent> ;/ :s:^://:<CR>
-vnoremap <silent> ;' :s:^:':<CR>
-vnoremap <silent> ;" :s:^:":<CR>
-vnoremap <silent> ;; :s:^:;:<CR>
-vnoremap <silent> ;% :s:^:%:<CR>
+nnoremap <silent> <Leader>/# :s:^:#:<CR>
+vnoremap <silent> <Leader>/# :s:^:#:<CR>
+nnoremap <silent> <Leader>/3 :s:^:#:<CR>
+vnoremap <silent> <Leader>/3 :s:^:#:<CR>
+nnoremap <silent> <Leader>// :s:^://:<CR>
+vnoremap <silent> <Leader>// :s:^://:<CR>
+nnoremap <silent> <Leader>/' :s:^:':<CR>
+vnoremap <silent> <Leader>/' :s:^:':<CR>
+nnoremap <silent> <Leader>/" :s:^:":<CR>
+vnoremap <silent> <Leader>/" :s:^:":<CR>
+nnoremap <silent> <Leader>/; :s:^:;:<CR>
+vnoremap <silent> <Leader>/; :s:^:;:<CR>
+nnoremap <silent> <Leader>/% :s:^:%:<CR>
+vnoremap <silent> <Leader>/% :s:^:%:<CR>
 
+" delete trailing whitespace
+nnoremap <Leader>dw :%s/\s\+$//<CR>
 " replace non-breaking space characters (for those accidental Opt+Spaces)
-nnoremap ;<space> :%s:[\u00A0]:\ :g<CR>
+nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :g<CR>
 
 " use the cut buffer register (accessible outside vim)
 vnoremap <silent> <C-x> "+x

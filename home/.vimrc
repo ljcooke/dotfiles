@@ -106,6 +106,7 @@ nnoremap <Leader>s/ :s/\v//g<Left><Left><Left>
 
 " new tab
 nnoremap <Leader>t :tabnew<Space>
+nnoremap <Leader>nt :tabnew<CR>
 " previous tab
 nnoremap <Leader>[ gT
 nnoremap <Leader>ht gT
@@ -176,6 +177,9 @@ if has('autocmd')
 
     " python
     autocmd FileType python inoremap :: <End>:
+
+    " css: sort properties alphabetically
+    autocmd FileType css nnoremap <Leader>S ?{<CR>jV/^\s*\}<CR>k:sort<CR>:noh<CR>
 
     " markdown
     autocmd FileType markdown setlocal

@@ -18,7 +18,7 @@ export HISTFILE='/dev/null'
 
 # python
 export PYTHONPATH="$HOME/lib/python"
-export PYTHONSTARTUP="$HOME/.pythonrc.py"
+export PYTHONSTARTUP="$HOME/.pythonrc"
 
 # pager
 export PAGER=less
@@ -64,7 +64,7 @@ function get_branch()
     [ -n "$b" ] && echo " [$b]";
 }
 
-function bash_prompt()
+function old_bash_prompt()
 {
     # title bar + blank line
     echo "\[\033]0;\w\$(get_branch)\007\]"
@@ -74,7 +74,7 @@ function bash_prompt()
     echo "${c1}${lvl}\$ ${c0}"
 }
 
-PS1="`bash_prompt`"
+PS1="\[\033]0;\w\007\]\n${c1}\u@\h ${c2}\w${c0}\n${c1}\$ ${c0}"
 PS2="$c1. $c0"
 #----------------------------------------------------------------------
 

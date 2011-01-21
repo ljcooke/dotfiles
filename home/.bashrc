@@ -154,8 +154,8 @@ scpr="$cpr -e 'ssh -4 -xac blowfish-cbc'"
 rsync_v="`rsync --version 2>/dev/null`"
 [ -n "`echo $rsync_v | grep xattrs`" ] && cpr="$cpr --xattrs"
 
-alias cpr="$cpr" ncpr="nice -n19 $cpr"
-alias scpr="$scpr" nscpr="nice -n19 $scpr"
+alias cpr="$cpr" ncpr="nice -n20 $cpr"
+alias scpr="$scpr" nscpr="nice -n20 $scpr"
 
 unset cpr scpr rsync_v
 #----------------------------------------------------------------------

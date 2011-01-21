@@ -71,7 +71,7 @@ set directory=~/.vim/tmp,/var/tmp/$USER
 " OS X stuff
 " TODO: figure out how to make this only apply to OS X
 set backupskip="/tmp/*,/private/tmp/*"
-set t_kb=ctrl-vBACKSPACE
+set t_kb=  " Ctrl-V Backspace
 fixdel
 
 " colour scheme + gui settings

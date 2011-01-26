@@ -91,6 +91,9 @@ endif
 " if I could pick just one shortcut...
 nnoremap <Space> :
 
+" type jj in insert mode to escape
+inoremap jj <Esc>
+
 " toggle paste mode
 set pastetoggle=<F4>
 

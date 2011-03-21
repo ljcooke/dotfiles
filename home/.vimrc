@@ -40,7 +40,7 @@ set scrolloff=2             " a few lines of offset when scrolling
 set mouse=a                 " allow mouse in all modes
 set shm=flmnrxoOstTI        " make some messages less verbose
 set noshortname             " don't use dos-style filenames
-set scrolloff=20            " keep the cursor near the middle
+set scrolloff=10            " keep the cursor near the middle
 
 " tabs + indentation
 set tabstop=4               " how existing tabs are displayed

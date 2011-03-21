@@ -46,36 +46,31 @@ esac
 #----------------------------------------------------------------------
 # prompt
 #----------------------------------------------------------------------
-case "$TERM" in
-dumb|vt100)
-    c0=''; c1=''; c2=''
-    ;;
-*)
-    c0="\[\033[0m\]"     # reset
-    c1="\[\033[1;30m\]"  # dark grey
-    c2="\[\033[0;40m\]"  # white on black
-    ;;
-esac
-
-function get_branch()
-{
-    # get the git branch -- http://gist.github.com/5129
-    b="$(git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
-    [ -n "$b" ] && echo " [$b]";
+function prompt_branch() {
+    # https://gist.github.com/790086
+    ref=$(git symbolic-ref -q HEAD 2> /dev/null) || return
+    printf "${1:- (%s)}" "${ref#refs/heads/}"
 }
-
-function old_bash_prompt()
+function prompt_setup()
 {
-    # title bar + blank line
-    echo "\[\033]0;\w\$(get_branch)\007\]"
-    # user@host /path [branch]
-    echo "${c1}\u@\h ${c2}\w${c1}\$(get_branch)${c0}"
-    # $
-    echo "${c1}${lvl}\$ ${c0}"
-}
+    local          RESET="\[\033[0m\]"
+    local      DARK_GREY="\[\033[1;30m\]"
+    local WHITE_ON_BLACK="\[\033[0;40m\]"
 
-PS1="\[\033]0;\w\007\]\n${c1}\u@\h ${c2}\w${c0}\n${c1}\$ ${c0}"
-PS2="$c1. $c0"
+    case "$TERM" in
+    dumb|vt100)
+        c0=''; c1=''; c2=''
+        ;;
+    *)
+        c0="$RESET"; c1="$DARK_GREY"; c2="$WHITE_ON_BLACK"
+        ;;
+    esac
+
+    PS1="\[\033]0;\w\007\]\n${c1}\u@\h ${c2}\w${c1}\$(prompt_branch)${c0}\n${c1}\$ ${c0}"
+    PS2="$c1> $c0"
+    PS4="$c1+ $c0"
+}
+prompt_setup
 #----------------------------------------------------------------------
 
 # ls colours

@@ -1,21 +1,51 @@
 #!/bin/bash
 
-# default arguments for rsync
+dest=$HOME/
 args="--archive --checksum --compress \
       --copy-links --exclude .git \
       --progress --verbose --human-readable"
 
+print()
+{
+    printf "%s\n" "$*"
+}
+
+print_help()
+{
+    print "usage: $0 [OPTIONS...]" && print
+    print "options:"
+    print "  -d=DEST  set the destination (default $dest)"
+    print "  -n       perform a trial run with no changes made"
+    print "  -h       show this help"
+}
+
 # read the command line arguments
-while getopts n option; do
+while getopts d:nh option; do
     case "$option" in
+        d)
+            dest="$OPTARG"
+            ;;
         n)
             args="$args --dry-run"
+            ;;
+        h)
+            print_help && exit
+            ;;
+        \?)
+            print "\n" && print_help && exit 1
+            ;;
     esac
 done
 
-# update the home directory
-rsync $args home/ "$HOME/"
+# ensure the destination ends in a slash (or colon, for a remote homedir)
+lastchar=${dest#${dest%?}}
+if [ "$lastchar" != '/' ] && [ "$lastchar" != ':' ]; then
+    dest=$dest/
+fi
+
+print "updating $dest"
+rsync $args home/ "$dest"
 
 # remove unwanted files from subdirectories
-rsync $args --delete-after home/.bash/ "$HOME/.bash/"
-rsync $args --delete-after --exclude 'tmp' home/.vim/ "$HOME/.vim/"
+rsync $args --delete-after home/.bash/ "${dest}.bash/"
+rsync $args --delete-after --exclude 'tmp' home/.vim/ "${dest}.vim/"

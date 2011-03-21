@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# default arguments for rsync
+args="--archive --checksum --compress \
+      --copy-links --exclude .git \
+      --progress --verbose --human-readable"
+
+# read the command line arguments
+while getopts n option; do
+    case "$option" in
+        n)
+            args="$args --dry-run"
+    esac
+done
+
+# update the home directory
+rsync $args home/ "$HOME/"
+
+# remove unwanted files from subdirectories
+rsync $args --delete-after home/.bash/ "$HOME/.bash/"
+rsync $args --delete-after --exclude 'tmp' home/.vim/ "$HOME/.vim/"

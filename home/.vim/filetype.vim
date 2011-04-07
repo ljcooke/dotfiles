@@ -9,6 +9,7 @@ au! BufRead,BufNewFile *.{text,markdown,mkd,mkdn,mdown,ronn} setfiletype markdow
 au! BufRead,BufNewFile *.ck setfiletype ck
 au! BufRead,BufNewFile *.fql setfiletype sql
 au! BufRead,BufNewFile *.{ldg,ledger} setfiletype ledger
+au! BufRead,BufNewFile *.sbg setfiletype conf
 au! BufRead,BufNewFile *.textile setfiletype textile
 
 au! BufRead,BufNewFile *.mako.html setfiletype mako

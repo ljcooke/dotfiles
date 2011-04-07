@@ -82,7 +82,7 @@ if has('gui_running')
     set mousehide
 
     set guifont=Menlo,Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
-    colors ir_black  "desert
+    colors solarized  " previously: ir_black, desert
 else
     colors elflord
 endif
@@ -211,6 +211,23 @@ if has('autocmd')
     autocmd BufNewFile *.{h,hpp} call <SID>template_h()
 
 endif  " has('autocmd')
+
+
+
+" invert the solarized theme
+
+function! ToggleBackground()
+    if (g:solarized_style=="dark")
+    let g:solarized_style="light"
+    colorscheme solarized
+else
+    let g:solarized_style="dark"
+    colorscheme solarized
+endif
+endfunction
+nnoremap <Leader>v :call ToggleBackground()<CR>
+inoremap <Leader>v <ESC>:call ToggleBackground()<CR>a
+vnoremap <Leader>v <ESC>:call ToggleBackground()<CR>
 
 
 

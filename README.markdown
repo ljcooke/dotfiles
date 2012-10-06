@@ -4,4 +4,4 @@ dotfiles
     git submodule init
     git submodule update
 
-    rsync -LOPhav home/ $HOME/ [--dry-run]
+    rsync -LOhav home/ $HOME/ [--dry-run]

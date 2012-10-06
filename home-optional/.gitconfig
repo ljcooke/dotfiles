@@ -1,5 +1,3 @@
-# vim:set noexpandtab nolist:
-
 [user]
 	name = <FULL_NAME>
 	email = <EMAIL>
@@ -7,7 +5,7 @@
 	excludesfile = /Users/<USER>/.gitignore
 	filemode = true
 	quotepath = false
-	fsyncobjectfiles = true  # possibly needed for Mac OS Extended?
+	fsyncobjectfiles = true
 [color]
 	ui = auto
 	diff = auto
@@ -23,5 +21,5 @@
 	co = checkout
 	log1 = log --oneline --decorate
 	low = !open 'http://www.youtube.com/watch?v=DQFCugSRjQQ'
-	s = status -s
+	st = status -s
 	whoops = reset --soft HEAD^

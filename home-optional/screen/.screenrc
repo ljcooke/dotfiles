@@ -23,10 +23,7 @@ hardstatus on
 hardstatus alwayslastline
 hardstatus string '%{= kK}%-Lw%{= KW}%50>%n%f %t%{= kK}%+Lw%< %{=kG}%-= %D %Y-%m-%d %c:%s%{-}'
 
-screen -t irc    0 irssi
-screen -t hey    1 bash
-screen -t sh     2 bash
-screen -t www    3 bash
-screen -t alch   4 bash
-screen -t hax    5 bash
+screen -t irc 0 irssi
+screen -t "" 1 bash
+screen -t "" 2 bash
 select 1

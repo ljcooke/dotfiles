@@ -122,15 +122,6 @@ if [ "$uname" = 'Darwin' ]; then
     function pman() { man -t $* | ps2pdf - - | open -f -a /Applications/Preview.app; }
 fi
 
-# git
-alias gb='git branch' gba='git branch -a'
-alias gc='git commit -v' gca='git commit -a'
-alias gd='git diff'
-alias gl='git pull'
-alias glog='git log --stat'
-alias gp='git push'
-alias gst='git status'
-
 #----------------------------------------------------------------------
 # rsync shortcut for backing up / mirroring files.
 #

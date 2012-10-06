@@ -1,0 +1,14 @@
+set   tabsize 4
+set   autoindent
+unset tabstospaces
+
+unset backup
+set   const            # show cursor position
+unset morespace
+set   nohelp
+set   nowrap
+set   smooth
+unset tempfile
+
+syntax "matrix" "$"
+color  green "."

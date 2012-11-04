@@ -77,7 +77,7 @@ fixdel
 
 " colour scheme + gui settings
 if has('gui_running')
-    set lines=40 columns=120
+    set lines=50 columns=120
     set go=aeimrL
     set mousehide
 

@@ -1,6 +1,15 @@
 " ensure useful vim-specific features are available
 set nocompatible
-scriptencoding utf8
+
+" use unicode
+if has("multi_byte")
+    if &termencoding == ""
+        let &termencoding = &encoding
+    endif
+    set encoding=utf-8
+    setglobal fileencoding=utf-8
+    scriptencoding utf8
+endif
 
 " enable syntax highlighting
 syntax on

@@ -180,6 +180,12 @@ nnoremap <Leader>>h :TOhtml<CR>:1s/HTML[^>]*/html/<CR>
 " buffer options
 if has('autocmd')
 
+    " override default filetypes
+    augroup FileTypeDetect
+        au! BufRead,BufNewFile *.m setfiletype objc
+        au! BufRead,BufNewFile *.md setfiletype markdown
+    augroup END
+
     " filetype-specific settings
     autocmd FileType make,sshconfig setlocal nolist noexpandtab
     autocmd FileType html,xhtml,htmldjango,php setlocal ts=2 sts=2 sw=2

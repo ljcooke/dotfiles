@@ -1,26 +1,34 @@
 [ -z "$PS1" ] && return  # return if not running interactively
+
 source /etc/profile >/dev/null
 
-# misc settings
 set -o emacs  # input style
 shopt -s checkwinsize  # check and update lines & cols after each cmd
 shopt -s cmdhist   # multiline commands saved in history as oneliners
 export EDITOR=vim
 export IGNOREEOF=0  # set to 1 to ignore accidental Ctrl-D's
 
-# locale
+#
+# Set the locale
+#
 export LC_ALL="en_IE.UTF-8"
 export LC_CTYPE=$LC_ALL LC_TIME=$LC_ALL LANG=$LC_ALL
 
-# history
+#
+# Don't save history on logout
+#
 export HISTCONTROL='ignoreboth:erasedups'
 export HISTFILE='/dev/null'
 
-# python
+#
+# Paths
+#
 export PYTHONPATH="$HOME/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
-# pager
+#
+# Pager
+#
 export PAGER=less
 export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -31,10 +39,24 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-# variables
+#
+# Check the OS
+#
 uname=$(uname)
+bsd=0
+mac=0
+mac_homebrew=0
+if [ "$uname" = Darwin ]; then
+    bsd=1
+    mac=1
+    if [ -n "$(which brew)" ]; then
+        mac_homebrew=1
+    fi
+fi
 
-# terminal title
+#
+# Set the terminal title
+#
 case "$TERM" in
 xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
@@ -44,9 +66,11 @@ xterm*|rxvt*)
 esac
 
 #----------------------------------------------------------------------
-# prompt
-#----------------------------------------------------------------------
-function prompt_branch() {
+#
+# Fancy prompt
+#
+function prompt_branch()
+{
     # https://gist.github.com/790086
     ref=$(git symbolic-ref -q HEAD 2> /dev/null) || return
     printf "${1:- (%s)}" "${ref#refs/heads/}"
@@ -73,57 +97,79 @@ function prompt_setup()
 prompt_setup
 #----------------------------------------------------------------------
 
-# ls colours
+#
+# ls colors
+#
 if [ "$TERM" != "dumb" ]; then
-    case "$uname" in
-    Darwin|FreeBSD)
+    if [ "$bsd" -eq 1 ]; then
         export CLICOLOR=1
         export LSCOLORS="ExFxCxDxBxegedabagacad"  # legible colours
-        ;;
-    *)
+    else
         if [ -n "`which dircolors`" ]; then
             eval "`dircolors -b`" 2>/dev/null
             alias ls='ls --color=auto' 2>/dev/null
         fi
-        ;;
-    esac
+    fi
 fi
 
-# shortcuts
-alias d='dict'
+#
+# Shortcuts
+#
 alias l='ls -Fhl'
 alias la='ls -AF'
 alias lc='ls -F'
 alias ll='ls -AFhl'
-alias m='mutt -y'
 alias s='screen -DRA && stty sane && echo'
-alias v='vim'
 
-# help me
-alias :e='vim'
-alias :q='logout'
-
-# `.. 3` will `cd ..` 3 times
-function .. () {
-    local arg=${1:-1}; while [ $arg -gt 0 ]; do
-        cd .. >&/dev/null; arg=$(($arg - 1))
+#
+# `.. 3` -> cd ../../..
+#
+function .. ()
+{
+    local newdir="$PWD"
+    local arg=${1:-1}
+    while [ $arg -gt 0 ]; do
+        newdir="$newdir/.."
+        arg=$(($arg - 1))
     done
+    cd "$newdir"
 }
 
-# create directories and cd to the first one
-function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1"; }
+#
+# Create one or more directories and cd to the first one
+#
+function mkcd()
+{
+    [ -n "$1" ] && mkdir -p "$@" && cd "$1"
+}
 
-# calculator
-function calc() { [ -z "$@" ] && bc -ql || echo "$@" | bc -l; }
-
-# open man pages in vim and Preview
-function vman() { MANWIDTH=100 MANPAGER='col -bx' man $@ | vim -; }
-if [ "$uname" = 'Darwin' ]; then
-    function pman() { man -t $* | ps2pdf - - | open -f -a /Applications/Preview.app; }
-fi
+#
+# Calculator
+#
+function calc()
+{
+    [ -z "$@" ] && bc -ql || echo "$@" | bc -l
+}
 
 #----------------------------------------------------------------------
-# rsync shortcut for backing up / mirroring files.
+#
+# Open man pages in vim and Preview
+#
+function vman() {
+    MANWIDTH=100 MANPAGER='col -bx' man $@ | vim -
+}
+
+if [ $mac -eq 1 ]; then
+    function pman()
+    {
+        man -t $* | ps2pdf - - | open -f -a /Applications/Preview.app
+    }
+fi
+#----------------------------------------------------------------------
+
+#----------------------------------------------------------------------
+#
+# rsync shortcut for backing up or mirroring files.
 #
 # 'cpr src/ dest/' will copy files from src to dest. Note the trailing
 # slash after src -- if this is omitted, the command will look for or
@@ -131,38 +177,31 @@ fi
 #
 # Replace 'cpr' with 'scpr' when transferring between servers.
 # To run with low priority, prepend 'n' to the command.
-#----------------------------------------------------------------------
+#
 cpr="rsync -Phavz --modify-window=1 \
-        --exclude '*.swp' \
+        --exclude '*.swp' --exclude '.DS_Store' \
         --exclude '.Trashes' --exclude '.fseventsd'"
 scpr="$cpr -e 'ssh -4 -xac blowfish-cbc'"
 
-rsync_v="`rsync --version 2>/dev/null`"
-[ -n "`echo $rsync_v | grep xattrs`" ] && cpr="$cpr --xattrs"
+if [ $mac -eq 1 ]; then
+    if [ -n "$(rsync --version 2>/dev/null | grep xattrs)" ]; then
+        cpr="$cpr --xattrs"
+    fi
+fi
 
 alias cpr="$cpr" ncpr="nice -n20 $cpr"
 alias scpr="$scpr" nscpr="nice -n20 $scpr"
 
-unset cpr scpr rsync_v
+unset cpr scpr
 #----------------------------------------------------------------------
 
-# colour diff for scm/vcs
-# requires: colordiff
-function dif {
-    for scm in git hg; do
-        if [ -d ".$scm" ]; then
-            $scm diff $1 | colordiff | less -R
-            return 0
-        fi
-    done
-    echo 'cannot find SCM type'
-    return 1
-}
-
-# zfs
+#
+# ZFS
+#
 alias zlist='zfs list -t filesystem'
 alias zim='zpool import' zex='zpool export'
-function zshot() {
+function zshot()
+{
     if [ -n "$1" ]; then
         zfs snapshot "$1@`date +%Y-%m-%d-%H%M`"
     else
@@ -170,25 +209,26 @@ function zshot() {
     fi
 }
 
-if [ ! "$uname" = 'SunOS' ]; then
-    # bash completion
-    for f in /usr/local/etc/bash_completion /etc/bash_completion "$HOME/.bash/bash_completion"
-    do
-        if [ -e "$f" ]; then
-            source "$f"
-            break
-        fi
-    done
-
-    # more scripts in ~/.bash/
-    source "$HOME/.bash/gitcomplete"
-
-    # homebrew
-    if [ -n "$(which brew)" ]; then
-        bc="/usr/local/Library/Contributions/brew_bash_completion.sh"
-        [ -e $bc ] && source $bc
+#
+# Bash completion
+#
+for f in /usr/local/etc/bash_completion /etc/bash_completion "$HOME/.bash/bash_completion"
+do
+    if [ -e "$f" ]; then
+        source "$f"
+        break
     fi
+done
+type -t __git_complete >/dev/null || source "$HOME/.bash/gitcomplete"
+
+#
+# Read machine-specific settings from ~/.bashrc.local
+#
+if [ -e "$HOME/.bashrc.local" ]; then
+    source "$HOME/.bashrc.local"
 fi
 
-# store machine-specific settings in ~/.bashrc.local
-[ -e "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
+#
+# Tidy up
+#
+unset uname bsd mac mac_homebrew

@@ -52,6 +52,8 @@ if [ "$uname" = Darwin ]; then
     if [ -n "$(which brew)" ]; then
         mac_homebrew=1
     fi
+elif [ "$uname" = FreeBSD ]; then
+    bsd=1
 fi
 
 #

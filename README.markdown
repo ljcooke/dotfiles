@@ -18,4 +18,4 @@ Update modules
 Copy files to home folder
 -------------------------
 
-    rsync -LOhavc home/ $HOME/ [--dry-run]
+    rsync -FLOhavc home/ $HOME/ [--dry-run]

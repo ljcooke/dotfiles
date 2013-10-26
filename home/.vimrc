@@ -11,6 +11,9 @@ if has("multi_byte")
     scriptencoding utf8
 endif
 
+" see modules/vim-pathogen
+call pathogen#infect()
+
 " enable syntax highlighting
 syntax on
 

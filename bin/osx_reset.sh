@@ -20,8 +20,9 @@ defaults write com.apple.dock workspaces-swoosh-animation-off -bool YES
 # Show hidden files/folders
 chflags nohidden ~/Library
 
-# Fix the unicode bug in QuickLook. http://mths.be/bbo
-# via https://github.com/mathiasbynens/dotfiles/blob/master/.osx
-# (Note: the :2 seems to correspond to British English in the Languages & Text
-#  preferences. Use :0 for American English.)
-echo '0x08000100:2' > ~/.CFUserTextEncoding
+# Unicode bug -- fixed in Mountain Lion?
+    # Fix the unicode bug in QuickLook. http://mths.be/bbo
+    # via https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+    # (Note: the :2 seems to correspond to British English in the Languages & Text
+    #  preferences. Use :0 for American English.)
+    #echo '0x08000100:2' > ~/.CFUserTextEncoding

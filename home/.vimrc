@@ -1,6 +1,13 @@
 " ensure useful vim-specific features are available
 set nocompatible
 
+" determine the os
+if has('unix')
+    let s:uname = system('echo -n "$(uname -s)"')
+else
+    let s:uname = ''
+end
+
 " use unicode
 if has("multi_byte")
     if &termencoding == ""
@@ -82,19 +89,25 @@ nnoremap <Leader><Tab>8 :setlocal tabstop=8 softtabstop=8 shiftwidth=8<CR>
 set directory=~/.vim/tmp,/var/tmp/$USER
 
 " OS X stuff
-" TODO: figure out how to make this only apply to OS X
-set backupskip=/tmp/*,/private/tmp/*
-set t_kb=  " Ctrl-V Backspace
-fixdel
+if s:uname == 'Darwin'
+    set backupskip=/tmp/*,/private/tmp/*
+    set t_kb=  " Ctrl-V Backspace
+    fixdel
+end
 
 " colour scheme + gui settings
 if has('gui_running')
-    set lines=50 columns=120
+    set lines=48 columns=120
     set go=aeimrL
     set mousehide
 
-    set guifont=Source\ Code\ Pro,Menlo,Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
-    colors solarized  " previously: ir_black, desert
+    if s:uname == 'Darwin'
+        set guifont=SourceCodePro-Medium:h12,Menlo
+    else
+        set guifont=Source\ Code\ Pro\ Medium\ 12,Inconsolata,DejaVu\ Sans\ Mono\ 11,Terminal
+    end
+
+    colors solarized
 else
     colors elflord
 endif

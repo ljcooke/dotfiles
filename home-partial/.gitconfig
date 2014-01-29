@@ -1,0 +1,33 @@
+[color]
+	ui = auto
+	diff = auto
+	branch = auto
+	status = auto
+[diff]
+	renames = copies
+[alias]
+	bb = branch -a -v
+	br = branch
+	co = checkout
+	lg = log --decorate=short --date-order --graph
+	lt = log --decorate=short --graph
+	ll = log --decorate=short --date-order
+	lf = log --follow
+	mm = merge --no-ff
+	ff = merge --ff-only
+	st = status
+	pick = cherry-pick
+	added  = diff --cached
+	cached = diff --cached
+	staged = diff --cached
+	unadd = reset HEAD --
+	oops  = reset --soft HEAD^
+	sho = show
+	shoe = show
+	stashed = stash list
+	tidy  = !git clean -df && git checkout -- .
+	tidyn = clean -df -n
+	when = blame
+	initcommit = !git init && git commit -m Init --allow-empty
+[push]
+	default = current

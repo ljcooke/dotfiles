@@ -37,6 +37,9 @@ endif
 " set the <Leader> key, for user-specific mappings
 let mapleader=';'
 
+" color scheme (for non-GUI vim)
+colors elflord
+
 " general settings
 set ttyfast                 " using a fast connection
 set cmdheight=1             " command line height
@@ -94,25 +97,6 @@ if s:uname == 'Darwin'
     set t_kb=  " Ctrl-V Backspace
     fixdel
 end
-
-" colour scheme + gui settings
-if has('gui_running')
-    set lines=48 columns=120
-    set go=aeimrL
-    set mousehide
-
-    if s:uname == 'Darwin'
-        set guifont=SourceCodePro-Medium:h12,Menlo
-    else
-        set guifont=Source\ Code\ Pro\ Medium\ 12,Inconsolata,DejaVu\ Sans\ Mono\ 11,Terminal
-    end
-
-    colors solarized
-else
-    colors elflord
-endif
-
-
 
 " if I could pick just one shortcut...
 nnoremap <Space> :

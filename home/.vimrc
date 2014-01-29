@@ -93,7 +93,7 @@ if has('gui_running')
     set go=aeimrL
     set mousehide
 
-    set guifont=Menlo,Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
+    set guifont=Source\ Code\ Pro,Menlo,Inconsolata,Andale\ Mono\ 11,DejaVu\ Sans\ Mono\ 11,Terminal
     colors solarized  " previously: ir_black, desert
 else
     colors elflord

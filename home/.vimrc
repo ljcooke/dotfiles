@@ -87,6 +87,8 @@ set expandtab list
 set number numberwidth=4 foldcolumn=0
 set nospell spelllang=en
 
+let s:editingMode = 'Code'
+
 function! s:editingCode()
     setlocal formatoptions=crqnl1j
     setlocal textwidth=0 wrap
@@ -98,6 +100,8 @@ function! s:editingCode()
         " remove all autocommands defined in this group
         au!
     augroup END
+
+    let s:editingMode = 'Code'
 endfunction
 
 function! s:editingProse()
@@ -116,11 +120,21 @@ function! s:editingProse()
 
         highlight FoldColumn guibg=bg
     augroup END
+
+    let s:editingMode = 'Prose'
 endfunction
 
-nnoremap <silent> <Leader>ec :call <SID>editingCode()<CR>:echo 'Code'<CR>
-nnoremap <silent> <Leader>et :call <SID>editingProse()<CR>:echo 'Prose'<CR>
-nnoremap <silent> <Leader>ep :call <SID>editingProse()<CR>:echo 'Prose'<CR>
+function s:cycleEditingModes()
+    if s:editingMode == 'Code'
+        call s:editingProse()
+    else
+        call s:editingCode()
+    endif
+
+    echo s:editingMode
+endfunction
+
+nnoremap <Leader>ee :call <SID>cycleEditingModes()<CR>
 
 
 "=====================================================================

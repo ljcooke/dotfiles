@@ -113,6 +113,8 @@ function! s:editingProse()
         " format text automatically in insert mode
         autocmd InsertEnter * set formatoptions+=a
         autocmd InsertLeave * set formatoptions-=a
+
+        highlight FoldColumn guibg=bg
     augroup END
 endfunction
 

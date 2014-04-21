@@ -55,7 +55,6 @@ set showmatch               " highlight matching brackets when typing
 set ignorecase smartcase    " ignorecase implied if search string is lowercase
 set viminfo=""              " don't use a viminfo file
 set nobackup writebackup    " temporary backup before writing
-set textwidth=0 wrap nojs linebreak   " text width (use gqap to wrap)
 set showtabline=1           " show tabs if more than 1
 set bs=eol,start,indent     " allow backspacing over everything
 set scrolloff=2             " a few lines of offset when scrolling
@@ -63,7 +62,6 @@ set mouse=a                 " allow mouse in all modes
 set shm=flmnrxoOstTI        " make some messages less verbose
 set noshortname             " don't use dos-style filenames
 set scrolloff=10            " keep the cursor near the middle
-set nospell spelllang=en    " spellcheck
 
 
 " keep swap files in a separate location (mainly to keep Dropbox from going nuts)
@@ -83,23 +81,18 @@ end
 "
 "=====================================================================
 
+set formatoptions=crqnl1j  " see :help fo-table
+set textwidth=0 wrap nojoinspaces linebreak
+set expandtab list
+set number numberwidth=4 foldcolumn=0
+set nospell spelllang=en
+
 function! s:editingCode()
-    setlocal formatoptions=crqnl1j  " see :help fo-table
+    setlocal formatoptions=crqnl1j
     setlocal textwidth=0 wrap
     setlocal expandtab list
     setlocal number numberwidth=4 foldcolumn=0
     setlocal nospell
-
-    setlocal tabstop=4                   " how existing tabs are displayed
-    setlocal softtabstop=4               " tabs in insert mode
-    setlocal shiftwidth=4 shiftround     " indent operations
-    setlocal autoindent smartindent
-
-    if &encoding == 'utf-8'
-        setlocal listchars=tab:·\ ,trail:.
-    else
-        setlocal listchars=tab:>\ ,trail:.
-    endif
 
     augroup CustomEditingMode
         " remove all autocommands defined in this group
@@ -123,11 +116,9 @@ function! s:editingProse()
     augroup END
 endfunction
 
-nnoremap <silent> <Leader>ec :call <SID>editingCode()<CR>
-nnoremap <silent> <Leader>et :call <SID>editingProse()<CR>
-nnoremap <silent> <Leader>ep :call <SID>editingProse()<CR>
-
-call s:editingCode()
+nnoremap <silent> <Leader>ec :call <SID>editingCode()<CR>:echo 'Code'<CR>
+nnoremap <silent> <Leader>et :call <SID>editingProse()<CR>:echo 'Prose'<CR>
+nnoremap <silent> <Leader>ep :call <SID>editingProse()<CR>:echo 'Prose'<CR>
 
 
 "=====================================================================
@@ -135,6 +126,17 @@ call s:editingCode()
 " Spaces and tabs
 "
 "=====================================================================
+
+set tabstop=4                   " how existing tabs are displayed
+set softtabstop=4               " tabs in insert mode
+set shiftwidth=4 shiftround     " indent operations
+set autoindent smartindent
+
+if &encoding == 'utf-8'
+    set listchars=tab:·\ ,trail:.
+else
+    set listchars=tab:>\ ,trail:.
+endif
 
 " temporarily turn off expandtab
 nnoremap <Leader><Tab>t :setlocal nolist noexpandtab<CR>

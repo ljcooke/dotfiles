@@ -63,30 +63,8 @@ set mouse=a                 " allow mouse in all modes
 set shm=flmnrxoOstTI        " make some messages less verbose
 set noshortname             " don't use dos-style filenames
 set scrolloff=10            " keep the cursor near the middle
+set nospell spelllang=en    " spellcheck
 
-" tabs + indentation
-set tabstop=4               " how existing tabs are displayed
-set softtabstop=4           " tabs in insert mode
-set shiftwidth=4            " for indent operations
-set shiftround              " round indent to a multiple of shiftwidth
-set ai si                   " autoindent + smartindent
-
-" expand tabs to spaces, and show tab characters and trailing whitespace
-set expandtab list
-if &encoding == 'utf-8'
-    set listchars=tab:·\ ,trail:.
-else
-    set listchars=tab:>\ ,trail:.
-endif
-
-" temporarily turn off expandtab
-nnoremap <Leader><Tab>t :setlocal nolist noexpandtab<CR>
-nnoremap <Leader><Tab>s :setlocal list expandtab<CR>
-
-" temporarily change tab size
-nnoremap <Leader><Tab>2 :setlocal tabstop=2 softtabstop=2 shiftwidth=2<CR>
-nnoremap <Leader><Tab>4 :setlocal tabstop=4 softtabstop=4 shiftwidth=4<CR>
-nnoremap <Leader><Tab>8 :setlocal tabstop=8 softtabstop=8 shiftwidth=8<CR>
 
 " keep swap files in a separate location (mainly to keep Dropbox from going nuts)
 set directory=~/.vim/tmp,/var/tmp/$USER
@@ -98,6 +76,88 @@ if s:uname == 'Darwin'
     fixdel
 end
 
+
+"=====================================================================
+"
+" Editing code vs prose
+"
+"=====================================================================
+
+function! s:editingCode()
+    setlocal formatoptions=crqnl1j  " see :help fo-table
+    setlocal textwidth=0 wrap
+    setlocal expandtab list
+    setlocal number numberwidth=4 foldcolumn=0
+    setlocal nospell
+
+    setlocal tabstop=4                   " how existing tabs are displayed
+    setlocal softtabstop=4               " tabs in insert mode
+    setlocal shiftwidth=4 shiftround     " indent operations
+    setlocal autoindent smartindent
+
+    if &encoding == 'utf-8'
+        setlocal listchars=tab:·\ ,trail:.
+    else
+        setlocal listchars=tab:>\ ,trail:.
+    endif
+
+    augroup CustomEditingMode
+        " remove all autocommands defined in this group
+        au!
+    augroup END
+endfunction
+
+function! s:editingProse()
+    setlocal formatoptions=t1
+    setlocal textwidth=74 nowrap
+    setlocal noexpandtab nolist
+    setlocal nonumber foldcolumn=4
+    setlocal nospell
+
+    augroup CustomEditingMode
+        au!
+
+        " format text automatically in insert mode
+        autocmd InsertEnter * set formatoptions+=a
+        autocmd InsertLeave * set formatoptions-=a
+    augroup END
+endfunction
+
+nnoremap <silent> <Leader>ec :call <SID>editingCode()<CR>
+nnoremap <silent> <Leader>et :call <SID>editingProse()<CR>
+nnoremap <silent> <Leader>ep :call <SID>editingProse()<CR>
+
+call s:editingCode()
+
+
+"=====================================================================
+"
+" Spaces and tabs
+"
+"=====================================================================
+
+" temporarily turn off expandtab
+nnoremap <Leader><Tab>t :setlocal nolist noexpandtab<CR>
+nnoremap <Leader><Tab>s :setlocal list expandtab<CR>
+
+" temporarily change tab size
+nnoremap <Leader><Tab>2 :setlocal tabstop=2 softtabstop=2 shiftwidth=2<CR>
+nnoremap <Leader><Tab>4 :setlocal tabstop=4 softtabstop=4 shiftwidth=4<CR>
+nnoremap <Leader><Tab>8 :setlocal tabstop=8 softtabstop=8 shiftwidth=8<CR>
+
+" delete trailing spaces
+nnoremap <Leader>dw :%s/\s\+$//<CR>
+
+" replace non-breaking space characters
+nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :g<CR>
+
+
+"=====================================================================
+"
+" Misc shortcuts
+"
+"=====================================================================
+
 " if I could pick just one shortcut...
 nnoremap <Space> :
 
@@ -107,8 +167,10 @@ inoremap jj <Esc>
 " toggle paste mode
 set pastetoggle=<F4>
 
-" toggle line numbers
-nnoremap <silent> <F2> :set nonumber!<CR>
+" toggle settings
+nnoremap <silent> <Leader>!n :set number!<CR>
+nnoremap <silent> <Leader>!s :set spell!<CR>
+nnoremap <silent> <Leader>!/ :set hlsearch!<CR>
 
 " select all
 nnoremap <Leader>sa ggVG
@@ -151,11 +213,6 @@ vnoremap <silent> <Leader>/; :s:^:;:<CR>
 nnoremap <silent> <Leader>/% :s:^:%:<CR>
 vnoremap <silent> <Leader>/% :s:^:%:<CR>
 
-" delete trailing whitespace
-nnoremap <Leader>dw :%s/\s\+$//<CR>
-" replace non-breaking space characters (for those accidental Opt+Spaces)
-nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :g<CR>
-
 " use the cut buffer register (accessible outside vim)
 vnoremap <silent> <C-x> "+x
 vnoremap <silent> <C-c> "+y
@@ -175,76 +232,57 @@ nnoremap <Leader>v V`]
 " convert to html (and use the HTML5 doctype)
 nnoremap <Leader>>h :TOhtml<CR>:1s/HTML[^>]*/html/<CR>
 
+" wrap a paragraph
+nnoremap <Leader>q gqap
 
 
-" buffer options
-if has('autocmd')
+"=====================================================================
+"
+" Buffer options
+"
+"=====================================================================
 
-    " override default filetypes
-    augroup FileTypeDetect
-        au! BufRead,BufNewFile *.m setfiletype objc
-        au! BufRead,BufNewFile *.md setfiletype markdown
-    augroup END
+" override default filetypes
+augroup FileTypeDetect
+    au! BufRead,BufNewFile *.m setfiletype objc
+    au! BufRead,BufNewFile *.md setfiletype markdown
+augroup END
 
-    " filetype-specific settings
-    autocmd FileType make,sshconfig setlocal nolist noexpandtab
-    autocmd FileType html,xhtml,htmldjango,php setlocal ts=2 sts=2 sw=2
-    autocmd FileType php setlocal autoindent smartindent
-    autocmd FileType *tex setlocal textwidth=78
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2
+" filetype-specific settings
+autocmd FileType make,sshconfig setlocal nolist noexpandtab
+autocmd FileType html,xhtml,htmldjango,php setlocal ts=2 sts=2 sw=2
+autocmd FileType php setlocal autoindent smartindent
+autocmd FileType text setlocal textwidth=78
+autocmd FileType tex,plaintex setlocal textwidth=78
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 
-    " known filetypes with unrecognised extensions
-    autocmd BufRead *.less setlocal ft=css
-    autocmd BufRead *.plist setlocal ft=xml
+" known filetypes with unrecognised extensions
+autocmd BufRead *.less setlocal ft=css
+autocmd BufRead *.plist setlocal ft=xml
 
-    " .cue sheet
-    autocmd BufRead *.cue setlocal ts=2 softtabstop=2 shiftwidth=2
+" .cue sheet
+autocmd BufRead *.cue setlocal ts=2 softtabstop=2 shiftwidth=2
 
-    " python
-    autocmd FileType python inoremap :: <End>:
+" python
+autocmd FileType python inoremap :: <End>:
 
-    " css: sort properties alphabetically
-    autocmd FileType css nnoremap <Leader>S ?{<CR>jV/^\s*\}<CR>k:sort<CR>:noh<CR>
+" css: sort properties alphabetically
+autocmd FileType css nnoremap <Leader>S ?{<CR>jV/^\s*\}<CR>k:sort<CR>:noh<CR>
 
-    " markdown
-    autocmd FileType markdown setlocal
-    \   ai nosi tw=78 formatoptions=tcroqn2 comments=n:>
+" markdown
+autocmd FileType markdown setlocal ai nosi tw=78 formatoptions=tcroqn2 comments=n:>
 
-    " files with yaml front matter
-    " http://www.codeography.com/2010/02/20/making-vim-play-nice-with-jekylls-yaml-front-matter.html
-    autocmd FileType markdown,textile syntax match Comment /\%^---\_.\{-}---$/
+" files with yaml front matter
+" http://www.codeography.com/2010/02/20/making-vim-play-nice-with-jekylls-yaml-front-matter.html
+autocmd FileType markdown,textile syntax match Comment /\%^---\_.\{-}---$/
 
-    " C/C++ header file template
-    " http://vim.wikia.com/wiki/Automatic_insertion_of_C/C%2B%2B_header_gates
-    function! s:template_h()
-        let gatename = '__'.substitute(toupper(expand('%:t')), '\.', '_', 'g')
-        execute "normal! i#ifndef " . gatename
-        execute "normal! o#define " . gatename
-        execute "normal! Go#endif /* " . gatename . " */"
-        normal! O
-    endfunction
-    autocmd BufNewFile *.{h,hpp} call <SID>template_h()
-
-endif  " has('autocmd')
-
-
-
-" invert the solarized theme
-
-function! ToggleBackground()
-    if (g:solarized_style=="dark")
-    let g:solarized_style="light"
-    colorscheme solarized
-else
-    let g:solarized_style="dark"
-    colorscheme solarized
-endif
+" C/C++ header file template
+" http://vim.wikia.com/wiki/Automatic_insertion_of_C/C%2B%2B_header_gates
+function! s:template_h()
+    let gatename = '__'.substitute(toupper(expand('%:t')), '\.', '_', 'g')
+    execute "normal! i#ifndef " . gatename
+    execute "normal! o#define " . gatename
+    execute "normal! Go#endif /* " . gatename . " */"
+    normal! O
 endfunction
-nnoremap <Leader>v :call ToggleBackground()<CR>
-inoremap <Leader>v <ESC>:call ToggleBackground()<CR>a
-vnoremap <Leader>v <ESC>:call ToggleBackground()<CR>
-
-
-
-if has('python')
-end
+autocmd BufNewFile *.{h,hpp} call <SID>template_h()

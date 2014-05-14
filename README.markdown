@@ -10,10 +10,7 @@ Initial setup
 Update modules
 --------------
 
-    git pull --recurse-submodules
-    git submodule update --recursive
-    git submodule foreach 'git checkout master && git pull'
-    git submodule status
+    bin/update.sh
 
 Copy files to home folder
 -------------------------

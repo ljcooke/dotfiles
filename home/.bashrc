@@ -71,13 +71,25 @@ esac
 #
 # Fancy prompt
 #
-function prompt_branch()
+function __inky_prompt_branch()
 {
     # https://gist.github.com/790086
     ref=$(git symbolic-ref -q HEAD 2> /dev/null) || return
     printf "${1:- (%s)}" "${ref#refs/heads/}"
 }
-function prompt_setup()
+function __inky_line1chars()
+{
+    s[0]="╭"
+    s[1]="╮"
+    printf "%s%s" ${s[ $RANDOM % 2 ]} ${s[ $RANDOM % 2]}
+}
+function __inky_line2chars()
+{
+    s[0]="╯"
+    s[1]="╰"
+    printf "%s%s" ${s[ $RANDOM % 2 ]} ${s[ $RANDOM % 2]}
+}
+function __inky_prompt_setup()
 {
     # colors: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
     local RESET="\[\033[0m\]"
@@ -98,18 +110,22 @@ function prompt_setup()
     esac
 
     local line0="\[\033]0;\w\007\]\n"
-    local line1="${c_user}\u@\h${c0} ${c_pwd}\w${c_git}\$(prompt_branch)"
+    local line1="${c_user}\u@\h${c0} ${c_pwd}\w${c_git}\$(__inky_prompt_branch)"
     local line2="${c_prompt}\$"
+    local lfill=""
 
-    #local UTF8=$(echo $LANG | grep UTF-8)
-    #if [ -n "$UTF8" ]; then
-    #fi
+    local UTF8=$(echo $LANG | grep UTF-8)
+    if [ -n "$UTF8" ]; then
+        line1="${c0}\$(__inky_line1chars) $line1"
+        line2="${c0}\$(__inky_line2chars) $line2"
+        lfill="   "
+    fi
 
     PS1="${line0}${line1}${c0}\n${line2}${c0} "
-    PS2="${c_prompt}>${c0} "
-    PS4="${c_prompt}+${c0} "
+    PS2="${lfill}${c_prompt}>${c0} "
+    PS4="${lfill}${c_prompt}+${c0} "
 }
-prompt_setup
+__inky_prompt_setup
 #----------------------------------------------------------------------
 
 #

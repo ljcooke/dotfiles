@@ -79,15 +79,17 @@ function __inky_prompt_branch()
 }
 function __inky_line1chars()
 {
-    s[0]="╭"
-    s[1]="╮"
-    printf "%s%s" ${s[ $RANDOM % 2 ]} ${s[ $RANDOM % 2]}
+    local s[0]="╭"
+    local s[1]="╮"
+    local s[2]="╷"
+    printf "%s%s" ${s[ $RANDOM % 3 ]} ${s[ $RANDOM % 3 ]}
 }
 function __inky_line2chars()
 {
-    s[0]="╯"
-    s[1]="╰"
-    printf "%s%s" ${s[ $RANDOM % 2 ]} ${s[ $RANDOM % 2]}
+    local s[0]="╯"
+    local s[1]="╰"
+    local s[2]="╵"
+    printf "%s%s" ${s[ $RANDOM % 3 ]} ${s[ $RANDOM % 3 ]}
 }
 function __inky_prompt_setup()
 {

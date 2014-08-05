@@ -79,22 +79,35 @@ function prompt_branch()
 }
 function prompt_setup()
 {
-    local          RESET="\[\033[0m\]"
-    local      DARK_GREY="\[\033[1;30m\]"
-    local WHITE_ON_BLACK="\[\033[0;40m\]"
+    # colors: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
+    local RESET="\[\033[0m\]"
+    local BROWN="\[\033[0;33m\]"
+    local CYAN="\[\033[0;36m\]"
 
     case "$TERM" in
     dumb|vt100)
-        c0=''; c1=''; c2=''
+        c0=''; c_user=''; c_pwd=''; c_git=''; c_prompt=''
         ;;
     *)
-        c0="$RESET"; c1="$DARK_GREY"; c2="$WHITE_ON_BLACK"
+        c0="$RESET"
+        c_user="$BROWN"
+        c_pwd="$CYAN"
+        c_git="$RESET"
+        c_prompt="$BROWN"
         ;;
     esac
 
-    PS1="\[\033]0;\w\007\]\n${c1}\u@\h ${c2}\w${c1}\$(prompt_branch)${c0}\n${c1}\$ ${c0}"
-    PS2="$c1> $c0"
-    PS4="$c1+ $c0"
+    local line0="\[\033]0;\w\007\]\n"
+    local line1="${c_user}\u@\h${c0} ${c_pwd}\w${c_git}\$(prompt_branch)"
+    local line2="${c_prompt}\$"
+
+    #local UTF8=$(echo $LANG | grep UTF-8)
+    #if [ -n "$UTF8" ]; then
+    #fi
+
+    PS1="${line0}${line1}${c0}\n${line2}${c0} "
+    PS2="${c_prompt}>${c0} "
+    PS4="${c_prompt}+${c0} "
 }
 prompt_setup
 #----------------------------------------------------------------------

@@ -111,7 +111,7 @@ function __inky_prompt_setup()
         ;;
     esac
 
-    local line0="\[\033]0;\w\007\]\n"
+    local line0="\[\033]0;\W\007\]\n"
     local line1="${c_user}\u@\h${c0} ${c_pwd}\w${c_git}\$(__inky_prompt_branch)"
     local line2="${c_prompt}\$"
     local lfill=""

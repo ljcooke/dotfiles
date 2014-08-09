@@ -73,9 +73,11 @@ esac
 #
 function __inky_prompt_branch()
 {
-    # https://gist.github.com/790086
-    ref=$(git symbolic-ref -q HEAD 2> /dev/null) || return
-    printf "${1:- (%s)}" "${ref#refs/heads/}"
+    if [ -d .git ] || [ -e HEAD ]; then
+        # https://gist.github.com/790086
+        ref=$(git symbolic-ref -q HEAD 2> /dev/null) || return
+        printf "${1:- (%s)}" "${ref#refs/heads/}"
+    fi
 }
 function __inky_line1chars()
 {

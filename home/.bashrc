@@ -236,7 +236,7 @@ unset cpr scpr
 function __inky_tmux_attach()
 {
     [ -n "$1" ] && session=$1 || session=main
-    tmux attach-session -t "$session" || tmux new-session -s "$session"
+    tmux attach-session -d -t "$session" || tmux new-session -s "$session"
 }
 alias s='__inky_tmux_attach'
 

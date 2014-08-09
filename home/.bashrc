@@ -154,7 +154,7 @@ alias l='ls -Fhl'
 alias la='ls -AF'
 alias lc='ls -F'
 alias ll='ls -AFhl'
-alias s='screen -DRA && stty sane && echo'
+alias screen-attach='screen -DRA && stty sane && echo'
 
 #
 # `.. 3` -> cd ../../..
@@ -231,18 +231,14 @@ unset cpr scpr
 #----------------------------------------------------------------------
 
 #
-# ZFS
+# tmux
 #
-alias zlist='zfs list -t filesystem'
-alias zim='zpool import' zex='zpool export'
-function zshot()
+function __inky_tmux_attach()
 {
-    if [ -n "$1" ]; then
-        zfs snapshot "$1@`date +%Y-%m-%d-%H%M`"
-    else
-        zfs list -t snapshot
-    fi
+    [ -n "$1" ] && session=$1 || session=main
+    tmux attach-session -t "$session" || tmux new-session -s "$session"
 }
+alias s='__inky_tmux_attach'
 
 #
 # Bash completion

@@ -283,7 +283,7 @@ autocmd FileType python inoremap :: <End>:
 autocmd FileType css nnoremap <Leader>S ?{<CR>jV/^\s*\}<CR>k:sort<CR>:noh<CR>
 
 " markdown
-autocmd FileType markdown setlocal ai nosi tw=78 formatoptions=tcroqn2 comments=n:>
+autocmd FileType markdown setlocal ai nosi tw=78 fo=tcroqn2 com=n:> ts=2 sts=2 sw=2
 
 " files with yaml front matter
 " http://www.codeography.com/2010/02/20/making-vim-play-nice-with-jekylls-yaml-front-matter.html

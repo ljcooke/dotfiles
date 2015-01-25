@@ -253,6 +253,10 @@ nnoremap <Leader>>h :TOhtml<CR>:1s/HTML[^>]*/html/<CR>
 " wrap a paragraph
 nnoremap <Leader>q gqap
 
+" skip between sections in markdown files
+autocmd FileType markdown nnoremap ]] /^[-=]<CR>
+autocmd FileType markdown nnoremap [[ ?^[-=]<CR>
+
 
 "=====================================================================
 "

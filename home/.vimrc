@@ -266,7 +266,7 @@ autocmd FileType markdown nnoremap [[ ?^[-=]<CR>
 
 " override default filetypes
 " filetype-specific settings
-autocmd FileType make,sshconfig setlocal nolist noexpandtab
+autocmd FileType go,make,sshconfig setlocal nolist noexpandtab
 autocmd FileType html,xhtml,htmldjango,php setlocal ts=2 sts=2 sw=2
 autocmd FileType php setlocal autoindent smartindent
 autocmd FileType text setlocal textwidth=78

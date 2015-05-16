@@ -166,7 +166,8 @@ nnoremap <Leader><Tab>8 :setlocal tabstop=8 softtabstop=8 shiftwidth=8<CR>
 " delete trailing spaces
 nnoremap <Leader>dw :%s/\s\+$//<CR>
 
-" replace non-breaking space characters
+" avoid the non-breaking space character (alt-space on OS X)
+inoremap <M-Space> <Space>
 nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :g<CR>
 
 

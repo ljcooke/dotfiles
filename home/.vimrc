@@ -57,11 +57,15 @@ set viminfo=""              " don't use a viminfo file
 set nobackup writebackup    " temporary backup before writing
 set showtabline=1           " show tabs if more than 1
 set bs=eol,start,indent     " allow backspacing over everything
-set scrolloff=2             " a few lines of offset when scrolling
 set mouse=a                 " allow mouse in all modes
 set shm=flmnrxoOstTI        " make some messages less verbose
 set noshortname             " don't use dos-style filenames
-set scrolloff=10            " keep the cursor near the middle
+set scrolloff=5             " keep the cursor near the middle
+
+" indent wrapped lines
+if has('linebreak')
+    set showbreak=.. breakindent breakindentopt=shift:4,sbr
+endif
 
 
 " keep swap files in a separate location (mainly to keep Dropbox from going nuts)
@@ -209,6 +213,10 @@ nnoremap <Leader>] gt
 nnoremap <Leader>lt gt
 " move tab
 nnoremap <Leader>mt :tabm<Space>
+
+" explore
+nnoremap <Leader>xx :Explore<CR>
+nnoremap <Leader>xt :Texplore<CR>
 
 " switch buffers
 nnoremap <Tab><Tab> <C-w><C-w>

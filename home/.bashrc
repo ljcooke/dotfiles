@@ -119,12 +119,12 @@ function __inky_prompt_setup()
     local line2="${c_prompt}\$"
     local lfill=""
 
-    local UTF8=$(echo $LANG | grep UTF-8)
-    if [ -n "$UTF8" ]; then
-        line1="${c0}\$(__inky_line1chars) $line1"
-        line2="${c0}\$(__inky_line2chars) $line2"
-        lfill="   "
-    fi
+#    local UTF8=$(echo $LANG | grep UTF-8)
+#    if [ -n "$UTF8" ]; then
+#        line1="${c0}\$(__inky_line1chars) $line1"
+#        line2="${c0}\$(__inky_line2chars) $line2"
+#        lfill="   "
+#    fi
 
     PS1="${line0}${line1}${c0}\n${line2}${c0} "
     PS2="${lfill}${c_prompt}>${c0} "

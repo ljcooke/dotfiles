@@ -30,7 +30,6 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 # Pager
 #
 export PAGER=less
-export LESS=-iX
 export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;37m'

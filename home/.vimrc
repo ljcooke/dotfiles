@@ -4,6 +4,7 @@ set nocompatible
 " determine the os
 if has('unix')
     let s:uname = system('echo -n "$(uname -s)"')
+    let shell='bash'
 else
     let s:uname = ''
 end
@@ -27,11 +28,6 @@ syntax on
 " indentation & formatting
 if exists(':filetype')
     filetype plugin indent on
-endif
-
-" set shell
-if has('unix')
-    let shell='bash'
 endif
 
 " set the <Leader> key, for user-specific mappings
@@ -61,6 +57,22 @@ set mouse=a                 " allow mouse in all modes
 set shm=flmnrxoOstTI        " make some messages less verbose
 set noshortname             " don't use dos-style filenames
 set scrolloff=5             " keep the cursor near the middle
+set tw=0 wrap nojs lbr
+set expandtab list
+set number nuw=4 fdc=0
+set nospell spelllang=en    " disable spellcheck
+
+" Format options:
+"   c - auto-wrap comments
+"   r - add comment leader after hitting Enter in insert mode
+"   q - allow formatting comments with gq
+"   n - format numbered lists
+"   l - don't break long lines in insert mode if the line was long when the
+"       insert command started
+"   1 - don't break the line after a one-letter word
+"   j - remove comment leader when joining lines
+set formatoptions=crqnl1j
+
 
 " indent wrapped lines
 if has('linebreak')
@@ -77,68 +89,6 @@ if s:uname == 'Darwin'
     set t_kb=  " Ctrl-V Backspace
     fixdel
 end
-
-
-"=====================================================================
-"
-" Editing code vs prose
-"
-"=====================================================================
-
-set formatoptions=crqnl1j  " see :help fo-table
-set textwidth=0 wrap nojoinspaces linebreak
-set expandtab list
-set number numberwidth=4 foldcolumn=0
-set nospell spelllang=en
-
-let s:editingMode = 'Code'
-
-function! s:editingCode()
-    setlocal formatoptions=crqnl1j
-    setlocal textwidth=0 wrap
-    setlocal expandtab list
-    setlocal number numberwidth=4 foldcolumn=0
-    setlocal nospell
-
-    augroup CustomEditingMode
-        " remove all autocommands defined in this group
-        au!
-    augroup END
-
-    let s:editingMode = 'Code'
-endfunction
-
-function! s:editingProse()
-    setlocal formatoptions=t1
-    setlocal textwidth=74 nowrap
-    setlocal noexpandtab nolist
-    setlocal nonumber foldcolumn=4
-    setlocal nospell
-
-    augroup CustomEditingMode
-        au!
-
-        " format text automatically in insert mode
-        autocmd InsertEnter * set formatoptions+=a
-        autocmd InsertLeave * set formatoptions-=a
-
-        highlight FoldColumn guibg=bg
-    augroup END
-
-    let s:editingMode = 'Prose'
-endfunction
-
-function s:cycleEditingModes()
-    if s:editingMode == 'Code'
-        call s:editingProse()
-    else
-        call s:editingCode()
-    endif
-
-    echo s:editingMode
-endfunction
-
-nnoremap <Leader>ee :call <SID>cycleEditingModes()<CR>
 
 
 "=====================================================================
@@ -273,31 +223,20 @@ autocmd FileType markdown nnoremap [[ ?^[-=]<CR>
 "
 "=====================================================================
 
-" override default filetypes
 " filetype-specific settings
 autocmd FileType gitcommit setlocal tw=72 colorcolumn=50
 autocmd FileType go,make,sshconfig setlocal nolist noexpandtab
 autocmd FileType html,xhtml,htmldjango,php setlocal ts=2 sts=2 sw=2
+autocmd FileType markdown setlocal ai nosi tw=78 fo=tcroqn2 com=n:> ts=2 sts=2 sw=2
 autocmd FileType php setlocal autoindent smartindent
-autocmd FileType text setlocal textwidth=78
+autocmd FileType text setlocal tw=78
 autocmd FileType tex,plaintex setlocal textwidth=78
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 
 " known filetypes with unrecognised extensions
 autocmd BufRead *.less setlocal ft=css
 autocmd BufRead *.plist setlocal ft=xml
-
-" .cue sheet
 autocmd BufRead *.cue setlocal ts=2 softtabstop=2 shiftwidth=2
-
-" python
-autocmd FileType python inoremap :: <End>:
-
-" css: sort properties alphabetically
-autocmd FileType css nnoremap <Leader>S ?{<CR>jV/^\s*\}<CR>k:sort<CR>:noh<CR>
-
-" markdown
-autocmd FileType markdown setlocal ai nosi tw=78 fo=tcroqn2 com=n:> ts=2 sts=2 sw=2
 
 " files with yaml front matter
 " http://www.codeography.com/2010/02/20/making-vim-play-nice-with-jekylls-yaml-front-matter.html

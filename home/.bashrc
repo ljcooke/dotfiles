@@ -71,7 +71,7 @@ esac
 #
 # Fancy prompt
 #
-function __inky_prompt_branch()
+function __prompt_branch()
 {
     if [ -d .git ] || [ -e HEAD ]; then
         # https://gist.github.com/790086
@@ -79,57 +79,33 @@ function __inky_prompt_branch()
         printf "${1:- (%s)}" "${ref#refs/heads/}"
     fi
 }
-function __inky_line1chars()
-{
-    local s[0]="╭"
-    local s[1]="╮"
-    local s[2]="╷"
-    printf "%s%s" ${s[ $RANDOM % 3 ]} ${s[ $RANDOM % 3 ]}
-}
-function __inky_line2chars()
-{
-    local s[0]="╯"
-    local s[1]="╰"
-    local s[2]="╵"
-    printf "%s%s" ${s[ $RANDOM % 3 ]} ${s[ $RANDOM % 3 ]}
-}
-function __inky_prompt_setup()
+function __prompt_setup()
 {
     # colors: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
     local RESET="\[\033[0m\]"
+    local GREEN="\[\033[0;32m\]"
     local BROWN="\[\033[0;33m\]"
     local CYAN="\[\033[0;36m\]"
 
     case "$TERM" in
     dumb|vt100)
-        c0=''; c_user=''; c_pwd=''; c_git=''; c_prompt=''
+        local c0='' ctok='' cpwd='' cgit=''
+        local wintitle=''
         ;;
     *)
-        c0="$RESET"
-        c_user="$BROWN"
-        c_pwd="$CYAN"
-        c_git="$RESET"
-        c_prompt="$BROWN"
+        local c0="$RESET" ctok="$BROWN" cpwd="$CYAN" cgit="$GREEN"
+        local wintitle="\[\033]0;\W\007\]"
         ;;
     esac
 
-    local line0="\[\033]0;\W\007\]\n"
-    local line1="${c_user}\u@\h${c0} ${c_pwd}\w${c_git}\$(__inky_prompt_branch)"
-    local line2="${c_prompt}\$"
-    local lfill=""
+    local context="${ctok}\u@\h${c0}[${cpwd}\w${cgit}\$(__prompt_branch)${c0}]"
+    local prompt="${ctok}\$"
 
-#    local UTF8=$(echo $LANG | grep UTF-8)
-#    if [ -n "$UTF8" ]; then
-#        line1="${c0}\$(__inky_line1chars) $line1"
-#        line2="${c0}\$(__inky_line2chars) $line2"
-#        lfill="   "
-#    fi
-
-    PS1="${line0}${line1}${c0}\n${line2}${c0} "
-    PS2="${lfill}${c_prompt}>${c0} "
-    PS4="${lfill}${c_prompt}+${c0} "
+    PS1="${wintitle}${context}${prompt}${c0} "
+    PS2="${ctok}>${c0} "
+    PS4="${ctok}+${c0} "
 }
-__inky_prompt_setup
+__prompt_setup
 #----------------------------------------------------------------------
 
 #

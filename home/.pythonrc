@@ -24,7 +24,10 @@ pp = pprint.PrettyPrinter(indent=2).pprint
 
 try:
     import rlcompleter
-    rlcompleter.readline.parse_and_bind("tab: complete")
+    if 'libedit' in rlcompleter.readline.__doc__:
+        rlcompleter.readline.parse_and_bind('bind ^I rl_complete')
+    else:
+        rlcompleter.readline.parse_and_bind('tab: complete')
 except ImportError:
     print("Install readline for tab completion.")
 

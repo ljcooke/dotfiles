@@ -1,0 +1,28 @@
+snippet main
+	fn main() {
+		${1}
+	}
+snippet pr
+	println!("${1}");
+snippet m
+	match ${1:condition} {
+		${2:pattern} => ${3:result},
+	}
+snippet if
+	if ${1:condition} {
+		${2}
+	}
+snippet t
+	if ${1:condition} { ${2:a} } else { ${3:b} }
+snippet for
+	for ${1} {
+		${2}
+	}
+snippet wh
+	while ${1} {
+		${2}
+	}
+snippet loop
+	loop {
+		${1}
+	}

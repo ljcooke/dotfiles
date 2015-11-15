@@ -1,5 +1,5 @@
 set bell-style none
-set completion-ignore-case on
+set completion-ignore-case off
 set convert-meta off
 set input-meta on
 set mark-symlinked-directories on

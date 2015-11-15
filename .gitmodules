@@ -4,12 +4,12 @@
 [submodule "modules/vim-pathogen"]
 	path = modules/vim-pathogen
 	url = http://github.com/tpope/vim-pathogen.git
-[submodule "home/.vim/bundle/vim-colors-solarized"]
-	path = home/.vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized
-[submodule "home/.vim/bundle/vim-surround"]
-	path = home/.vim/bundle/vim-surround
-	url = git://github.com/tpope/vim-surround.git
 [submodule "modules/rust.vim"]
 	path = modules/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "modules/vim-colors-solarized"]
+	path = modules/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "modules/vim-surround"]
+	path = modules/vim-surround
+	url = git://github.com/tpope/vim-surround.git

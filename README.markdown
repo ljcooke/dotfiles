@@ -1,16 +1,7 @@
 dotfiles
 ========
 
-Initial setup
--------------
-
-    git submodule init
-    git submodule update
-
-Update modules
---------------
-
-    bin/update.sh
+An accretion of config files.
 
 Copy files to home folder
 -------------------------

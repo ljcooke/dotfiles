@@ -28,7 +28,7 @@ echotask 'Checking out modules'
 git submodule update --recursive
 
 echotask 'Pulling module changes'
-git submodule foreach 'git checkout -f master && git pull --depth=1 origin'
+git submodule foreach 'git fetch origin && git reset --hard origin/master'
 git submodule status
 
 #------------------------------------------------------------------------------

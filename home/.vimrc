@@ -219,6 +219,26 @@ autocmd FileType markdown nnoremap [[ ?^[-=]<CR>
 
 "=====================================================================
 "
+" Move to beginning and end of line
+" http://jezenthomas.com/moving-to-the-beginning-of-the-line/
+"
+"=====================================================================
+
+noremap <silent> H :call FirstCharOrFirstCol()<CR>
+noremap L $
+
+function! FirstCharOrFirstCol()
+    let current_col = virtcol('.')
+    normal ^
+    let first_char = virtcol('.')
+    if current_col <= first_char
+        normal 0
+    endif
+endfunction
+
+
+"=====================================================================
+"
 " Buffer options
 "
 "=====================================================================
@@ -229,7 +249,7 @@ autocmd FileType go,make,sshconfig setlocal nolist noexpandtab
 autocmd FileType html,xhtml,htmldjango,php setlocal ts=2 sts=2 sw=2
 autocmd FileType markdown setlocal ai nosi tw=78 fo=tcroqn2 com=n:> ts=2 sts=2 sw=2
 autocmd FileType php setlocal autoindent smartindent
-autocmd FileType text setlocal tw=78
+autocmd FileType text setlocal tw=78 formatoptions-=n
 autocmd FileType tex,plaintex setlocal textwidth=78
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2
 

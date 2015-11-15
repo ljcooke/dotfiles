@@ -1,28 +1,53 @@
-#!/bin/sh
+#!/bin/bash
+set -o errexit
+set -o nounset
 
-# Disable the dashboard
-defaults write com.apple.dashboard mcx-disabled -bool YES
-killall Dashboard || true
+if [ "$(uname)" != Darwin ]; then
+    echo 'This script must be run in Mac OS X.' >&2
+    exit 1
+fi
 
-# 2D dock style
-defaults write com.apple.dock no-glass -bool YES
+function echotask() {
+    text=$1
+    echo -e "\033[1;34m==>\033[0m \033[1m${text}\033[0m"
+}
 
-# Semitransparent dock icons for hidden apps
-defaults write com.apple.dock showhidden -bool YES
+function promptupdate() {
+    echotask "$1"
+    select yn in Yes No; do
+        case $yn in
+            Yes) return 0;;
+            No) return 1;;
+        esac
+    done
+}
 
-# Turn off some crap in iTunes
-defaults write com.apple.iTunes show-store-arrow-links -bool NO
-defaults write com.apple.iTunes hide-ping-dropdown -bool YES
+#------------------------------------------------------------------------------
+dockrestart=0
 
-# Turn off Spaces animation
-defaults write com.apple.dock workspaces-swoosh-animation-off -bool YES
+if promptupdate 'Disable the dashboard?'; then
+    defaults write com.apple.dashboard mcx-disabled -bool YES
+    killall Dashboard || true
+    echo OK
+fi
 
-# Show hidden files/folders
-chflags nohidden ~/Library
+if promptupdate 'Mark hidden apps in the dock?'; then
+    defaults write com.apple.dock showhidden -bool YES
+    dockrestart=1
+    echo OK
+fi
 
-# Unicode bug -- fixed in Mountain Lion?
-    # Fix the unicode bug in QuickLook. http://mths.be/bbo
-    # via https://github.com/mathiasbynens/dotfiles/blob/master/.osx
-    # (Note: the :2 seems to correspond to British English in the Languages & Text
-    #  preferences. Use :0 for American English.)
-    #echo '0x08000100:2' > ~/.CFUserTextEncoding
+if promptupdate 'Show the ~/Library folder in Finder?'; then
+    chflags nohidden ~/Library
+    echo OK
+fi
+
+#------------------------------------------------------------------------------
+
+if [ $dockrestart = 1 ]; then
+    echotask 'Killing the dock'
+    killall Dock || true
+    echo 'The dock should reappear in a moment.'
+fi
+
+echotask 'Done'

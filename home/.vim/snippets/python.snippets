@@ -84,3 +84,17 @@ snippet ifmain
 # __magic__
 snippet _
 	__${1:init}__${2}
+snippet argparse
+	#!/usr/bin/env python3
+	import argparse
+	import sys
+	
+	${1}
+	
+	def main():
+		parser = argparse.ArgumentParser()
+	
+		args = parser.parse_args()
+	
+	if __name__ == '__main__':
+		sys.exit(main())

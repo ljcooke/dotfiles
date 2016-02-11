@@ -246,12 +246,13 @@ endfunction
 " filetype-specific settings
 autocmd FileType gitcommit setlocal tw=72 colorcolumn=50
 autocmd FileType go,make,sshconfig setlocal nolist noexpandtab
-autocmd FileType html,xhtml,htmldjango,php setlocal ts=2 sts=2 sw=2
-autocmd FileType markdown setlocal ai nosi tw=78 fo=tcroqn2 com=n:> ts=2 sts=2 sw=2
+autocmd FileType markdown setlocal ai nosi tw=78 fo=tcroqn2 com=n:>
 autocmd FileType php setlocal autoindent smartindent
 autocmd FileType text setlocal tw=78 formatoptions-=n
 autocmd FileType tex,plaintex setlocal textwidth=78
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2
+
+" 2 spaces for tabs
+autocmd FileType html,xhtml,htmldjango,markdown,php,text,yaml setlocal ts=2 sts=2 sw=2
 
 " known filetypes with unrecognised extensions
 autocmd BufRead *.less setlocal ft=css

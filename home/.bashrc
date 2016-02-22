@@ -42,6 +42,18 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 #
+# Prompt configuration
+#
+export PROMPT_CONTEXT='\u@\h '
+
+#
+# Read machine-specific settings from ~/.bashrc.local
+#
+if [ -e "$HOME/.bashrc.local" ]; then
+    source "$HOME/.bashrc.local"
+fi
+
+#
 # Check the OS
 #
 uname=$(uname)
@@ -100,7 +112,7 @@ function __prompt_setup()
         ;;
     esac
 
-    local context="${ctok}\u@\h${c0}[${cpwd}\w${cgit}\$(__prompt_branch)${c0}]"
+    local context="${c0}[${ctok}${PROMPT_CONTEXT}${cpwd}\w${cgit}\$(__prompt_branch)${c0}]"
     local prompt="${ctok}\$"
 
     PS1="${wintitle}${context}${prompt}${c0} "
@@ -229,13 +241,6 @@ do
     fi
 done
 type -t __git_complete >/dev/null || source "$HOME/.bash/gitcomplete"
-
-#
-# Read machine-specific settings from ~/.bashrc.local
-#
-if [ -e "$HOME/.bashrc.local" ]; then
-    source "$HOME/.bashrc.local"
-fi
 
 #
 # Tidy up

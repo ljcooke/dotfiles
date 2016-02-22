@@ -15,10 +15,12 @@ export LC_ALL="en_IE.UTF-8"
 export LC_CTYPE=$LC_ALL LC_TIME=$LC_ALL LANG=$LC_ALL
 
 #
-# Don't save history on logout
+# History
 #
 export HISTCONTROL='ignoreboth:erasedups'
-export HISTFILE='/dev/null'
+export HISTFILE=$HOME/.bash_history
+alias h='history | tail -n $(($LINES - 2))'
+alias hl='history | less'
 
 #
 # Paths

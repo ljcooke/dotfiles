@@ -218,7 +218,7 @@ function _araile_prompt_setup()
         ;;
     esac
 
-    local context="${c0}[${ctok}${PROMPT_PREFIX}${cpwd}\w${cgit}\$(_araile_prompt_branch)${c0}]"
+    local context="${c0}[${ctok}${PROMPT_PREFIX}${cpwd}\W${cgit}\$(_araile_prompt_branch)${c0}]"
     local prompt="${ctok}\$"
 
     PS1="${wintitle}${context}${prompt}${c0} "

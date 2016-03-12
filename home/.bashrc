@@ -179,6 +179,9 @@ done
 type -t __git_complete >/dev/null || source "$HOME/.bash/gitcomplete"
 
 #------------------------------------------------------------------------------
+# Defaults + custom configuration
+
+export PROMPT_PREFIX="\u@\h "
 
 if [ -e "$HOME/.bashrc.local" ]; then
     source "$HOME/.bashrc.local"
@@ -186,9 +189,6 @@ fi
 
 #------------------------------------------------------------------------------
 # Prompt configuration
-
-# Set this in .bashrc.local to override it.
-export PROMPT_PREFIX="${PROMPT_PREFIX:=\u@\h }"
 
 function _araile_prompt_branch()
 {

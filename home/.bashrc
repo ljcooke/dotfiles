@@ -21,9 +21,11 @@ export LC_CTYPE=$LC_ALL LC_TIME=$LC_ALL LANG=$LC_ALL
 
 export HISTCONTROL='ignoreboth:erasedups'
 export HISTFILE=$HOME/.bash_history
-export HISTSIZE=1000 HISTFILESIZE=10000
+export HISTSIZE=100000 HISTFILESIZE=100000
 export HISTIGNORE=history:h:hl:ls:l:la:lc:ll:fg
 export HISTTIMEFORMAT='%F %T '
+
+shopt -s histappend
 
 alias h='history | tail -n $(($LINES - 2))'
 alias hl='history | less'

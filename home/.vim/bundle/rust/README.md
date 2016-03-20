@@ -21,7 +21,7 @@ details.
 git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust.vim
 ```
 
-[r]: https://rust-lang.org
+[r]: https://www.rust-lang.org
 [v]: https://github.com/gmarik/vundle
 [vqs]: https://github.com/gmarik/vundle#quick-start
 [p]: https://github.com/tpope/vim-pathogen
@@ -39,7 +39,7 @@ buffer is written. Simple put `let g:rustfmt_autosave = 1` in your `.vimrc`.
 
 ## Help
 
-Further help can be found in the documentation with `:help rust`.
+Further help can be found in the documentation with `:Helptags` then `:help rust`.
 
 ## License
 

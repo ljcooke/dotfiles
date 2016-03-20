@@ -142,6 +142,7 @@ fi
 cpr_args="-Phavz \
           --exclude '*.swp' --exclude '.DS_Store' \
           --exclude '.Trashes' --exclude '.fseventsd'"
+scpr_args="$cpr_args"
 
 if [ $mac -eq 1 ]; then
     if [ -n "$(rsync --version 2>/dev/null | grep xattrs)" ]; then
@@ -150,7 +151,8 @@ if [ $mac -eq 1 ]; then
 fi
 
 alias cpr="nice rsync $cpr_args"
-unset cpr_args
+alias scpr="nice rsync $scpr_args"
+unset cpr_args scpr_args
 
 #------------------------------------------------------------------------------
 # tmux & screen

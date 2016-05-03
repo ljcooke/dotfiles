@@ -252,7 +252,7 @@ autocmd FileType text setlocal tw=78 formatoptions-=n
 autocmd FileType tex,plaintex setlocal textwidth=78
 
 " 2 spaces for tabs
-autocmd FileType html,xhtml,htmldjango,markdown,php,rst,text,yaml setlocal ts=2 sts=2 sw=2
+autocmd FileType asciidoc,html,xhtml,htmldjango,markdown,php,rst,text,yaml setlocal ts=2 sts=2 sw=2
 
 " known filetypes with unrecognised extensions
 autocmd BufRead *.less setlocal ft=css

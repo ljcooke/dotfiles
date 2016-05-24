@@ -31,7 +31,7 @@ if exists(':filetype')
 endif
 
 " set the <Leader> key, for user-specific mappings
-let mapleader=';'
+let mapleader='\'
 
 " color scheme (for non-GUI vim)
 colors elflord

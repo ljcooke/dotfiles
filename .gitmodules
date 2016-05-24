@@ -13,3 +13,6 @@
 [submodule "modules/vim-surround"]
 	path = modules/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "home/.vim/bundle/sneak"]
+	path = home/.vim/bundle/sneak
+	url = https://github.com/justinmk/vim-sneak.git

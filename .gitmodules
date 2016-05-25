@@ -16,3 +16,9 @@
 [submodule "home/.vim/bundle/sneak"]
 	path = home/.vim/bundle/sneak
 	url = https://github.com/justinmk/vim-sneak.git
+[submodule "home/.vim/bundle/orgmode"]
+	path = home/.vim/bundle/orgmode
+	url = git@github.com:jceb/vim-orgmode.git
+[submodule "home/.vim/bundle/speeddating"]
+	path = home/.vim/bundle/speeddating
+	url = git@github.com:tpope/vim-speeddating.git

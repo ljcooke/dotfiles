@@ -31,7 +31,7 @@ if exists(':filetype')
 endif
 
 " set the <Leader> key, for user-specific mappings
-let mapleader='\'
+let mapleader=' '
 
 " color scheme (for non-GUI vim)
 colors elflord
@@ -131,8 +131,9 @@ nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :g<CR>
 "
 "=====================================================================
 
-" if I could pick just one shortcut...
-nnoremap <Space> :
+" easy command line
+nnoremap <Leader><Space> :
+nnoremap <Leader>; :
 
 " type jj in insert mode to escape
 inoremap jj <Esc>

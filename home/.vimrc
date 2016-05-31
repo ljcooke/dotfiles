@@ -135,6 +135,9 @@ nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :g<CR>
 nnoremap <Leader><Space> :
 nnoremap <Leader>; :
 
+" breaking habits
+nnoremap <Leader>q<CR> :q
+
 " type jj in insert mode to escape
 inoremap jj <Esc>
 

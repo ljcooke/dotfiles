@@ -138,9 +138,6 @@ nnoremap <Leader>; :
 " breaking habits
 nnoremap <Leader>q<CR> :q
 
-" type jj in insert mode to escape
-inoremap jj <Esc>
-
 " toggle paste mode
 set pastetoggle=<F4>
 

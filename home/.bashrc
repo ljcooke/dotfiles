@@ -211,19 +211,22 @@ function _araile_prompt_setup()
     local BROWN="\[\033[0;33m\]"
     local CYAN="\[\033[0;36m\]"
 
+    local token=${1:-◇}
+    local token_color=${2:-$BROWN}
+
     case "$TERM" in
     dumb|vt100)
         local c0='' ctok='' cpwd='' cgit=''
         local wintitle=''
         ;;
     *)
-        local c0="$RESET" ctok="$BROWN" cpwd="$CYAN" cgit="$GREEN"
+        local c0="$RESET" ctok="$token_color" cpwd="$CYAN" cgit="$GREEN"
         local wintitle="\[\033]0;\W\007\]"
         ;;
     esac
 
     local context="${c0}${ctok}${PROMPT_PREFIX}${cpwd}\W${cgit}\$(_araile_prompt_branch)${c0}"
-    local prompt="${ctok} ◇"
+    local prompt="${ctok} ${token}"
 
     PS1="${wintitle}${context}${prompt}${c0} "
     PS2="${ctok}>${c0} "

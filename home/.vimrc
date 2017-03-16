@@ -90,6 +90,9 @@ if s:uname == 'Darwin'
     fixdel
 end
 
+" https://github.com/tmux/tmux/issues/543#issuecomment-248980734
+set clipboard=unnamed
+
 
 "=====================================================================
 "

@@ -24,7 +24,7 @@
 	"spacegray_sidebar_tree_small": false,
 	"spacegray_tabs_auto_width": false,
 	"spacegray_tabs_font_small": true,
-	"spacegray_tabs_small": true,
+	"spacegray_tabs_small": false,
 	"theme": "Spacegray Eighties.sublime-theme",
 	"trim_trailing_white_space_on_save": true
 }

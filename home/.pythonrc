@@ -6,7 +6,6 @@ import pprint
 import random
 import re
 import sys
-import textwrap
 
 from pydoc import pager
 
@@ -18,17 +17,6 @@ except ImportError:
 sys.ps1 = '> '
 sys.ps2 = '. '
 
-find = re.findall
-path = os.path
 pp = pprint.PrettyPrinter(indent=2).pprint
-
-try:
-    import rlcompleter
-    if 'libedit' in rlcompleter.readline.__doc__:
-        rlcompleter.readline.parse_and_bind('bind ^I rl_complete')
-    else:
-        rlcompleter.readline.parse_and_bind('tab: complete')
-except ImportError:
-    print("Install readline for tab completion.")
 
 print('')

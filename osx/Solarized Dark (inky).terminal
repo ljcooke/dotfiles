@@ -175,21 +175,21 @@
 	<data>
 	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
 	AAGGoKQHCBESVSRudWxs1AkKCwwNDg8QVk5TU2l6ZVhOU2ZGbGFnc1ZOU05hbWVWJGNs
-	YXNzI0AmAAAAAAAAEBCAAoADXxAUU291cmNlQ29kZVByby1NZWRpdW3SExQVFlokY2xh
-	c3NuYW1lWCRjbGFzc2VzVk5TRm9udKIVF1hOU09iamVjdF8QD05TS2V5ZWRBcmNoaXZl
-	ctEaG1Ryb290gAEIERojLTI3PEJLUltiaXJ0dniPlJ+or7K7zdDVAAAAAAAAAQEAAAAA
-	AAAAHAAAAAAAAAAAAAAAAAAAANc=
+	YXNzI0AoAAAAAAAAEBCAAoADXxASVWJ1bnR1TW9uby1SZWd1bGFy0hMUFRZaJGNsYXNz
+	bmFtZVgkY2xhc3Nlc1ZOU0ZvbnSiFRdYTlNPYmplY3RfEA9OU0tleWVkQXJjaGl2ZXLR
+	GhtUcm9vdIABCBEaIy0yNzxCS1JbYmlydHZ4jZKdpq2wucvO0wAAAAAAAAEBAAAAAAAA
+	ABwAAAAAAAAAAAAAAAAAAADV
 	</data>
 	<key>FontAntialias</key>
 	<true/>
 	<key>FontHeightSpacing</key>
-	<integer>1</integer>
+	<real>1.125</real>
 	<key>FontWidthSpacing</key>
 	<integer>1</integer>
 	<key>Linewrap</key>
 	<true/>
 	<key>ProfileCurrentVersion</key>
-	<real>2.02</real>
+	<real>2.0499999999999998</real>
 	<key>SelectionColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -218,8 +218,12 @@
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
 	<key>UseBoldFonts</key>
-	<false/>
+	<true/>
 	<key>UseBrightBold</key>
+	<true/>
+	<key>VisualBell</key>
+	<false/>
+	<key>VisualBellOnlyWhenMuted</key>
 	<true/>
 	<key>blackColour</key>
 	<data>

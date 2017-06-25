@@ -5,7 +5,7 @@
 	"draw_minimap_border": true,
 	"ensure_newline_at_eof_on_save": true,
 	"fold_buttons": false,
-	"font_face": "Source Code Pro",
+	"font_face": "Ubuntu Mono",
 	"font_size": 12,
 	"highlight_modified_tabs": true,
 	"indent_guide_options":

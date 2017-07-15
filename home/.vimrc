@@ -41,11 +41,10 @@ set ttyfast                 " using a fast connection
 set cmdheight=1             " command line height
 set number                  " line numbers
 set ruler                   " show 'line,column' ruler
-set nohlsearch              " don't highlight search results (enable with :hls)
+set hlsearch                " highlight search results (clear with :noh)
 set background=dark         " light on dark
 set incsearch               " jump to search result while typing
 set ff=unix ffs=unix,dos    " unix newlines
-set nocindent               " <del>fix # indentation</del>
 set nomodeline              " don't read modelines
 set showmatch               " highlight matching brackets when typing
 set ignorecase smartcase    " ignorecase implied if search string is lowercase
@@ -62,7 +61,9 @@ set expandtab list
 set number nuw=4 fdc=0
 set nospell spelllang=en    " disable spellcheck
 
+"
 " Format options:
+"
 "   c - auto-wrap comments
 "   r - add comment leader after hitting Enter in insert mode
 "   q - allow formatting comments with gq
@@ -71,6 +72,7 @@ set nospell spelllang=en    " disable spellcheck
 "       insert command started
 "   1 - don't break the line after a one-letter word
 "   j - remove comment leader when joining lines
+"
 set formatoptions=crqnl1j
 
 
@@ -83,7 +85,7 @@ endif
 " keep swap files in a separate location (mainly to keep Dropbox from going nuts)
 set directory=~/.vim/tmp,/var/tmp/$USER
 
-" OS X stuff
+" macOS
 if s:uname == 'Darwin'
     set backupskip=/tmp/*,/private/tmp/*
     set t_kb=  " Ctrl-V Backspace
@@ -121,11 +123,14 @@ nnoremap <Leader><Tab>4 :setlocal tabstop=4 softtabstop=4 shiftwidth=4<CR>
 nnoremap <Leader><Tab>8 :setlocal tabstop=8 softtabstop=8 shiftwidth=8<CR>
 
 " delete trailing spaces
-nnoremap <Leader>dw :%s/\s\+$//<CR>
+nnoremap <Leader>dw :%s/\s\+$//e<CR>:noh<CR>
 
-" avoid the non-breaking space character (alt-space on OS X)
+" replace non-breaking spaces
+" (easy to insert by mistake on macOS with Alt-Space)
 inoremap <M-Space> <Space>
-nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :g<CR>
+nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :eg<CR>:noh<CR>
+
+
 
 
 "=====================================================================
@@ -145,16 +150,9 @@ nnoremap <Leader>q<CR> :q
 set pastetoggle=<F4>
 
 " toggle settings
-nnoremap <silent> <Leader>!n :set number!<CR>
-nnoremap <silent> <Leader>!s :set spell!<CR>
-nnoremap <silent> <Leader>!/ :set hlsearch!<CR>
-
-" select all
-nnoremap <Leader>sa ggVG
-nnoremap <Leader>% ggVG
-
-" regular expressions (with \v for more sane character matching)
-nnoremap <Leader>s/ :s/\v//g<Left><Left><Left>
+nnoremap <silent> <Leader>!n :set number!<CR>:set number?<CR>
+nnoremap <silent> <Leader>!s :set spell!<CR>:set spell?<CR>
+nnoremap <silent> <Leader>!/ :set hlsearch!<CR>:set hlsearch?<CR>
 
 " new tab
 nnoremap <Leader>t :tabnew<Space>
@@ -212,9 +210,6 @@ nnoremap <Leader>v V`]
 
 " convert to html (and use the HTML5 doctype)
 nnoremap <Leader>>h :TOhtml<CR>:1s/HTML[^>]*/html/<CR>
-
-" wrap a paragraph
-nnoremap <Leader>q gqap
 
 " skip between sections in markdown files
 autocmd FileType markdown nnoremap ]] /^[-=]<CR>

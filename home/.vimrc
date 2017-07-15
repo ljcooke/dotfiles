@@ -177,20 +177,20 @@ nnoremap <Tab><Tab> <C-w><C-w>
 nnoremap <S-Tab> za
 
 " comment out lines
-nnoremap <silent> <Leader>/# :s:^:#:<CR>
-vnoremap <silent> <Leader>/# :s:^:#:<CR>
-nnoremap <silent> <Leader>/3 :s:^:#:<CR>
-vnoremap <silent> <Leader>/3 :s:^:#:<CR>
-nnoremap <silent> <Leader>// :s:^://:<CR>
-vnoremap <silent> <Leader>// :s:^://:<CR>
-nnoremap <silent> <Leader>/' :s:^:':<CR>
-vnoremap <silent> <Leader>/' :s:^:':<CR>
-nnoremap <silent> <Leader>/" :s:^:":<CR>
-vnoremap <silent> <Leader>/" :s:^:":<CR>
-nnoremap <silent> <Leader>/; :s:^:;:<CR>
-vnoremap <silent> <Leader>/; :s:^:;:<CR>
-nnoremap <silent> <Leader>/% :s:^:%:<CR>
-vnoremap <silent> <Leader>/% :s:^:%:<CR>
+nnoremap <silent> <Leader>/# :s:^:#:<CR>:noh<CR>
+vnoremap <silent> <Leader>/# :s:^:#:<CR>:noh<CR>
+nnoremap <silent> <Leader>/3 :s:^:#:<CR>:noh<CR>
+vnoremap <silent> <Leader>/3 :s:^:#:<CR>:noh<CR>
+nnoremap <silent> <Leader>// :s:^://:<CR>:noh<CR>
+vnoremap <silent> <Leader>// :s:^://:<CR>:noh<CR>
+nnoremap <silent> <Leader>/' :s:^:':<CR>:noh<CR>
+vnoremap <silent> <Leader>/' :s:^:':<CR>:noh<CR>
+nnoremap <silent> <Leader>/" :s:^:":<CR>:noh<CR>
+vnoremap <silent> <Leader>/" :s:^:":<CR>:noh<CR>
+nnoremap <silent> <Leader>/; :s:^:;:<CR>:noh<CR>
+vnoremap <silent> <Leader>/; :s:^:;:<CR>:noh<CR>
+nnoremap <silent> <Leader>/% :s:^:%:<CR>:noh<CR>
+vnoremap <silent> <Leader>/% :s:^:%:<CR>:noh<CR>
 
 " use the cut buffer register (accessible outside vim)
 vnoremap <silent> <C-x> "+x

@@ -41,7 +41,7 @@ set ttyfast                 " using a fast connection
 set cmdheight=1             " command line height
 set number                  " line numbers
 set ruler                   " show 'line,column' ruler
-set hlsearch                " highlight search results (clear with :noh)
+set nohlsearch              " highlight search results? (clear with :noh)
 set background=dark         " light on dark
 set incsearch               " jump to search result while typing
 set ff=unix ffs=unix,dos    " unix newlines
@@ -138,6 +138,10 @@ nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :eg<CR>:noh<CR>
 " Misc shortcuts
 "
 "=====================================================================
+
+" exit insert mode when using arrows
+inoremap <silent> <Up> <Esc><Up>
+inoremap <silent> <Down> <Esc><Down>
 
 " easy command line
 nnoremap <Leader><Space> :
@@ -251,7 +255,7 @@ autocmd FileType text setlocal tw=78 formatoptions-=n
 autocmd FileType tex,plaintex setlocal textwidth=78
 
 " 2 spaces for tabs
-autocmd FileType asciidoc,html,xhtml,htmldjango,markdown,php,rst,text,yaml setlocal ts=2 sts=2 sw=2
+autocmd FileType asciidoc,html,xhtml,htmldjango,markdown,php,rst,ruby,text,yaml setlocal ts=2 sts=2 sw=2
 
 " known filetypes with unrecognised extensions
 autocmd BufRead *.less setlocal ft=css

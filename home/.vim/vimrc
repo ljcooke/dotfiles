@@ -108,7 +108,7 @@ set shiftwidth=4 shiftround     " indent operations
 set autoindent smartindent
 
 if &encoding == 'utf-8'
-    set listchars=tab:·\ ,trail:.
+    set listchars=tab:·\ ,trail:.,nbsp:·
 else
     set listchars=tab:>\ ,trail:.
 endif

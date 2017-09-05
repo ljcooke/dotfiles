@@ -4,7 +4,7 @@ Pathogen Bundles
   - [**addon-mw-utils**](https://github.com/MarcWeber/vim-addon-mw-utils):
     Dependency for **snipmate**.
 
-  - **go**:
+  - [**go**](https://github.com/fatih/vim-go):
     Support for programming with Go.
 
   - [**pgn-syntax**](http://www.vim.org/scripts/script.php?script_id=677):

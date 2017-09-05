@@ -3,6 +3,11 @@ dotfiles
 
 An accretion of config files.
 
+Update submodules
+-----------------
+
+    git submodule update --init --recursive
+
 Copy files to home folder
 -------------------------
 

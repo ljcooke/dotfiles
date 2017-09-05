@@ -1,2 +1,8 @@
+" Vim 8 adds support for loading packages from the pack/ subdirectory.
+" Use Pathogen to backport this to older versions of Vim.
+if has('packages') == 0
+  execute pathogen#infect()
+end
+
 syntax on
 colors elflord

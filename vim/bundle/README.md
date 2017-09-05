@@ -12,6 +12,9 @@ These plugins are checked into Git and ready to use immediately:
   - [**snipmate**](https://github.com/garbas/vim-snipmate):
     Tab-complete snippets of code or text for different filetypes.
 
+  - [**textile**](https://github.com/timcharper/textile.vim):
+    Support for Textile markup.
+
   - [**tlib**](https://github.com/tomtom/tlib_vim):
     Dependency for **snipmate**.
 

@@ -7,3 +7,6 @@
 [submodule "vim/bundle/rust"]
 	path = vim/bundle/rust
 	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim/bundle/fortune"]
+	path = vim/bundle/fortune
+	url = https://github.com/araile/vim-fortune.git

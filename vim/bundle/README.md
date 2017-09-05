@@ -17,6 +17,9 @@ These plugins are checked into Git and ready to use immediately:
 
 These plugins are managed with git submodules:
 
+  - [**fortune**](https://github.com/araile/vim-fortune):
+    Support for editing fortune files.
+
   - [**go**](https://github.com/fatih/vim-go):
     Support for programming with Go.
 

@@ -247,7 +247,7 @@ endfunction
 "=====================================================================
 
 " filetype-specific settings
-autocmd FileType gitcommit setlocal tw=72 colorcolumn=50
+autocmd FileType gitcommit setlocal colorcolumn=50
 autocmd FileType go,make,sshconfig setlocal nolist noexpandtab
 autocmd FileType markdown setlocal ai nosi tw=78 fo=tcroqn2 com=n:>
 autocmd FileType php setlocal autoindent smartindent
@@ -258,8 +258,6 @@ autocmd FileType tex,plaintex setlocal textwidth=78
 autocmd FileType asciidoc,html,xhtml,htmldjango,markdown,php,rst,ruby,text,yaml setlocal ts=2 sts=2 sw=2
 
 " known filetypes with unrecognised extensions
-autocmd BufRead *.less setlocal ft=css
-autocmd BufRead *.plist setlocal ft=xml
 autocmd BufRead *.cue setlocal ts=2 softtabstop=2 shiftwidth=2
 
 " files with yaml front matter

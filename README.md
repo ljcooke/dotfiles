@@ -1,6 +1,10 @@
 My Vim configuration
 ====================
 
+## Install
+
+    $ ln -s $PWD/vim $HOME/.vim
+
 ## Working with submodules
 
 To update all submodules:

@@ -1,3 +1,20 @@
+"
+" Recommended shell settings:
+"
+"   git config --global core.editor 'gvim --nofork'
+"
+" On macOS:
+"
+"   export HOMEBREW_EDITOR='gvim --nofork'
+"
+
+" determine the os
+if has('unix')
+    let s:uname = system('echo -n "$(uname -s)"')
+else
+    let s:uname = ''
+end
+
 "colors solarized
 colors base16-eighties
 
@@ -15,3 +32,8 @@ elseif has('gui_gtk2')
 elseif has('gui_win32')
     set guifont=Consolas
 end
+
+" macOS
+if s:uname == 'Darwin'
+    autocmd VimLeave * :!open -a Terminal
+endif

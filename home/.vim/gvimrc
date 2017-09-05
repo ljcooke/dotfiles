@@ -8,13 +8,6 @@
 "   export HOMEBREW_EDITOR='gvim --nofork'
 "
 
-" determine the os
-if has('unix')
-    let s:uname = system('echo -n "$(uname -s)"')
-else
-    let s:uname = ''
-end
-
 "colors solarized
 colors base16-eighties
 
@@ -27,13 +20,9 @@ set mousehide
 " http://stackoverflow.com/questions/3316244/set-gvim-font-in-vimrc-file
 if has('gui_macvim')
     set guifont=SourceCodePro-Medium:h11,Menlo-Regular:h11,Andale\ Mono:h11
+    autocmd VimLeave * :!open -a Terminal
 elseif has('gui_gtk2')
     set guifont=Source\ Code\ Pro\ 11,DejaVu\ Sans\ Mono\ 11
 elseif has('gui_win32')
     set guifont=Consolas
 end
-
-" macOS
-if s:uname == 'Darwin'
-    autocmd VimLeave * :!open -a Terminal
-endif

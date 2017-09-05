@@ -42,6 +42,11 @@ if promptupdate 'Show the ~/Library folder in Finder?'; then
     echo OK
 fi
 
+if promptupdate 'Disable window animations?'; then
+    defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool NO
+    echo OK
+fi
+
 #------------------------------------------------------------------------------
 
 if [ $dockrestart = 1 ]; then

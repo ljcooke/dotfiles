@@ -1,6 +1,7 @@
 [submodule "vim/bundle/go"]
 	path = vim/bundle/go
 	url = https://github.com/fatih/vim-go.git
+	shallow = true
 [submodule "vim/bundle/toml"]
 	path = vim/bundle/toml
 	url = https://github.com/cespare/vim-toml.git

@@ -1,13 +1,13 @@
-[submodule "vim/bundle/go"]
+[submodule "vim-fortune"]
+	path = vim/bundle/fortune
+	url = https://github.com/araile/vim-fortune.git
+[submodule "vim-go"]
 	path = vim/bundle/go
 	url = https://github.com/fatih/vim-go.git
 	shallow = true
-[submodule "vim/bundle/toml"]
-	path = vim/bundle/toml
-	url = https://github.com/cespare/vim-toml.git
-[submodule "vim/bundle/rust"]
+[submodule "vim-rust"]
 	path = vim/bundle/rust
 	url = https://github.com/rust-lang/rust.vim.git
-[submodule "vim/bundle/fortune"]
-	path = vim/bundle/fortune
-	url = https://github.com/araile/vim-fortune.git
+[submodule "vim-toml"]
+	path = vim/bundle/toml
+	url = https://github.com/cespare/vim-toml.git

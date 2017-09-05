@@ -21,12 +21,3 @@ Pathogen Bundles
 
   - [**toml**](https://github.com/cespare/vim-toml):
     Support for TOML markup.
-
-Not in use:
-
-  - colors-solarized
-  - editorconfig
-  - orgmode
-  - sneak
-  - speeddating
-  - surround

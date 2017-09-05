@@ -1,11 +1,13 @@
-Pathogen Bundles
-================
+Pathogen
+========
+
+Tracked packages
+----------------
+
+These packages are checked into Git and ready to use.
 
   - [**addon-mw-utils**](https://github.com/MarcWeber/vim-addon-mw-utils):
     Dependency for **snipmate**.
-
-  - [**go**](https://github.com/fatih/vim-go):
-    Support for programming with Go.
 
   - [**pgn-syntax**](http://www.vim.org/scripts/script.php?script_id=677):
     Support for chess game records in PGN format.
@@ -21,3 +23,12 @@ Pathogen Bundles
 
   - [**toml**](https://github.com/cespare/vim-toml):
     Support for TOML markup.
+
+Optional packages
+-----------------
+
+To use one of these packages, clone the appropriate Git repository into this
+directory (`~/.vim/bundle`).
+
+  - [**go**](https://github.com/fatih/vim-go):
+    Support for programming with Go.

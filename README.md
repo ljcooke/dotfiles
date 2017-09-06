@@ -3,9 +3,13 @@ My Vim configuration
 
 ## Install
 
-    $ git submodule update --init --recursive [--remote]
+    $ git submodule update --init --recursive
 
     $ ln -s $PWD $HOME/.vim
+
+## Update submodules
+
+    $ git submodule update --init --recursive --remote
 
 ## Add a submodule
 

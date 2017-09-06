@@ -49,8 +49,7 @@ def main
   commands.each do |args|
     run_command(args)
   end
-
-  put_ok
+  true
 end
 
 exit(main) if $PROGRAM_NAME == __FILE__

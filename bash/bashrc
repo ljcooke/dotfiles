@@ -2,7 +2,7 @@
 
 source /etc/profile >/dev/null
 
-# ~/.bashrc is sourced below if it exists.
+# ~/.bashrc.local is sourced below if it exists.
 
 #------------------------------------------------------------------------------
 
@@ -190,8 +190,8 @@ type -t __git_complete >/dev/null || source "$HOME/.bash/complete_git"
 
 export PROMPT_PREFIX="\u@\h "
 
-if [ -e "$HOME/.bashrc" ]; then
-    source "$HOME/.bashrc"
+if [ -e "$HOME/.bashrc.local" ]; then
+    source "$HOME/.bashrc.local"
 fi
 
 #------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../_lib/helper.rb'
+require_relative '../lib/helper.rb'
 
 HOME_BASH_DIR = File.expand_path('~/.bash').freeze
 HOME_BASHRC_PATH = File.expand_path('~/.bashrc').freeze

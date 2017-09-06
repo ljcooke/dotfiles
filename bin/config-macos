@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require 'set'
-require_relative '../_lib/helper.rb'
+require_relative '../lib/helper.rb'
 
 unless macos?
   put_error 'This script must be run in macOS.'

@@ -16,13 +16,18 @@ Run the following commands:
 
     $ git submodule update --init --recursive
 
-    $ bash/config.rb
+    $ bin/config-bash
+    $ bin/config-git
 
     $ ln -s $PWD/vim  $HOME/.vim
     $ ln -s .bash/inputrc $HOME/.inputrc
 
 You can store additional bash configuration in `~/.bashrc.local`. This file
 will be sourced by `~/.bash/bashrc`.
+
+Further configuration for macOS:
+
+    $ bin/config-macos
 
 ## Update submodules
 

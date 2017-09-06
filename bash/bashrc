@@ -6,6 +6,9 @@ source /etc/profile >/dev/null
 
 #------------------------------------------------------------------------------
 
+# Set the backspace character
+stty erase ^h
+
 set -o emacs  # input style
 shopt -s checkwinsize  # check and update lines & cols after each cmd
 shopt -s cmdhist   # multiline commands saved in history as oneliners

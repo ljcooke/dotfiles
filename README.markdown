@@ -21,11 +21,9 @@ Run the following commands:
     $ ln -s $PWD/vim  $HOME/.vim
     $ ln -s .bash/inputrc $HOME/.inputrc
 
-Add the following to `~/.bash_profile`:
+Add the following line to `~/.bash_profile`:
 
     if [ -f ~/.bash/bashrc ]; then source ~/.bash/bashrc; fi
-
-    stty erase ^h  # set backspace character
 
 You can store additional bash configuration in `~/.bashrc`. This file will be
 sourced by `~/.bash/bashrc`.

@@ -1,17 +1,18 @@
 # Xcode
 
+
 ## Theme
 
-`Solarized Dark (SourceCodePro).dvtcolortheme`
-is a minor variation of
-[ArtSabintsev's Solarized Dark for Xcode 5][Solarized-Dark-for-Xcode],
-modified to use the [Ubuntu Mono][Ubuntu-Font] font.
-
-To install, copy the file to
-`~/Library/Developer/Xcode/UserData/FontAndColorThemes`
-and restart Xcode. The theme can then be selected in Preferences.
+`base16-eighties.dark.dvtcolortheme` is a variant of an Xcode theme from
+[joedynamite/base16-xcode](https://github.com/joedynamite/base16-xcode) on
+GitHub, modified to use the Source Code Pro font.
 
 
-[Solarized-Dark-for-Xcode]: https://github.com/ArtSabintsev/Solarized-Dark-for-Xcode
-[Source-Code-Pro]: https://github.com/adobe/Source-Code-Pro
-[Ubuntu-Font]: http://font.ubuntu.com
+## Install
+
+Run the following to copy the theme to the appropriate directory:
+
+    cp ./*.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes
+
+Restart Xcode. The theme should now be available in the Preferences window on
+the 'Fonts & Colors' tab.

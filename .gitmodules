@@ -1,9 +1,6 @@
 [submodule "fortune"]
 	path = vim/pack/modules/start/fortune
 	url = https://github.com/araile/vim-fortune
-[submodule "rust"]
-	path = vim/pack/modules/start/rust
-	url = https://github.com/rust-lang/rust.vim.git
 [submodule "toml"]
 	path = vim/pack/modules/start/toml
 	url = https://github.com/cespare/vim-toml.git

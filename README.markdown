@@ -10,7 +10,7 @@ https://github.com/araile/my-vim
 Update submodules
 -----------------
 
-    git submodule update --init --recursive
+    git submodule update --init --recursive [--remote]
 
 Copy files to home folder
 -------------------------

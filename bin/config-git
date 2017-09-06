@@ -50,10 +50,12 @@ def main
   configs = DEFAULT_CONFIG.dup
 
   put_status 'Customising'
-  configs['core.editor'] = \
-    prompt_yn('Edit commit messages with GUI vim?') ? 'gvim --nofork' : nil
-  configs['transfer.fsckObjects'] = \
-    prompt_yn('Check integrity when pulling?') ? 'true' : nil
+  prompt_yn('Edit commit messages with GUI vim?') do |v|
+    configs['core.editor'] = v ? 'gvim --nofork' : nil
+  end
+  prompt_yn('Check integrity when pulling?') do |v|
+    configs['transfer.fsckObjects'] = v ? 'true' : nil
+  end
 
   changes = configs.sort.reject do |key, val|
     git_config_value(key) == val
@@ -71,7 +73,9 @@ def main
       puts "Unset: #{PINK}#{key.shellescape}#{OFF}"
     end
   end
-  return false unless prompt_yn('Apply this configuration?')
+  prompt_yn('Apply this configuration?') do |apply|
+    return false unless apply
+  end
 
   put_status 'Applying configuration'
   changes.each do |key, val|

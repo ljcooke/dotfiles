@@ -17,19 +17,26 @@ def generate_commands
   commands = []
   kill = Set.new
 
-  if prompt_yn('Disable the dashboard?')
-    commands << udefs('com.apple.dashboard', 'mcx-disabled', '-bool', 'YES')
-    kill << 'Dashboard'
+  prompt_yn('Disable the dashboard?') do |v|
+    if v
+      commands << udefs('com.apple.dashboard', 'mcx-disabled', '-bool', 'YES')
+      kill << 'Dashboard'
+    end
   end
-  if prompt_yn('Disable window animations?')
-    commands << udefs('NSGlobalDomain', 'NSAutomaticWindowAnimationsEnabled', '-bool', 'NO')
+  prompt_yn('Disable window animations?') do |v|
+    if v
+      commands << udefs('NSGlobalDomain', 'NSAutomaticWindowAnimationsEnabled', '-bool', 'NO')
+    end
   end
-  if prompt_yn('Dock: Fade out hidden app icons?')
-    commands << udefs('com.apple.dock', 'showhidden', '-bool', 'YES')
-    kill << 'Dock'
+  prompt_yn('Dock: Fade out hidden app icons?') do |v|
+    if v
+      commands << udefs('com.apple.dock', 'showhidden', '-bool', 'YES')
+      kill << 'Dock'
+    end
   end
-  if prompt_yn('Finder: Show the ~/Library folder?')
-    commands << ['chflags', 'nohidden', File.expand_path('~/Library')]
+  prompt_yn('Finder: Show the ~/Library folder?') do |show|
+    commands << ['chflags', show ? 'nohidden' : 'hidden',
+                 File.expand_path('~/Library')]
     kill << 'Finder'
   end
 
@@ -43,7 +50,9 @@ def main
 
   put_status 'Confirming'
   commands.each { |args| puts "Run: #{PINK}#{args.shelljoin}#{OFF}" }
-  return false unless prompt_yn('Apply this configuration?')
+  prompt_yn('Apply this configuration?') do |apply|
+    return false unless apply
+  end
 
   put_status 'Applying configuration'
   commands.each do |args|

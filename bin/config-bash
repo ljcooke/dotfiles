@@ -46,7 +46,9 @@ def main
   links.each do |source, target|
     puts "Link: #{PINK}#{target}#{OFF} -> #{CYAN}#{source}#{OFF}"
   end
-  return false unless prompt_yn('Apply this configuration?')
+  prompt_yn('Apply this configuration?') do |apply|
+    return false unless apply
+  end
 
   put_status 'Applying configuration'
   links.each do |source, target|

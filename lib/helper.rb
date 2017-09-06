@@ -33,7 +33,7 @@ def prompt_yn(msg)
     input = gets.strip.downcase
   end
   exit(1) if input == 'q'
-  input == 'y'
+  yield input == 'y'
 end
 
 def run_command(args)

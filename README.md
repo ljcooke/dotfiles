@@ -3,12 +3,10 @@ My Vim configuration
 
 ## Install
 
-    $ bin/pack update
+    $ git submodule update --init --recursive
 
-    $ ln -s $PWD/vim $HOME/.vim
+    $ ln -s $PWD $HOME/.vim
 
-## Package management
+## Add a submodule
 
-### Add a package
-
-    $ bin/pack add <url> <name>
+    $ git submodule add --name <foo> <url> pack/modules/start/<foo>

@@ -4,8 +4,8 @@
 require 'set'
 require_relative '../_lib/helper.rb'
 
-if `uname`.split.first.downcase != 'darwin'
-  STDERR.puts 'This script must be run in macOS.'
+unless macos?
+  put_error 'This script must be run in macOS.'
   exit(false)
 end
 
@@ -38,18 +38,19 @@ def generate_commands
 end
 
 def main
-  heading 'Customising'
+  put_status 'Customising'
   commands = generate_commands
 
-  heading 'Confirming'
+  put_status 'Confirming'
   commands.each { |args| puts "Run: #{PINK}#{args.shelljoin}#{OFF}" }
   return false unless prompt_yn('Apply this configuration?')
 
-  heading 'Applying configuration'
+  put_status 'Applying configuration'
   commands.each do |args|
     run_command(args)
   end
-  true
+
+  put_ok
 end
 
 exit(main) if $PROGRAM_NAME == __FILE__

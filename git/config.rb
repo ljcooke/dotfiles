@@ -40,7 +40,7 @@ end
 def main
   configs = DEFAULT_CONFIG.dup
 
-  heading 'Customising'
+  put_status 'Customising'
   if prompt_yn 'Edit commit messages with GUI vim?'
     configs['core.editor'] = 'gvim --nofork'
   end
@@ -48,13 +48,13 @@ def main
     configs['transfer.fsckObjects'] = 'true'
   end
 
-  heading 'Confirming'
+  put_status 'Confirming'
   configs.sort.each do |key, val|
     puts "Set: #{PINK}#{key.shellescape}#{OFF} = #{CYAN}#{val.shellescape}#{OFF}"
   end
   return false unless prompt_yn('Apply this configuration?')
 
-  heading 'Applying configuration'
+  put_status 'Applying configuration'
   configs.each do |key, val|
     git_config(key, val)
   end

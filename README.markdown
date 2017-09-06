@@ -7,7 +7,6 @@ An accretion of config files.
 
 Verify that the following do not already exist:
 
-    ~/.bash
     ~/.inputrc
     ~/.vim
     ~/.vimrc
@@ -17,16 +16,13 @@ Run the following commands:
 
     $ git submodule update --init --recursive
 
-    $ ln -s $PWD/bash $HOME/.bash
+    $ bash/config.rb
+
     $ ln -s $PWD/vim  $HOME/.vim
     $ ln -s .bash/inputrc $HOME/.inputrc
 
-Add the following line to `~/.bash_profile`:
-
-    if [ -f ~/.bash/bashrc ]; then source ~/.bash/bashrc; fi
-
-You can store additional bash configuration in `~/.bashrc`. This file will be
-sourced by `~/.bash/bashrc`.
+You can store additional bash configuration in `~/.bashrc.local`. This file
+will be sourced by `~/.bash/bashrc`.
 
 ## Update submodules
 

@@ -16,31 +16,12 @@ def run(args)
   system(*args)
 end
 
-def run_many(commands)
-  success = true
-  commands.compact.each do |args|
-    success &&= run(args)
-    return false unless success
-  end
-  success
-end
-
 # -----------------------------------------------------------------------------
 
 def add_package(url, name, opts = {})
   parent = opts[:optional] ? 'opt' : 'start'
-  shallow = opts[:shallow]
-  path = "vim/pack/modules/#{parent}/#{name}"
-
-  commands = [['git', 'submodule', 'add', '--name', name,
-               ('--depth' if shallow), ('1' if shallow),
-               url, path]]
-  if shallow
-    commands << ['git', 'config', '-f', '.gitmodules',
-                 "submodule.#{name}.shallow", 'true']
-  end
-
-  run_many(commands)
+  run ['git', 'submodule', 'add', '--name', name,
+       url, "vim/pack/modules/#{parent}/#{name}"]
 end
 
 def cmd_add
@@ -49,9 +30,6 @@ def cmd_add
     opts.banner = "Usage: #{PROG} [options] <url> <name>"
     opts.on('-o', '--optional', 'don\'t load this package on startup') do
       options[:optional] = true
-    end
-    opts.on('-s', '--shallow', 'create a shallow clone') do
-      options[:shallow] = true
     end
   end
   parser.parse!
@@ -84,7 +62,7 @@ end
 
 def print_usage
   puts "Usage: #{PROG} <command> [args...]"
-  puts "       #{PROG} add [--optional] [--shallow] <url> <name>"
+  puts "       #{PROG} add [--optional] <url> <name>"
   puts "       #{PROG} update"
   false
 end

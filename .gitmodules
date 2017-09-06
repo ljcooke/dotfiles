@@ -1,10 +1,6 @@
 [submodule "fortune"]
 	path = vim/pack/modules/start/fortune
 	url = https://github.com/araile/vim-fortune
-[submodule "go"]
-	path = vim/pack/modules/start/go
-	url = https://github.com/fatih/vim-go.git
-	shallow = true
 [submodule "rust"]
 	path = vim/pack/modules/start/rust
 	url = https://github.com/rust-lang/rust.vim.git

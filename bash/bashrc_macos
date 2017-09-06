@@ -1,0 +1,21 @@
+# -----------------------------------------------------------------------------
+# Bash configuration for macOS.
+# -----------------------------------------------------------------------------
+
+source $HOME/.bash/bashrc_bsd
+
+mac_homebrew=0
+if [ -n "`which brew`" ]; then
+    mac_homebrew=1
+fi
+
+
+# Open a man page in Preview (OS X)
+# Uses ps2pdf (install with: brew install ghostscript)
+if [ -n "`which ps2pdf`" ]
+then
+    function pman()
+    {
+        man -t $* | ps2pdf - - | open -f -a /Applications/Preview.app
+    }
+fi

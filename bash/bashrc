@@ -51,21 +51,18 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 #------------------------------------------------------------------------------
-# Check the OS
+# Check the OS and load the appropriate file
 
-uname=$(uname)
-bsd=0
+uname=`uname`
 mac=0
-mac_homebrew=0
 
 if [ "$uname" = Darwin ]; then
-    bsd=1
     mac=1
-    if [ -n "$(which brew)" ]; then
-        mac_homebrew=1
-    fi
+    source $HOME/.bash/bashrc_macos
 elif [ "$uname" = FreeBSD ]; then
-    bsd=1
+    source $HOME/.bash/bashrc_bsd
+else
+    source $HOME/.bash/bashrc_linux
 fi
 
 #------------------------------------------------------------------------------
@@ -80,19 +77,6 @@ xterm*|rxvt*)
 esac
 
 #------------------------------------------------------------------------------
-
-# ls colors
-if [ "$TERM" != "dumb" ]; then
-    if [ "$bsd" -eq 1 ]; then
-        export CLICOLOR=1
-        export LSCOLORS="ExFxCxDxBxegedabagacad"  # legible colours
-    else
-        if [ -n "`which dircolors`" ]; then
-            eval "`dircolors -b`" 2>/dev/null
-            alias ls='ls --color=auto' 2>/dev/null
-        fi
-    fi
-fi
 
 # Shortcuts
 alias l='ls -Fhl'
@@ -122,16 +106,6 @@ function mkcd()
 function vman() {
     MANWIDTH=100 MANPAGER='col -bx' man $@ | vim -
 }
-
-# Open a man page in Preview (OS X)
-if [ $mac -eq 1 ] && \
-   [ -n "$(which ps2pdf)" ]  # brew install ghostscript
-then
-    function pman()
-    {
-        man -t $* | ps2pdf - - | open -f -a /Applications/Preview.app
-    }
-fi
 
 #------------------------------------------------------------------------------
 # rsync shortcut to sync files.
@@ -241,4 +215,4 @@ _araile_prompt_setup
 #------------------------------------------------------------------------------
 # Tidy up
 
-unset uname bsd mac mac_homebrew
+unset uname mac

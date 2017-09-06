@@ -1,24 +1,24 @@
 " -----------------------------------------------------------------------------
 " Init
 
-" [:help packages]
 " Vim 8 adds support for loading packages from the pack/ subdirectory.
 " Use Pathogen to backport this to older versions of Vim.
+" [Help: packages]
 if has('packages') == 0
   execute pathogen#infect()
 end
 
-" [:help syntax-on]
 " Use the default syntax highlighting rules.
+" [Help: syntax-on]
 syntax on
 
-" [:help filetype-plugin] [:help filetype-indent]
 " Detect file types and use the appropriate plugins and indentation rules.
+" [Help: filetype-plugin, filetype-indent]
 filetype plugin indent on
 
-" [:help colorscheme]
 " Set an initial color scheme for terminal vim. The gvimrc file will override
 " this for GUI vim.
+" [Help: colorscheme]
 colors elflord
 
 " -----------------------------------------------------------------------------

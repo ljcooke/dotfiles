@@ -12,3 +12,11 @@ augroup FileTypeDetect
   au! BufRead,BufNewFile *.plist setfiletype xml
   au! BufRead,BufNewFile *.sbg setfiletype conf
 augroup END
+
+" Use a template when creating a new file.
+" [Help: skeleton]
+augroup Templates
+  au BufNewFile *.html 0r ~/.vim/templates/skeleton.html | $d
+  au BufNewFile *.py   0r ~/.vim/templates/skeleton.py
+  au BufNewFile *.sh   0r ~/.vim/templates/skeleton.sh
+augroup END

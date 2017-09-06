@@ -3,7 +3,7 @@ My Vim configuration
 
 ## Install
 
-    $ git submodule update --init --recursive
+    $ git submodule update --init --recursive [--remote]
 
     $ ln -s $PWD $HOME/.vim
 

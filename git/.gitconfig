@@ -1,3 +1,11 @@
+[user]
+	name = <FULL_NAME>
+	email = <EMAIL>
+[core]
+	excludesfile = /Users/<USER>/.gitignore
+	filemode = true
+	quotepath = false
+	fsyncobjectfiles = true
 [color]
 	ui = auto
 	diff = auto

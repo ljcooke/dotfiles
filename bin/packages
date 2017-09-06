@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+def add_package(url, name)
+  system('git', 'submodule', 'add',
+         '--name', name, url,
+         "vim/pack/modules/start/#{name}")
+end
+
+def update_packages
+  system('git', 'submodule', 'update', '--init', '--recursive')
+end
+
+def print_usage
+  prog = $PROGRAM_NAME
+  puts "usage: #{prog} <command> [args...]"
+  puts "       #{prog} add <url> <name>"
+  puts "       #{prog} update"
+  false
+end
+
+def handle_command(name, args)
+  case name
+  when :add
+    return add_package(args[0], args[1]) if args.size == 2
+  when :update
+    return update_packages if args.empty?
+  end
+  print_usage
+end
+
+def main(args)
+  unless Dir.exist?('vim/pack')
+    STDERR.puts('Error: Could not find vim/pack. ' \
+                'Run this command from the base directory.')
+    return false
+  end
+  if args.empty?
+    print_usage
+  else
+    args = args.clone
+    cmd = args.shift.to_sym
+    handle_command(cmd, args)
+  end
+end
+
+exit(main(ARGV)) if $PROGRAM_NAME == __FILE__

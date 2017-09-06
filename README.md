@@ -5,11 +5,10 @@ My Vim configuration
 
     $ ln -s $PWD/vim $HOME/.vim
 
-    $ git submodule update --init --recursive
+    $ bin/packages update
 
-## Add a package
+## Package management
 
-    $ git submodule add \
-          --name <foo> \
-          <url> \
-          vim/pack/modules/start/<foo>
+### Add a package
+
+    $ bin/packages add <url> <name>

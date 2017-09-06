@@ -3,12 +3,12 @@ My Vim configuration
 
 ## Install
 
-    $ ln -s $PWD/vim $HOME/.vim
+    $ bin/pack update
 
-    $ bin/packages update
+    $ ln -s $PWD/vim $HOME/.vim
 
 ## Package management
 
 ### Add a package
 
-    $ bin/packages add <url> <name>
+    $ bin/pack add <url> <name>

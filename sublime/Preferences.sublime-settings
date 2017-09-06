@@ -5,9 +5,13 @@
 	"draw_minimap_border": true,
 	"ensure_newline_at_eof_on_save": true,
 	"fold_buttons": false,
-	"font_face": "Ubuntu Mono",
-	"font_size": 12,
+	"font_face": "Source Code Pro",
+	"font_size": 10,
 	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
 	"indent_guide_options":
 	[
 		"draw_normal",
@@ -26,5 +30,6 @@
 	"spacegray_tabs_font_small": true,
 	"spacegray_tabs_small": false,
 	"theme": "Spacegray Eighties.sublime-theme",
+	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }

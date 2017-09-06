@@ -1,4 +1,6 @@
-# OS X
+# Xcode
+
+## Theme
 
 `Solarized Dark (SourceCodePro).dvtcolortheme`
 is a minor variation of

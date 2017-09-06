@@ -4,8 +4,26 @@
 # rubocop: disable Metrics/MethodLength
 
 require 'optparse'
+require 'shellwords'
 
 PROG = $PROGRAM_NAME
+
+# -----------------------------------------------------------------------------
+
+def run(args)
+  args = args.compact
+  puts "$ #{Shellwords.join args}"
+  system(*args)
+end
+
+def run_many(commands)
+  success = true
+  commands.compact.each do |args|
+    success &&= run(args)
+    return false unless success
+  end
+  success
+end
 
 # -----------------------------------------------------------------------------
 
@@ -14,19 +32,15 @@ def add_package(url, name, opts = {})
   shallow = opts[:shallow]
   path = "vim/pack/modules/#{parent}/#{name}"
 
-  args = ['git', 'submodule', 'add',
-          '--name', name,
-          ('--depth' if shallow), ('1' if shallow),
-          url, path]
-  success = system(*args.compact)
-
+  commands = [['git', 'submodule', 'add', '--name', name,
+               ('--depth' if shallow), ('1' if shallow),
+               url, path]]
   if shallow
-    success &&= system('git', 'config', '-f', '.gitmodules',
-                       "submodule.#{name}.shallow", 'true')
+    commands << ['git', 'config', '-f', '.gitmodules',
+                 "submodule.#{name}.shallow", 'true']
   end
 
-  puts("Added package #{name} to #{path}") if success
-  success
+  run_many(commands)
 end
 
 def cmd_add
@@ -54,9 +68,7 @@ end
 # -----------------------------------------------------------------------------
 
 def update_packages
-  success = system('git', 'submodule', 'update', '--init', '--recursive')
-  puts 'OK' if success
-  success
+  run ['git', 'submodule', 'update', '--init', '--recursive']
 end
 
 def cmd_update

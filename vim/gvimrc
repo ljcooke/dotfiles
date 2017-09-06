@@ -3,7 +3,7 @@ colors base16-eighties
 highlight! link NonText Comment
 
 set lines=48 columns=120
-set go=aeimrL
+set guioptions=aeimr
 set mousehide
 
 if has('gui_macvim')

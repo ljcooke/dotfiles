@@ -1,46 +1,96 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-def add_package(url, name)
-  system('git', 'submodule', 'add',
-         '--name', name, url,
-         "vim/pack/modules/start/#{name}")
+# rubocop: disable Metrics/MethodLength
+
+require 'optparse'
+
+PROG = $PROGRAM_NAME
+
+# -----------------------------------------------------------------------------
+
+def add_package(url, name, opts = {})
+  parent = opts[:optional] ? 'opt' : 'start'
+  shallow = opts[:shallow]
+  path = "vim/pack/modules/#{parent}/#{name}"
+
+  args = ['git', 'submodule', 'add',
+          '--name', name,
+          ('--depth' if shallow), ('1' if shallow),
+          url, path]
+  success = system(*args.compact)
+
+  if shallow
+    success &&= system('git', 'config', '-f', '.gitmodules',
+                       "submodule.#{name}.shallow", 'true')
+  end
+
+  puts("Added package #{name} to #{path}") if success
+  success
 end
+
+def cmd_add
+  options = {}
+  parser = OptionParser.new do |opts|
+    opts.banner = "Usage: #{PROG} [options] <url> <name>"
+    opts.on('-o', '--optional', 'don\'t load this package on startup') do
+      options[:optional] = true
+    end
+    opts.on('-s', '--shallow', 'create a shallow clone') do
+      options[:shallow] = true
+    end
+  end
+  parser.parse!
+
+  if ARGV.size == 2
+    url, name = ARGV
+    add_package(url, name, options)
+  else
+    puts parser
+    false
+  end
+end
+
+# -----------------------------------------------------------------------------
 
 def update_packages
-  system('git', 'submodule', 'update', '--init', '--recursive')
+  success = system('git', 'submodule', 'update', '--init', '--recursive')
+  puts 'OK' if success
+  success
 end
 
+def cmd_update
+  if ARGV.empty?
+    update_packages
+  else
+    puts "Usage: #{PROG} update"
+    false
+  end
+end
+
+# -----------------------------------------------------------------------------
+
 def print_usage
-  prog = $PROGRAM_NAME
-  puts "usage: #{prog} <command> [args...]"
-  puts "       #{prog} add <url> <name>"
-  puts "       #{prog} update"
+  puts "Usage: #{PROG} <command> [args...]"
+  puts "       #{PROG} add [--optional] [--shallow] <url> <name>"
+  puts "       #{PROG} update"
   false
 end
 
-def handle_command(name, args)
-  case name
-  when :add
-    return add_package(args[0], args[1]) if args.size == 2
-  when :update
-    return update_packages if args.empty?
-  end
-  print_usage
+def check_dir
+  return if Dir.exist?('vim/pack')
+  STDERR.puts('Error: Could not find vim/pack. ' \
+              'Run this command from the base directory.')
+  exit false
 end
 
-def main(args)
-  unless Dir.exist?('vim/pack')
-    STDERR.puts('Error: Could not find vim/pack. ' \
-                'Run this command from the base directory.')
-    return false
-  end
-  if args.empty?
-    print_usage
-  else
-    args = args.clone
-    cmd = args.shift.to_sym
-    handle_command(cmd, args)
+def main
+  check_dir
+  case ARGV.any? ? ARGV.shift.to_sym : nil
+  when :add then cmd_add
+  when :update then cmd_update
+  else print_usage
   end
 end
 
-exit(main(ARGV)) if $PROGRAM_NAME == __FILE__
+exit(main) if $PROGRAM_NAME == __FILE__

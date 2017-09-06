@@ -3,18 +3,35 @@ dotfiles
 
 An accretion of config files.
 
-**Note**:
-Vim configuration is now managed separately at
-https://github.com/araile/my-vim
+## Install
 
-Update submodules
------------------
+Verify that the following do not already exist:
 
-    git submodule update --init --recursive [--remote]
+    ~/.bash
+    ~/.inputrc
+    ~/.vim
+    ~/.vimrc
+    ~/.gvimrc
 
-Copy files to home folder
--------------------------
+Run the following commands:
 
-    mkdir -p $HOME/.vim
+    $ git submodule update --init --recursive
 
-    rsync [--dry-run] -FLOhavc home/ $HOME/
+    $ ln -s $PWD/bash $HOME/.bash
+    $ ln -s $PWD/vim  $HOME/.vim
+    $ ln -s .bash/inputrc $HOME/.inputrc
+
+Add the following to `~/.bash_profile`:
+
+    if [ -f ~/.bash/bashrc ]; then source ~/.bash/bashrc; fi
+
+    stty erase ^h  # set backspace character
+
+You can store additional bash configuration in `~/.bashrc`. This file will be
+sourced by `~/.bash/bashrc`.
+
+## Update submodules
+
+Run this command if you need to pull changes from the git submodules:
+
+    git submodule update --init --recursive --remote

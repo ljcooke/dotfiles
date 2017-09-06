@@ -33,29 +33,48 @@ DEFAULT_CONFIG = {
   'push.default' => 'current',
 }.freeze
 
-def git_config(key, value, global = true)
-  run_command(['git', 'config', ('--global' if global), key, value])
+def git_config_value(key)
+  output = %x[git config --global --get #{key}]
+  $?.exitstatus == 0 ? output.chomp : nil
+end
+
+def git_config(key, value)
+  if value
+    run_command(['git', 'config', '--global', key, value])
+  else
+    run_command(['git', 'config', '--global', '--unset', key])
+  end
 end
 
 def main
   configs = DEFAULT_CONFIG.dup
 
   put_status 'Customising'
-  if prompt_yn 'Edit commit messages with GUI vim?'
-    configs['core.editor'] = 'gvim --nofork'
+  configs['core.editor'] = \
+    prompt_yn('Edit commit messages with GUI vim?') ? 'gvim --nofork' : nil
+  configs['transfer.fsckObjects'] = \
+    prompt_yn('Check integrity when pulling?') ? 'true' : nil
+
+  changes = configs.sort.reject do |key, val|
+    git_config_value(key) == val
   end
-  if prompt_yn 'Check integrity when pulling?'
-    configs['transfer.fsckObjects'] = 'true'
+  if changes.empty?
+    puts 'No changes'
+    return true
   end
 
   put_status 'Confirming'
-  configs.sort.each do |key, val|
-    puts "Set: #{PINK}#{key.shellescape}#{OFF} = #{CYAN}#{val.shellescape}#{OFF}"
+  changes.each do |key, val|
+    if val
+      puts "Set: #{PINK}#{key.shellescape}#{OFF} = #{CYAN}#{val.shellescape}#{OFF}"
+    else
+      puts "Unset: #{PINK}#{key.shellescape}#{OFF}"
+    end
   end
   return false unless prompt_yn('Apply this configuration?')
 
   put_status 'Applying configuration'
-  configs.each do |key, val|
+  changes.each do |key, val|
     git_config(key, val)
   end
   true

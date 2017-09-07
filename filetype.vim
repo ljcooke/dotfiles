@@ -5,6 +5,7 @@ endif
 " Add autocommands to detect file types based on the file name.
 " [Help: new-filetype (see option C), :filetype]
 augroup FileTypeDetect
+  au! BufRead,BufNewFile bashrc* setfiletype sh
   au! BufRead,BufNewFile *.fql setfiletype sql
   au! BufRead,BufNewFile *.{ldg,ledger} setfiletype ledger
   au! BufRead,BufNewFile *.less setfiletype css

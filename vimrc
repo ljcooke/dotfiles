@@ -40,6 +40,16 @@ let g:netrw_browse_split = 3
 let g:netrw_winsize = 25
 
 " -----------------------------------------------------------------------------
+" Mappings for the easy-align plugin
+" -----------------------------------------------------------------------------
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" -----------------------------------------------------------------------------
 " Old settings to update
 " -----------------------------------------------------------------------------
 

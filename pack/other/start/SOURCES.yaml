@@ -1,4 +1,5 @@
 csv: https://github.com/chrisbra/csv.vim
+easy-align: https://github.com/junegunn/vim-easy-align
 io: https://github.com/andreimaxim/vim-io
 pgn: https://github.com/artoj/pgn-syntax-vim
 toml: https://github.com/cespare/vim-toml

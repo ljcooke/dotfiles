@@ -41,6 +41,7 @@ let g:netrw_winsize = 25
 
 " -----------------------------------------------------------------------------
 " Mappings for the easy-align plugin
+" [Help: vim-easy-align]
 " -----------------------------------------------------------------------------
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)

@@ -1,5 +1,3 @@
-Source: https://github.com/cespare/vim-toml
-
 # vim-toml
 
 Vim syntax for [TOML](https://github.com/toml-lang/toml).

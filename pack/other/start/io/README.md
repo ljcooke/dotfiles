@@ -1,5 +1,3 @@
-Source: https://github.com/andreimaxim/vim-io
-
 # vim-io
 
 This project adds support for the [Io language][io] for the Vim editor. It 

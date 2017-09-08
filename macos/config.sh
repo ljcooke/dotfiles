@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -o errexit
 set -o nounset
 
 # Exit silently if not running on macOS
@@ -18,7 +19,6 @@ then
     exit 1
 fi
 
-set -o errexit
 set -o xtrace
 
 brew bundle install --file=macos/Brewfile

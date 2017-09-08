@@ -5,5 +5,4 @@ init: config
 config:
 	macos/config.sh
 	git/config.sh
-	sublime/config.sh
 	@echo OK

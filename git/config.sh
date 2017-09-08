@@ -32,3 +32,8 @@ git config --global 'core.quotePath'        'false'
 git config --global 'diff.renames' 'copies'
 
 git config --global 'push.default' 'current'
+
+if [ "$(uname)" = Darwin ]
+then
+    git config --global 'core.editor' 'gvim --nofork'
+fi

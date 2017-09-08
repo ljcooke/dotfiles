@@ -1,0 +1,20 @@
+tap 'homebrew/core'
+tap 'homebrew/services'
+tap 'caskroom/cask'
+
+brew 'bash'
+brew 'bash-completion'
+brew 'coreutils'
+brew 'curl', args: ['with-openssl']
+brew 'git'
+brew 'python'
+brew 'python3'
+brew 'reattach-to-user-namespace'
+brew 'rsync'
+brew 'ruby'
+brew 'tmux'
+brew 'vim', args: ['without-perl', 'with-python3']
+brew 'wget'
+
+cask 'macvim'
+cask 'vlc'

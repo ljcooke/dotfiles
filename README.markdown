@@ -3,34 +3,18 @@ dotfiles
 
 An accretion of config files.
 
+For Vim configuration, see [araile/my-vim](https://github.com/araile/my-vim).
+
 ## Install
-
-Verify that the following do not already exist:
-
-    ~/.inputrc
-    ~/.vim
-    ~/.vimrc
-    ~/.gvimrc
 
 Run the following commands:
 
-    $ git submodule update --init --recursive
+    make init
 
-    $ bin/config-bash
-    $ bin/config-git
-
-    $ ln -s $PWD/vim  $HOME/.vim
-    $ ln -s .bash/inputrc $HOME/.inputrc
+    ln -s "$PWD"/bash "$HOME"/.bash
+    ln -s .bash/bashrc "$HOME"/.bashrc
+    ln -s .bash/inputrc "$HOME"/.inputrc
+    ln -s .bash/login "$HOME"/.bash_login
 
 You can store additional bash configuration in `~/.bashrc.local`. This file
 will be sourced by `~/.bash/bashrc`.
-
-Further configuration for macOS:
-
-    $ bin/config-macos
-
-## Update submodules
-
-Run this command if you need to pull changes from the git submodules:
-
-    git submodule update --init --recursive --remote

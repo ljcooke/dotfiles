@@ -109,12 +109,30 @@ autocmd FileType text           setlocal tw=79 formatoptions-=n
 autocmd FileType tex,plaintex   setlocal textwidth=79
 
 " ----------------------------------------------------------------------------
-" Mappings
+" Editing
 " ----------------------------------------------------------------------------
 
 " Convert the current word to uppercase.
 inoremap <C-u> viwU
 nnoremap <C-u> <Esc>viwUi
+
+" Comment out lines
+nnoremap <Leader>## 0:norm i#<CR>
+vnoremap <Leader>## 0:norm i#<CR>
+nnoremap <Leader>33 0:norm i#<CR>
+vnoremap <Leader>33 0:norm i#<CR>
+nnoremap <Leader>££ 0:norm i#<CR>
+vnoremap <Leader>££ 0:norm i#<CR>
+nnoremap <Leader>// 0:norm i//<CR>
+vnoremap <Leader>// 0:norm i//<CR>
+nnoremap <Leader>"" 0:norm i"<CR>
+vnoremap <Leader>"" 0:norm i"<CR>
+nnoremap <Leader>;; 0:norm i;<CR>
+vnoremap <Leader>;; 0:norm i;<CR>
+nnoremap <Leader>%% 0:norm i%<CR>
+vnoremap <Leader>%% 0:norm i%<CR>
+nnoremap <Leader>-- 0:norm i--<CR>
+vnoremap <Leader>-- 0:norm i--<CR>
 
 " ----------------------------------------------------------------------------
 " Netrw (file browser)
@@ -225,10 +243,10 @@ inoremap <silent> <Down> <Esc><Down>
 
 " easy command line
 nnoremap <Leader><Space> :
-nnoremap <Leader>; :
+"nnoremap <Leader>; :
 
 " breaking habits
-nnoremap <Leader>q<CR> :q
+"nnoremap <Leader>q<CR> :q
 
 " toggle paste mode
 set pastetoggle=<F4>
@@ -259,22 +277,6 @@ nnoremap <Tab><Tab> <C-w><C-w>
 
 " toggle a fold
 nnoremap <S-Tab> za
-
-" comment out lines
-nnoremap <silent> <Leader>/# :s:^:#:<CR>:noh<CR>
-vnoremap <silent> <Leader>/# :s:^:#:<CR>:noh<CR>
-nnoremap <silent> <Leader>/3 :s:^:#:<CR>:noh<CR>
-vnoremap <silent> <Leader>/3 :s:^:#:<CR>:noh<CR>
-nnoremap <silent> <Leader>// :s:^://:<CR>:noh<CR>
-vnoremap <silent> <Leader>// :s:^://:<CR>:noh<CR>
-nnoremap <silent> <Leader>/' :s:^:':<CR>:noh<CR>
-vnoremap <silent> <Leader>/' :s:^:':<CR>:noh<CR>
-nnoremap <silent> <Leader>/" :s:^:":<CR>:noh<CR>
-vnoremap <silent> <Leader>/" :s:^:":<CR>:noh<CR>
-nnoremap <silent> <Leader>/; :s:^:;:<CR>:noh<CR>
-vnoremap <silent> <Leader>/; :s:^:;:<CR>:noh<CR>
-nnoremap <silent> <Leader>/% :s:^:%:<CR>:noh<CR>
-vnoremap <silent> <Leader>/% :s:^:%:<CR>:noh<CR>
 
 " scroll by visual lines (easier to edit wrapped text)
 nnoremap <Down> gj

@@ -23,6 +23,17 @@ filetype plugin indent on
 colors elflord
 
 " -----------------------------------------------------------------------------
+" Mappings
+" -----------------------------------------------------------------------------
+
+let mapleader=' '
+let maplocalleader='\\'
+
+" Convert the current word to uppercase.
+inoremap <C-u> viwU
+nnoremap <C-u> <Esc>viwUi
+
+" -----------------------------------------------------------------------------
 " Netrw (file browser)
 " [Help: netrw]
 " -----------------------------------------------------------------------------
@@ -40,7 +51,7 @@ let g:netrw_browse_split = 3
 let g:netrw_winsize = 25
 
 " -----------------------------------------------------------------------------
-" Mappings for the easy-align plugin
+" Plugin: easy-align
 " [Help: vim-easy-align]
 " -----------------------------------------------------------------------------
 
@@ -49,6 +60,13 @@ xnoremap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nnoremap ga <Plug>(EasyAlign)
+
+" -----------------------------------------------------------------------------
+" Plugin: gundo
+" [Help: GundoIntro]
+" -----------------------------------------------------------------------------
+
+nnoremap <Leader>u :GundoToggle<CR>
 
 " -----------------------------------------------------------------------------
 " Old settings to update
@@ -70,8 +88,6 @@ if has("multi_byte")
   setglobal fileencoding=utf-8
   scriptencoding utf8
 endif
-
-let mapleader=' '
 
 set ttyfast                 " using a fast connection
 set cmdheight=1             " command line height

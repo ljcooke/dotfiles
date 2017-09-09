@@ -33,6 +33,9 @@ git config --global 'diff.renames' 'copies'
 
 git config --global 'push.default' 'current'
 
+# Show author dates when using 'git rebase -i'
+git config --global 'rebase.instructionFormat' '[%ai] %s'
+
 if [ "$(uname)" = Darwin ]
 then
     git config --global 'core.editor' 'gvim --nofork'

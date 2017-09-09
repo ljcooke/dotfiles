@@ -9,6 +9,16 @@ if has('packages') == 0
   execute pathogen#infect()
 end
 
+" Use UTF-8 encoding
+if has('multi_byte')
+  if &termencoding == ''
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  scriptencoding utf8
+endif
+
 " Use the default syntax highlighting rules.
 " [Help: syntax-on]
 syntax on
@@ -22,12 +32,69 @@ filetype plugin indent on
 " [Help: colorscheme]
 colors elflord
 
+" Leader characters for mappings
+let mapleader=' '
+let maplocalleader='\\'
+
+" -----------------------------------------------------------------------------
+" Spaces and tabs
+" -----------------------------------------------------------------------------
+
+" Auto-indentation
+set autoindent smartindent
+
+" Default to 4 spaces for tabs
+set tabstop=4 softtabstop=4 shiftwidth=4 shiftround
+autocmd FileType asciidoc       setlocal ts=2 sts=2 sw=2
+autocmd FileType html,xhtml     setlocal ts=2 sts=2 sw=2
+autocmd FileType htmldjango     setlocal ts=2 sts=2 sw=2
+autocmd FileType markdown       setlocal ts=2 sts=2 sw=2
+autocmd FileType php            setlocal ts=2 sts=2 sw=2
+autocmd FileType ruby           setlocal ts=2 sts=2 sw=2
+autocmd FileType yaml           setlocal ts=2 sts=2 sw=2
+
+" Expand tabs to spaces, and show tab characters
+set expandtab
+set list
+autocmd FileType go             setlocal noexpandtab nolist
+autocmd FileType make           setlocal noexpandtab nolist
+autocmd FileType sshconfig      setlocal noexpandtab nolist
+
+" Show tabs, trailing whitespace, non-breaking spaces
+if &encoding == 'utf-8'
+  set listchars=tab:·\ ,trail:.,nbsp:·
+else
+  set listchars=tab:>\ ,trail:.
+endif
+
+" Mapping to Toggle expandtab and revealing whitespace
+nnoremap <Leader><Tab>t :setlocal expandtab!<CR>
+nnoremap <Leader><Tab>s :setlocal list!<CR>
+
+" Change tab size
+nnoremap <Leader><Tab>2 :setlocal ts=2 sts=2 sw=2<CR>
+nnoremap <Leader><Tab>4 :setlocal ts=4 sts=4 sw=4<CR>
+nnoremap <Leader><Tab>8 :setlocal ts=8 sts=8 sw=8<CR>
+
+" Delete trailing spaces
+nnoremap <Leader>d$ :%s/\s\+$//e<CR>:noh<CR>
+
+" Replace non-breaking spaces. (These are easy to insert by mistake on macOS
+" by pressing Alt-Space.)
+inoremap <M-Space> <Space>
+nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :eg<CR>:noh<CR>
+
+" -----------------------------------------------------------------------------
+" Other filetype-specific settings
+" -----------------------------------------------------------------------------
+
+autocmd FileType markdown       setlocal nosi tw=79 fo=tcroqn2 com=n:>
+autocmd FileType text           setlocal tw=79 formatoptions-=n
+autocmd FileType tex,plaintex   setlocal textwidth=79
+
 " -----------------------------------------------------------------------------
 " Mappings
 " -----------------------------------------------------------------------------
-
-let mapleader=' '
-let maplocalleader='\\'
 
 " Convert the current word to uppercase.
 inoremap <C-u> viwU
@@ -79,16 +146,6 @@ else
   let s:uname = ''
 end
 
-" use unicode
-if has("multi_byte")
-  if &termencoding == ""
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8
-  setglobal fileencoding=utf-8
-  scriptencoding utf8
-endif
-
 set ttyfast                 " using a fast connection
 set cmdheight=1             " command line height
 set number                  " line numbers
@@ -109,7 +166,6 @@ set shm=flmnrxoOstTI        " make some messages less verbose
 set noshortname             " don't use dos-style filenames
 set scrolloff=5             " keep the cursor near the middle
 set tw=0 wrap nojs lbr
-set expandtab list
 set number nuw=4 fdc=0
 set nospell spelllang=en    " disable spellcheck
 
@@ -144,34 +200,6 @@ end
 
 " https://github.com/tmux/tmux/issues/543#issuecomment-248980734
 set clipboard=unnamed
-
-set tabstop=4                   " how existing tabs are displayed
-set softtabstop=4               " tabs in insert mode
-set shiftwidth=4 shiftround     " indent operations
-set autoindent smartindent
-
-if &encoding == 'utf-8'
-  set listchars=tab:·\ ,trail:.,nbsp:·
-else
-  set listchars=tab:>\ ,trail:.
-endif
-
-" temporarily turn off expandtab
-nnoremap <Leader><Tab>t :setlocal nolist noexpandtab<CR>
-nnoremap <Leader><Tab>s :setlocal list expandtab<CR>
-
-" temporarily change tab size
-nnoremap <Leader><Tab>2 :setlocal tabstop=2 softtabstop=2 shiftwidth=2<CR>
-nnoremap <Leader><Tab>4 :setlocal tabstop=4 softtabstop=4 shiftwidth=4<CR>
-nnoremap <Leader><Tab>8 :setlocal tabstop=8 softtabstop=8 shiftwidth=8<CR>
-
-" delete trailing spaces
-nnoremap <Leader>dw :%s/\s\+$//e<CR>:noh<CR>
-
-" replace non-breaking spaces
-" (easy to insert by mistake on macOS with Alt-Space)
-inoremap <M-Space> <Space>
-nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :eg<CR>:noh<CR>
 
 " exit insert mode when using arrows
 inoremap <silent> <Up> <Esc><Up>
@@ -235,14 +263,3 @@ nnoremap <Down> gj
 nnoremap <Up>   gk
 vnoremap <Down> gj
 vnoremap <Up>   gk
-
-" filetype-specific settings
-autocmd FileType gitcommit setlocal colorcolumn=51
-autocmd FileType go,make,sshconfig setlocal nolist noexpandtab
-autocmd FileType markdown setlocal ai nosi tw=78 fo=tcroqn2 com=n:>
-autocmd FileType php setlocal autoindent smartindent
-autocmd FileType text setlocal tw=78 formatoptions-=n
-autocmd FileType tex,plaintex setlocal textwidth=78
-
-" 2 spaces for tabs
-autocmd FileType asciidoc,html,xhtml,htmldjango,markdown,php,rst,ruby,text,yaml setlocal ts=2 sts=2 sw=2

@@ -45,10 +45,10 @@ let g:netrw_winsize = 25
 " -----------------------------------------------------------------------------
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+xnoremap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+nnoremap ga <Plug>(EasyAlign)
 
 " -----------------------------------------------------------------------------
 " Old settings to update

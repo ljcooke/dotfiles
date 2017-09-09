@@ -237,7 +237,7 @@ vnoremap <Down> gj
 vnoremap <Up>   gk
 
 " filetype-specific settings
-autocmd FileType gitcommit setlocal colorcolumn=50
+autocmd FileType gitcommit setlocal colorcolumn=51
 autocmd FileType go,make,sshconfig setlocal nolist noexpandtab
 autocmd FileType markdown setlocal ai nosi tw=78 fo=tcroqn2 com=n:>
 autocmd FileType php setlocal autoindent smartindent

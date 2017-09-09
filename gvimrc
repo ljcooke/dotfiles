@@ -2,7 +2,8 @@ colors base16-eighties
 
 highlight! link NonText Comment
 
-set lines=48 columns=120
+set lines=48 columns=140
+set colorcolumn=+1
 set guioptions=aeimr
 set mousehide
 

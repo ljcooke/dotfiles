@@ -18,28 +18,28 @@
 
   - Remove download list items: **After one day**
 
-  - **NO** Open "Safe" files after downloading
+  - Open "Safe" files after downloading - **NO**
 
 ### Tabs
 
   - Open pages in tabs instead of windows: **Never**
 
-  - **YES** Cmd-click opens a link in a new tab
+  - Cmd-click opens a link in a new tab - **YES**
 
-  - **NO** When a new tab or window opens, make it active
+  - When a new tab or window opens, make it active - **NO**
 
-  - **YES** Use Cmd-1 through Cmd-9 to switch tabs
+  - Use Cmd-1 through Cmd-9 to switch tabs - **YES**
 
 ### Search
 
   - Search Engine: **DuckDuckGo**
 
-  - **NO** Include search engine suggestions
+  - Include search engine suggestions - **NO**
 
-  - **NO** Include Safari suggestions
+  - Include Safari suggestions - **NO**
 
-  - **YES** Enable Quick Website Search
+  - Enable Quick Website Search - **YES**
 
-  - **NO** Preload Top Hit in the background
+  - Preload Top Hit in the background - **NO**
 
-  - **YES** Show Favorites
+  - Show Favorites - **YES**

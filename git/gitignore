@@ -1,6 +1,22 @@
+# -----------------------------------------------------------------------------
+# Global git ignore
+# -----------------------------------------------------------------------------
+
+# See also:
+# https://github.com/github/gitignore
+
+# macOS
+.com.apple.timemachine.donotpresent
+.DocumentRevisions-V100
 .DS_Store
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Windows
 Thumbs.db
-.*.sw?
 
 # Python
 *.pyc

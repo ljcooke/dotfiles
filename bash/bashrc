@@ -1,3 +1,7 @@
+# -----------------------------------------------------------------------------
+# Bash config
+# -----------------------------------------------------------------------------
+
 [ -z "$PS1" ] && return  # return if not running interactively
 
 source /etc/profile >/dev/null
@@ -53,7 +57,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 #------------------------------------------------------------------------------
 # Check the OS and load the appropriate file
 
-uname=`uname`
+uname=`uname -s`
 mac=0
 
 if [ "$uname" = Darwin ]; then
@@ -122,9 +126,9 @@ cpr_args="-Phavz \
 scpr_args="$cpr_args"
 
 if [ $mac -eq 1 ]; then
-    if [ -n "$(rsync --version 2>/dev/null | grep xattrs)" ]; then
-        cpr_args="$cpr_args --xattrs"
-    fi
+    #if [ -n "$(rsync --version 2>/dev/null | grep xattrs)" ]; then
+    cpr_args="$cpr_args --xattrs"
+    #fi
 fi
 
 alias cpr="nice rsync $cpr_args"

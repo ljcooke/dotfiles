@@ -1,0 +1,43 @@
+# macOS
+
+## Install dependencies
+
+  - Install Xcode's Command Line Tools (CLT):
+
+        xcode-select --install
+
+  - Install [Homebrew](https://brew.sh) 
+
+  - Install more software using Homebrew:
+
+        brew bundle --file=MacOS/Brewfile
+
+## Fonts
+
+Install the fonts listed in the [Fonts](../Fonts.md) document. To do this,
+copy the font files to the *~/Library/Fonts* directory.
+
+## Safari
+
+See the [Safari](Safari.md) document.
+
+## Terminal
+
+`Inky Grey.terminal` is a dark theme for the native Terminal app.
+
+To install the theme, open the Preferences window in Terminal and select the
+Profiles tab. Select the gear icon and then Import.
+
+## Xcode
+
+`base16-eighties.dark.dvtcolortheme` is a variant of an Xcode theme from
+[joedynamite/base16-xcode](https://github.com/joedynamite/base16-xcode) on
+GitHub, modified to use the Source Code Pro font.
+
+To install the theme, run the following command which will copy the theme file
+to the appropriate directory:
+
+    cp ./*.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes
+
+Restart Xcode. The theme should now be available in the Preferences window on
+the 'Fonts & Colors' tab.

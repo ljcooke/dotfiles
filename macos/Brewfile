@@ -1,3 +1,7 @@
+# -----------------------------------------------------------------------------
+# Homebrew config to install macOS software using `brew bundle`
+# -----------------------------------------------------------------------------
+
 tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'caskroom/cask'

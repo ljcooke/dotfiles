@@ -9,8 +9,9 @@ import pprint
 import random
 import re
 import sys
-
+from math import *
 from pydoc import pager
+
 
 try:
     from see import see
@@ -33,3 +34,38 @@ if sys.version_info[0] < 3:
         print("Install readline for tab completion.")
 
 print('')
+
+
+def take(seq, count=1):
+    queue = []
+    for item in seq:
+        queue.append(item)
+        if len(queue) == count:
+            yield tuple(queue)
+            queue = []
+
+    if queue:
+        yield tuple(queue)
+
+
+def pairs(seq):
+    return take(seq, 2)
+
+
+def enhex(seq):
+    if isinstance(seq, str):
+        seq = seq.encode('utf-8')
+    return ' '.join(hex(b)[2:].zfill(2) for b in seq).upper()
+
+
+def dehex(s, utf8=True):
+    s = ''.join(s.lower().split())
+    if not all(c in '0123456789abcdef' for c in s):
+        raise ValueError('Not a hex string')
+    byteseq = bytes(int(''.join(p), 16) for p in pairs(s))
+    if utf8:
+        try:
+            return byteseq.decode('utf-8')
+        except UnicodeDecodeError:
+            pass
+    return byteseq

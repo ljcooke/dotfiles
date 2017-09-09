@@ -27,14 +27,30 @@ syntax on
 " [Help: filetype-plugin, filetype-indent]
 filetype plugin indent on
 
-" Set an initial color scheme for terminal vim. The gvimrc file will override
-" this for GUI vim.
-" [Help: colorscheme]
-colors elflord
-
 " Leader characters for mappings
 let mapleader=' '
 let maplocalleader='\\'
+
+" ----------------------------------------------------------------------------
+" Appearance
+" ----------------------------------------------------------------------------
+
+" Use a dark color scheme
+set background=dark
+if has('gui')
+  colors base16-eighties
+else
+  colors elflord
+endif
+
+" Show line numbers
+set number numberwidth=4
+
+" Set the command line height and show <line>,<column>
+set cmdheight=1 ruler
+
+" Show the tabs at the top unless there is only one tab
+set showtabline=1
 
 " ----------------------------------------------------------------------------
 " Spaces and tabs
@@ -140,33 +156,35 @@ nnoremap <Leader>u :GundoToggle<CR>
 " ----------------------------------------------------------------------------
 
 if has('unix')
-  let s:uname = system('echo -n "$(uname -s)"')
+  "let s:uname = system('echo -n "$(uname -s)"')
   let shell='bash'
 else
-  let s:uname = ''
+  "let s:uname = ''
 end
 
-set ttyfast                 " using a fast connection
-set cmdheight=1             " command line height
-set number                  " line numbers
-set ruler                   " show 'line,column' ruler
+"set ttyfast                 " using a fast connection
+set noshortname             " don't use dos-style filenames
+
+" search
 set nohlsearch              " highlight search results? (clear with :noh)
-set background=dark         " light on dark
 set incsearch               " jump to search result while typing
-set ff=unix ffs=unix,dos    " unix newlines
-set nomodeline              " don't read modelines
-set showmatch               " highlight matching brackets when typing
 set ignorecase smartcase    " ignorecase implied if search string is lowercase
+
+set nomodeline              " don't read modelines
+set ff=unix ffs=unix,dos    " unix newlines
+
+set showmatch               " highlight matching brackets when typing
+
+" files
 set viminfo=""              " don't use a viminfo file
 set nobackup writebackup    " temporary backup before writing
-set showtabline=1           " show tabs if more than 1
+
 set bs=eol,start,indent     " allow backspacing over everything
 set mouse=a                 " allow mouse in all modes
 set shm=flmnrxoOstTI        " make some messages less verbose
-set noshortname             " don't use dos-style filenames
 set scrolloff=5             " keep the cursor near the middle
-set tw=0 wrap nojs lbr
-set number nuw=4 fdc=0
+set textwidth=0 wrap nojoinspaces linebreak
+set foldcolumn=0
 set nospell spelllang=en    " disable spellcheck
 
 "
@@ -192,7 +210,7 @@ endif
 set directory=~/.vim/tmp,/var/tmp/$USER
 
 " macOS
-if s:uname == 'Darwin'
+if has('osx')
   set backupskip=/tmp/*,/private/tmp/*
   set t_kb=  " Ctrl-V Backspace
   fixdel

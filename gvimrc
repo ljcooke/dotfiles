@@ -1,5 +1,3 @@
-colors base16-eighties
-
 highlight! link NonText Comment
 
 set lines=48 columns=140

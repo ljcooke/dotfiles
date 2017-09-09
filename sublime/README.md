@@ -2,13 +2,11 @@
 
 ## Install
 
-On macOS:
+On [macOS](../macos/README.md):
 
   - brew cask install sublime-text
 
-  - ln -s \
-      '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' \
-      /usr/local/bin/subl
+  - `ln -s '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' /usr/local/bin/subl`
 
 ## Configure
 

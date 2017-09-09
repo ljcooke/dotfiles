@@ -10,7 +10,7 @@
 
   - Install more software using Homebrew:
 
-        brew bundle --file=MacOS/Brewfile
+        brew bundle install
 
 ## Fonts
 

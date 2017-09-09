@@ -56,10 +56,10 @@ let g:netrw_winsize = 25
 " -----------------------------------------------------------------------------
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xnoremap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nnoremap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " -----------------------------------------------------------------------------
 " Plugin: gundo

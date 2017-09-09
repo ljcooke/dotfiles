@@ -63,27 +63,16 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool NO
 # -----------------------------------------------------------------------------
 
 # 'General' Preferences tab
-defaults write com.apple.Safari OpenPrivateWindowWhenNotRestoringSessionAtLaunch -int 1
-defaults write com.apple.Safari NewTabBehavior -int 1
-defaults write com.apple.Safari NewWindowBehavior -int 1
 defaults write com.apple.Safari HistoryAgeInDaysLimit -int 7
-defaults write com.apple.Safari TopSitesGridArrangement -int 0
-defaults write com.apple.Safari AlwaysPromptForDownloadFolder -int 1
-defaults write com.apple.Safari DownloadsClearingPolicy -int 3
-defaults write com.apple.Safari AutoOpenSafeDownloads -int 0
-
-# 'Tabs' Preferences tab
-defaults write com.apple.Safari TabCreationPolicy -int 0
-defaults write com.apple.Safari CommandClickMakesTabs -int 1
-defaults write com.apple.Safari OpenNewTabsInFront -int 0
-defaults write com.apple.Safari Command1Through9SwitchesTabs -int 1
+defaults write com.apple.Safari AlwaysPromptForDownloadFolder -bool YES
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool NO
 
 # 'Privacy' Preferences tab
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -int 1
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool YES
 
 # 'Advanced' Preferences tab
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -int 1
-defaults write com.apple.Safari IncludeDevelopMenu -int 1
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool YES
+defaults write com.apple.Safari IncludeDevelopMenu -bool YES
 
 # -----------------------------------------------------------------------------
 # Misc Configuration

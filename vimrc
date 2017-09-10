@@ -85,8 +85,8 @@ else
 endif
 
 " Mapping to Toggle expandtab and revealing whitespace
-nnoremap <Leader><Tab>t :setlocal expandtab!<CR>
-nnoremap <Leader><Tab>s :setlocal list!<CR>
+nnoremap <Leader><Tab>t :setlocal expandtab!<CR>:setlocal expandtab?<CR>
+nnoremap <Leader><Tab>l :setlocal list!<CR>:setlocal list?<CR>
 
 " Change tab size
 nnoremap <Leader><Tab>2 :setlocal ts=2 sts=2 sw=2<CR>

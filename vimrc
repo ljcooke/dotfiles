@@ -67,6 +67,7 @@ autocmd FileType htmldjango     setlocal ts=2 sts=2 sw=2
 autocmd FileType markdown       setlocal ts=2 sts=2 sw=2
 autocmd FileType php            setlocal ts=2 sts=2 sw=2
 autocmd FileType ruby           setlocal ts=2 sts=2 sw=2
+autocmd FileType vim            setlocal ts=2 sts=2 sw=2
 autocmd FileType yaml           setlocal ts=2 sts=2 sw=2
 
 " Expand tabs to spaces, and show tab characters

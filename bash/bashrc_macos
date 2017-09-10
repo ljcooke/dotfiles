@@ -21,5 +21,4 @@ then
 fi
 
 
-alias mvim="/usr/local/bin/mvim -f -c 'au VimLeave * !open -a Terminal'"
-alias gvim=mvim
+alias fvim="/usr/local/bin/mvim -f -c 'au VimLeave * !open -a Terminal'"

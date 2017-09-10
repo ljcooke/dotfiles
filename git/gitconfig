@@ -17,6 +17,7 @@
 	initcommit = !git init && git commit -m Init --allow-empty
 [core]
 	#editor = gvim --nofork
+	#editor = mvim -f --nomru -c 'au VimLeave * !open -a Terminal'
 	#excludesfile = <PATH TO HOME>/.gitignore
 	fileMode = true
 	quotePath = false

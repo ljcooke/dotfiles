@@ -189,25 +189,25 @@ function _araile_prompt_setup()
     # colors: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
     local RESET="\[\033[0m\]"
     local GREEN="\[\033[0;32m\]"
-    local BROWN="\[\033[0;33m\]"
-    local CYAN="\[\033[0;36m\]"
-
-    local token=${1:-◇}
-    local token_color=${2:-$BROWN}
+    local YELLOW="\[\033[0;33m\]"
 
     case "$TERM" in
     dumb|vt100)
-        local c0='' ctok='' cpwd='' cgit=''
+        local c0='' cpwd='' cgit=''
+        local token=${1:-$}
+        local token_color=${2:-}
         local wintitle=''
         ;;
     *)
-        local c0="$RESET" ctok="$token_color" cpwd="$CYAN" cgit="$GREEN"
+        local c0="$RESET" cpwd="$GREEN" cgit="$YELLOW"
+        local token=${1:-§}
+        local token_color=''
         local wintitle="\[\033]0;\W\007\]"
         ;;
     esac
 
-    local context="${c0}${ctok}${PROMPT_PREFIX}${cpwd}\W${cgit}\$(_araile_prompt_branch)${c0}"
-    local prompt="${ctok} ${token}"
+    local context="${c0}${PROMPT_PREFIX}${cpwd}\W${cgit}\$(_araile_prompt_branch)${c0}"
+    local prompt="${token_color} ${token}"
 
     PS1="${wintitle}${context}${prompt}${c0} "
     PS2="${ctok}>${c0} "

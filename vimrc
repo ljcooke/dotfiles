@@ -168,7 +168,8 @@ nmap ga <Plug>(EasyAlign)
 
 if has('unix')
   "let s:uname = system('echo -n "$(uname -s)"')
-  let shell='bash'
+  let shell = 'bash'
+  set shell='bash'
 else
   "let s:uname = ''
 end

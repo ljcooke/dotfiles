@@ -75,6 +75,12 @@ defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool YES
 defaults write com.apple.Safari IncludeDevelopMenu -bool YES
 
 # -----------------------------------------------------------------------------
+# MacVim
+# -----------------------------------------------------------------------------
+
+defaults write org.vim.MacVim MMZoomBoth 1
+
+# -----------------------------------------------------------------------------
 # Misc Configuration
 # -----------------------------------------------------------------------------
 

@@ -19,3 +19,7 @@ then
         man -t $* | ps2pdf - - | open -f -a /Applications/Preview.app
     }
 fi
+
+
+alias mvim="/usr/local/bin/mvim -f -c 'au VimLeave * !open -a Terminal'"
+alias gvim=mvim

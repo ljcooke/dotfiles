@@ -105,6 +105,7 @@ nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :eg<CR>:noh<CR>
 " Other filetype-specific settings
 " ----------------------------------------------------------------------------
 
+autocmd FileType gitcommit      setlocal colorcolumn=51
 autocmd FileType markdown       setlocal nosi tw=79 fo=tcroqn2 com=n:>
 autocmd FileType text           setlocal tw=79 formatoptions-=n
 autocmd FileType tex,plaintex   setlocal textwidth=79

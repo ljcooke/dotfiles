@@ -78,7 +78,11 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool YES
 # MacVim
 # -----------------------------------------------------------------------------
 
+# Allow zooming horizontally as well as vertically
 defaults write org.vim.MacVim MMZoomBoth 1
+
+# Disable checking for software updates (let homebrew handle it)
+defaults write org.vim.MacVim SUEnableAutomaticChecks 0
 
 # -----------------------------------------------------------------------------
 # Misc Configuration

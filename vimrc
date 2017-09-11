@@ -114,6 +114,9 @@ autocmd FileType tex,plaintex   setlocal textwidth=79
 " Editing
 " ----------------------------------------------------------------------------
 
+" Reload if files changed outside of vim.
+set autoread
+
 " Convert the current word to uppercase.
 inoremap <C-u> viwU
 nnoremap <C-u> <Esc>viwUi

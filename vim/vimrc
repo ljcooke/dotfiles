@@ -1,0 +1,283 @@
+" ----------------------------------------------------------------------------
+" Init
+" ----------------------------------------------------------------------------
+
+" Vim 8 adds support for loading packages from the pack/ subdirectory.
+" Use Pathogen to backport this to older versions of Vim.
+" [Help: packages]
+if has('packages') == 0
+  execute pathogen#infect()
+end
+
+" Use UTF-8 encoding
+if has('multi_byte')
+  if &termencoding == ''
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  scriptencoding utf8
+endif
+
+" Use the default syntax highlighting rules.
+" [Help: syntax-on]
+syntax on
+
+" Detect file types and use the appropriate plugins and indentation rules.
+" [Help: filetype-plugin, filetype-indent]
+filetype plugin indent on
+
+" Leader characters for mappings
+let mapleader=' '
+let maplocalleader='\\'
+
+" ----------------------------------------------------------------------------
+" Appearance
+" ----------------------------------------------------------------------------
+
+" Use a dark color scheme
+set background=dark
+if has('gui')
+  colors base16-eighties
+else
+  colors elflord
+endif
+
+" Show line numbers
+set number numberwidth=4
+
+" Set the command line height and show <line>,<column>
+set cmdheight=1 ruler
+
+" Show the tabs at the top unless there is only one tab
+set showtabline=1
+
+" ----------------------------------------------------------------------------
+" Spaces and tabs
+" ----------------------------------------------------------------------------
+
+" Auto-indentation
+set autoindent smartindent
+
+" Default to 4 spaces for tabs
+set tabstop=4 softtabstop=4 shiftwidth=4 shiftround
+autocmd FileType asciidoc       setlocal ts=2 sts=2 sw=2
+autocmd FileType html,xhtml     setlocal ts=2 sts=2 sw=2
+autocmd FileType htmldjango     setlocal ts=2 sts=2 sw=2
+autocmd FileType markdown       setlocal ts=2 sts=2 sw=2
+autocmd FileType php            setlocal ts=2 sts=2 sw=2
+autocmd FileType ruby           setlocal ts=2 sts=2 sw=2
+autocmd FileType vim            setlocal ts=2 sts=2 sw=2
+autocmd FileType yaml           setlocal ts=2 sts=2 sw=2
+
+" Expand tabs to spaces, and show tab characters
+set expandtab
+set list
+autocmd FileType go             setlocal noexpandtab nolist
+autocmd FileType make           setlocal noexpandtab nolist
+autocmd FileType sshconfig      setlocal noexpandtab nolist
+
+" Show tabs, trailing whitespace, non-breaking spaces
+if &encoding == 'utf-8'
+  set listchars=tab:·\ ,trail:.,nbsp:·
+else
+  set listchars=tab:>\ ,trail:.
+endif
+
+" Mapping to Toggle expandtab and revealing whitespace
+nnoremap <Leader><Tab>t :setlocal expandtab!<CR>:setlocal expandtab?<CR>
+nnoremap <Leader><Tab>l :setlocal list!<CR>:setlocal list?<CR>
+
+" Change tab size
+nnoremap <Leader><Tab>2 :setlocal ts=2 sts=2 sw=2<CR>
+nnoremap <Leader><Tab>4 :setlocal ts=4 sts=4 sw=4<CR>
+nnoremap <Leader><Tab>8 :setlocal ts=8 sts=8 sw=8<CR>
+
+" Delete trailing spaces
+nnoremap <Leader>d$ :%s/\s\+$//e<CR>:noh<CR>
+
+" Replace non-breaking spaces. (These are easy to insert by mistake on macOS
+" by pressing Alt-Space.)
+inoremap <M-Space> <Space>
+nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :eg<CR>:noh<CR>
+
+" ----------------------------------------------------------------------------
+" Other filetype-specific settings
+" ----------------------------------------------------------------------------
+
+autocmd FileType gitcommit      setlocal colorcolumn=51
+autocmd FileType markdown       setlocal nosi tw=79 fo=tcroqn2 com=n:>
+autocmd FileType text           setlocal tw=79 formatoptions-=n
+autocmd FileType tex,plaintex   setlocal textwidth=79
+
+" ----------------------------------------------------------------------------
+" Editing
+" ----------------------------------------------------------------------------
+
+" Reload if files changed outside of vim.
+set autoread
+
+" Convert the current word to uppercase.
+inoremap <C-u> viwU
+nnoremap <C-u> <Esc>viwUi
+
+" Comment out lines
+nnoremap <Leader>## 0:norm i#<CR>
+vnoremap <Leader>## 0:norm i#<CR>
+nnoremap <Leader>33 0:norm i#<CR>
+vnoremap <Leader>33 0:norm i#<CR>
+nnoremap <Leader>££ 0:norm i#<CR>
+vnoremap <Leader>££ 0:norm i#<CR>
+nnoremap <Leader>// 0:norm i//<CR>
+vnoremap <Leader>// 0:norm i//<CR>
+nnoremap <Leader>"" 0:norm i"<CR>
+vnoremap <Leader>"" 0:norm i"<CR>
+nnoremap <Leader>;; 0:norm i;<CR>
+vnoremap <Leader>;; 0:norm i;<CR>
+nnoremap <Leader>%% 0:norm i%<CR>
+vnoremap <Leader>%% 0:norm i%<CR>
+nnoremap <Leader>-- 0:norm i--<CR>
+vnoremap <Leader>-- 0:norm i--<CR>
+
+" ----------------------------------------------------------------------------
+" Netrw (file browser)
+" [Help: netrw]
+" ----------------------------------------------------------------------------
+
+" Remove the banner. (Press I to toggle.)
+let g:netrw_banner = 0
+
+" Use a tree view by default. (Press i to cycle through the view types.)
+let g:netrw_liststyle = 3
+
+" Open files in a new tab.
+let g:netrw_browse_split = 3
+
+" Set the % width when opened in a vertical split (with :Vexplore).
+let g:netrw_winsize = 25
+
+" ----------------------------------------------------------------------------
+" Plugin: easy-align
+" [Help: vim-easy-align]
+" ----------------------------------------------------------------------------
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" ----------------------------------------------------------------------------
+" Old settings to update
+" ----------------------------------------------------------------------------
+
+if has('unix')
+  "let s:uname = system('echo -n "$(uname -s)"')
+  let shell = 'bash'
+else
+  "let s:uname = ''
+end
+
+"set ttyfast                 " using a fast connection
+set noshortname             " don't use dos-style filenames
+
+" search
+set nohlsearch              " highlight search results? (clear with :noh)
+set incsearch               " jump to search result while typing
+set ignorecase smartcase    " ignorecase implied if search string is lowercase
+
+set nomodeline              " don't read modelines
+set ff=unix ffs=unix,dos    " unix newlines
+
+set showmatch               " highlight matching brackets when typing
+
+" files
+set viminfo=""              " don't use a viminfo file
+set nobackup writebackup    " temporary backup before writing
+
+set bs=eol,start,indent     " allow backspacing over everything
+set mouse=a                 " allow mouse in all modes
+set shm=flmnrxoOstTI        " make some messages less verbose
+set scrolloff=5             " keep the cursor near the middle
+set textwidth=0 wrap nojoinspaces linebreak
+set foldcolumn=0
+set nospell spelllang=en    " disable spellcheck
+
+"
+" Format options:
+"
+"   c - auto-wrap comments
+"   r - add comment leader after hitting Enter in insert mode
+"   q - allow formatting comments with gq
+"   n - format numbered lists
+"   l - don't break long lines in insert mode if the line was long when the
+"       insert command started
+"   1 - don't break the line after a one-letter word
+"   j - remove comment leader when joining lines
+"
+set formatoptions=crqnl1j
+
+" indent wrapped lines
+if has('linebreak')
+  set showbreak=.. breakindent breakindentopt=shift:4,sbr
+endif
+
+" keep swap files in a separate location
+set directory=~/.vim/tmp,/var/tmp/$USER
+
+" macOS
+if has('osx')
+  set backupskip=/tmp/*,/private/tmp/*
+  set t_kb=  " Ctrl-V Backspace
+  fixdel
+end
+
+" https://github.com/tmux/tmux/issues/543#issuecomment-248980734
+set clipboard=unnamed
+
+" exit insert mode when using arrows
+inoremap <silent> <Up> <Esc><Up>
+inoremap <silent> <Down> <Esc><Down>
+
+" easy command line
+nnoremap <Leader><Space> :
+"nnoremap <Leader>; :
+
+" breaking habits
+"nnoremap <Leader>q<CR> :q
+
+" toggle paste mode
+set pastetoggle=<F4>
+
+" toggle settings
+nnoremap <silent> <Leader>!n :set number!<CR>:set number?<CR>
+nnoremap <silent> <Leader>!s :set spell!<CR>:set spell?<CR>
+nnoremap <silent> <Leader>!/ :set hlsearch!<CR>:set hlsearch?<CR>
+
+" new tab
+nnoremap <Leader>t :tabnew<Space>
+nnoremap <Leader>nt :tabnew<CR>
+" previous tab
+nnoremap <Leader>[ gT
+nnoremap <Leader>ht gT
+" next tab
+nnoremap <Leader>] gt
+nnoremap <Leader>lt gt
+" move tab
+nnoremap <Leader>mt :tabm<Space>
+
+" explore
+nnoremap <Leader>xx :Explore<CR>
+nnoremap <Leader>xt :Texplore<CR>
+
+" switch buffers
+nnoremap <Tab><Tab> <C-w><C-w>
+
+" toggle a fold
+nnoremap <S-Tab> za
+
+" scroll by visual lines (easier to edit wrapped text)
+nnoremap <Down> gj
+nnoremap <Up>   gk
+vnoremap <Down> gj
+vnoremap <Up>   gk

@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+# -----------------------------------------------------------------------------
+# macOS config script
+# -----------------------------------------------------------------------------
+# Some code adapted from the following sources:
+#
+#   - https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+# -----------------------------------------------------------------------------
 
 set -o errexit
 set -o nounset
@@ -9,6 +16,10 @@ if [ "$(uname -s)" != Darwin ]
 then
     exit 0
 fi
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we're about to change.
+osascript -e 'tell application "System Preferences" to quit'
 
 # -----------------------------------------------------------------------------
 # Homebrew
@@ -59,6 +70,23 @@ defaults write com.apple.finder FXRemoveOldTrashItems -bool YES
 defaults write com.apple.finder _FXSortFoldersFirst -bool NO
 
 # -----------------------------------------------------------------------------
+# MacVim
+# -----------------------------------------------------------------------------
+
+# Allow zooming horizontally as well as vertically
+defaults write org.vim.MacVim MMZoomBoth 1
+
+# Disable checking for software updates (let homebrew handle it)
+defaults write org.vim.MacVim SUEnableAutomaticChecks 0
+
+# -----------------------------------------------------------------------------
+# Mail
+# -----------------------------------------------------------------------------
+
+# Copy email addresses as 'foo@bar.com' instead of 'Foo Bar <foo@bar.com>'
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool NO
+
+# -----------------------------------------------------------------------------
 # Safari
 # -----------------------------------------------------------------------------
 
@@ -75,14 +103,21 @@ defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool YES
 defaults write com.apple.Safari IncludeDevelopMenu -bool YES
 
 # -----------------------------------------------------------------------------
-# MacVim
+# Terminal
 # -----------------------------------------------------------------------------
 
-# Allow zooming horizontally as well as vertically
-defaults write org.vim.MacVim MMZoomBoth 1
+# Enable 'Secure Keyboard Entry'
+defaults write com.apple.terminal SecureKeyboardEntry -bool YES
 
-# Disable checking for software updates (let homebrew handle it)
-defaults write org.vim.MacVim SUEnableAutomaticChecks 0
+# Disable line marks
+defaults write com.apple.Terminal ShowLineMarks -bool NO
+
+# -----------------------------------------------------------------------------
+# Time Machine
+# -----------------------------------------------------------------------------
+
+# Don't ask to use a new hard drive for backups
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool YES
 
 # -----------------------------------------------------------------------------
 # Misc Configuration

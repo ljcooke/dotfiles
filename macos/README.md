@@ -25,8 +25,8 @@ See the [Safari](Safari.md) document.
 
 `Inky Grey.terminal` is a dark theme for the native Terminal app.
 
-To install the theme, open the Preferences window in Terminal and select the
-Profiles tab. Select the gear icon and then Import.
+Open this file to install it in Terminal. Afterwards, open the Preferences
+window, select the theme in the Profiles tab, and select Default.
 
 ## Xcode
 

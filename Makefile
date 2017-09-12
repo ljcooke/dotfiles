@@ -3,4 +3,4 @@
 .PHONY: doc
 doc:
 	vim -c ':call pathogen#helptags()' +qall
-	find pack -type f -name tags
+	find vim/pack -type f -name tags

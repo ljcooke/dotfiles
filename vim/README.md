@@ -1,5 +1,4 @@
-My Vim configuration
-====================
+# Vim
 
 ## Install
 
@@ -14,5 +13,5 @@ My Vim configuration
 
 ## Add a submodule
 
-    $ git submodule add --name <foo> <url> pack/modules/start/<foo>
+    $ git submodule add --name <foo> <url> vim/pack/modules/start/<foo>
     $ make doc

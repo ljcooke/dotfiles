@@ -39,6 +39,8 @@ def update(keys = [], opts)
     action = exists ? 'pull' : 'add'
     run('git', 'subtree', action, '--prefix', prefix, url, branch, '--squash')
   end
+
+  run('bin/vim-help-update')
 end
 
 def list_all

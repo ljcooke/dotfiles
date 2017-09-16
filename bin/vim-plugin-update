@@ -41,6 +41,7 @@ def update(keys = [], opts)
   end
 
   run('bin/vim-help-update')
+  run('git', 'prune')
 end
 
 def list_all

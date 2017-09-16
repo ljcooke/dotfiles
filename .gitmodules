@@ -1,6 +1,6 @@
-[submodule "fortune"]
-	path = vim/pack/modules/start/fortune
+[submodule "vim-fortune"]
+	path = vim/bundle/fortune
 	url = https://github.com/araile/vim-fortune
-[submodule "qif"]
-	path = vim/pack/modules/start/qif
+[submodule "vim-qif"]
+	path = vim/bundle/qif
 	url = https://github.com/araile/vim-qif

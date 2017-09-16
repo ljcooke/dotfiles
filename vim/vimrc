@@ -63,11 +63,7 @@ autocmd FileType make           setlocal noexpandtab nolist
 autocmd FileType sshconfig      setlocal noexpandtab nolist
 
 " Show tabs, trailing whitespace, non-breaking spaces
-"if &encoding == 'utf-8'
-"  set listchars=tab:·\ ,trail:.,nbsp:·
-"else
-"  set listchars=tab:>\ ,trail:.
-"endif
+set listchars=tab:>\ ,trail:.,extends:>,precedes:<,nbsp:~
 
 " Mapping to Toggle expandtab and revealing whitespace
 nnoremap <Leader><Tab>t :setlocal expandtab!<CR>:setlocal expandtab?<CR>

@@ -31,10 +31,13 @@ def update(keys = [], opts)
     url = attrs['git']
     branch = attrs['branch'] || 'master'
     prefix = "vim/bundle/#{key}"
-
     puts_plugin(key, url)
-    system('du', '-sh', prefix)
-    run('git', 'subtree', 'pull', '--prefix', prefix, url, branch, '--squash')
+
+    exists = File.exist?(prefix)
+    system('du', '-sh', prefix) if exists
+
+    action = exists ? 'pull' : 'add'
+    run('git', 'subtree', action, '--prefix', prefix, url, branch, '--squash')
   end
 end
 

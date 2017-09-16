@@ -23,8 +23,6 @@ vim:
     git: https://github.com/tpope/vim-bundler.git
   ft-toml:
     git: https://github.com/cespare/vim-toml.git
-  gundo:
-    git: https://github.com/sjl/gundo.vim.git
   lightline:
     git: https://github.com/itchyny/lightline.vim.git
   rsi:

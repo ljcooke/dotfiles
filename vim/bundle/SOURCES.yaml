@@ -31,6 +31,9 @@ pgn:
 qif:
   git: https://github.com/araile/vim-qif.git
 
+rsi:
+  git: https://github.com/tpope/vim-rsi.git
+
 sensible:
   git: https://github.com/tpope/vim-sensible.git
 

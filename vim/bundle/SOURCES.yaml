@@ -1,9 +1,29 @@
-csv:        https://github.com/chrisbra/csv.vim.git
-easy-align: https://github.com/junegunn/vim-easy-align.git
-fish:       https://github.com/aliva/vim-fish.git
-fortune:    https://github.com/araile/vim-fortune.git
-gundo:      https://github.com/sjl/gundo.vim.git
-io:         https://github.com/andreimaxim/vim-io.git
-pgn:        https://github.com/artoj/pgn-syntax-vim.git
-qif:        https://github.com/araile/vim-qif.git
-toml:       https://github.com/cespare/vim-toml.git
+# To add a new vim plugin with git:
+# git subtree add --prefix vim/bundle/foo <url> master --squash
+
+csv:
+  git: https://github.com/chrisbra/csv.vim.git
+
+easy-align:
+  git: https://github.com/junegunn/vim-easy-align.git
+
+fish:
+  git: https://github.com/aliva/vim-fish.git
+
+fortune:
+  git: https://github.com/araile/vim-fortune.git
+
+gundo:
+  git: https://github.com/sjl/gundo.vim.git
+
+io:
+  git: https://github.com/andreimaxim/vim-io.git
+
+pgn:
+  git: https://github.com/artoj/pgn-syntax-vim.git
+
+qif:
+  git: https://github.com/araile/vim-qif.git
+
+toml:
+  git: https://github.com/cespare/vim-toml.git

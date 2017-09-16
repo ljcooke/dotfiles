@@ -17,4 +17,4 @@ Afterwards, add an appropriate entry to the `vim/bundle/SOURCES.yaml` file.
 
 Later, you can update the plugin by running:
 
-    $ bin/update-vim-plugins foo
+    $ bin/vim-plugin-update foo

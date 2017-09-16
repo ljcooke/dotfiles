@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+# Update vim plugins using git-subtree and a SOURCES.yaml file.
+
+require 'optparse'
+require 'shellwords'
+require 'yaml'
+
+BOLD = "\x1b[1m".freeze
+PINK = "\x1b[0;35m".freeze
+OFF = "\x1b[0m".freeze
+
+SOURCES_FILE = 'vim/bundle/SOURCES.yaml'.freeze
+
+def run(*args)
+  puts args.shelljoin
+  system(*args)
+end
+
+def load_sources
+  YAML::load_file(SOURCES_FILE)
+end
+
+def puts_plugin(key, url)
+  puts "#{BOLD}#{key}#{OFF} #{PINK}#{url}#{OFF}"
+end
+
+def update(keys = [], opts)
+  load_sources.each do |key, attrs|
+    next unless opts[:all] || keys.include?(key)
+
+    url = attrs['git']
+    branch = attrs['branch'] || 'master'
+    prefix = "vim/bundle/#{key}"
+
+    puts_plugin(key, url)
+    system('du', '-sh', prefix)
+    run('git', 'subtree', 'pull', '--prefix', prefix, url, branch, '--squash')
+  end
+end
+
+def list_all
+  load_sources.each { |key, attrs| puts_plugin(key, attrs['git']) }
+end
+
+def main
+  options = {}
+  OptionParser.new do |opts|
+    opts.banner = "Usage: #{$PROGRAM_NAME} [--all] [plugins]"
+    opts.on('-a', '--all', 'Update all plugins') do |a|
+      options[:all] = true
+    end
+    opts.on('-l', '--list', 'List plugin names') do |a|
+      list_all
+      return
+    end
+  end.parse!
+
+  update(ARGV, options)
+end
+
+if $PROGRAM_NAME == __FILE__
+  ARGV << '--help' if ARGV.empty?
+  main
+end

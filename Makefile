@@ -2,5 +2,8 @@
 # This enables us to read the documentation with the :help command.
 .PHONY: doc
 doc:
-	vim -c ':call pathogen#helptags()' +qall
-	find vim/pack -type f -name tags
+	bin/vim-help-update
+
+.PHONY: update
+update:
+	bin/vim-plugin-update --all

@@ -25,5 +25,8 @@ pgn:
 qif:
   git: https://github.com/araile/vim-qif.git
 
+sensible:
+  git: https://github.com/tpope/vim-sensible.git
+
 toml:
   git: https://github.com/cespare/vim-toml.git

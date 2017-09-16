@@ -7,6 +7,9 @@ csv:
 easy-align:
   git: https://github.com/junegunn/vim-easy-align.git
 
+endwise:
+  git: https://github.com/tpope/vim-endwise.git
+
 fish:
   git: https://github.com/aliva/vim-fish.git
 

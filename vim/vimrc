@@ -9,23 +9,8 @@ if has('packages') == 0
   execute pathogen#infect()
 end
 
-" Use UTF-8 encoding
-if has('multi_byte')
-  if &termencoding == ''
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8
-  setglobal fileencoding=utf-8
-  scriptencoding utf8
-endif
-
-" Use the default syntax highlighting rules.
-" [Help: syntax-on]
-syntax on
-
-" Detect file types and use the appropriate plugins and indentation rules.
-" [Help: filetype-plugin, filetype-indent]
-filetype plugin indent on
+" Load some good defaults
+runtime! plugin/sensible.vim
 
 " Leader characters for mappings
 let mapleader=' '
@@ -46,8 +31,8 @@ endif
 " Show line numbers
 set number numberwidth=4
 
-" Set the command line height and show <line>,<column>
-set cmdheight=1 ruler
+" Set the command line height
+set cmdheight=1
 
 " Show the tabs at the top unless there is only one tab
 set showtabline=1
@@ -57,7 +42,7 @@ set showtabline=1
 " ----------------------------------------------------------------------------
 
 " Auto-indentation
-set autoindent smartindent
+set smartindent
 
 " Default to 4 spaces for tabs
 set tabstop=4 softtabstop=4 shiftwidth=4 shiftround
@@ -78,11 +63,11 @@ autocmd FileType make           setlocal noexpandtab nolist
 autocmd FileType sshconfig      setlocal noexpandtab nolist
 
 " Show tabs, trailing whitespace, non-breaking spaces
-if &encoding == 'utf-8'
-  set listchars=tab:·\ ,trail:.,nbsp:·
-else
-  set listchars=tab:>\ ,trail:.
-endif
+"if &encoding == 'utf-8'
+"  set listchars=tab:·\ ,trail:.,nbsp:·
+"else
+"  set listchars=tab:>\ ,trail:.
+"endif
 
 " Mapping to Toggle expandtab and revealing whitespace
 nnoremap <Leader><Tab>t :setlocal expandtab!<CR>:setlocal expandtab?<CR>
@@ -113,9 +98,6 @@ autocmd FileType tex,plaintex   setlocal textwidth=79
 " ----------------------------------------------------------------------------
 " Editing
 " ----------------------------------------------------------------------------
-
-" Reload if files changed outside of vim.
-set autoread
 
 " Convert the current word to uppercase.
 inoremap <C-u> viwU
@@ -183,7 +165,6 @@ set noshortname             " don't use dos-style filenames
 
 " search
 set nohlsearch              " highlight search results? (clear with :noh)
-set incsearch               " jump to search result while typing
 set ignorecase smartcase    " ignorecase implied if search string is lowercase
 
 set nomodeline              " don't read modelines
@@ -195,7 +176,6 @@ set showmatch               " highlight matching brackets when typing
 set viminfo=""              " don't use a viminfo file
 set nobackup writebackup    " temporary backup before writing
 
-set bs=eol,start,indent     " allow backspacing over everything
 set mouse=a                 " allow mouse in all modes
 set shm=flmnrxoOstTI        " make some messages less verbose
 set scrolloff=5             " keep the cursor near the middle
@@ -215,7 +195,7 @@ set nospell spelllang=en    " disable spellcheck
 "   1 - don't break the line after a one-letter word
 "   j - remove comment leader when joining lines
 "
-set formatoptions=crqnl1j
+set formatoptions+=crqnl1j
 
 " indent wrapped lines
 if has('linebreak')

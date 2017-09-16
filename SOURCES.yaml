@@ -19,6 +19,8 @@ vim:
     git: https://github.com/sjl/gundo.vim.git
   io:
     git: https://github.com/andreimaxim/vim-io.git
+  lightline:
+    git: https://github.com/itchyny/lightline.vim.git
   pgn:
     git: https://github.com/artoj/pgn-syntax-vim.git
   qif:

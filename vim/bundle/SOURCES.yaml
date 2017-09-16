@@ -1,3 +1,6 @@
+bundler:
+  git: https://github.com/tpope/vim-bundler.git
+
 csv:
   git: https://github.com/chrisbra/csv.vim.git
 

@@ -1,6 +1,3 @@
-# To add a new vim plugin with git:
-# git subtree add --prefix vim/bundle/foo <url> master --squash
-
 csv:
   git: https://github.com/chrisbra/csv.vim.git
 

@@ -1,17 +1,20 @@
 # Vim
 
-## Install
+## Plugin management
 
-    $ git submodule update --init --recursive
-    $ ln -s $PWD $HOME/.vim
-    $ make doc
+Plugins are stored in the `vim/bundle` directory. This is symlinked from
+`vim/pack/bundle/start` so that they are loaded using the native *package*
+feature in Vim 8.
 
-## Update submodules
+To add a plugin named `foo` that is maintained in a git repository, run:
 
-    $ git submodule update --init --recursive --remote
-    $ make doc
+    $ git subtree add --prefix vim/bundle/foo <url> master --squash
 
-## Add a submodule
+This will commit the new plugin to this repo in such a way that it can be
+updated later using git.
 
-    $ git submodule add --name <foo> <url> vim/pack/modules/start/<foo>
-    $ make doc
+Afterwards, add an appropriate entry to the `vim/bundle/SOURCES.yaml` file.
+
+Later, you can update the plugin by running:
+
+    $ bin/update-vim-plugins foo

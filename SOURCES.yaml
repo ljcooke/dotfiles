@@ -1,33 +1,33 @@
 vim:
-  bundler:
-    git: https://github.com/tpope/vim-bundler.git
   commentary:
     git: https://github.com/tpope/vim-commentary.git
-  csv:
-    git: https://github.com/chrisbra/csv.vim.git
   easy-align:
     git: https://github.com/junegunn/vim-easy-align.git
   endwise:
     git: https://github.com/tpope/vim-endwise.git
-  fish:
+  ft-csv:
+    git: https://github.com/chrisbra/csv.vim.git
+  ft-fish:
     git: https://github.com/aliva/vim-fish.git
-  fortune:
+  ft-fortune:
     git: https://github.com/araile/vim-fortune.git
-  github-markdown:
+  ft-io:
+    git: https://github.com/andreimaxim/vim-io.git
+  ft-markdown-github:
     git: https://github.com/rhysd/vim-gfm-syntax.git
+  ft-pgn:
+    git: https://github.com/artoj/pgn-syntax-vim.git
+  ft-qif:
+    git: https://github.com/araile/vim-qif.git
+  ft-ruby-bundler:
+    git: https://github.com/tpope/vim-bundler.git
+  ft-toml:
+    git: https://github.com/cespare/vim-toml.git
   gundo:
     git: https://github.com/sjl/gundo.vim.git
-  io:
-    git: https://github.com/andreimaxim/vim-io.git
   lightline:
     git: https://github.com/itchyny/lightline.vim.git
-  pgn:
-    git: https://github.com/artoj/pgn-syntax-vim.git
-  qif:
-    git: https://github.com/araile/vim-qif.git
   rsi:
     git: https://github.com/tpope/vim-rsi.git
   sensible:
     git: https://github.com/tpope/vim-sensible.git
-  toml:
-    git: https://github.com/cespare/vim-toml.git

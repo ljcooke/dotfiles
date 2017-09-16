@@ -8,9 +8,9 @@ An accretion of configuration files.
 
 ### Setup
 
-    ln -s $PWD/bash $HOME/.bash
-    ln -s .bash/bashrc $HOME/.bashrc
-    ln -s .bash/bash_login $HOME/.bash_login
+    $ ln -s $PWD/bash $HOME/.bash
+    $ ln -s .bash/bashrc $HOME/.bashrc
+    $ ln -s .bash/bash_login $HOME/.bash_login
 
 You can store additional bash configuration in `~/.bashrc.local`, which will
 be sourced by `~/.bashrc`.
@@ -21,7 +21,8 @@ be sourced by `~/.bashrc`.
 
 ### Setup
 
-    ln -s $PWD/vim $HOME/.vim
+    $ ln -s $PWD/vim $HOME/.vim
+    $ bin/vim-help-update
 
 ### Plugin management
 

@@ -6,7 +6,7 @@ An accretion of configuration files.
 
 ## Bash
 
-### Install
+### Setup
 
     ln -s $PWD/bash $HOME/.bash
     ln -s .bash/bashrc $HOME/.bashrc
@@ -19,9 +19,7 @@ be sourced by `~/.bashrc`.
 
 ## Vim
 
-### Install
-
-Run:
+### Setup
 
     ln -s $PWD/vim $HOME/.vim
 
@@ -32,13 +30,13 @@ Plugins are stored in the `vim/bundle` directory, which is symlinked from
 *packages* feature); Pathogen is used as a fallback in Vim 7.
 
 Plugins that are available via git can be managed using the `git-subtree`
-feature. There is a script to make this easy to use. To add a new plugin named
-`foo`:
+feature. There is a script to make this easy to use. To install a new plugin
+named `foo`:
 
-  - Add an entry with the git URL to the `vim/bundle/SOURCES.yaml` file.
+ 1. Add an entry with the git URL to the `vim/bundle/SOURCES.yaml` file.
     Commit any changes before the next step.
 
-  - Run:
+ 1. Run:
 
         $ bin/vim-plugin-update foo
 

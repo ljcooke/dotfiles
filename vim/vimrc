@@ -151,11 +151,9 @@ nmap ga <Plug>(EasyAlign)
 
 set noshowmode
 
-if has('gui')
-  let g:lightline = {
-    \ 'colorscheme': 'base16eighties',
-    \ }
-end
+let g:lightline = {
+  \ 'colorscheme': 'inkygrey',
+  \ }
 
 " ----------------------------------------------------------------------------
 " Old settings to update

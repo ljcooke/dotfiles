@@ -177,11 +177,9 @@ fi
 
 function _araile_prompt_branch()
 {
-    if [ -e .git ] || [ -e HEAD ]; then
-        # https://gist.github.com/790086
-        ref=$(git symbolic-ref -q HEAD 2> /dev/null) || return
-        printf "${1:- (%s)}" "${ref#refs/heads/}"
-    fi
+    # https://gist.github.com/790086
+    ref=$(git symbolic-ref -q HEAD 2> /dev/null) || return
+    printf "${1:- (%s)}" "${ref#refs/heads/}"
 }
 
 function _araile_prompt_setup()

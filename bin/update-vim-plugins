@@ -15,12 +15,14 @@ end
 def update(plugins = [])
   YAML::load_file('vim/bundle/SOURCES.yaml').each do |key, attrs|
     next if plugins.any? && !plugins.include?(key)
+
     url = attrs['git']
     branch = attrs['branch'] || 'master'
+    prefix = "vim/bundle/#{key}"
+
     puts "#{BOLD}#{key}#{OFF} #{PINK}#{url}#{OFF}"
-    run('git', 'subtree', 'pull',
-        '--prefix', "vim/bundle/#{key}",
-        url, branch, '--squash')
+    system('du', '-sh', prefix)
+    run('git', 'subtree', 'pull', '--prefix', prefix, url, branch, '--squash')
   end
 end
 

@@ -1,10 +1,12 @@
 vim:
-  commentary:
+  edit-commentary:
     git: https://github.com/tpope/vim-commentary.git
-  easy-align:
+  edit-easy_align:
     git: https://github.com/junegunn/vim-easy-align.git
-  endwise:
+  edit-endwise:
     git: https://github.com/tpope/vim-endwise.git
+  edit-rsi:
+    git: https://github.com/tpope/vim-rsi.git
   ft-csv:
     git: https://github.com/chrisbra/csv.vim.git
   ft-fish:
@@ -23,9 +25,7 @@ vim:
     git: https://github.com/tpope/vim-bundler.git
   ft-toml:
     git: https://github.com/cespare/vim-toml.git
-  lightline:
-    git: https://github.com/itchyny/lightline.vim.git
-  rsi:
-    git: https://github.com/tpope/vim-rsi.git
   sensible:
     git: https://github.com/tpope/vim-sensible.git
+  ui-lightline:
+    git: https://github.com/itchyny/lightline.vim.git

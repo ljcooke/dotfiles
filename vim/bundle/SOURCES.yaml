@@ -19,6 +19,9 @@ fish:
 fortune:
   git: https://github.com/araile/vim-fortune.git
 
+github-markdown:
+  git: https://github.com/rhysd/vim-gfm-syntax.git
+
 gundo:
   git: https://github.com/sjl/gundo.vim.git
 

@@ -9,7 +9,7 @@ BOLD = "\x1b[1m".freeze
 PINK = "\x1b[0;35m".freeze
 OFF = "\x1b[0m".freeze
 
-SOURCES_FILE = 'vim/bundle/SOURCES.yaml'.freeze
+SOURCES_FILE = 'SOURCES.yaml'.freeze
 
 def run(*args)
   puts args.shelljoin
@@ -17,7 +17,7 @@ def run(*args)
 end
 
 def load_sources
-  YAML::load_file(SOURCES_FILE)
+  YAML::load_file(SOURCES_FILE)['vim']
 end
 
 def puts_plugin(key, url)

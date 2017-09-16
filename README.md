@@ -34,7 +34,7 @@ Plugins that are available via git can be managed using the `git-subtree`
 feature. There is a script to make this easy to use. To install a new plugin
 named `foo`:
 
- 1. Add an entry with the git URL to the `vim/bundle/SOURCES.yaml` file.
+ 1. Add an entry with the git URL to the `SOURCES.yaml` file.
     Commit any changes before the next step.
 
  1. Run:

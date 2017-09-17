@@ -93,12 +93,20 @@ autocmd FileType text           setlocal tw=79 formatoptions-=n
 autocmd FileType tex,plaintex   setlocal textwidth=79
 
 " ----------------------------------------------------------------------------
-" Editing
+" Editing & navigation
 " ----------------------------------------------------------------------------
+
+" Exit insert mode
+inoremap <C-j> <Esc>
+"inoremap <Esc> <Nop>
 
 " Convert the current word to uppercase.
 inoremap <C-u> viwU
 nnoremap <C-u> <Esc>viwUi
+
+" Edit and reload vimrc
+nnoremap <Leader>ev :split $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " ----------------------------------------------------------------------------
 " Netrw (file browser)

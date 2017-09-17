@@ -51,16 +51,16 @@ export LESSCHARSET=utf-8
 # Check the OS and load the appropriate file
 
 uname=`uname -s`
-mac=0
 
 if [ "$uname" = Darwin ]; then
-    mac=1
     source $HOME/.bash/bashrc_macos
 elif [ "$uname" = FreeBSD ]; then
     source $HOME/.bash/bashrc_bsd
 else
     source $HOME/.bash/bashrc_linux
 fi
+
+unset uname
 
 #------------------------------------------------------------------------------
 # Set the terminal title
@@ -72,74 +72,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
-#------------------------------------------------------------------------------
-
-# Shortcuts
-alias l='ls -Fhl'
-alias la='ls -AF'
-alias lc='ls -F'
-alias ll='ls -AFhl'
-
-# `.. 3` -> cd ../../..
-function .. ()
-{
-    local newdir="$PWD"
-    local arg=${1:-1}
-    while [ $arg -gt 0 ]; do
-        newdir="$newdir/.."
-        arg=$(($arg - 1))
-    done
-    cd "$newdir"
-}
-
-# Create one or more directories and cd to the first one
-function mkcd()
-{
-    [ -n "$1" ] && mkdir -p "$@" && cd "$1"
-}
-
-# Open a man page in vim
-function vman() {
-    MANWIDTH=100 MANPAGER='col -bx' man $@ | vim -
-}
-
-#------------------------------------------------------------------------------
-# rsync shortcut to sync files.
-#
-# 'cpr src/ dest/' will copy files from src to dest. Note the trailing slash
-# after src -- if this is omitted, the command will look for or create a folder
-# in dest named after src, and copy to that instead.
-#
-# Add --modify-window=1 when dealing with FAT32.
-
-cpr_args="-Phavz \
-          --exclude '*.swp' --exclude '.DS_Store' \
-          --exclude '.Trashes' --exclude '.fseventsd'"
-scpr_args="$cpr_args"
-
-if [ $mac -eq 1 ]; then
-    #if [ -n "$(rsync --version 2>/dev/null | grep xattrs)" ]; then
-    cpr_args="$cpr_args --xattrs"
-    #fi
-fi
-
-alias cpr="nice rsync $cpr_args"
-alias scpr="nice rsync $scpr_args"
-unset cpr_args scpr_args
-
-#------------------------------------------------------------------------------
-# tmux & screen
-
-function _my_tmux_attach()
-{
-    [ -n "$1" ] && session=$1 || session=main
-    tmux attach-session -d -t "$session" || tmux new-session -s "$session"
-}
-
-alias s='_my_tmux_attach'
-
-alias screen-attach='screen -DRA && stty sane && echo'
 
 #------------------------------------------------------------------------------
 # Bash completion
@@ -159,13 +91,7 @@ type -t __git_complete >/dev/null || source "$HOME/.bash/complete_git"
 #------------------------------------------------------------------------------
 # Further configuration
 
+source $HOME/.bash/commands.bash
 source $HOME/.bash/prompt.bash
 
-if [ -e "$HOME/.bashrc.local" ]; then
-    source "$HOME/.bashrc.local"
-fi
-
-#------------------------------------------------------------------------------
-# Tidy up
-
-unset uname mac
+[ -e "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"

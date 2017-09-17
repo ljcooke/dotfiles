@@ -7,15 +7,13 @@
 # Color reference: https://misc.flogisoft.com/bash/tip_colors_and_formatting
 #------------------------------------------------------------------------------
 
-function _my_git_branch()
-{
+_my_git_branch() {
     # Return the current git branch, or nothing if not a git repo
     ref=$(git symbolic-ref -q HEAD 2>/dev/null) || return
     echo -n "${ref#refs/heads/}"
 }
 
-function _my_prompt()
-{
+_my_prompt() {
     local status=$?
     local branch=$(_my_git_branch)
 

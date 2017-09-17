@@ -6,92 +6,23 @@
 
 source /etc/profile >/dev/null
 
-# ~/.bashrc.local is sourced below if it exists.
-
-#------------------------------------------------------------------------------
-
-# Set the backspace character
-stty erase ^h
-
-set -o emacs  # input style
-shopt -s checkwinsize  # check and update lines & cols after each cmd
-shopt -s cmdhist   # multiline commands saved in history as oneliners
-export EDITOR=vim
-export IGNOREEOF=0  # set to 1 to ignore accidental Ctrl-D's
-
-# Locale
-export LC_ALL="en_IE.UTF-8"
-export LC_CTYPE=$LC_ALL LC_TIME=$LC_ALL LANG=$LC_ALL
-
-#------------------------------------------------------------------------------
-# History
-
-export HISTCONTROL='ignoreboth:erasedups'
-export HISTFILE=$HOME/.bash_history
-export HISTSIZE=10000 HISTFILESIZE=10000
-export HISTIGNORE=history:h:hl:ls:l:la:lc:ll:fg
-export HISTTIMEFORMAT='%F %T '
-
-shopt -s histappend
-
-alias h='history | tail -n $(($LINES - 2))'
-alias hl='history | less'
-
-#------------------------------------------------------------------------------
-
-# Paths
-export PYTHONPATH="$HOME/lib/python"
-export PYTHONSTARTUP="$HOME/.pythonrc"
-
-# Pager
-export PAGER=less
-export LESSCHARSET=utf-8
-
-#------------------------------------------------------------------------------
-# Check the OS and load the appropriate file
-
-uname=`uname -s`
-
-if [ "$uname" = Darwin ]; then
-    source $HOME/.bash/bashrc_macos
-elif [ "$uname" = FreeBSD ]; then
-    source $HOME/.bash/bashrc_bsd
-else
-    source $HOME/.bash/bashrc_linux
-fi
-
-unset uname
-
-#------------------------------------------------------------------------------
-# Set the terminal title
-
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}\007"'
-    ;;
-*)
-    ;;
+case "$(uname -s)" in
+    Darwin)
+        source $HOME/.bash/platform_macos.bash
+        ;;
+    FreeBSD)
+        source $HOME/.bash/platform_bsd.bash
+        ;;
+    *)
+        source $HOME/.bash/platform_linux.bash
+        ;;
 esac
 
-#------------------------------------------------------------------------------
-# Bash completion
+source $HOME/.bash/"complete.bash"
 
-for f in /usr/local/etc/bash_completion \
-         /etc/bash_completion \
-         "$HOME"/.bash/complete_bash
-do
-    if [ -e "$f" ]; then
-        source "$f"
-        break
-    fi
-done
+source $HOME/.bash/"env.bash"
+source $HOME/.bash/"functions.bash"
+source $HOME/.bash/"prompt.bash"
 
-type -t __git_complete >/dev/null || source "$HOME/.bash/complete_git"
-
-#------------------------------------------------------------------------------
-# Further configuration
-
-source $HOME/.bash/commands.bash
-source $HOME/.bash/prompt.bash
-
+# Local configuration
 [ -e "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"

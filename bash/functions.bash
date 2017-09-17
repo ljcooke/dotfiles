@@ -2,6 +2,9 @@
 # Aliases and functions
 # -----------------------------------------------------------------------------
 
+alias h='history | tail -n $(($LINES - 2))'
+alias hl='history | less'
+
 alias l='ls -Fhl'
 alias la='ls -AF'
 alias lc='ls -F'

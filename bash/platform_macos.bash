@@ -2,16 +2,12 @@
 # Additional Bash config for macOS
 # -----------------------------------------------------------------------------
 
-source $HOME/.bash/bashrc_bsd
+source $HOME/.bash/platform_bsd.bash
 
-mac_homebrew=0
-if [ -n "`which brew`" ]; then
-    mac_homebrew=1
-fi
-
-
-# Open a man page in Preview (OS X)
-# Uses ps2pdf (install with: brew install ghostscript)
+#
+# Open a man page in Preview.
+# Requires ps2pdf -- run `brew install ghostscript` to install this.
+#
 if [ -n "`which ps2pdf`" ]
 then
     function pman()
@@ -20,5 +16,7 @@ then
     }
 fi
 
-
+#
+# Open MacVim in the foreground without forking.
+#
 alias fvim="/usr/local/bin/mvim -f -c 'au VimLeave * !open -a Terminal'"

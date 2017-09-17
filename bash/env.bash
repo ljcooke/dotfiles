@@ -7,9 +7,6 @@ set -o emacs
 # Default editor
 export EDITOR=vim
 
-# Check and update lines & cols after each command
-shopt -s checkwinsize
-
 # Set to 1 to ignore accidental Ctrl-D's
 export IGNOREEOF=0
 
@@ -23,8 +20,14 @@ export HISTFILE=$HOME/.bash_history
 export HISTSIZE=10000 HISTFILESIZE=10000
 export HISTIGNORE=history:h:hl:ls:l:la:lc:ll:fg
 export HISTTIMEFORMAT='%F %T '
-shopt -s cmdhist
-shopt -s histappend
+shopt -s cmdhist 2>/dev/null
+shopt -s histappend 2>/dev/null
+
+# Check if any jobs are running before exiting the shell
+shopt -s checkjobs 2>/dev/null
+
+# Check and update lines & cols after each command
+shopt -s checkwinsize 2>/dev/null
 
 # Pager
 export PAGER=less

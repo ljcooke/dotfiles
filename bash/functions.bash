@@ -64,7 +64,6 @@ hist-toggle()
         export MY_PROMPT_PREFIX_COLOR="\[\033[31m\]"
         echo 'Will NOT save history'
     fi
-    #source $HOME/.bash/prompt.bash
 }
 
 #
@@ -97,7 +96,7 @@ _my_rsync() {
             ;;
     esac
 
-    echo + rsync $args "$@"
+    echo rsync $args "$@"
     rsync $args "$@"
 }
 alias cpr='_my_rsync local'

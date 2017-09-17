@@ -185,9 +185,9 @@ function _my_prompt_branch()
 function _my_prompt_setup()
 {
     # Colors: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
-    local OFF="\033[0m"
-    local GREEN="\033[0;32m"
-    local YELLOW="\033[0;33m"
+    local OFF="\[\033[0m\]"
+    local GREEN="\[\033[0;32m\]"
+    local YELLOW="\[\033[0;33m\]"
 
     PS1="${OFF}${GREEN}\W${YELLOW}\$(_my_prompt_branch)${OFF} $ "
 }

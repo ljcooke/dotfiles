@@ -100,24 +100,6 @@ autocmd FileType tex,plaintex   setlocal textwidth=79
 inoremap <C-u> viwU
 nnoremap <C-u> <Esc>viwUi
 
-" Comment out lines
-" nnoremap <Leader>## 0:norm i#<CR>
-" vnoremap <Leader>## 0:norm i#<CR>
-" nnoremap <Leader>33 0:norm i#<CR>
-" vnoremap <Leader>33 0:norm i#<CR>
-" nnoremap <Leader>££ 0:norm i#<CR>
-" vnoremap <Leader>££ 0:norm i#<CR>
-" nnoremap <Leader>// 0:norm i//<CR>
-" vnoremap <Leader>// 0:norm i//<CR>
-" nnoremap <Leader>"" 0:norm i"<CR>
-" vnoremap <Leader>"" 0:norm i"<CR>
-" nnoremap <Leader>;; 0:norm i;<CR>
-" vnoremap <Leader>;; 0:norm i;<CR>
-" nnoremap <Leader>%% 0:norm i%<CR>
-" vnoremap <Leader>%% 0:norm i%<CR>
-" nnoremap <Leader>-- 0:norm i--<CR>
-" vnoremap <Leader>-- 0:norm i--<CR>
-
 " ----------------------------------------------------------------------------
 " Netrw (file browser)
 " [Help: netrw]

@@ -32,8 +32,9 @@ _my_prompt() {
     local f_gray="\[\033[38;5;246m\]"
 
     local sep="${dim}│${undim}"
+    local prefix=${MY_PROMPT_PREFIX:-░░}
     local prefix_color=${MY_PROMPT_PREFIX_COLOR:-}
-    local prompt="░░${reset}"
+    local prompt=
 
     # Clock
     #prompt="${prompt}${sep}\A"
@@ -63,7 +64,7 @@ _my_prompt() {
     # Suffix
     prompt="${prompt}${sep}${f_blue}>${f_reset}"
 
-    PS1="${prefix_color}${prompt} "
+    PS1="${prefix_color}${prefix}${f_reset}${prompt} "
 }
 
 export PROMPT_DIRTRIM=2

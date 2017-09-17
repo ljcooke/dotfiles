@@ -55,12 +55,16 @@ hist-toggle()
     if [ "$HISTFILE" = /dev/null ]
     then
         export HISTFILE=$HOME/.bash_history
+        export MY_PROMPT_PREFIX=
         export MY_PROMPT_PREFIX_COLOR=
+        echo "Will save history to ${HISTFILE}"
     else
         export HISTFILE=/dev/null
+        export MY_PROMPT_PREFIX=\!H
         export MY_PROMPT_PREFIX_COLOR="\[\033[31m\]"
+        echo 'Will NOT save history'
     fi
-    source $HOME/.bash/prompt.bash
+    #source $HOME/.bash/prompt.bash
 }
 
 #

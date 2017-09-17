@@ -35,7 +35,7 @@ _my_prompt() {
     local prompt="░░"
 
     # Clock
-    prompt="${prompt}${sep}\A"
+    #prompt="${prompt}${sep}\A"
 
     # Status of last command
     if [ $status -ne 0 ]

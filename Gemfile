@@ -10,5 +10,5 @@
 
 source 'https://rubygems.org'
 
-# https://github.com/tombenner/ru
+gem 'bcat'
 gem 'ru'

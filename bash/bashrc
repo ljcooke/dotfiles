@@ -6,6 +6,12 @@
 
 source /etc/profile >/dev/null
 
+source $HOME/.bash/"complete.bash"
+
+source $HOME/.bash/"env.bash"
+source $HOME/.bash/"functions.bash"
+source $HOME/.bash/"prompt.bash"
+
 case "$(uname -s)" in
     Darwin)
         source $HOME/.bash/platform_macos.bash
@@ -18,11 +24,5 @@ case "$(uname -s)" in
         ;;
 esac
 
-source $HOME/.bash/"complete.bash"
-
-source $HOME/.bash/"env.bash"
-source $HOME/.bash/"functions.bash"
-source $HOME/.bash/"prompt.bash"
-
-# Local configuration
+# Additional local configuration
 [ -e "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"

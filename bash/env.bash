@@ -33,3 +33,5 @@ export LESSCHARSET=utf-8
 # Python
 export PYTHONPATH="$HOME/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonrc"
+
+# Path

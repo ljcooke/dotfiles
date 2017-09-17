@@ -10,6 +10,8 @@ alias la='ls -AF'
 alias lc='ls -F'
 alias ll='ls -AFhl'
 
+alias utcdate='TZ=UTC date +"%a %Y-%m-%d %H:%M:%S %z"'
+
 #
 # Type `..` without arguments to go up one directory.
 # Type `.. 2` to go up 2 directories, etc.
@@ -28,14 +30,20 @@ alias ll='ls -AFhl'
 # Create one or more directories and `cd` to the first one.
 #
 mkcd() {
-    [ -n "$1" ] && mkdir -p "$@" && cd "$1"
+    [ $# -gt 0 ] && mkdir -p "$@" && cd "$1"
 }
 
 #
 # Open a man page in vim.
 #
 vman() {
-    MANWIDTH=100 MANPAGER='col -bx' man $@ | view -
+    if [ $# -gt 0 ]
+    then
+        MANWIDTH=100 MANPAGER='col -bx' man "$@" | view -
+    else
+        man
+        return 1
+    fi
 }
 
 #

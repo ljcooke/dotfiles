@@ -10,7 +10,8 @@ alias la='ls -AF'
 alias lc='ls -F'
 alias ll='ls -AFhl'
 
-alias utcdate='TZ=UTC date +"%a %Y-%m-%d %H:%M:%S %z"'
+alias utc-date='TZ=UTC date +"%a %Y-%m-%d %H:%M:%S %z"'
+alias utc-ymd='TZ=UTC date +"%Y-%m-%d"'
 
 #
 # Type `..` without arguments to go up one directory.

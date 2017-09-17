@@ -13,8 +13,8 @@ shopt -s checkwinsize
 # Set to 1 to ignore accidental Ctrl-D's
 export IGNOREEOF=0
 
-# Locale
-export LC_ALL="en_IE.UTF-8"
+# Locale (run `locale -a` to see what is available)
+export LC_ALL="en_AU.UTF-8"
 export LC_CTYPE=$LC_ALL LC_TIME=$LC_ALL LANG=$LC_ALL
 
 # History
@@ -33,5 +33,3 @@ export LESSCHARSET=utf-8
 # Python
 export PYTHONPATH="$HOME/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonrc"
-
-# Path

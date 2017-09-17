@@ -12,7 +12,6 @@ augroup FileTypeDetect
   au! BufRead,BufNewFile *.plist setfiletype xml
   au! BufRead,BufNewFile *.sbg setfiletype conf
 
-  au! BufRead,BufNewFile bashrc* setfiletype sh
   au! BufRead,BufNewFile {.,}Brewfile setfiletype ruby
   au! BufRead,BufNewFile {pip-,}requirements.txt setfiletype conf
 augroup END

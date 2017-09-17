@@ -48,6 +48,22 @@ vman() {
 }
 
 #
+# Toggle whether to save the command history.
+#
+hist-toggle()
+{
+    if [ "$HISTFILE" = /dev/null ]
+    then
+        export HISTFILE=$HOME/.bash_history
+        export MY_PROMPT_PREFIX_COLOR=
+    else
+        export HISTFILE=/dev/null
+        export MY_PROMPT_PREFIX_COLOR="\[\033[31m\]"
+    fi
+    source $HOME/.bash/prompt.bash
+}
+
+#
 # Sync files using rsync.
 #
 # `cpr src/ dest/` will copy files from src to dest. Note the trailing

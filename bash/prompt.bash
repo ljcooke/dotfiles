@@ -50,7 +50,14 @@ _my_prompt() {
     # Git branch
     if [ -n "$branch" ]
     then
-        prompt="${prompt}${sep}${f_yellow}${branch}${f_reset}"
+        if [ -n "$(git status --porcelain)" ]
+        then
+            local git_color=$f_yellow
+        else
+            local git_color=$f_green
+        fi
+        prefix_color=$git_color
+        prompt="${prompt}${sep}${git_color}${branch}${f_reset}"
     fi
 
     # Suffix

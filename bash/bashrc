@@ -164,35 +164,13 @@ done
 type -t __git_complete >/dev/null || source "$HOME/.bash/complete_git"
 
 #------------------------------------------------------------------------------
-# Defaults + custom configuration
+# Further configuration
 
-export PROMPT_PREFIX="\u@\h "
+source $HOME/.bash/prompt.bash
 
 if [ -e "$HOME/.bashrc.local" ]; then
     source "$HOME/.bashrc.local"
 fi
-
-#------------------------------------------------------------------------------
-# Prompt configuration
-
-function _my_prompt_branch()
-{
-    # https://gist.github.com/790086
-    ref=$(git symbolic-ref -q HEAD 2> /dev/null) || return
-    printf "${1:- (%s)}" "${ref#refs/heads/}"
-}
-
-function _my_prompt_setup()
-{
-    # Colors: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
-    local OFF="\[\033[0m\]"
-    local GREEN="\[\033[0;32m\]"
-    local YELLOW="\[\033[0;33m\]"
-
-    PS1="${OFF}${GREEN}\W${YELLOW}\$(_my_prompt_branch)${OFF} $ "
-}
-
-_my_prompt_setup
 
 #------------------------------------------------------------------------------
 # Tidy up

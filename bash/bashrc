@@ -138,13 +138,13 @@ unset cpr_args scpr_args
 #------------------------------------------------------------------------------
 # tmux & screen
 
-function _araile_tmux_attach()
+function _my_tmux_attach()
 {
     [ -n "$1" ] && session=$1 || session=main
     tmux attach-session -d -t "$session" || tmux new-session -s "$session"
 }
 
-alias s='_araile_tmux_attach'
+alias s='_my_tmux_attach'
 
 alias screen-attach='screen -DRA && stty sane && echo'
 
@@ -175,24 +175,24 @@ fi
 #------------------------------------------------------------------------------
 # Prompt configuration
 
-function _araile_prompt_branch()
+function _my_prompt_branch()
 {
     # https://gist.github.com/790086
     ref=$(git symbolic-ref -q HEAD 2> /dev/null) || return
     printf "${1:- (%s)}" "${ref#refs/heads/}"
 }
 
-function _araile_prompt_setup()
+function _my_prompt_setup()
 {
     # Colors: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
     local OFF="\033[0m"
     local GREEN="\033[0;32m"
     local YELLOW="\033[0;33m"
 
-    PS1="${OFF}${GREEN}\W${YELLOW}\$(_araile_prompt_branch)${OFF} $ "
+    PS1="${OFF}${GREEN}\W${YELLOW}\$(_my_prompt_branch)${OFF} $ "
 }
 
-_araile_prompt_setup
+_my_prompt_setup
 
 #------------------------------------------------------------------------------
 # Tidy up

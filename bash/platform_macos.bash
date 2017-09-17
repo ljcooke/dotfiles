@@ -20,6 +20,15 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 # -----------------------------------------------------------------------------
 
 #
+# `cd` to the top-most Finder window location
+# Source: https://github.com/mathiasbynens/dotfiles
+#
+cdfinder() {
+    cd "$(osascript -e \
+        'tell app "Finder" to POSIX path of (insertion location as alias)')"
+}
+
+#
 # Open a man page in your default browser.
 #
 # Requires:

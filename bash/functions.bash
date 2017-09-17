@@ -116,3 +116,22 @@ alias s='_my_tmux_attach'
 # Attach to a screen session
 #
 alias screen-attach='screen -DRA && stty sane && echo'
+
+#
+# Determine the mimetype of one or more files.
+#
+mimetype() {
+    file --mime-type "$@"
+}
+
+#
+# Create a data url from a file. Requires openssl.
+# Source: https://github.com/mathiasbynens/dotfiles
+#
+dataurl() {
+    local mimetype=$(file -b --mime-type "$1")
+    if [[ $mimeType == text/* ]]; then
+        mimetype="${mimetype};charset=utf-8";
+    fi
+    echo "data:${mimetype};base64,$(openssl base64 -in "$1" | tr -d '\n')";
+}

@@ -1,7 +1,6 @@
 for f in \
     /usr/local/etc/bash_completion \
-    /etc/bash_completion \
-    "$HOME"/.bash/complete_bash.bash
+    /etc/bash_completion
 do
     if [ -e "$f" ]
     then
@@ -9,5 +8,3 @@ do
         break
     fi
 done
-
-type -t __git_complete >/dev/null || source "$HOME/.bash/complete_git.bash"

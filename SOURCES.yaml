@@ -15,6 +15,8 @@ vim:
     git: https://github.com/araile/vim-fortune.git
   ft-io:
     git: https://github.com/andreimaxim/vim-io.git
+  ft-javascript:
+    git: https://github.com/pangloss/vim-javascript.git
   ft-markdown-github:
     git: https://github.com/rhysd/vim-gfm-syntax.git
   ft-pgn:

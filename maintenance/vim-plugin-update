@@ -40,7 +40,7 @@ def update(keys = [], opts)
     run('git', 'subtree', action, '--prefix', prefix, url, branch, '--squash')
   end
 
-  run('bin/vim-help-update')
+  run('maintenance/vim-help-update')
   run('git', 'prune')
 end
 

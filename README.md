@@ -24,7 +24,7 @@ be sourced by `~/.bashrc`.
 ### Setup
 
     $ ln -s .dotfiles/vim $HOME/.vim
-    $ bin/vim-help-update
+    $ maintenance/vim-help-update
 
 ### Plugin management
 

@@ -41,7 +41,7 @@ named `foo`:
 
  1. Run:
 
-        $ bin/vim-plugin-update foo
+        $ maintenance/vim-plugin-update foo
 
     This will fetch the git repository, squash the commits, and merge them into
     the `vim/bundle/<foo>` directory.

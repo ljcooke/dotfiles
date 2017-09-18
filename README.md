@@ -2,7 +2,7 @@
 
 An accretion of configuration files.
 
-    $ git clone https://github.com/araile/dotfiles.git ~/.dotfiles
+    $ git clone https://github.com/araile/dotfiles.git ~/.myconf
 
 
 
@@ -10,7 +10,7 @@ An accretion of configuration files.
 
 ### Setup
 
-    $ ln -s .dotfiles/bash $HOME/.bash
+    $ ln -s .myconf/bash $HOME/.bash
     $ ln -s .bash/bashrc $HOME/.bashrc
     $ ln -s .bash/bash_login $HOME/.bash_login
 
@@ -23,7 +23,7 @@ be sourced by `~/.bashrc`.
 
 ### Setup
 
-    $ ln -s .dotfiles/vim $HOME/.vim
+    $ ln -s .myconf/vim $HOME/.vim
     $ maintenance/vim-help-update
 
 ### Plugin management

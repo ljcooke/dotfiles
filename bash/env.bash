@@ -41,4 +41,4 @@ export PYTHONPATH="$HOME/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
 # Paths
-export PATH="$PATH:$HOME/.dotfiles/bin"
+export PATH="$PATH:$HOME/.myconf/bin"

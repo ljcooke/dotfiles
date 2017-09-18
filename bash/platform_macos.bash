@@ -15,7 +15,7 @@ export HOMEBREW_INSTALL_BADGE=💾
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 
-export PATH="$PATH:$HOME/.dotfiles/macos/bin"
+export PATH="$PATH:$HOME/.myconf/macos/bin"
 
 # -----------------------------------------------------------------------------
 # Aliases

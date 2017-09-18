@@ -10,6 +10,9 @@ alias la='ls -AF'
 alias lc='ls -F'
 alias ll='ls -AFhl'
 
+alias py2=python2
+alias py3=python3
+
 alias utc-date='TZ=UTC date +"%a %Y-%m-%d %H:%M:%S %z"'
 alias utc-ymd='TZ=UTC date +"%Y-%m-%d"'
 

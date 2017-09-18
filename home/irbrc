@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # -----------------------------------------------------------------------------
 # Ruby repl (irb) config
 # -----------------------------------------------------------------------------
@@ -30,7 +31,7 @@ module MyPrompt
   end
 
   def self.ps2
-    "#{Term::BLUE}.#{Term::RESET} "
+    "#{Term::DIM}#{'.' * 8}#{Term::UNDIM} "
   end
 
   def self.result
@@ -39,9 +40,9 @@ module MyPrompt
 end
 
 IRB.conf[:PROMPT][:ARAILE] = {
-  :PROMPT_I => MyPrompt.ps1,  # normal
+  :PROMPT_I => MyPrompt.ps1,  # normal
   :PROMPT_S => MyPrompt.ps2,  # continuing strings
-  :PROMPT_C => MyPrompt.ps2,  # continuing statements
+  :PROMPT_C => MyPrompt.ps2,  # continuing statements
   :RETURN => "#{MyPrompt.result}%s\n",
 }
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -----------------------------------------------------------------------------
 # Python repl config
 # -----------------------------------------------------------------------------
@@ -42,7 +43,7 @@ class MyPrompt:
             '%s>%s' % (Term.blue, Term.reset),
             ))
         sys.ps2 = '%s ' % ''.join((
-            '%s.%s' % (Term.blue, Term.reset),
+            '%s%s%s' % (Term.dim, '.' * 8, Term.undim),
             ))
 
 MyPrompt.setup()

@@ -21,8 +21,9 @@ end
 
 module MyPrompt
   def self.ps1
+    version = RUBY_VERSION.match(/^([^.]+\.[^.])/)[1]
     ["#{Term::DIM}(#{Term::UNDIM}",
-     "ruby",
+     "rb#{version}",
      "#{Term::DIM})#{Term::UNDIM}",
      "#{Term::BLUE}>#{Term::RESET}",
      ' '].join

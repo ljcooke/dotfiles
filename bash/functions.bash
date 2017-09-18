@@ -35,19 +35,6 @@ mkcd() {
 }
 
 #
-# Open a man page in vim.
-#
-vman() {
-    if [ $# -gt 0 ]
-    then
-        MANWIDTH=100 MANPAGER='col -bx' man "$@" | view -
-    else
-        man
-        return 1
-    fi
-}
-
-#
 # Toggle whether to save the command history.
 #
 hist-toggle()
@@ -116,22 +103,3 @@ alias s='_my_tmux_attach'
 # Attach to a screen session
 #
 alias screen-attach='screen -DRA && stty sane && echo'
-
-#
-# Determine the mimetype of one or more files.
-#
-mimetype() {
-    file --mime-type "$@"
-}
-
-#
-# Create a data url from a file. Requires openssl.
-# Source: https://github.com/mathiasbynens/dotfiles
-#
-dataurl() {
-    local mimetype=$(file -b --mime-type "$1")
-    if [[ $mimeType == text/* ]]; then
-        mimetype="${mimetype};charset=utf-8";
-    fi
-    echo "data:${mimetype};base64,$(openssl base64 -in "$1" | tr -d '\n')";
-}

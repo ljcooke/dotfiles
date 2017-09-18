@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Determine the mimetype of one or more files.
+
+set -o errexit
+set -o nounset
+
+file --mime-type "$@"

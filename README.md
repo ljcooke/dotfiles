@@ -2,13 +2,15 @@
 
 An accretion of configuration files.
 
+    $ git clone https://github.com/araile/dotfiles.git ~/.dotfiles
+
 
 
 ## Bash
 
 ### Setup
 
-    $ ln -s $PWD/bash $HOME/.bash
+    $ ln -s .dotfiles/bash $HOME/.bash
     $ ln -s .bash/bashrc $HOME/.bashrc
     $ ln -s .bash/bash_login $HOME/.bash_login
 
@@ -21,7 +23,7 @@ be sourced by `~/.bashrc`.
 
 ### Setup
 
-    $ ln -s $PWD/vim $HOME/.vim
+    $ ln -s .dotfiles/vim $HOME/.vim
     $ bin/vim-help-update
 
 ### Plugin management

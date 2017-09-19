@@ -31,10 +31,8 @@ shopt -s checkwinsize 2>/dev/null
 
 # Pager
 export PAGER=less
+export LESS='-FRX'
 export LESSCHARSET=utf-8
-
-# Don't clear the screen after quitting `man`
-export MANPAGER='less -X'
 
 # Python
 export PYTHONPATH="$HOME/lib/python"

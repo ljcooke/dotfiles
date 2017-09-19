@@ -321,6 +321,10 @@
 			<key>ProcessName</key>
 			<string>fish</string>
 		</dict>
+		<dict>
+			<key>ProcessName</key>
+			<string>-bash</string>
+		</dict>
 	</array>
 	<key>redColour</key>
 	<data>

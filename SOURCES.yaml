@@ -17,6 +17,8 @@ vim:
     git: https://github.com/andreimaxim/vim-io.git
   ft-javascript:
     git: https://github.com/pangloss/vim-javascript.git
+  ft-ledger:
+    git: https://github.com/ledger/vim-ledger
   ft-markdown-github:
     git: https://github.com/rhysd/vim-gfm-syntax.git
   ft-pgn:

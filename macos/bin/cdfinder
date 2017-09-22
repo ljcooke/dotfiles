@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# cd to the top-most Finder window location
-# Originally from https://github.com/mathiasbynens/dotfiles
-
-set -o errexit
-set -o nounset
-
-cd "$(osascript -e \
-    'tell app "Finder" to POSIX path of (insertion location as alias)')"

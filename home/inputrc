@@ -5,9 +5,9 @@
 # -----------------------------------------------------------------------------
 
 # Fix some quirks of Apple's Irish keyboard layout
-"§": '`'
-"±": '~'
-"£": '#'
+"\xc2\xa7": '`'
+"\xc2\xb1": '~'
+"\xc2\xa3": '#'
 
 # Alt-Space on macOS produces a non-breaking space (U+00A0)
 "\xc2\xa0": ' '

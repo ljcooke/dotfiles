@@ -108,6 +108,10 @@ nnoremap <C-u> <Esc>viwUi
 nnoremap <Leader>ev :split $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
+" Change the keys on Apple's bizarre Irish keyboard
+noremap! § `
+noremap! ± ~
+
 " ----------------------------------------------------------------------------
 " Netrw (file browser)
 " [Help: netrw]

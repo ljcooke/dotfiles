@@ -4,6 +4,8 @@
 # Reload with `bind -f ~/.inputrc`
 # -----------------------------------------------------------------------------
 
+TAB: complete
+
 # Fix some quirks of Apple's Irish keyboard layout
 "\xc2\xa7": '`'
 "\xc2\xb1": '~'
@@ -16,8 +18,9 @@
 # "\C-?": backward-delete-char
 # "\C-h": delete-char
 
-# Input style (emacs|vi)
+# Input style
 set editing-mode emacs
+set keymap emacs
 
 # Color the completions using $LS_COLORS ($LSCOLORS on BSD?)
 set colored-completion-prefix on
@@ -37,5 +40,7 @@ set bell-style none
 set blink-matching-paren on
 set expand-tilde on
 set completion-ignore-case off
+set completion-query-items 200
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
+set skip-completed-text on

@@ -4,27 +4,35 @@
 // ----------------------------------------------------------------------------
 
 const term = {
-  reset:   "\u001b[0m",
-  bold:    "\u001b[1m",
-  dim:     "\u001b[2m",
-  unbold:  "\u001b[21m",
-  undim:   "\u001b[22m",
-  red:     "\u001b[31m",
-  green:   "\u001b[32m",
-  yellow:  "\u001b[33m",
-  blue:    "\u001b[34m",
-  pink:    "\u001b[35m",
-  cyan:    "\u001b[36m",
+  colors: {
+    reset:  "\u001b[0m",
+    bold:   "\u001b[1m",
+    dim:    "\u001b[2m",
+    unbold: "\u001b[21m",
+    undim:  "\u001b[22m",
+    red:    "\u001b[31m",
+    green:  "\u001b[32m",
+    yellow: "\u001b[33m",
+    blue:   "\u001b[34m",
+    pink:   "\u001b[35m",
+    cyan:   "\u001b[36m",
+  },
+  color: (string, color, uncolor) => (
+    color + string + (uncolor || term.colors.reset)),
+  dim: (string) => (
+    term.colors.dim + string + term.colors.undim),
 }
 
 var repl = require('repl')
 
 var context = repl.start({
-  prompt: (`${term.dim}(${term.undim}` +
-           'node' +
-           `${term.dim})${term.undim}` +
-           `${term.blue}>${term.reset} `),
+  prompt: [
+    term.dim('('),
+    'node',
+    term.dim(')'),
+    term.color('>', term.colors.blue),
+  ].join('') + ' ',
 }).context
 
+context.term = term
 context.util = require('util')
-context.termEscape = term

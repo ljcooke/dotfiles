@@ -18,24 +18,31 @@ module Term
   BLUE   = "\x1b[34m".freeze
   PINK   = "\x1b[35m".freeze
   CYAN   = "\x1b[36m".freeze
+
+  def self.color(string, color, uncolor = RESET)
+    "#{color}#{string}#{uncolor}"
+  end
+
+  def self.dim(string)
+    "#{DIM}#{string}#{UNDIM}"
+  end
 end
 
 module MyPrompt
   def self.ps1
     version = RUBY_VERSION.match(/^([^.]+\.[^.])/)[1]
-    ["#{Term::DIM}(#{Term::UNDIM}",
+    [Term.dim('('),
      "rb#{version}",
-     "#{Term::DIM})#{Term::UNDIM}",
-     "#{Term::BLUE}>#{Term::RESET}",
-     ' '].join
+     Term.dim(')'),
+     Term.color('>', Term::BLUE)].join + ' '
   end
 
   def self.ps2
-    "#{Term::DIM}#{'.' * 8}#{Term::UNDIM} "
+    Term.dim('.' * 8) + ' '
   end
 
   def self.result
-    "#{Term::DIM}=#{Term::UNDIM} "
+    Term.dim('=') + ' '
   end
 end
 

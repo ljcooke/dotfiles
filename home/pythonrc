@@ -31,6 +31,7 @@ class Term:
     pink   = "\x1b[35m"
     cyan   = "\x1b[36m"
 
+
 class MyPrompt:
 
     @classmethod
@@ -45,6 +46,11 @@ class MyPrompt:
         sys.ps2 = '%s ' % ''.join((
             '%s%s%s' % (Term.dim, '.' * 8, Term.undim),
             ))
+
+        if sys.version_info[0] < 3:
+            r = re.compile('\x1b\\[[^m]+m')
+            sys.ps1 = r.sub('', sys.ps1)
+            sys.ps2 = r.sub('', sys.ps2)
 
 MyPrompt.setup()
 

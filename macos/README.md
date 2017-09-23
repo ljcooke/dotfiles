@@ -12,11 +12,6 @@
 
         brew bundle install
 
-## Fonts
-
-Install the fonts listed in the [Fonts](../Fonts.md) document. To do this,
-copy the font files to the *~/Library/Fonts* directory.
-
 ## Safari
 
 See the [Safari](Safari.md) document.

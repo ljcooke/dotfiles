@@ -2,31 +2,44 @@
 
 An accretion of configuration files.
 
+## Install
+
+Clone the repository into `~/.myconf`:
+
     $ git clone https://github.com/araile/dotfiles.git ~/.myconf
 
+Install the required fonts:
 
+  - [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/releases)
+    (look for the 'Roman fonts' download)
+
+Set up symlinks:
+
+  - Bash:
+
+        $ ln -s .myconf/bash $HOME/.bash
+        $ ln -s .bash/bashrc $HOME/.bashrc
+        $ ln -s .bash/bash_login $HOME/.bash_login
+
+  - Vim:
+
+        $ ln -s .myconf/vim $HOME/.vim
+        $ maintenance/vim-help-update
+
+Additional configuration is detailed in other documents:
+
+  - [Git](git/README.md)
+
+  - [macOS](macos/README.md)
+
+  - [Sublime Text](sublime/README.md)
 
 ## Bash
 
-### Setup
-
-    $ ln -s .myconf/bash $HOME/.bash
-    $ ln -s .bash/bashrc $HOME/.bashrc
-    $ ln -s .bash/bash_login $HOME/.bash_login
-
-You can store additional bash configuration in `~/.bashrc.local`, which will
-be sourced by `~/.bashrc`.
-
-
+Local bash settings can be stored in `~/.bashrc.local`. This file will be
+sourced by `~.bashrc`.
 
 ## Vim
-
-### Setup
-
-    $ ln -s .myconf/vim $HOME/.vim
-    $ maintenance/vim-help-update
-
-### Plugin management
 
 Plugins are stored in the `vim/bundle` directory, which is symlinked from
 `vim/pack/bundle/start`. These are loaded natively in Vim 8 (using the

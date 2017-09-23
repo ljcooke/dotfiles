@@ -7,6 +7,13 @@ CTRL_C = "\u0003".freeze
 CTRL_D = "\u0004".freeze
 QUIT_CHARS = [CTRL_C, CTRL_D].freeze
 
+SAVE_CURSOR = "\x1b7".freeze
+LOAD_CURSOR = "\x1b8".freeze
+ERASE_LINE = "\x1b[K".freeze
+
+BOLD = "\x1b[1m".freeze
+RESET = "\x1b[0m".freeze
+
 def hex(n, min_width = 2)
   n.to_s(16).rjust(min_width, '0')
 end
@@ -17,10 +24,16 @@ def char_repr(c)
   "#{c.inspect} | #{codes} | #{bytes}"
 end
 
+def prompt
+  print "#{SAVE_CURSOR}_ #{BOLD}Press a key#{RESET} "
+  print "(Ctrl-D to exit)#{LOAD_CURSOR}"
+end
+
 def debug_keys
   loop do
+    prompt
     char = $stdin.getc.freeze
-    print char_repr(char) + "\r\n"
+    print ERASE_LINE + char_repr(char) + "\r\n"
     break if QUIT_CHARS.include? char
   end
 end

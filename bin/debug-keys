@@ -3,11 +3,11 @@
 
 require 'io/console'
 
-CTRL_C = "\u0003"
-CTRL_D = "\u0004"
+CTRL_C = "\u0003".freeze
+CTRL_D = "\u0004".freeze
 QUIT_CHARS = [CTRL_C, CTRL_D].freeze
 
-def hex(n, min_width=2)
+def hex(n, min_width = 2)
   n.to_s(16).rjust(min_width, '0')
 end
 
@@ -29,8 +29,6 @@ def raw_mode
   old_state = `stty -g`
   system 'stty raw -echo'
   IO.console.raw { yield }
-rescue => ex
-  print "#{ex.class}: #{ex.message}\r\n"
 ensure
   system "stty #{old_state}"
 end

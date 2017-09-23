@@ -37,7 +37,7 @@ Additional configuration is detailed in other documents:
 ## Bash
 
 Local bash settings can be stored in `~/.bashrc.local`. This file will be
-sourced by `~.bashrc`.
+sourced by `~/.bashrc`.
 
 ## Vim
 

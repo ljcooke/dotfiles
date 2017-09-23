@@ -80,7 +80,6 @@ nnoremap <Leader>d$ :%s/\s\+$//e<CR>:noh<CR>
 
 " Replace non-breaking spaces. (These are easy to insert by mistake on macOS
 " by pressing Alt-Space.)
-inoremap <M-Space> <Space>
 nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :eg<CR>:noh<CR>
 
 " ----------------------------------------------------------------------------
@@ -108,9 +107,13 @@ nnoremap <C-u> <Esc>viwUi
 nnoremap <Leader>ev :split $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
-" Change the keys on Apple's bizarre Irish keyboard
+" Fix some quirks of Apple's Irish keyboard layout
 noremap! § `
 noremap! ± ~
+noremap! £ #
+
+" Alt-Space on macOS produces a non-breaking space
+noremap! <M-Space> <Space>
 
 " ----------------------------------------------------------------------------
 " Netrw (file browser)

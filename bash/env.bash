@@ -1,9 +1,3 @@
-# Backspace character
-stty erase ^h
-
-# Input style
-set -o emacs
-
 # Default editor
 export EDITOR=vim
 

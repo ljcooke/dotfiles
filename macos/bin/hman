@@ -8,8 +8,7 @@
 set -o errexit
 set -o nounset
 
-if [ $# -gt 0 ]
-then
+if [ $# -gt 0 ]; then
     man "$@" | man2html | bcat
 else
     man

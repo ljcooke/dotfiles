@@ -13,15 +13,9 @@ source $HOME/.bash/"functions.bash"
 source $HOME/.bash/"prompt.bash"
 
 case "$(uname -s)" in
-    Darwin)
-        source $HOME/.bash/platform_macos.bash
-        ;;
-    FreeBSD)
-        source $HOME/.bash/platform_bsd.bash
-        ;;
-    *)
-        source $HOME/.bash/platform_linux.bash
-        ;;
+    Darwin)  source $HOME/.bash/platform_macos.bash ;;
+    FreeBSD) source $HOME/.bash/platform_bsd.bash   ;;
+    *)       source $HOME/.bash/platform_linux.bash ;;
 esac
 
 # Additional local configuration

@@ -42,8 +42,7 @@ mkcd() {
 #
 hist-toggle()
 {
-    if [ "$HISTFILE" = /dev/null ]
-    then
+    if [ "$HISTFILE" = /dev/null ]; then
         export HISTFILE=$HOME/.bash_history
         export MY_PROMPT_PREFIX=
         export MY_PROMPT_PREFIX_COLOR=

@@ -52,8 +52,7 @@ _my_prompt() {
     prompt="${prompt}${sep}\A"
 
     # Status of last command
-    if [ $status -ne 0 ]
-    then
+    if [ $status -ne 0 ]; then
         prompt="${prompt}${sep}${f_red}${status}${f_reset}"
     fi
 
@@ -61,8 +60,7 @@ _my_prompt() {
     prompt="${prompt}${sep}${f_gray}\w${f_reset}"
 
     # Git branch
-    if [ -n "$branch" ]
-    then
+    if [ -n "$branch" ]; then
         case $(_my_git_changed) in
             y) local git_color=$f_yellow ;;
             n) local git_color=$f_green ;;

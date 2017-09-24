@@ -11,8 +11,7 @@ set -o nounset
 set -o xtrace
 
 # Exit silently if not running on macOS
-if [ "$(uname -s)" != Darwin ]
-then
+if [ "$(uname -s)" != Darwin ]; then
     exit 0
 fi
 
@@ -24,8 +23,7 @@ osascript -e 'tell application "System Preferences" to quit'
 # Homebrew
 # -----------------------------------------------------------------------------
 
-if ! which brew
-then
+if ! which brew; then
     echo 'Install Homebrew: https://brew.sh'
     exit 1
 fi

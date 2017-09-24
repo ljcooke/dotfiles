@@ -52,6 +52,9 @@ defaults write com.apple.dock showhidden -bool YES
 # Reveal the Library folder
 chflags nohidden ~/Library
 
+# Hide desktop icons
+defaults write com.apple.finder CreateDesktop -bool NO
+
 # Show the path bar
 defaults write com.apple.finder ShowPathbar -bool YES
 
@@ -133,5 +136,7 @@ defaults write NSGlobalDomain AppleInterfaceStyle -string Dark
 # Disable the dashboard
 defaults write com.apple.dashboard mcx-disabled -bool YES
 
-killall Dashboard || true
-killall Dock || true
+for app in Dashboard Dock Finder
+do
+    killall $app || true
+done

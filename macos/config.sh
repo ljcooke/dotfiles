@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # -----------------------------------------------------------------------------
 # macOS config script
-# -----------------------------------------------------------------------------
-# Some code adapted from the following sources:
 #
-#   - https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+# References:
+#   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 # -----------------------------------------------------------------------------
 
 set -o errexit
@@ -34,6 +33,13 @@ fi
 set -o xtrace
 
 brew bundle install
+
+# -----------------------------------------------------------------------------
+# Dashboard
+# -----------------------------------------------------------------------------
+
+# Disable the dashboard
+defaults write com.apple.dashboard mcx-disabled -bool YES
 
 # -----------------------------------------------------------------------------
 # Dock
@@ -126,15 +132,20 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool YES
 # Misc Configuration
 # -----------------------------------------------------------------------------
 
+# Disable creating .DS_Store files in some places
+# See: https://github.com/mathiasbynens/dotfiles/issues/635
+defaults write com.apple.desktopservices DSDontWriteNetworkStores 'true'
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool YES
+
+# Don't use iCloud as the default location for saving files
+defaults write -g NSDocumentSaveNewDocumentsToCloud -bool NO
+
 # Disable window animations
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool NO
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool NO
+defaults write -g NSWindowResizeTime -float 0.001
 
 # Use the dark menu bar
-defaults write NSGlobalDomain AppleInterfaceStyle -string Dark
-
-# Disable the dashboard
-defaults write com.apple.dashboard mcx-disabled -bool YES
+defaults write -g AppleInterfaceStyle -string Dark
 
 for app in Dashboard Dock Finder
 do

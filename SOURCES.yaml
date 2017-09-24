@@ -12,7 +12,7 @@ vim:
   ft-fish:
     git: https://github.com/aliva/vim-fish.git
   ft-fortune:
-    git: https://github.com/araile/vim-fortune.git
+    git: https://github.com/ljcooke/vim-fortune.git
   ft-io:
     git: https://github.com/andreimaxim/vim-io.git
   ft-javascript:
@@ -24,7 +24,7 @@ vim:
   ft-pgn:
     git: https://github.com/artoj/pgn-syntax-vim.git
   ft-qif:
-    git: https://github.com/araile/vim-qif.git
+    git: https://github.com/ljcooke/vim-qif.git
   ft-ruby-bundler:
     git: https://github.com/tpope/vim-bundler.git
   ft-toml:

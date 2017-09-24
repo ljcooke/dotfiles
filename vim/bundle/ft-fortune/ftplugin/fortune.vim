@@ -1,7 +1,7 @@
 " Vim filetype plugin
 " Language: Fortune
 " Maintainer: Liam Cooke
-" URL: https://github.com/araile/vim-fortune
+" URL: https://github.com/ljcooke/vim-fortune
 " License: MIT
 
 " Only do this when not done yet for this buffer

@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language: QIF
 " Maintainer: Liam Cooke
-" URL: https://github.com/araile/vim-qif
+" URL: https://github.com/ljcooke/vim-qif
 " License: MIT
 
 if exists("b:current_syntax")

@@ -6,7 +6,7 @@ An accretion of configuration files.
 
 Clone the repository into `~/.myconf`:
 
-    $ git clone https://github.com/araile/dotfiles.git ~/.myconf
+    $ git clone https://github.com/ljcooke/dotfiles.git ~/.myconf
 
 Install the required fonts:
 

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+
+heading() {
+    title=$1
+    echo -e "\n\033[34m${title}\033[0m"
+}
+
+heading 'Load'
+uptime
+pmset -g sysload
+
+heading 'Power'
+pmset -g batt
+
+heading 'Disk space'
+df -hl /
+
+echo

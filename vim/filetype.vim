@@ -21,5 +21,6 @@ augroup END
 augroup Templates
   au BufNewFile *.html 0r ~/.vim/templates/skeleton.html | $d
   au BufNewFile *.py   0r ~/.vim/templates/skeleton.py
+  au BufNewFile *.rb   0r ~/.vim/templates/skeleton.rb
   au BufNewFile *.sh   0r ~/.vim/templates/skeleton.sh
 augroup END

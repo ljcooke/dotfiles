@@ -13,6 +13,7 @@ augroup FileTypeDetect
   au! BufRead,BufNewFile *.sbg setfiletype conf
 
   au! BufRead,BufNewFile {.,}Brewfile setfiletype ruby
+  au! BufRead,BufNewFile {.,}Pipfile setfiletype toml
   au! BufRead,BufNewFile {pip-,}requirements.txt setfiletype conf
 augroup END
 

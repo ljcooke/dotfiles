@@ -35,3 +35,6 @@ vim:
     git: https://github.com/tpope/vim-sensible.git
   ui-lightline:
     git: https://github.com/itchyny/lightline.vim.git
+  util-speeddating:
+    git: https://github.com/tpope/vim-speeddating.git
+    note: required by ft-org

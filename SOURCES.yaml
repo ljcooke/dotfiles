@@ -21,6 +21,8 @@ vim:
     git: https://github.com/ledger/vim-ledger
   ft-markdown-github:
     git: https://github.com/rhysd/vim-gfm-syntax.git
+  ft-org:
+    git: https://github.com/jceb/vim-orgmode.git
   ft-pgn:
     git: https://github.com/artoj/pgn-syntax-vim.git
   ft-qif:
@@ -33,3 +35,6 @@ vim:
     git: https://github.com/tpope/vim-sensible.git
   ui-lightline:
     git: https://github.com/itchyny/lightline.vim.git
+  util-speeddating:
+    git: https://github.com/tpope/vim-speeddating.git
+    note: required by ft-org

@@ -38,3 +38,5 @@ vim:
   util-speeddating:
     git: https://github.com/tpope/vim-speeddating.git
     note: required by ft-org
+  util-syntaxrange:
+    git: https://github.com/vim-scripts/SyntaxRange.git

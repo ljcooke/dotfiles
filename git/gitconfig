@@ -1,6 +1,7 @@
 [user]
 	#name = "<FULL NAME>"
 	#email = <EMAIL ADDRESS>
+	useConfigOnly = true
 [alias]
 	br = branch
 	co = checkout
@@ -11,14 +12,17 @@
 	lg = log --decorate=short --date-order --graph --date=iso
 	mm = merge --no-ff
 	ff = merge --ff-only
+	f5 = fetch --prune
 	cached = diff --cached
 	unadd = reset HEAD --
 	amend-new = commit --amend --reset-author
 	initcommit = !git init && git commit -m Init --allow-empty
+	# http://caiustheory.com/git-git-git-git-git/
+	git = !exec git
 [core]
 	#editor = gvim --nofork
 	#editor = mvim -f --nomru -c 'au VimLeave * !open -a Terminal'
-	#excludesfile = <PATH TO HOME>/.gitignore
+	#excludesfile = <PATH TO HOME>/.gitignore_global
 	fileMode = true
 	quotePath = false
 	fsyncObjectFiles = true

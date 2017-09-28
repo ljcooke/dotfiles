@@ -6,7 +6,7 @@ endif
 " [Help: new-filetype (see option C), :filetype]
 augroup FileTypeDetect
   au! BufRead,BufNewFile *.fql setfiletype sql
-  au! BufRead,BufNewFile *.{ldg,ledger} setfiletype ledger
+  au! BufRead,BufNewFile *.ledger setfiletype ledger
   au! BufRead,BufNewFile *.less setfiletype css
   au! BufRead,BufNewFile *.m setfiletype objc
   au! BufRead,BufNewFile *.plist setfiletype xml
@@ -14,6 +14,7 @@ augroup FileTypeDetect
 
   au! BufRead,BufNewFile {.,}Brewfile setfiletype ruby
   au! BufRead,BufNewFile {.,}Pipfile setfiletype toml
+  au! BufRead,BufNewFile {.,}gitconfig setfiletype gitconfig
   au! BufRead,BufNewFile {pip-,}requirements.txt setfiletype conf
 augroup END
 

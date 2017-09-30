@@ -37,3 +37,7 @@ export PYTHONSTARTUP="$HOME/.pythonrc"
 
 # Paths
 export PATH="$PATH:$HOME/.myconf/bin"
+
+# Paths to search when cd-ing to a directory.
+# Colon separated, e.g. ".:~/src"
+export CDPATH="."

@@ -8,6 +8,9 @@ heading() {
     echo -e "\n\033[34m${title}\033[0m"
 }
 
+heading 'System'
+sw_vers
+
 heading 'Load'
 uptime
 pmset -g sysload

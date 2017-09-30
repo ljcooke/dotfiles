@@ -4,7 +4,11 @@
 # Reload with `bind -f ~/.inputrc`
 # -----------------------------------------------------------------------------
 
-TAB: complete
+# Press tab to complete
+Tab: complete
+
+# Perform history expansion before inserting a space e.g. !!<space>
+Space: magic-space
 
 # Fix some quirks of Apple's Irish keyboard layout
 "\xc2\xa7": '`'
@@ -39,7 +43,7 @@ set mark-symlinked-directories on
 set bell-style none
 set blink-matching-paren on
 set expand-tilde on
-set completion-ignore-case off
+set completion-ignore-case on
 set completion-query-items 200
 set show-all-if-ambiguous on
 set show-all-if-unmodified on

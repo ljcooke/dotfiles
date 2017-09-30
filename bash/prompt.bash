@@ -73,7 +73,11 @@ _my_prompt() {
     # Suffix
     prompt="${prompt}${sep}${f_blue}>${f_reset}"
 
+    # Set the prompt
     PS1="${prefix_color}${prefix}${f_reset}${prompt} "
+
+    # Append the last command to the history file
+    history -a
 }
 
 export PROMPT_DIRTRIM=2

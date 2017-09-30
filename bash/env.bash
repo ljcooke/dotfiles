@@ -23,6 +23,9 @@ shopt -s checkjobs 2>/dev/null
 # Check and update lines & cols after each command
 shopt -s checkwinsize 2>/dev/null
 
+# Case-insensitive path expansion
+shopt -s nocaseglob
+
 # Pager
 export PAGER=less
 export LESS='-FRX'

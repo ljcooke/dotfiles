@@ -1,0 +1,5 @@
+# Slack
+
+## Sidebar colours
+
+`#393939,#2D2D2D,#747369,#F2F0EC,#515151,#D3D0C8,#99CC99,#66CCCC`

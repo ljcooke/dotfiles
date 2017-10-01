@@ -51,6 +51,12 @@ _my_prompt() {
     # Clock
     prompt="${prompt}${sep}\A"
 
+    # Hostname
+    local host=${PROMPT_HOST:-\\h}
+    if [ "$host" != '-' ]; then
+        prompt="${prompt}${sep}${host}"
+    fi
+
     # Status of last command
     if [ $status -ne 0 ]; then
         prompt="${prompt}${sep}${f_red}${status}${f_reset}"

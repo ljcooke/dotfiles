@@ -26,6 +26,9 @@ shopt -s checkwinsize 2>/dev/null
 # Case-insensitive path expansion
 shopt -s nocaseglob
 
+# Perform history expansion before inserting a space e.g. !!<space>
+bind 'Space: magic-space'
+
 # Pager
 export PAGER=less
 export LESS='-FRX'

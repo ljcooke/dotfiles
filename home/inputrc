@@ -7,9 +7,6 @@
 # Press tab to complete
 Tab: complete
 
-# Perform history expansion before inserting a space e.g. !!<space>
-Space: magic-space
-
 # Fix some quirks of Apple's Irish keyboard layout
 "\xc2\xa7": '`'
 "\xc2\xb1": '~'

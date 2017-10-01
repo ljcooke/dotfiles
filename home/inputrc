@@ -12,12 +12,20 @@ Tab: complete
 "\xc2\xb1": '~'
 "\xc2\xa3": '#'
 
+# Fix some bindings that rely on the keys above
+"\e#":        insert-comment
+"\e\xc2\xa3": insert-comment
+
 # Alt-Space on macOS produces a non-breaking space (U+00A0)
 "\xc2\xa0": ' '
 
 # Backspace
-# "\C-?": backward-delete-char
-# "\C-h": delete-char
+"\C-?": backward-delete-char
+"\C-h": delete-char
+
+# Movement
+"\C-b": backward-word
+"\C-f": forward-word
 
 # Input style
 set editing-mode emacs

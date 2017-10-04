@@ -19,7 +19,7 @@ Set up symlinks:
 
         $ ln -s .myconf/bash $HOME/.bash
         $ ln -s .bash/bashrc $HOME/.bashrc
-        $ ln -s .bash/bash_login $HOME/.bash_login
+        $ ln -s .bash/bash_profile $HOME/.bash_profile
 
   - Vim:
 

@@ -36,23 +36,17 @@ class Term:
 
     @classmethod
     def color(cls, string, color, uncolor=RESET):
-        return ''.join((color, string, uncolor)) if PY >= 3 else string
+        return ''.join((color, string, uncolor))
 
     @classmethod
     def dim(cls, string):
-        return ''.join((cls.DIM, string, cls.UNDIM)) if PY >= 3 else string
+        return ''.join((cls.DIM, string, cls.UNDIM))
 
     @classmethod
     def setup_prompt(cls):
         version = '.'.join(str(s) for s in sys.version_info[:2])
-        colors = PY >= 3
-        sys.ps1 = '%s ' % ''.join((
-            cls.dim('('),
-            'py%s' % version,
-            cls.dim(')'),
-            cls.color('>', Term.BLUE),
-            ))
-        sys.ps2 = '%s ' % cls.dim('.' * 8)
+        sys.ps1 = '(py%s)> ' % version
+        sys.ps2 = '%s ' % ('.' * 8)
 
 Term.setup_prompt()
 

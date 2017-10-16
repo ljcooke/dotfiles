@@ -26,12 +26,7 @@ const term = {
 var repl = require('repl')
 
 var context = repl.start({
-  prompt: [
-    term.dim('('),
-    'node',
-    term.dim(')'),
-    term.color('>', term.colors.blue),
-  ].join('') + ' ',
+  prompt: '(node)> ',
 }).context
 
 context.term = term

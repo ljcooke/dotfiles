@@ -31,18 +31,15 @@ end
 module MyPrompt
   def self.ps1
     version = RUBY_VERSION.match(/^([^.]+\.[^.])/)[1]
-    [Term.dim('('),
-     "rb#{version}",
-     Term.dim(')'),
-     Term.color('>', Term::BLUE)].join + ' '
+    "(rb#{version})> "
   end
 
   def self.ps2
-    Term.dim('.' * 8) + ' '
+    ('.' * 8) + ' '
   end
 
   def self.result
-    Term.dim('=') + ' '
+    '= '
   end
 end
 

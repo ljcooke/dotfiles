@@ -81,8 +81,11 @@ _my_prompt() {
     # Suffix
     prompt="${prompt}${sep}${f_blue}>${f_reset}"
 
-    # Terminal title
-    prompt="\[\033]0;\w\007\]${prompt}"
+    # Window title
+    prompt="\[\033]2;[\u@\h] \w\007\]${prompt}"
+
+    # Tab title
+    prompt="\[\033]1;\w\007\]${prompt}"
 
     # Set the prompt
     PS1="${prefix_color}${prefix}${f_reset}${prompt} "

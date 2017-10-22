@@ -210,6 +210,8 @@
 	<false/>
 	<key>ShowCommandKeyInTitle</key>
 	<true/>
+	<key>ShowComponentsWhenTabHasCustomTitle</key>
+	<false/>
 	<key>ShowRepresentedURLInTabTitle</key>
 	<true/>
 	<key>ShowRepresentedURLInTitle</key>

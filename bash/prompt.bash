@@ -82,7 +82,7 @@ _my_prompt() {
     prompt="${prompt}${sep}${f_blue}>${f_reset}"
 
     # Window title
-    prompt="\[\033]2;[\u@\h] \w\007\]${prompt}"
+    prompt="\[\033]2;\u@\h\007\]${prompt}"
 
     # Tab title
     prompt="\[\033]1;\w\007\]${prompt}"

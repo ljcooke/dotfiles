@@ -55,6 +55,8 @@ _my_prompt() {
     local host=${PROMPT_HOST:-\\h}
     if [ "$host" != '-' ]; then
         prompt="${prompt}${sep}${host}"
+    else
+        host=''
     fi
 
     # Status of last command
@@ -78,6 +80,9 @@ _my_prompt() {
 
     # Suffix
     prompt="${prompt}${sep}${f_blue}>${f_reset}"
+
+    # Terminal title
+    prompt="\[\033]0;\w\007\]${prompt}"
 
     # Set the prompt
     PS1="${prefix_color}${prefix}${f_reset}${prompt} "

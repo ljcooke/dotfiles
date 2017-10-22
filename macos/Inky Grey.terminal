@@ -204,11 +204,23 @@
 	dmVy0RcYVHJvb3SAAQgRGiMtMjc7QUhOW2KMjpCVoKmxtL3P0tcAAAAAAAABAQAAAAAA
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
+	<key>ShowActiveProcessInTabTitle</key>
+	<false/>
 	<key>ShowActiveProcessInTitle</key>
+	<false/>
+	<key>ShowCommandKeyInTitle</key>
+	<true/>
+	<key>ShowRepresentedURLInTabTitle</key>
 	<true/>
 	<key>ShowRepresentedURLInTitle</key>
 	<true/>
+	<key>ShowRepresentedURLPathInTabTitle</key>
+	<true/>
 	<key>ShowRepresentedURLPathInTitle</key>
+	<true/>
+	<key>ShowShellCommandInTitle</key>
+	<false/>
+	<key>ShowTTYNameInTabTitle</key>
 	<false/>
 	<key>ShowTTYNameInTitle</key>
 	<false/>
@@ -289,7 +301,7 @@
 	ZmZmg1MTpj6DeHnQPoPQg+A+AYY=
 	</data>
 	<key>columnCount</key>
-	<integer>100</integer>
+	<integer>170</integer>
 	<key>cyanColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
@@ -332,11 +344,13 @@
 	ZmZmg6i7UT+DUATePYMl2hA+AYY=
 	</data>
 	<key>rowCount</key>
-	<integer>30</integer>
+	<integer>40</integer>
 	<key>shellExitAction</key>
 	<integer>1</integer>
 	<key>type</key>
 	<string>Window Settings</string>
+	<key>useOptionAsMetaKey</key>
+	<false/>
 	<key>whiteColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm

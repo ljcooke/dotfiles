@@ -13,6 +13,8 @@ vim:
     git: https://github.com/aliva/vim-fish.git
   ft-fortune:
     git: https://github.com/ljcooke/vim-fortune.git
+  ft-graphviz:
+    git: https://github.com/wannesm/wmgraphviz.vim.git
   ft-io:
     git: https://github.com/andreimaxim/vim-io.git
   ft-javascript:

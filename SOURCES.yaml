@@ -23,6 +23,8 @@ vim:
     git: https://github.com/ledger/vim-ledger
   ft-markdown-github:
     git: https://github.com/rhysd/vim-gfm-syntax.git
+  ft-mediawiki:
+    git: https://github.com/chikamichi/mediawiki.vim.git
   ft-org:
     git: https://github.com/jceb/vim-orgmode.git
   ft-pgn:

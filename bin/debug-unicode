@@ -1,0 +1,57 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+class Character
+  attr_reader :char, :codepoint
+
+  def initialize(n)
+    @utf_8 = n.chr(Encoding::UTF_8)
+    @codepoint = 'U+' + n.to_s(16).rjust(4, '0')
+  end
+end
+
+def grid(chars, width=64)
+  chars.join(' ').tap do |result|
+    (0...result.length).step(width) do |i|
+      result[i - 1] = "\n" if i > 0
+    end
+  end
+end
+
+def list(chars)
+  chars.map do |char|
+    codepoint = 'U+' + char.ord.to_s(16).upcase.rjust(4, '0')
+    "#{char} #{codepoint}"
+  end
+end
+
+def usage
+  puts "usage: #{__FILE__} RANGE"
+  puts
+  puts "example: #{__FILE__} 1D100-1D1E8"
+end
+
+def main
+  if ARGV.empty?
+    usage
+    exit 1
+  end
+
+  range_start, range_end = ARGV[0].split('-', 2)
+  range_start = range_start.to_i(16)
+  range_end = range_end ? range_end.to_i(16) : range_start
+
+  chars = (range_start..range_end).map { |n| n.chr(Encoding::UTF_8) }
+
+  if chars.empty?
+    usage
+    exit 1
+  elsif chars.length > 1
+    puts grid(chars)
+    puts
+  end
+
+  puts list(chars).join("\n")
+end
+
+main if $PROGRAM_NAME == __FILE__

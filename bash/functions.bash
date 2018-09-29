@@ -109,3 +109,14 @@ alias s='_my_tmux_attach'
 # Attach to a screen session
 #
 alias screen-attach='screen -DRA && stty sane && echo'
+
+#
+# OCR on an image in the clipboard.
+# From https://mastodon.social/@aparrish/100804983641371950
+#
+# Prerequisites on macOS:
+# brew install imagemagick pngpaste tesseract
+#
+alias ocr-paste1x='pngpaste - | tesseract stdin stdout'
+alias ocr-paste2x='pngpaste - | convert - -resize 200% - | tesseract stdin stdout'
+alias ocr-paste4x='pngpaste - | convert - -resize 400% - | tesseract stdin stdout'

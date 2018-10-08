@@ -54,7 +54,7 @@ _my_prompt() {
     # Hostname
     local host=${PROMPT_HOST:-\\h}
     if [ "$host" != '-' ]; then
-        prompt="${prompt}${sep}${host}"
+        prompt="${prompt}${sep}${f_gray}${host}"
     else
         host=''
     fi
@@ -62,6 +62,8 @@ _my_prompt() {
     # Status of last command
     if [ $status -ne 0 ]; then
         prompt="${prompt}${sep}${f_red}${status}${f_reset}"
+    else
+        prompt="${prompt}${sep}${f_gray}${status}${f_reset}"
     fi
 
     # Current directory
@@ -79,7 +81,7 @@ _my_prompt() {
     fi
 
     # Suffix
-    prompt="${prompt}${sep}${f_blue}>${f_reset}"
+    prompt="${prompt}${sep}\$${f_reset}"
 
     # Window title
     prompt="\[\033]2;\u@\h\007\]${prompt}"

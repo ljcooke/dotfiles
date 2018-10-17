@@ -7,27 +7,8 @@
 # Color reference: https://misc.flogisoft.com/bash/tip_colors_and_formatting
 #------------------------------------------------------------------------------
 
-_my_git_branch() {
-    # Return the current git branch, or nothing if not a git repo
-    ref=$(git symbolic-ref -q HEAD 2>/dev/null) || return
-    echo -n "${ref#refs/heads/}"
-}
-
-_my_git_changed() {
-    # Return 'y' if there are changes in the work tree, otherwise 'n'.
-    # Return nothing if not in a work tree (e.g. in the .git directory).
-    [ "$(git rev-parse --is-inside-work-tree)" = true ] || return
-    local status=$(git status --porcelain 2>/dev/null)
-    if [ -n "$status" ]; then
-        echo -n y
-    else
-        echo -n n
-    fi
-}
-
 _my_prompt() {
     local status=$?
-    local branch=$(_my_git_branch)
 
     local reset="\[\033[0m\]"
     local bold="\[\033[1m\]"
@@ -68,17 +49,6 @@ _my_prompt() {
 
     # Current directory
     prompt="${prompt}${sep}${f_gray}\w${f_reset}"
-
-    # Git branch
-    if [ -n "$branch" ]; then
-        case $(_my_git_changed) in
-            y) local git_color=$f_yellow ;;
-            n) local git_color=$f_green ;;
-            *) local git_color= ;;
-        esac
-        prefix_color=$git_color
-        prompt="${prompt}${sep}${git_color}${branch}${f_reset}"
-    fi
 
     # Suffix
     prompt="${prompt}${sep}\$${f_reset}"

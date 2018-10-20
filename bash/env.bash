@@ -11,7 +11,7 @@ export LC_CTYPE=$LC_ALL LC_TIME=$LC_ALL LANG=$LC_ALL
 # History
 export HISTCONTROL='ignoreboth:erasedups'
 export HISTFILE=$HOME/.bash_history
-export HISTSIZE=100000 HISTFILESIZE=100000
+export HISTSIZE=50000 HISTFILESIZE=50000
 export HISTIGNORE=history:h:hl:ls:l:la:lc:ll:fg
 export HISTTIMEFORMAT='%F %T '
 shopt -s cmdhist 2>/dev/null

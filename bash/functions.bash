@@ -72,8 +72,8 @@ _my_rsync() {
 
     local args="\
         -Phavz \
-        --exclude '*.swp' --exclude '.DS_Store' \
-        --exclude '.Trashes' --exclude '.fseventsd'"
+        --exclude '*.swp' --exclude .DS_Store --exclude Thumbs.db \
+        --exclude .Trashes --exclude .fseventsd"
 
     case "$action" in
         local)

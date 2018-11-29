@@ -6,7 +6,7 @@
 	"ensure_newline_at_eof_on_save": true,
 	"fold_buttons": false,
 	"font_face": "Source Code Pro",
-	"font_size": 10,
+	"font_size": 11,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
@@ -29,6 +29,7 @@
 	"spacegray_tabs_auto_width": false,
 	"spacegray_tabs_font_small": true,
 	"spacegray_tabs_small": false,
+	"tab_size": 2,
 	"theme": "Spacegray Eighties.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true

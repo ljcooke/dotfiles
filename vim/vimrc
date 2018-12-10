@@ -221,8 +221,8 @@ end
 set clipboard=unnamed
 
 " exit insert mode when using arrows
-inoremap <silent> <Up> <Esc><Up>
-inoremap <silent> <Down> <Esc><Down>
+" inoremap <silent> <Up> <Esc><Up>
+" inoremap <silent> <Down> <Esc><Down>
 
 " easy command line
 nnoremap <Leader><Space> :

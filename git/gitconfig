@@ -10,6 +10,7 @@
 	when = blame
 	l1 = log --pretty=oneline
 	lg = log --decorate=short --date-order --graph --date=iso
+	ll = log --decorate=short --date-order --graph --date=iso --pretty=oneline --all
 	mm = merge --no-ff
 	ff = merge --ff-only
 	f5 = fetch --prune

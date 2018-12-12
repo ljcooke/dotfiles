@@ -3,7 +3,7 @@
 	#email = <EMAIL ADDRESS>
 	useConfigOnly = true
 [alias]
-	amend-new = commit --amend --reset-author
+	amend = commit --amend --reset-author
 	br = branch
 	cached = diff --cached
 	co = checkout
@@ -15,6 +15,7 @@
 	ll = log --decorate=short --date-order --graph --date=iso --pretty=oneline --all
 	mm = merge --no-ff
 	pick = cherry-pick
+	pr = pull --rebase --prune
 	st = status
 	unadd = reset HEAD --
 	when = blame

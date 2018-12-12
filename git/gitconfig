@@ -3,21 +3,21 @@
 	#email = <EMAIL ADDRESS>
 	useConfigOnly = true
 [alias]
+	amend-new = commit --amend --reset-author
 	br = branch
+	cached = diff --cached
 	co = checkout
-	pick = cherry-pick
-	st = status
-	when = blame
+	f5 = fetch --prune
+	ff = merge --ff-only
+	initcommit = !git init && git commit -m Init --allow-empty
 	l1 = log --pretty=oneline
 	lg = log --decorate=short --date-order --graph --date=iso
 	ll = log --decorate=short --date-order --graph --date=iso --pretty=oneline --all
 	mm = merge --no-ff
-	ff = merge --ff-only
-	f5 = fetch --prune
-	cached = diff --cached
+	pick = cherry-pick
+	st = status
 	unadd = reset HEAD --
-	amend-new = commit --amend --reset-author
-	initcommit = !git init && git commit -m Init --allow-empty
+	when = blame
 	# http://caiustheory.com/git-git-git-git-git/
 	git = !exec git
 [core]

@@ -13,6 +13,7 @@ _my_prompt() {
     local reset="\[\033[0m\]"
     local bold="\[\033[1m\]"
     local unbold="\[\033[21m\]"
+    local f_grey="\[\033[2m\]"
     local f_reset="\[\033[39m\]"
     local f_red="\[\033[31m\]"
     local f_green="\[\033[32m\]"
@@ -39,6 +40,10 @@ _my_prompt() {
 
     # Suffix
     prompt="${prompt}${f_pink}\$${f_reset} "
+
+    # Line separator
+    sep='-------------------------------------------------------------------------------'
+    prompt="${f_grey}${sep}${reset}\n${prompt}"
 
     # Window title
     prompt="\[\033]2;\u@\h\007\]${prompt}"

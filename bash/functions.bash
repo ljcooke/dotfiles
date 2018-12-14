@@ -2,7 +2,7 @@
 # Aliases and functions
 # -----------------------------------------------------------------------------
 
-alias h='history | tail -n $(($LINES - 2))'
+alias h='history | tail -n $(($LINES - 4))'
 alias hl='history | less'
 
 alias l='ls -Fhl'

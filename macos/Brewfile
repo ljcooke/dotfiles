@@ -7,7 +7,7 @@ tap 'homebrew/services'
 tap 'caskroom/cask'
 
 brew 'bash'
-brew 'bash-completion@2'
+brew 'bash-completion'
 brew 'coreutils'
 brew 'dos2unix'
 brew 'fish'

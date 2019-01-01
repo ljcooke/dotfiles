@@ -1,5 +1,4 @@
 for f in \
-    /usr/local/share/bash-completion/bash_completion \
     /usr/local/etc/bash_completion \
     /etc/bash_completion
 do

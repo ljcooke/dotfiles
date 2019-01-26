@@ -23,7 +23,7 @@ brew 'rsync'
 brew 'ruby'
 brew 'tmux'
 brew 'tree'
-brew 'vim', args: ['without-perl', 'with-python3']
+brew 'vim'
 brew 'wget'
 
 cask 'hex-fiend'

@@ -10,13 +10,6 @@ alias la='ls -AF'
 alias lc='ls -F'
 alias ll='ls -AFhl'
 
-alias utc-date='TZ=UTC date +"%a %Y-%m-%d %H:%M:%S %z"'
-alias utc-ymd='TZ=UTC date +"%Y-%m-%d"'
-
-# Python
-alias py2=python2
-alias py3=python3 py=python3
-
 # Ruby
 alias be='bundle exec'
 
@@ -48,13 +41,9 @@ hist-toggle()
 {
     if [ "$HISTFILE" = /dev/null ]; then
         export HISTFILE=$HOME/.bash_history
-        export MY_PROMPT_PREFIX=
-        export MY_PROMPT_PREFIX_COLOR=
         echo "Will save history to ${HISTFILE}"
     else
         export HISTFILE=/dev/null
-        export MY_PROMPT_PREFIX=\!H
-        export MY_PROMPT_PREFIX_COLOR="\[\033[31m\]"
         echo 'Will NOT save history'
     fi
 }

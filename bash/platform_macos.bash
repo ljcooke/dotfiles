@@ -23,9 +23,6 @@ export PATH="$PATH:$HOME/.myconf/macos/bin"
 # Aliases & functions
 # -----------------------------------------------------------------------------
 
-# Open MacVim in the foreground without forking.
-alias fvim="/usr/local/bin/mvim -f -c 'au VimLeave * !open -a Terminal'"
-
 # cd to the top-most Finder window location
 # Originally from https://github.com/mathiasbynens/dotfiles
 cdfinder() {

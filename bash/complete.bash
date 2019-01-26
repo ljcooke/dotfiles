@@ -1,5 +1,5 @@
 for f in \
-    /usr/local/etc/bash_completion \
+    ${HOMEBREW_PREFIX:-/usr/local}/etc/bash_completion \
     /etc/bash_completion
 do
     if [ -e "$f" ]; then

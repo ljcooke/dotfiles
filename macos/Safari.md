@@ -22,7 +22,7 @@
 
 ### Tabs
 
-  - Open pages in tabs instead of windows: **Never**
+  - Open pages in tabs instead of windows: **Always**
 
   - Cmd-click opens a link in a new tab - **YES**
 

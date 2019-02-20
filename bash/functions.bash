@@ -109,21 +109,3 @@ alias screen-attach='screen -DRA && stty sane && echo'
 alias ocr-paste1x='pngpaste - | tesseract stdin stdout'
 alias ocr-paste2x='pngpaste - | convert - -resize 200% - | tesseract stdin stdout'
 alias ocr-paste4x='pngpaste - | convert - -resize 400% - | tesseract stdin stdout'
-
-#
-# Test a website before setting up DNS.
-#
-curl_resolve() {
-    ip=$1
-    domain=$2
-    url=${3:-http://$domain}
-
-    if [ -z "$domain" ] || [ -z "$ip" ]; then
-        echo "Usage: curl_resolve IP_ADDRESS DOMAIN [URL]"
-        echo
-        echo "Example: curl_resolve example.com 12.34.56.78"
-        return
-    fi
-
-    curl --resolve "${domain}:80:${ip}" --resolve "${domain}:443:${ip}" -v "$url"
-}

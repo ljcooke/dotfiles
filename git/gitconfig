@@ -9,13 +9,13 @@
 	co = checkout
 	f5 = fetch --prune
 	ff = merge --ff-only
-	initcommit = !git init && git commit -m Init --allow-empty
-	l1 = log --pretty=oneline
-	lg = log --decorate=short --date-order --graph --date=iso
-	ll = log --decorate=short --date-order --graph --date=iso --pretty=oneline --all
+	ll = log --graph --pretty='format:%C(auto)%h%d %s  %C(dim)%an, %ar%C(reset)'
+	la = log --graph --pretty='format:%C(auto)%h%d %s  %C(dim)%an, %ar%C(reset)' --all
+	lg = log --graph --decorate=short --graph --date=iso
 	mm = merge --no-ff
+	pf = pull --prune --ff-only
 	pick = cherry-pick
-	pr = pull --rebase --prune
+	pr = pull --prune --rebase
 	st = status
 	unadd = reset HEAD --
 	when = blame

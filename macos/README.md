@@ -2,15 +2,19 @@
 
 ## Install dependencies
 
-  - Install Xcode's Command Line Tools (CLT):
+Install Xcode's Command Line Tools (CLT):
 
-        xcode-select --install
+```sh
+xcode-select --install
+```
 
-  - Install [Homebrew](https://brew.sh) 
+Install [Homebrew](https://brew.sh).
 
-  - Install more software using Homebrew:
+Install more software using Homebrew:
 
-        brew bundle install
+```sh
+brew bundle install
+```
 
 ## Safari
 
@@ -32,7 +36,9 @@ GitHub, modified to use the Source Code Pro font.
 To install the theme, run the following command which will copy the theme file
 to the appropriate directory:
 
-    cp ./*.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes
+```sh
+cp ./*.dvtcolortheme ~/Library/Developer/Xcode/UserData/FontAndColorThemes
+```
 
 Restart Xcode. The theme should now be available in the Preferences window on
 the 'Fonts & Colors' tab.

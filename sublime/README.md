@@ -4,19 +4,21 @@
 
 On [macOS](../macos/README.md):
 
-  - `brew cask install sublime-text`
+```sh
+brew cask install sublime-text
+```
 
 ## Configure
 
-  - Install [Package Control](https://packagecontrol.io/installation).
+Install [Package Control](https://packagecontrol.io/installation).
 
-  - Launch Sublime Text, and select Preferences > Package Control. Install the
-    following packages:
+Launch Sublime Text, and select Preferences > Package Control. Install the
+following packages:
 
-      - [**Theme - Spacegray**](http://kkga.github.io/spacegray)
-      - [Babel](https://github.com/babel/babel-sublime)
-      - [Sass](https://github.com/nathos/sass-textmate-bundle)
+  - [**Theme - Spacegray**](http://kkga.github.io/spacegray)
+  - [Babel](https://github.com/babel/babel-sublime)
+  - [Sass](https://github.com/nathos/sass-textmate-bundle)
 
-  - Open the Preferences, which will open in two panes: Default and User.
-    Replace the contents of the User preferences with the contents of
-    [Preferences.sublime-settings](Preferences.sublime-settings).
+Open the Preferences, which will open in two panes: Default and User. Replace
+the contents of the User preferences with the contents of
+[Preferences.sublime-settings](Preferences.sublime-settings).

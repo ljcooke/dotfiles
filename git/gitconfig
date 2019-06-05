@@ -9,6 +9,7 @@
 	co = checkout
 	f5 = fetch --prune
 	ff = merge --ff-only
+	git = !exec git
 	ll = log --graph --pretty='format:%C(auto)%h%d %s  %C(dim)%an, %ar%C(reset)'
 	la = log --graph --pretty='format:%C(auto)%h%d %s  %C(dim)%an, %ar%C(reset)' --all
 	lg = log --graph --decorate=short --graph --date=iso
@@ -19,25 +20,16 @@
 	st = status
 	unadd = reset HEAD --
 	when = blame
-	# http://caiustheory.com/git-git-git-git-git/
-	git = !exec git
+	whose-line-is-it-anyway = blame
 [core]
-	#editor = gvim --nofork
-	#editor = mvim -f --nomru -c 'au VimLeave * !open -a Terminal'
 	#excludesfile = <PATH TO HOME>/.gitignore_global
-	fileMode = true
 	quotePath = false
-	fsyncObjectFiles = true
 [color]
 	ui = auto
 	diff = auto
 	branch = auto
 	status = auto
-[diff]
-	renames = copies
-[push]
-	default = current
 [rebase]
 	instructionFormat = [%ai] %s
-[transfer]
-	fsckObjects = true
+[diff]
+	renames = copies

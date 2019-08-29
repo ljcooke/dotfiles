@@ -2,26 +2,47 @@
 # Bash config
 # -----------------------------------------------------------------------------
 
-[ -z "$PS1" ] && return  # return if not running interactively
+# Return if not running interactively
+[ -z "$PS1" ] && return
 
+# TODO Is this necessary?
 source /etc/profile >/dev/null
 
+# Load optional 'before' config
 if [ -e "$HOME/.bashrc.before" ]; then
     source "$HOME/.bashrc.before"
 fi
 
-source $HOME/.bash/"complete.bash"
+# Load the first Bash completion file from the list
+for f in \
+    ${HOMEBREW_PREFIX:-/usr/local}/etc/bash_completion \
+    /etc/bash_completion
+do
+    if [ -e "$f" ]; then
+        source "$f"
+        break
+    fi
+done
 
-source $HOME/.bash/"env.bash"
-source $HOME/.bash/"functions.bash"
-source $HOME/.bash/"prompt.bash"
+# Load environment variables
+source "$HOME/.bash/env.bash"
+source "$HOME/.bash/functions.bash"
+source "$HOME/.bash/prompt.bash"
 
+# Load platform-specific configs
 case "$(uname -s)" in
-    Darwin)  source $HOME/.bash/platform_macos.bash ;;
-    FreeBSD) source $HOME/.bash/platform_bsd.bash   ;;
-    *)       source $HOME/.bash/platform_linux.bash ;;
+    Darwin)
+        source "$HOME/.bash/platform_macos.bash"
+        ;;
+    FreeBSD)
+        source "$HOME/.bash/platform_bsd.bash"
+        ;;
+    *)
+        source "$HOME/.bash/platform_linux.bash"
+        ;;
 esac
 
+# Load optional 'after' config (falling back to the old 'local' name)
 if [ -e "$HOME/.bashrc.after" ]; then
     source "$HOME/.bashrc.after"
 elif [ -e "$HOME/.bashrc.local" ]; then

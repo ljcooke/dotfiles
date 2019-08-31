@@ -15,11 +15,26 @@ An accretion of configuration files.
     - [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/releases)
       (look for the 'Roman fonts' download)
 
-Additional configuration is detailed in other documents:
+ 1. Follow the relevant links below to set up OS, shell, etc.
+
+## Configuration
+
+### OS
+
+  - [macOS](macos/README.md)
+
+### Shell
 
   - [Bash](bash/README.md)
-  - [Git](git/README.md)
-  - [macOS](macos/README.md)
+  - [Fish](fish/README.md)
   - [Readline](readline/README.md)
+
+### Tools & software
+
+  - [Git](git/README.md)
+  - [Python](home/pythonrc)
+  - [Ruby](home/irbrc)
+  - [Slack](misc/Slack.md)
   - [Sublime Text](sublime/README.md)
+  - [tmux](home/tmux.conf)
   - [Vim](vim/README.md)

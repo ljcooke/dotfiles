@@ -18,6 +18,8 @@
  1. Add machine-specific changes to `~/.bashrc`.
     (See [examples](local_examples.bash).)
 
+ 1. [Set up Readline](../readline/README.md).
+
 ## Reload
 
 ```sh

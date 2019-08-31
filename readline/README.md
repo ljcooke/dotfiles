@@ -2,13 +2,14 @@
 
 ## Install
 
- 1. Copy the `template.inputrc` file to `~/.inputrc` if it doesn't exist:
+ 1. Copy the template file to `~/.inputrc` if it doesn't exist:
 
     ```sh
-    [ ! -e $HOME/.inputrc ] && cp -v readline/template.inputrc $HOME/.inputrc
+    [ ! -e $HOME/.inputrc ] && cp -v readline/inputrc.local $HOME/.inputrc
     ```
 
  1. Add machine-specific changes to `~/.inputrc`.
+    (See [examples](local_examples).)
 
 ## Reload
 

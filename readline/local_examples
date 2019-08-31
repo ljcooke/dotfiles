@@ -4,7 +4,6 @@ $if mode=emacs
 "\xc2\xa7": '`'
 "\xc2\xb1": '~'
 "\xc2\xa3": '#'
-
 # Fix key bindings that rely on the keys above
 "\e#":        insert-comment
 "\e\xc2\xa3": insert-comment

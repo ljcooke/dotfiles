@@ -27,6 +27,7 @@ Additional configuration is detailed in other documents:
 
   - [Git](git/README.md)
   - [macOS](macos/README.md)
+  - [Readline](readline/README.md)
   - [Sublime Text](sublime/README.md)
   - [Vim](vim/README.md)
 

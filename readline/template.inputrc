@@ -1,0 +1,6 @@
+# -----------------------------------------------------------------------------
+# Readline configuration
+$include .myconf/readline/inputrc
+
+# Add machine-specific settings below:
+# -----------------------------------------------------------------------------

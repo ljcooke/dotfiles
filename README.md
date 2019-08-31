@@ -17,7 +17,7 @@ An accretion of configuration files.
 
  1. Follow the relevant links below to set up OS, shell, etc.
 
-## Configuration
+## Configure
 
 ### OS
 
@@ -31,8 +31,8 @@ An accretion of configuration files.
 ### Tools & software
 
   - [Git](git/README.md)
-  - [Python](home/pythonrc)
-  - [Ruby](home/irbrc)
+  - [Python](python/README.md)
+  - [Ruby](ruby/README.md)
   - [Slack](misc/Slack.md)
   - [Sublime Text](sublime/README.md)
   - [tmux](home/tmux.conf)

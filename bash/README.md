@@ -1,8 +1,9 @@
 # Bash
 
-## Install
+## Configure
 
- 1. Create a symlink to the `bash` directory:
+ 1. Create a symlink to the `bash` directory
+    (this can be run from any directory):
 
     ```sh
     ln -s .myconf/bash $HOME/.bash

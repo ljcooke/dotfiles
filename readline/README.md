@@ -1,6 +1,6 @@
 # Readline
 
-## Install
+## Configure
 
  1. Copy the template file to `~/.inputrc` if it doesn't exist:
 

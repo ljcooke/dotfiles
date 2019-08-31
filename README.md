@@ -26,7 +26,6 @@ An accretion of configuration files.
 ### Shell
 
   - [Bash](bash/README.md)
-  - [Fish](fish/README.md)
   - [Readline](readline/README.md)
 
 ### Tools & software

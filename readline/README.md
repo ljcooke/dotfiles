@@ -1,14 +1,14 @@
-# Readline configuration
+# Readline
 
 ## Install
 
-Copy the `template.inputrc` file to `~/.inputrc` if it doesn't exist:
+ 1. Copy the `template.inputrc` file to `~/.inputrc` if it doesn't exist:
 
-```sh
-test ! -e $HOME/.inputrc && cp -v readline/template.inputrc $HOME/.inputrc
-```
+    ```sh
+    [ ! -e $HOME/.inputrc ] && cp -v readline/template.inputrc $HOME/.inputrc
+    ```
 
-Add machine-specific changes to this `~/.inputrc` file.
+ 1. Add machine-specific changes to `~/.inputrc`.
 
 ## Reload
 

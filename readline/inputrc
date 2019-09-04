@@ -34,8 +34,8 @@ Control-?: backward-delete-char
 Control-h: delete-char
 
 # Movement
-Control-b: backward-word # Default: M-b
-Control-f: forward-word  # Default: M-f
+Control-b: backward-word
+Control-f: forward-word
 
 # MacOS fix: Alt-Space normally produces a non-breaking space (U+00A0)
 "\xc2\xa0": ' '

@@ -9,9 +9,6 @@ if has('packages') == 0
   execute pathogen#infect()
 end
 
-" Load some good defaults
-runtime! plugin/sensible.vim
-
 " Leader characters for mappings
 let mapleader=' '
 let maplocalleader='\\'

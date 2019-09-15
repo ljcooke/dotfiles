@@ -61,7 +61,7 @@
 	url = https://github.com/tpope/vim-speeddating.git
 [submodule "vim/bundle/util-syntaxrange"]
 	path = vim/bundle/util-syntaxrange
-	url = https://github.com/vim-scripts/SyntaxRange.git
+	url = https://github.com/inkarkat/vim-SyntaxRange.git
 	ignore = untracked
 [submodule "vim/bundle/edit-rsi"]
 	path = vim/bundle/edit-rsi

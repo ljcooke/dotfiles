@@ -32,13 +32,13 @@ source "$HOME/.bash/prompt.bash"
 # Load platform-specific configs
 case "$(uname -s)" in
     Darwin)
-        source "$HOME/.bash/platform_macos.bash"
+        source "$HOME/.bash/platform/macos.bash"
         ;;
     FreeBSD)
-        source "$HOME/.bash/platform_bsd.bash"
+        source "$HOME/.bash/platform/bsd.bash"
         ;;
     *)
-        source "$HOME/.bash/platform_linux.bash"
+        source "$HOME/.bash/platform/linux.bash"
         ;;
 esac
 

@@ -10,6 +10,14 @@ An accretion of configuration files.
     git clone https://github.com/ljcooke/dotfiles.git ~/.myconf
     ```
 
+ 1. Install submodules:
+
+    ```sh
+    cd ~/.myconf
+    git submodule init
+    git submodule update --checkout
+    ```
+
  1. Install fonts:
 
     - [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/releases)

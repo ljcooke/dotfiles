@@ -1,6 +1,0 @@
-// Simple test but the filename has spaces
-digraph SimpeTest {
-	a -> b;
-	b -> c;
-	c -> a;
-}

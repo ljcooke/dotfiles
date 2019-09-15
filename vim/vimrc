@@ -5,7 +5,7 @@ set nocompatible
 " Vim 8 adds support for loading packages from the pack/ subdirectory.
 " Use Pathogen to backport this to older versions of Vim.
 " [Help: packages]
-if has('packages') == 0
+if has('packages') ==# 0
   execute pathogen#infect()
 end
 
@@ -37,7 +37,7 @@ set cmdheight=1
 set showtabline=1
 
 " }}}
-" --- Spaces and tabs ---------------------------------------------------- {{{
+" --- Spaces and indentation --------------------------------------------- {{{
 
 set smartindent
 
@@ -55,17 +55,24 @@ set listchars=tab:·\ ,trail:.,extends:>,precedes:<,nbsp:+
 autocmd FileType go,make,sshconfig
       \ setlocal nolist
 
+function SetIndent(width)
+  let &l:tabstop = a:width
+  let &l:softtabstop = a:width
+  let &l:shiftwidth = a:width
+endfunction
+nnoremap <Leader><Tab>2 :call SetIndent(2)<CR>
+nnoremap <Leader><Tab>4 :call SetIndent(4)<CR>
+nnoremap <Leader><Tab>8 :call SetIndent(8)<CR>
+
+function DeleteTrailingSpaces()
+  execute '%s/\s\+$//e'
+  execute 'nohlsearch'
+endfunction
+nnoremap <Leader>d$ :call DeleteTrailingSpaces()<CR>
+
 " Mapping to Toggle expandtab and revealing whitespace
 nnoremap <Leader><Tab>t :setlocal expandtab!<CR>:setlocal expandtab?<CR>
 nnoremap <Leader><Tab>l :setlocal list!<CR>:setlocal list?<CR>
-
-" Change tab size
-nnoremap <Leader><Tab>2 :setlocal ts=2 sts=2 sw=2<CR>
-nnoremap <Leader><Tab>4 :setlocal ts=4 sts=4 sw=4<CR>
-nnoremap <Leader><Tab>8 :setlocal ts=8 sts=8 sw=8<CR>
-
-" Delete trailing spaces
-nnoremap <Leader>d$ :%s/\s\+$//e<CR>:noh<CR>
 
 " Replace non-breaking spaces. (These are easy to insert by mistake on macOS
 " by pressing Alt-Space.)

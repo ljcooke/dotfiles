@@ -8,11 +8,6 @@
 # TODO Is this necessary?
 source /etc/profile >/dev/null
 
-# Load optional 'before' config
-# if [ -e "$HOME/.bashrc.before" ]; then
-#     source "$HOME/.bashrc.before"
-# fi
-
 # Load the first Bash completion file from the list
 for f in \
     ${HOMEBREW_PREFIX:-/usr/local}/etc/bash_completion \
@@ -24,7 +19,7 @@ do
     fi
 done
 
-# Load environment variables
+# Load shared configs
 source "$HOME/.bash/env.bash"
 source "$HOME/.bash/functions.bash"
 source "$HOME/.bash/prompt.bash"
@@ -41,10 +36,3 @@ case "$(uname -s)" in
         source "$HOME/.bash/platform/linux.bash"
         ;;
 esac
-
-# Load optional 'after' config (falling back to the old 'local' name)
-# if [ -e "$HOME/.bashrc.after" ]; then
-#     source "$HOME/.bashrc.after"
-# elif [ -e "$HOME/.bashrc.local" ]; then
-#     source "$HOME/.bashrc.local"
-# fi

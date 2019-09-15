@@ -35,5 +35,5 @@ An accretion of configuration files.
   - [Ruby](ruby/README.md)
   - [Slack](misc/Slack.md)
   - [Sublime Text](sublime/README.md)
-  - [tmux](home/tmux.conf)
+  - [tmux](tmux/README.md)
   - [Vim](vim/README.md)

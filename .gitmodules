@@ -61,3 +61,6 @@
 [submodule "vim/bundle/util-syntaxrange"]
 	path = vim/bundle/util-syntaxrange
 	url = https://github.com/vim-scripts/SyntaxRange.git
+[submodule "vim/bundle/edit-rsi"]
+	path = vim/bundle/edit-rsi
+	url = https://github.com/tpope/vim-rsi.git

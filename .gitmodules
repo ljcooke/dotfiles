@@ -1,0 +1,12 @@
+[submodule "vim/bundle/edit-commentary"]
+	path = vim/bundle/edit-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/bundle/edit-easy-align"]
+	path = vim/bundle/edit-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "vim/bundle/edit-endwise"]
+	path = vim/bundle/edit-endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/bundle/vim-rsi"]
+	path = vim/bundle/vim-rsi
+	url = https://github.com/tpope/vim-rsi.git

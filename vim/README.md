@@ -18,14 +18,9 @@ brew cask install macvim
     ln -s .myconf/vim $HOME/.vim
     ```
 
- 1. Generate a `doc/tags` file for each Vim plugin that has a `doc` directory:
-
-    ```sh
-    vim -c ':call pathogen#helptags()' +qall
-    find vim/bundle -type f -name tags
-    ```
-
-    This enables us to read the documentation using the `:help` command.
+ 1. Run [`vim-update-docs`](../bin/vim-update-docs) to generate a `doc/tags`
+    file for each Vim plugin that has a `doc` directory. This allows us to read
+    documentation for plugins by using the `:help` command.
 
 ## Plugins
 
@@ -44,7 +39,25 @@ for).
 | `ui`   | User interface. |
 | `util` | Utilities. |
 
+### Add a plugin
+
+```sh
+cd ~/.myconf
+git submodule add <GIT_URL> vim/bundle/<NAME>
+vim-update-docs
+```
+
+### Remove a plugin
+
+```sh
+cd ~/.myconf
+git submodule deinit vim/bundle/<NAME>
+git rm vim/bundle/<NAME>
+git commit
+rm -rf .git/modules/vim/bundle/<NAME>
+```
+
 ### Dependencies
 
-- [ft-org](bundle/ft-org) depends on
-  [util-speeddating](bundle/util-speeddating).
+- [`ft-org`](bundle/ft-org) depends on
+  [`util-speeddating`](bundle/util-speeddating).

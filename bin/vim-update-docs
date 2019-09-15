@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+
+vim -c ':call pathogen#helptags()' +qall
+
+find $HOME/.vim/bundle -type f -name tags

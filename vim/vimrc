@@ -38,29 +38,16 @@ set showtabline=1
 " Spaces and tabs
 " ----------------------------------------------------------------------------
 
-" Auto-indentation
 set smartindent
 
-" Default to 4 spaces for tabs
-set tabstop=4 softtabstop=4 shiftwidth=4 shiftround
-autocmd FileType asciidoc       setlocal ts=2 sts=2 sw=2
-autocmd FileType html,xhtml     setlocal ts=2 sts=2 sw=2
-autocmd FileType htmldjango     setlocal ts=2 sts=2 sw=2
-autocmd FileType javascript     setlocal ts=2 sts=2 sw=2
-autocmd FileType markdown       setlocal ts=2 sts=2 sw=2
-autocmd FileType php            setlocal ts=2 sts=2 sw=2
-autocmd FileType ruby           setlocal ts=2 sts=2 sw=2
-autocmd FileType vim            setlocal ts=2 sts=2 sw=2
-autocmd FileType yaml           setlocal ts=2 sts=2 sw=2
+set tabstop=2 softtabstop=2 shiftwidth=2 shiftround
+set expandtab list
 
-" Expand tabs to spaces, and show tab characters
-set expandtab
-set list
-autocmd FileType go             setlocal noexpandtab nolist
-autocmd FileType make           setlocal noexpandtab nolist
-autocmd FileType sshconfig      setlocal noexpandtab nolist
+autocmd FileType go           setlocal ts=4 sts=4 sw=4 noexpandtab nolist
+autocmd FileType make         setlocal ts=4 sts=4 sw=4 noexpandtab nolist
+autocmd FileType python       setlocal ts=4 sts=4 sw=4
+autocmd FileType sshconfig    setlocal ts=4 sts=4 sw=4 noexpandtab nolist
 
-" Show tabs, trailing whitespace, non-breaking spaces
 set listchars=tab:·\ ,trail:.,extends:>,precedes:<,nbsp:+
 
 " Mapping to Toggle expandtab and revealing whitespace

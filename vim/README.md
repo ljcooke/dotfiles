@@ -1,18 +1,33 @@
 # Vim
 
-## Setup
+## Install
 
-Run the following commands to generate a `doc/tags` file for each Vim plugin
-that has a `doc` directory:
+### macOS
 
 ```sh
-vim -c ':call pathogen#helptags()' +qall
-find vim/bundle -type f -name tags
+brew install vim
+brew cask install macvim
 ```
 
-This enables us to read the documentation using the `:help` command.
+## Configure
 
-## bundle directory
+ 1. Create a symlink to the `vim` directory
+    (this can be run from any directory):
+
+    ```sh
+    ln -s .myconf/vim $HOME/.vim
+    ```
+
+ 1. Generate a `doc/tags` file for each Vim plugin that has a `doc` directory:
+
+    ```sh
+    vim -c ':call pathogen#helptags()' +qall
+    find vim/bundle -type f -name tags
+    ```
+
+    This enables us to read the documentation using the `:help` command.
+
+## Plugins included
 
 - [edit-commentary](https://github.com/tpope/vim-commentary)
 - [edit-easy_align](https://github.com/junegunn/vim-easy-align)

@@ -4,10 +4,17 @@ export PATH="$HOME/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
-# JavaScript
+# JS - nodenv
 eval "$(nodenv init -)"
 
-# Ruby
+# JS - nvm
+export NVM_DIR="$HOME/.nvm"
+source "/usr/local/opt/nvm/nvm.sh"
+
+# Ruby - bundler
+export BUNDLER_EDITOR=subl
+
+# Ruby - rbenv
 eval "$(rbenv init -)"
 
 # Rust

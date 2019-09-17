@@ -10,6 +10,9 @@ alias la='ls -AF'
 alias lc='ls -F'
 alias ll='ls -AFhl'
 
+alias now='date "+%Y-%m-%d %H:%M:%S %Z"'
+alias utc='TZ=UTC date "+%Y-%m-%d %H:%M:%S %Z"'
+
 # Ruby
 alias be='bundle exec'
 
@@ -89,8 +92,13 @@ alias scpr='_my_rsync remote'
 # Attach to a tmux session
 #
 _my_tmux_attach() {
-    [ -n "$1" ] && session=$1 || session=main
-    tmux attach-session -d -t "$session" || tmux new-session -s "$session"
+  if [ -z "$1" ]; then
+    tmux ls
+  elif tmux has -t "$1" 2>/dev/null; then
+    tmux attach -d -t "$1"
+  else
+    tmux new -s "$1"
+  fi
 }
 alias s='_my_tmux_attach'
 

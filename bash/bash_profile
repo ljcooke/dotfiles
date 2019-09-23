@@ -1,7 +1,7 @@
 # Workaround for running nvm in tmux on macOS.
 # See: https://superuser.com/a/583502
 # Context: https://github.com/nvm-sh/nvm/issues/1880
-if [ -f /etc/profile ]; then
+if [ "$(uname -s)" = Darwin ] && [ -f /etc/profile ]; then
     PATH=''
     source /etc/profile
 fi

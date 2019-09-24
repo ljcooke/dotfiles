@@ -102,6 +102,15 @@ _ljc_tmux_attach() {
 }
 alias s='_ljc_tmux_attach'
 
+_ljc_complete_tmux_attach() {
+  sessions=$(tmux ls -F '#{session_name}' 2>/dev/null)
+  if [ -n "$sessions" ]; then
+    COMPREPLY=($(compgen -W "$sessions" "${COMP_WORDS[1]}"))
+  fi
+}
+
+complete -F _ljc_complete_tmux_attach _ljc_tmux_attach s
+
 #
 # Attach to a screen session
 #

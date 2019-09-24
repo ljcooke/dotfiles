@@ -7,7 +7,7 @@
 # Color reference: https://misc.flogisoft.com/bash/tip_colors_and_formatting
 #------------------------------------------------------------------------------
 
-_my_prompt() {
+_ljc_prompt() {
     local status=$?
 
     local reset="\[\033[0m\]"
@@ -59,4 +59,4 @@ _my_prompt() {
 }
 
 export PROMPT_DIRTRIM=2
-export PROMPT_COMMAND=_my_prompt
+export PROMPT_COMMAND=_ljc_prompt

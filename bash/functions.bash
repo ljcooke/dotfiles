@@ -58,7 +58,7 @@ hist-toggle()
 # slash after src -- if this is omitted, the command will look for or
 # create a folder in dest named after src, and copy to that instead.
 #
-_my_rsync() {
+_ljc_rsync() {
     local action=$1
     shift
 
@@ -84,14 +84,14 @@ _my_rsync() {
     echo rsync $args "$@"
     rsync $args "$@"
 }
-alias cpr='_my_rsync local'
-alias fcpr='_my_rsync fat'
-alias scpr='_my_rsync remote'
+alias cpr='_ljc_rsync local'
+alias fcpr='_ljc_rsync fat'
+alias scpr='_ljc_rsync remote'
 
 #
 # Attach to a tmux session
 #
-_my_tmux_attach() {
+_ljc_tmux_attach() {
   if [ -z "$1" ]; then
     tmux ls
   elif tmux has -t "$1" 2>/dev/null; then
@@ -100,7 +100,7 @@ _my_tmux_attach() {
     tmux new -s "$1"
   fi
 }
-alias s='_my_tmux_attach'
+alias s='_ljc_tmux_attach'
 
 #
 # Attach to a screen session

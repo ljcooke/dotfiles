@@ -5,6 +5,10 @@
 	"draw_minimap_border": true,
 	"ensure_newline_at_eof_on_save": true,
 	"fold_buttons": false,
+	"folder_exclude_patterns": [
+		"node_modules",
+		".svn", ".git", ".hg"
+	],
 	"font_face": "Source Code Pro",
 	"font_size": 11,
 	"highlight_modified_tabs": true,
@@ -32,5 +36,6 @@
 	"tab_size": 2,
 	"theme": "Spacegray Eighties.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": true
 }

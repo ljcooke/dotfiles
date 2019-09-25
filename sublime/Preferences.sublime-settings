@@ -7,15 +7,12 @@
 	"fold_buttons": false,
 	"folder_exclude_patterns": [
 		"node_modules",
-		".svn", ".git", ".hg"
+		// Defaults
+		".svn", ".git", ".hg", "CVS"
 	],
 	"font_face": "Source Code Pro",
 	"font_size": 11,
 	"highlight_modified_tabs": true,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
 	"indent_guide_options":
 	[
 		"draw_normal",
@@ -26,6 +23,7 @@
 		80,
 		100
 	],
+	"show_encoding": false,
 	"show_tab_close_buttons": false,
 	"spacegray_fileicons": true,
 	"spacegray_sidebar_font_small": false,

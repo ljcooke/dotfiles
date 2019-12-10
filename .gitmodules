@@ -66,3 +66,6 @@
 [submodule "vim/bundle/edit-rsi"]
 	path = vim/bundle/edit-rsi
 	url = https://github.com/tpope/vim-rsi.git
+[submodule "vim/bundle/ft-plantuml"]
+	path = vim/bundle/ft-plantuml
+	url = https://github.com/aklt/plantuml-syntax.git

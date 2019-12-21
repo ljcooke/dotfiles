@@ -10,7 +10,7 @@ alias la='ls -AF'
 alias lc='ls -F'
 alias ll='ls -AFhl'
 
-alias now='date "+%Y-%m-%d %H:%M:%S %Z"'
+alias now='date "+%Y-%m-%d %H:%M %z"'
 alias utc='TZ=UTC date "+%Y-%m-%d %H:%M:%S %Z"'
 
 # Ruby

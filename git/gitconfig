@@ -12,6 +12,7 @@
 	git = !exec git
 	ll = log --graph --pretty='format:%C(auto)%h%d %s  %C(dim)%an, %ar%C(reset)'
 	la = log --graph --pretty='format:%C(auto)%h%d %s  %C(dim)%an, %ar%C(reset)' --all
+	lc = log --pretty='format:%C(auto)%h %s' --first-parent
 	lg = log --graph --decorate=short --graph --date=iso
 	mm = merge --no-ff
 	pf = pull --prune --ff-only

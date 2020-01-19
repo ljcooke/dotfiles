@@ -41,10 +41,6 @@ _ljc_prompt() {
     # Suffix
     prompt="${prompt}${f_pink}\$${f_reset} "
 
-    # Line separator
-    sep='-------------------------------------------------------------------------------'
-    prompt="${f_grey}${sep}${reset}\n${prompt}"
-
     # Window title
     prompt="\[\033]2;\u@\h\007\]${prompt}"
 

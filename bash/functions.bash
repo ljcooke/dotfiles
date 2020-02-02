@@ -63,7 +63,7 @@ _ljc_rsync() {
     shift
 
     local args="\
-        -Phavz \
+        --archive --compress --human-readable --progress --verbose \
         --exclude '*.swp' --exclude .DS_Store --exclude Thumbs.db \
         --exclude .Trashes --exclude .fseventsd"
 

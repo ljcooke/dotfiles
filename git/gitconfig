@@ -15,6 +15,7 @@
 	lc = log --pretty='format:%C(auto)%h %s' --first-parent
 	lg = log --graph --decorate=short --graph --date=iso
 	mm = merge --no-ff
+	nx = annex
 	pf = pull --prune --ff-only
 	pick = cherry-pick
 	pr = pull --prune --rebase

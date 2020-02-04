@@ -27,12 +27,12 @@ _ljc_prompt() {
     # Hostname
     local host=${PROMPT_HOST:-\\h}
     if [ "$host" != '-' ]; then
-        prompt="${prompt}${host} "
+        prompt="${prompt}${host}${f_grey}:${reset}"
     fi
 
     # Status of last command
     if [ $status -ne 0 ]; then
-        prompt="${prompt}${f_red}${status}${f_reset} "
+        prompt="${prompt}${f_grey}(${reset}${f_red}${status}${reset}${f_grey})${reset}"
     fi
 
     # Current directory

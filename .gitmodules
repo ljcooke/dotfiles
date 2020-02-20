@@ -10,9 +10,6 @@
 [submodule "vim/bundle/vim-rsi"]
 	path = vim/bundle/vim-rsi
 	url = https://github.com/tpope/vim-rsi.git
-[submodule "vim/bundle/ft-csv"]
-	path = vim/bundle/ft-csv
-	url = https://github.com/chrisbra/csv.vim.git
 [submodule "vim/bundle/ft-fish"]
 	path = vim/bundle/ft-fish
 	url = https://github.com/aliva/vim-fish.git

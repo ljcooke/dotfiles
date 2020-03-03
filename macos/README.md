@@ -16,18 +16,22 @@ Install more software using Homebrew:
 brew bundle install
 ```
 
-## Safari
+---
+
+## Unmaintained
+
+### Safari
 
 See the [Safari](Safari.md) document.
 
-## Terminal
+### Terminal
 
 `Inky Grey.terminal` is a dark theme for the native Terminal app.
 
 Open this file to install it in Terminal. Afterwards, open the Preferences
 window, select the theme in the Profiles tab, and select Default.
 
-## Xcode
+### Xcode
 
 `base16-eighties.dark.dvtcolortheme` is a variant of an Xcode theme from
 [joedynamite/base16-xcode](https://github.com/joedynamite/base16-xcode) on

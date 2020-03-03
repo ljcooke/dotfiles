@@ -20,8 +20,7 @@ An accretion of configuration files.
 
  1. Install fonts:
 
-    - [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/releases)
-      (look for the 'Roman fonts' download)
+    - [JetBrains Mono](https://jetbrains.com/mono)
 
  1. Follow the relevant links below to set up OS, shell, etc.
 

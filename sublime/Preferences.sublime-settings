@@ -10,8 +10,8 @@
 		// Defaults
 		".svn", ".git", ".hg", "CVS"
 	],
-	"font_face": "Source Code Pro",
-	"font_size": 11,
+	"font_face": "JetBrains Mono",
+	"font_size": 13,
 	"highlight_modified_tabs": true,
 	"indent_guide_options":
 	[

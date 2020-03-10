@@ -5,9 +5,11 @@
 	"draw_minimap_border": true,
 	"ensure_newline_at_eof_on_save": true,
 	"fold_buttons": true,
-	"folder_exclude_patterns": [
-		"node_modules",
+	"folder_exclude_patterns":
+	[
 		"log", "tmp",
+		// JavaScript
+		"node_modules",
 		// Defaults
 		".svn", ".git", ".hg", "CVS"
 	],

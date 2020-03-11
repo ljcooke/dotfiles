@@ -2,12 +2,14 @@
 # Homebrew config to install macOS software using `brew bundle`
 # -----------------------------------------------------------------------------
 
+tap 'homebrew/cask'
 tap 'homebrew/core'
 tap 'homebrew/services'
-tap 'caskroom/cask'
+tap 'ljcooke/commands'
 
 brew 'bash'
 brew 'bash-completion'
+brew 'bat'
 brew 'coreutils'
 brew 'dos2unix'
 brew 'fortune'
@@ -17,10 +19,10 @@ brew 'imagemagick'
 brew 'man2html'
 brew 'mas'
 brew 'python'
-brew 'python3'
 brew 'reattach-to-user-namespace'
 brew 'rsync'
 brew 'ruby'
+brew 'the_silver_searcher'
 brew 'tmux'
 brew 'tree'
 brew 'vim'

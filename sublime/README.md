@@ -23,4 +23,4 @@ following packages:
 
 Open the Preferences, which will open in two panes: Default and User. Replace
 the contents of the User preferences with the contents of
-[Preferences.sublime-settings](Preferences.sublime-settings).
+[Preferences.sublime-settings](Packages/User/Preferences.sublime-settings).

@@ -16,7 +16,15 @@ Launch Sublime Text, and select Preferences > Package Control. Install the
 following packages:
 
   - [**Theme - Spacegray**](http://kkga.github.io/spacegray)
+  - [Comments Aware Enter](https://github.com/Suor/CommentsAwareEnter)
+  - [GitGutter](https://github.com/jisaacks/GitGutter)
+  - [Path Tools](https://github.com/pjdietz/sublime-path-tools)
+  - [SyncedSideBar](https://github.com/TheSpyder/SyncedSideBar)
+
+Extra packages for specific use cases:
+
   - [Babel](https://github.com/babel/babel-sublime)
+  - [Markdown Extended](https://github.com/jonschlinkert/sublime-markdown-extended)
   - [Sass](https://github.com/nathos/sass-textmate-bundle)
 
 ## Settings

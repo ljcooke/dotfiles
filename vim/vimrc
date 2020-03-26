@@ -110,18 +110,25 @@ noremap! <M-Space> <Space>
 " }}}
 " --- Buffers and tabs --------------------------------------------------- {{{
 
-" Switch buffers
+set hidden
+set switchbuf=usetab,newtab
+
+" Switch windows
 nnoremap <Tab><Tab> <C-w><C-w>
+
+" Previous/next buffer
+nnoremap <Leader>[ :bn<CR>
+nnoremap <Leader>] :bp<CR>
 
 " New tab
 nnoremap <Leader>t :tabnew<Space>
 nnoremap <Leader>nt :tabnew<CR>
-" Previous tab
-nnoremap <Leader>[ gT
-nnoremap <Leader>ht gT
-" Next tab
-nnoremap <Leader>] gt
-nnoremap <Leader>lt gt
+" Previous/next tab
+nnoremap <Leader>{ gT
+nnoremap <Leader>} gt
+
+" Open all buffers in tabs
+nnoremap <Leader>bt :tab sball<CR>
 
 " }}}
 " --- Netrw (file browser) ----------------------------------------------- {{{
@@ -134,7 +141,7 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 
 " Open files in a new tab.
-let g:netrw_browse_split = 3
+" let g:netrw_browse_split = 3
 
 " Set the % width when opened in a vertical split (with :Vexplore).
 let g:netrw_winsize = 25

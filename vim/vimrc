@@ -84,6 +84,7 @@ nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :eg<CR>:noh<CR>
 autocmd FileType gitcommit setlocal colorcolumn=51
 autocmd FileType markdown setlocal nosmartindent textwidth=79
       \ formatoptions=tcroqn2 comments=n:>
+      \ path=.,./**/*,, includeexpr=substitute(v:fname,'$','.md','')
 autocmd FileType tex,plaintex setlocal textwidth=79
 autocmd FileType text setlocal textwidth=79 formatoptions-=n
 autocmd FileType vim setlocal foldmethod=marker

@@ -16,6 +16,10 @@ Install more software using Homebrew:
 brew bundle install
 ```
 
+## Divvy
+
+<img src="images/divvy-settings-1.png" width="381"><img src="images/divvy-settings-2.png" width="381"><img src="images/divvy-settings-3.png" width="381">
+
 ---
 
 ## Unmaintained

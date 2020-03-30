@@ -20,7 +20,7 @@ An accretion of configuration files.
 
  1. Install fonts:
 
-    - [JetBrains Mono](https://jetbrains.com/mono)
+    - [JetBrains Mono NL](https://github.com/JetBrains/JetBrainsMono/releases)
 
  1. Follow the relevant links below to set up OS, shell, etc.
 

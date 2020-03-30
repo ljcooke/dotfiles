@@ -6,5 +6,5 @@ set guioptions=aeimr
 set mousehide
 
 if has('gui_macvim')
-  set guifont=JetBrainsMono-Regular:h13,SourceCodePro-Regular:h13,Menlo-Regular:h13
+  set guifont=JetBrainsMonoNL-Regular:h13,JetBrainsMono-Regular:h13,SourceCodePro-Regular:h13,Menlo-Regular:h13
 end

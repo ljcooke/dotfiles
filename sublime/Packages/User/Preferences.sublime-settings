@@ -13,8 +13,7 @@
 		// Defaults
 		".svn", ".git", ".hg", "CVS"
 	],
-	"font_face": "JetBrains Mono",
-	"font_options": [],
+	"font_face": "JetBrains Mono NL",
 	"font_size": 13,
 	"highlight_modified_tabs": true,
 	"indent_guide_options":

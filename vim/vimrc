@@ -91,6 +91,8 @@ autocmd FileType vim setlocal foldmethod=marker
 
 let g:markdown_fenced_languages = ['ruby', 'sh']
 
+let g:recutils_no_folding = 1
+
 " }}}
 " --- Editing & navigation ----------------------------------------------- {{{
 

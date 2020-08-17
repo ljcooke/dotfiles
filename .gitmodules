@@ -72,3 +72,6 @@
 [submodule "vim/bundle/ft-beancount"]
 	path = vim/bundle/ft-beancount
 	url = https://github.com/nathangrigg/vim-beancount.git
+[submodule "vim/bundle/ft-gemini"]
+	path = vim/bundle/ft-gemini
+	url = https://tildegit.org/sloum/gemini-vim-syntax.git

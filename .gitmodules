@@ -69,3 +69,6 @@
 [submodule "vim/bundle/ft-rec"]
 	path = vim/bundle/ft-rec
 	url = https://github.com/zaid/vim-rec.git
+[submodule "vim/bundle/ft-beancount"]
+	path = vim/bundle/ft-beancount
+	url = https://github.com/nathangrigg/vim-beancount.git

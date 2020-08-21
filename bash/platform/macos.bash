@@ -23,6 +23,8 @@ export PATH="$PATH:$HOME/.myconf/macos/bin"
 # Aliases & functions
 # -----------------------------------------------------------------------------
 
+alias ll='ls -AFhl -O'
+
 # cd to the top-most Finder window location
 # Originally from https://github.com/mathiasbynens/dotfiles
 cdfinder() {

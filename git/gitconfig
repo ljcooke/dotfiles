@@ -35,3 +35,5 @@
 	instructionFormat = [%ai] %s
 [diff]
 	renames = copies
+[init]
+	defaultBranch = main

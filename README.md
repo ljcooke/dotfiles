@@ -7,7 +7,7 @@ An accretion of configuration files.
  1. Clone the repository into `~/.myconf`:
 
     ```sh
-    git clone https://github.com/ljcooke/dotfiles.git ~/.myconf
+    git clone git@git.sr.ht:~ljc/dotfiles ~/.myconf
     ```
 
  1. Install submodules:

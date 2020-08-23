@@ -89,11 +89,6 @@ autocmd FileType tex,plaintex setlocal textwidth=79
 autocmd FileType text setlocal textwidth=79 formatoptions-=n
 autocmd FileType vim setlocal foldmethod=marker
 
-" scdoc
-autocmd BufNewFile,BufRead *.*.scd setlocal noexpandtab nolist
-      \ textwidth=80 colorcolumn=+1
-      \ tabstop=4 softtabstop=4 shiftwidth=4
-
 let g:markdown_fenced_languages = ['ruby', 'sh']
 
 let g:recutils_no_folding = 1

@@ -45,14 +45,16 @@ set tabstop=2 softtabstop=2 shiftwidth=2
 set shiftround
 autocmd FileType go,make,python,sshconfig
       \ setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType c,cpp
+      \ setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
 set expandtab
-autocmd FileType gitconfig,go,make,sshconfig
+autocmd FileType c,cpp,gitconfig,go,make,sshconfig
       \ setlocal noexpandtab
 
 set list
 set listchars=tab:·\ ,trail:.,extends:>,precedes:<,nbsp:+
-autocmd FileType go,make,sshconfig
+autocmd FileType c,cpp,go,make,sshconfig
       \ setlocal nolist
 
 function SetIndent(width)
@@ -81,6 +83,7 @@ nnoremap <Leader>d<Space> :%s:[\u00A0]:\ :eg<CR>:noh<CR>
 " }}}
 " --- Filetype settings -------------------------------------------------- {{{
 
+autocmd FileType c setlocal textwidth=80 colorcolumn=+1
 autocmd FileType gitcommit setlocal colorcolumn=51
 autocmd FileType markdown setlocal nosmartindent textwidth=79
       \ formatoptions=tcroqn2 comments=n:>

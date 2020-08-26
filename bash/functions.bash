@@ -10,8 +10,8 @@ alias la='ls -AF'
 alias lc='ls -F'
 alias ll='ls -AFhl'
 
-alias now='date "+%Y-%m-%d %H:%M %z"'
-alias utc='TZ=UTC date "+%Y-%m-%d %H:%M:%S %Z"'
+alias dt-now='date "+%Y-%m-%d %H:%M:%S %z"'
+alias dt-utc='TZ=UTC date "+%Y-%m-%d %H:%M:%S %z"'
 
 # Ruby
 alias be='bundle exec'

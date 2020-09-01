@@ -6,6 +6,14 @@
 
 require 'irb/completion'
 
+def measure_time
+  t_start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+  result = yield
+  t_end = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+  puts "#{'%.6f' % (t_end - t_start)} s"
+  result
+end
+
 # Terminal color helpers
 module Term
   RESET  = "\x1b[0m"

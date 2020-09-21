@@ -113,6 +113,9 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 " Alt-Space on macOS produces a non-breaking space
 noremap! <M-Space> <Space>
 
+" Insert the current date and time
+inoremap <C-d><CR> <C-r>=strftime("%F %H:%M")<CR>
+
 " }}}
 " --- Buffers and tabs --------------------------------------------------- {{{
 

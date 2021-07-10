@@ -119,8 +119,8 @@ inoremap <C-d><CR> <C-r>=strftime("%F %H:%M")<CR>
 " }}}
 " --- Buffers and tabs --------------------------------------------------- {{{
 
-set hidden
-set switchbuf=usetab,newtab
+" set hidden
+" set switchbuf=usetab,newtab
 
 " Switch windows
 nnoremap <Tab><Tab> <C-w><C-w>

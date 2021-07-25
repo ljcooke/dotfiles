@@ -5,4 +5,4 @@ set -o nounset
 
 vim -c ':call pathogen#helptags()' +qall
 
-find $HOME/.vim/bundle -type f -name tags
+find "$HOME"/.vim/{bundle,pack} -type f -name tags

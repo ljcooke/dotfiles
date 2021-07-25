@@ -17,6 +17,9 @@ end
 let mapleader=' '
 let maplocalleader='\\'
 
+syntax enable
+filetype plugin indent on
+
 " }}}
 " --- Appearance --------------------------------------------------------- {{{
 
@@ -173,6 +176,18 @@ set noshowmode
 let g:lightline = {
   \ 'colorscheme': 'inkygrey',
   \ }
+
+" }}}
+" --- Plugin: syntastic -------------------------------------------------- {{{
+
+" Recommended defaults for new users
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " }}}
 " --- Old settings ------------------------------------------------------- {{{

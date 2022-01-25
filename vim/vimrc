@@ -52,12 +52,12 @@ autocmd FileType c,cpp
       \ setlocal tabstop=8 softtabstop=8 shiftwidth=8
 
 set expandtab
-autocmd FileType c,cpp,gitconfig,go,make,sshconfig
+autocmd FileType c,cpp,gitconfig,go,make,sshconfig,uxntal
       \ setlocal noexpandtab
 
 set list
 set listchars=tab:·\ ,trail:.,extends:>,precedes:<,nbsp:+
-autocmd FileType c,cpp,go,make,sshconfig
+autocmd FileType c,cpp,go,make,sshconfig,uxntal
       \ setlocal nolist
 
 function SetIndent(width)

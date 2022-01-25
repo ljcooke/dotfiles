@@ -8,6 +8,8 @@ source $HOME/.bash/platform/bsd.bash
 # Environment
 # -----------------------------------------------------------------------------
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 export COCOAPODS_DISABLE_STATS=true
 
 export HOMEBREW_EDITOR='gvim --nofork'

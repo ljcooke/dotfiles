@@ -6,14 +6,15 @@
 [ -z "$PS1" ] && return
 
 # TODO Is this necessary?
-source /etc/profile >/dev/null
+# source /etc/profile >/dev/null
 
 # Load the first Bash completion file from the list
 for f in \
+    ${HOMEBREW_PREFIX:-/usr/local}/etc/profile.d/bash_completion.sh \
     ${HOMEBREW_PREFIX:-/usr/local}/etc/bash_completion \
     /etc/bash_completion
 do
-    if [ -e "$f" ]; then
+    if [ -r "$f" ]; then
         source "$f"
         break
     fi

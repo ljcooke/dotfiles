@@ -16,6 +16,29 @@ Install more software using Homebrew:
 brew bundle install
 ```
 
+## Set shell to Bash 5
+
+Install Bash with Homebrew:
+
+```sh
+brew install bash bash-completion@2
+```
+
+Add Homebrew's Bash build to the list of available shells:
+
+```sh
+sudo vim /etc/shells
+# append: /usr/local/bin/bash
+```
+
+Change the shell:
+
+```sh
+chsh -s /usr/local/bin/bash
+```
+
+Then restart the terminal session.
+
 ## Divvy
 
 <img src="images/divvy-settings-1.png" width="381"><img src="images/divvy-settings-2.png" width="381"><img src="images/divvy-settings-3.png" width="381">

@@ -42,14 +42,14 @@ set showtabline=1
 " }}}
 " --- Spaces and indentation --------------------------------------------- {{{
 
-set smartindent
+set nosmartindent
 
 set tabstop=2 softtabstop=2 shiftwidth=2
 set shiftround
 autocmd FileType go,make,python,sshconfig
       \ setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType c,cpp
-      \ setlocal tabstop=8 softtabstop=8 shiftwidth=8
+      \ setlocal tabstop=8 softtabstop=8 shiftwidth=8 smartindent
 
 set expandtab
 autocmd FileType c,cpp,gitconfig,go,make,sshconfig,uxntal

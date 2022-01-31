@@ -43,10 +43,9 @@ set showtabline=1
 " --- Spaces and indentation --------------------------------------------- {{{
 
 set nosmartindent
-
 set tabstop=2 softtabstop=2 shiftwidth=2
 set shiftround
-autocmd FileType go,make,python,sshconfig
+autocmd FileType go,make,python,sshconfig,uxntal
       \ setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType c,cpp
       \ setlocal tabstop=8 softtabstop=8 shiftwidth=8 smartindent
@@ -57,7 +56,7 @@ autocmd FileType c,cpp,gitconfig,go,make,sshconfig,uxntal
 
 set list
 set listchars=tab:·\ ,trail:.,extends:>,precedes:<,nbsp:+
-autocmd FileType c,cpp,go,make,sshconfig,uxntal
+autocmd FileType c,cpp,go,make,sshconfig
       \ setlocal nolist
 
 function SetIndent(width)

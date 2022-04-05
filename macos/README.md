@@ -1,6 +1,6 @@
 # macOS
 
-## Install dependencies
+## Install Xcode tools
 
 Install Xcode's Command Line Tools (CLT):
 
@@ -8,12 +8,22 @@ Install Xcode's Command Line Tools (CLT):
 xcode-select --install
 ```
 
+Later, if you run into errors like "unable to find utility 'clang'", you might have an old version of Xcode installed. Delete/upgrade it and try again.
+
+## Install Homebrew
+
 Install [Homebrew](https://brew.sh).
 
 Install more software using Homebrew:
 
 ```sh
 brew bundle install
+```
+
+Diagnose problems with the Homebrew environment:
+
+```sh
+brew doctor
 ```
 
 ## Set shell to Bash 5

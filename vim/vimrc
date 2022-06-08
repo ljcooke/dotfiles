@@ -27,7 +27,7 @@ set background=dark
 if has('gui')
   colors base16-eighties
 else
-  colors elflord
+  " colors elflord
 endif
 
 " Show line numbers

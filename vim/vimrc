@@ -141,6 +141,9 @@ nnoremap <Leader>} gt
 " Open all buffers in tabs
 nnoremap <Leader>bt :tab sball<CR>
 
+" Treat :X like :x, instead of encrypting the file
+cabbr X x
+
 " }}}
 " --- Netrw (file browser) ----------------------------------------------- {{{
 " Help: netrw

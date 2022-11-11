@@ -56,3 +56,7 @@ end
 
 IRB.conf[:PROMPT][:LJCOOKE] = MyPrompt.config
 IRB.conf[:PROMPT_MODE] = :LJCOOKE
+
+# Disable autocomplete while it's coloured light-on-light
+# (introduced in Ruby 3.1)
+IRB.conf[:USE_AUTOCOMPLETE] = false

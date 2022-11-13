@@ -1,0 +1,4 @@
+# This .gitignore is for the repository only. For a global gitignore to put in
+# the home directory, see the git/gitignore_global file.
+
+Gemfile.lock

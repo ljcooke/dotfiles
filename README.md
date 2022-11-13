@@ -19,6 +19,10 @@ Refer to the *README* file in each subfolder to set up the rest:
 - [ruby](ruby/README.md)
 - [tmux](tmux/README.md)
 
+## See also
+
+- [dotvim](https://codeberg.org/ljc/dotvim) (Vim and NeoVim)
+
 ## TODO
 
 This is building on a squashed and refactored copy of
@@ -29,4 +33,3 @@ The following have been excluded:
 - macOS
 - Slack colour scheme
 - Sublime Text
-- Vim

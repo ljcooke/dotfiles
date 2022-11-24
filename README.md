@@ -14,6 +14,7 @@ Refer to the *README* file in each subfolder to set up the rest:
 
 - [bash](bash/README.md)
 - [git](git/README.md)
+- [macos](macos/README.md)
 - [python](python/README.md)
 - [readline](readline/README.md)
 - [ruby](ruby/README.md)

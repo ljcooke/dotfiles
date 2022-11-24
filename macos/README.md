@@ -21,37 +21,30 @@ Later, if you run into errors like "unable to find utility 'clang'", you might h
 
 Install [Homebrew](https://brew.sh).
 
-Use `brew bundle` to install the software listed in [Brewfile](Brewfile):
+Run `brew bundle install` from this directory
+to install the software listed in [Brewfile](Brewfile).
 
-```sh
-brew bundle install
-```
-
-Diagnose problems with the Homebrew environment:
-
-```sh
-brew doctor
-```
+Run `brew doctor` to diagnose problems with the Homebrew environment.
 
 ### Set shell to Bash 5
 
-Install Bash with Homebrew:
+ 1. Install Bash with Homebrew:
 
-```sh
-brew install bash bash-completion@2
-```
+    ```sh
+    brew install bash bash-completion@2
+    ```
 
-Add Homebrew's Bash build to the list of available shells:
+ 2. Add Homebrew's Bash build to the list of available shells.
+    To do this, run `sudo vim /etc/shells` and append the following line:
 
-```sh
-sudo vim /etc/shells
-# append: /usr/local/bin/bash
-```
+    ```
+    /usr/local/bin/bash
+    ```
 
-Change the shell:
+ 3. Change the shell:
 
-```sh
-chsh -s /usr/local/bin/bash
-```
+    ```sh
+    chsh -s /usr/local/bin/bash
+    ```
 
-Then restart the terminal session.
+ 4. Restart the terminal session.

@@ -34,3 +34,9 @@ The following have been excluded:
 - macOS
 - Slack colour scheme
 - Sublime Text
+
+This repo is transitioning to using the XDG Base Directory spec where possible,
+to reduce home directory clutter. See:
+
+- https://specifications.freedesktop.org/basedir-spec/latest/
+- https://wiki.archlinux.org/title/XDG_Base_Directory

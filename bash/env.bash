@@ -57,6 +57,9 @@ export LESSKEY=${XDG_CONFIG_HOME}/less
 export PYTHONPATH="$HOME/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonrc"
 
+# Ruby
+export IRBRC="$HOME/.ljc/ruby/irbrc.rb"
+
 # Paths
 export PATH="$PATH:$HOME/.ljc/bin"
 

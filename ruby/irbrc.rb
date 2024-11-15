@@ -4,6 +4,7 @@
 # Ruby repl (irb) config
 # -----------------------------------------------------------------------------
 
+require 'fileutils'
 require 'irb/completion'
 
 def measure_time
@@ -53,6 +54,15 @@ module MyPrompt
     }
   end
 end
+
+state_dir = File.join(
+  ENV['XDG_STATE_HOME'] || File.join(ENV.fetch('HOME'), '.local', 'state'),
+  'irb'
+)
+FileUtils.mkdir_p(state_dir) unless File.exist?(state_dir)
+
+IRB.conf[:HISTORY_FILE] ||= File.join(state_dir, 'irb', 'history')
+IRB.conf[:SAVE_HISTORY] ||= 1000
 
 IRB.conf[:PROMPT][:LJCOOKE] = MyPrompt.config
 IRB.conf[:PROMPT_MODE] = :LJCOOKE

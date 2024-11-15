@@ -56,6 +56,12 @@ export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
 export MPLCONFIGDIR="$XDG_CONFIG_HOME"/matplotlib
 
 # ---
+# Redis
+# ---
+export REDISCLI_HISTFILE="$XDG_STATE_HOME"/redis/rediscli_history
+export REDISCLI_RCFILE="$XDG_CONFIG_HOME"/redis/redisclirc
+
+# ---
 # Ruby - Bundler
 # ---
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 
-# Copy the templates to ~/.config/bash
+echo '--- Copying templates'
 
 if [ -e "$HOME/.bashrc" ]; then
   echo "$HOME/.bashrc exists"
@@ -18,10 +18,16 @@ else
 fi
 
 
-# Prepare the bash history directory
+echo '--- Preparing XDG_STATE_HOME'
 
-hist_dir=${XDG_STATE_HOME:-$HOME/.local/state}/bash
-mkdir -p "$hist_dir"
-chmod 700 "$hist_dir"
+state_dir=${XDG_STATE_HOME:-$HOME/.local/state}
 
-echo Done
+for dir in bash python redis
+do
+  dir="${state_dir}/${dir}"
+  [ ! -e "$dir" ] && mkdir -pv "$dir"
+  chmod 700 "$dir"
+done
+
+
+echo '--- Done'

@@ -2,7 +2,7 @@
 # Additional Bash config for macOS
 # -----------------------------------------------------------------------------
 
-source $HOME/.bash/platform/bsd.bash
+source $HOME/.ljc/bash/platform/bsd.bash
 
 # -----------------------------------------------------------------------------
 # Environment

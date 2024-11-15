@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
-# Bash configuration
-source "$HOME/.bash/bashrc"
+# Bash profile
+source "$HOME/.ljc/bash/bash_profile"
 
 # Add machine-specific settings below:
 # -----------------------------------------------------------------------------

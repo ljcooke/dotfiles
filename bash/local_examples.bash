@@ -1,4 +1,4 @@
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Go
 export GOPATH=$HOME/go
@@ -19,3 +19,6 @@ eval "$(rbenv init -)"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Direnv (should be last)
+eval "$(direnv hook bash)"

@@ -1,17 +1,3 @@
-# Set default paths for the XDG Base Directory spec
-if [ -z "${XDG_CONFIG_HOME:-}" ]; then
-  export XDG_CONFIG_HOME=$HOME/.config
-fi
-if [ -z "${XDG_CACHE_HOME:-}" ]; then
-  export XDG_CACHE_HOME=$HOME/.cache
-fi
-if [ -z "${XDG_DATA_HOME:-}" ]; then
-  export XDG_DATA_HOME=$HOME/.local/share
-fi
-if [ -z "${XDG_STATE_HOME:-}" ]; then
-  export XDG_STATE_HOME=$HOME/.local/state
-fi
-
 # Default editor
 export EDITOR=vim
 
@@ -47,17 +33,11 @@ bind 'Space: magic-space'
 export PAGER=less
 export LESS='-FRX'
 export LESSCHARSET=utf-8
-# - Use XDG base dirs. Not required since v598 (2021),
-#   but MacOS uses v581.2 (as of 2024).
-#   https://www.greenwoodsoftware.com/less/news.598.html
-export LESSHISTFILE=${XDG_STATE_HOME}/lesshst
-export LESSKEY=${XDG_CONFIG_HOME}/less
 
 # Python
-# - TODO: Review PYTHONPATH and PYTHONSTARTUP
+# - TODO: Review PYTHONPATH and PYTHONSTARTUP (see xdg.bash)
 export PYTHONPATH="$HOME/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonrc"
-export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
 
 # Ruby
 export IRBRC="$HOME/.ljc/ruby/irbrc.rb"

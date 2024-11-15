@@ -9,6 +9,7 @@
 # source /etc/profile >/dev/null
 
 # Load shared configs
+source "$HOME/.ljc/bash/xdg.bash"
 source "$HOME/.ljc/bash/env.bash"
 source "$HOME/.ljc/bash/functions.bash"
 source "$HOME/.ljc/bash/prompt.bash"

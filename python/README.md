@@ -8,3 +8,11 @@
     ```sh
     ln -s .ljc/python/pythonrc.py $HOME/.pythonrc
     ```
+
+ 1. Create the state directory to store the Python history file
+    (defined in `env.bash`):
+
+    ```sh
+    mkdir -p ~/.local/state/python
+    chmod 700 ~/.local/state/python
+    ```

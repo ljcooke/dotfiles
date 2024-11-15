@@ -54,8 +54,10 @@ export LESSHISTFILE=${XDG_STATE_HOME}/lesshst
 export LESSKEY=${XDG_CONFIG_HOME}/less
 
 # Python
+# - TODO: Review PYTHONPATH and PYTHONSTARTUP
 export PYTHONPATH="$HOME/lib/python"
 export PYTHONSTARTUP="$HOME/.pythonrc"
+export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
 
 # Ruby
 export IRBRC="$HOME/.ljc/ruby/irbrc.rb"

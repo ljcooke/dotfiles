@@ -38,20 +38,6 @@ mkcd() {
 }
 
 #
-# Toggle whether to save the command history.
-#
-hist-toggle()
-{
-    if [ "$HISTFILE" = /dev/null ]; then
-        export HISTFILE=$HOME/.bash_history
-        echo "Will save history to ${HISTFILE}"
-    else
-        export HISTFILE=/dev/null
-        echo 'Will NOT save history'
-    fi
-}
-
-#
 # Sync files using rsync.
 #
 # `cpr src/ dest/` will copy files from src to dest. Note the trailing

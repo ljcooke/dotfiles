@@ -37,7 +37,8 @@ export LESSKEY="$XDG_CONFIG_HOME"/less
 # ---
 # Python
 # ---
-export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
+export PYTHONSTARTUP="$HOME"/.ljc/python/pythonrc.py
+export PYTHON_HISTORY="$XDG_STATE_HOME"/python_test/history
 
 # ---
 # Python - matplotlib library

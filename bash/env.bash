@@ -35,9 +35,7 @@ export LESS='-FRX'
 export LESSCHARSET=utf-8
 
 # Python
-# - TODO: Review PYTHONPATH and PYTHONSTARTUP (see xdg.bash)
-export PYTHONPATH="$HOME/lib/python"
-export PYTHONSTARTUP="$HOME/.pythonrc"
+# export PYTHONPATH="$HOME/lib/python"
 
 # Ruby
 export IRBRC="$HOME/.ljc/ruby/irbrc.rb"

@@ -22,7 +22,7 @@ echo '--- Preparing XDG_STATE_HOME'
 
 state_dir=${XDG_STATE_HOME:-$HOME/.local/state}
 
-for dir in bash python redis
+for dir in bash redis
 do
   dir="${state_dir}/${dir}"
   [ ! -e "$dir" ] && mkdir -pv "$dir"

@@ -45,4 +45,4 @@ export PATH="$PATH:$HOME/.ljc/bin"
 
 # Paths to search when cd-ing to a directory.
 # Colon separated, e.g. ".:~/src"
-export CDPATH="."
+# export CDPATH="."

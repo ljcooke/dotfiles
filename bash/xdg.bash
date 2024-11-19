@@ -73,3 +73,8 @@ export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 # Ruby - rbenv
 # ---
 export RBENV_ROOT="$XDG_DATA_HOME"/rbenv
+
+# ---
+# Wget
+# ---
+export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc

@@ -26,6 +26,12 @@ if [ -z "${XDG_STATE_HOME:-}" ]; then
 fi
 
 # ---
+# Go
+# ---
+export GOPATH="${XDG_DATA_HOME}/go"
+export PATH="${PATH}:${GOPATH}/bin"
+
+# ---
 # Less pager
 #
 # Supports XDG paths since v598 (2021), but MacOS uses v581.2 (as of 2024).
@@ -73,6 +79,11 @@ export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 # Ruby - rbenv
 # ---
 export RBENV_ROOT="$XDG_DATA_HOME"/rbenv
+
+# ---
+# SQLite
+# ---
+export SQLITE_HISTORY="${XDG_STATE_HOME}/sqlite/history"
 
 # ---
 # Wget

@@ -37,7 +37,7 @@ export PATH="${PATH}:${GOPATH}/bin"
 # Supports XDG paths since v598 (2021), but MacOS uses v581.2 (as of 2024).
 # https://www.greenwoodsoftware.com/less/news.598.html
 # ---
-export LESSHISTFILE="$XDG_STATE_HOME"/lesshst
+export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 export LESSKEY="$XDG_CONFIG_HOME"/less
 
 # ---

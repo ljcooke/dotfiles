@@ -7,6 +7,10 @@
 
 ## Install
 
+### Configuration
+
+See [defaults.md](defaults.md).
+
 ### Xcode tools
 
 Install Xcode's Command Line Tools (CLT):

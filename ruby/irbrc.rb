@@ -59,9 +59,12 @@ state_dir = File.join(
   ENV['XDG_STATE_HOME'] || File.join(ENV.fetch('HOME'), '.local', 'state'),
   'irb'
 )
-FileUtils.mkdir_p(state_dir) unless File.exist?(state_dir)
+unless File.exist?(state_dir)
+  FileUtils.mkdir_p(state_dir, verbose: false)
+  FileUtils.chmod(0700, state_dir, verbose: false)
+end
 
-IRB.conf[:HISTORY_FILE] ||= File.join(state_dir, 'irb', 'history')
+IRB.conf[:HISTORY_FILE] ||= File.join(state_dir, 'history')
 IRB.conf[:SAVE_HISTORY] ||= 1000
 
 IRB.conf[:PROMPT][:LJCOOKE] = MyPrompt.config

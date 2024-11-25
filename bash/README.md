@@ -11,7 +11,6 @@ Run `./setup.sh` to set up the bash config. This does the following:
   exist, and sets the permissions to user-readable only (700).
 
 Add machine-specific changes to `~/.bashrc` as needed.
-(See [examples](local_examples.bash).)
 
 Next: [Set up Readline](../readline/README.md)
 

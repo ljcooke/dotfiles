@@ -25,10 +25,18 @@ if [ -z "${XDG_STATE_HOME:-}" ]; then
   export XDG_STATE_HOME="$HOME"/.local/state
 fi
 
+# Nonstandard
+if [ -z "${XDG_BIN_HOME:-}" ]; then
+  export XDG_BIN_HOME="$HOME"/.local/bin
+fi
+if [ -z "${XDG_OPT_HOME:-}" ]; then
+  export XDG_OPT_HOME="$HOME"/.local/opt
+fi
+
 # ---
 # Go
 # ---
-export GOPATH="${XDG_DATA_HOME}/go"
+export GOPATH="${XDG_OPT_HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
 # ---
@@ -60,7 +68,7 @@ export PYTHON_HISTORY="$XDG_STATE_HOME"/python_test/history
 #     mpl.get_configdir()
 #   deactivate
 # ---
-export MPLCONFIGDIR="$XDG_CONFIG_HOME"/matplotlib
+export MPLCONFIGDIR="$XDG_CACHE_HOME"/matplotlib
 
 # ---
 # Redis
@@ -69,16 +77,18 @@ export REDISCLI_HISTFILE="$XDG_STATE_HOME"/redis/rediscli_history
 export REDISCLI_RCFILE="$XDG_CONFIG_HOME"/redis/redisclirc
 
 # ---
-# Ruby - Bundler
+# Ruby
 # ---
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle/config
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+export RBENV_ROOT="$XDG_OPT_HOME"/rbenv
 
 # ---
-# Ruby - rbenv
+# Rust
 # ---
-export RBENV_ROOT="$XDG_DATA_HOME"/rbenv
+export CARGO_HOME="$XDG_OPT_HOME"/cargo
+export PATH="$PATH:${CARGO_HOME}/bin"
 
 # ---
 # SQLite

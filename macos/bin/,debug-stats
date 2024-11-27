@@ -19,6 +19,6 @@ heading 'Power'
 pmset -g batt
 
 heading 'Disk space'
-df -hl /
+df -hl / "$HOME"
 
 echo

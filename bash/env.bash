@@ -10,7 +10,7 @@ export LC_CTYPE=$LC_ALL LC_TIME=$LC_ALL LANG=$LC_ALL
 
 # History
 export HISTCONTROL='ignoreboth:erasedups'
-export HISTFILE=$HOME/.bash_history
+export HISTFILE=${XDG_STATE_HOME:-$HOME/.local/state}/bash/history
 export HISTSIZE=50000 HISTFILESIZE=50000
 export HISTIGNORE=history:h:hl:ls:l:la:lc:ll:fg
 export HISTTIMEFORMAT='%F %T '
@@ -29,18 +29,20 @@ shopt -s nocaseglob
 # Perform history expansion before inserting a space e.g. !!<space>
 bind 'Space: magic-space'
 
-# Pager
+# Less pager
 export PAGER=less
 export LESS='-FRX'
 export LESSCHARSET=utf-8
 
 # Python
-export PYTHONPATH="$HOME/lib/python"
-export PYTHONSTARTUP="$HOME/.pythonrc"
+# export PYTHONPATH="$HOME/lib/python"
+
+# Ruby
+export IRBRC="$HOME/.ljc/ruby/irbrc.rb"
 
 # Paths
 export PATH="$PATH:$HOME/.ljc/bin"
 
 # Paths to search when cd-ing to a directory.
 # Colon separated, e.g. ".:~/src"
-export CDPATH="."
+# export CDPATH="."

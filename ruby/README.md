@@ -13,12 +13,3 @@
     ```sh
     bundle install
     ```
-
-## Configure
-
- 1. Create a symlink to the [`irbrc.rb`](irbrc.rb) file
-    (this can be run from any directory):
-
-    ```sh
-    ln -s .ljc/ruby/irbrc.rb $HOME/.irbrc
-    ```

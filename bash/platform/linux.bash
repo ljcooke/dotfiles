@@ -9,3 +9,17 @@ if [ "$TERM" != "dumb" ]; then
         alias ls='ls --color=auto' 2>/dev/null
     fi
 fi
+
+# Load the first Bash completion file from the list
+# TODO: Remove the /usr/local lines if not needed. These are just left over
+# from platform-independent code targeting Homebrew on macOS
+for f in
+    /usr/local/etc/profile.d/bash_completion.sh \
+    /usr/local/etc/bash_completion \
+    /etc/bash_completion
+do
+    if [ -r "$f" ]; then
+        source "$f"
+        break
+    fi
+done

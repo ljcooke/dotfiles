@@ -2,24 +2,17 @@
 
 ## Configure
 
- 1. Create a symlink to the `bash` directory
-    (this can be run from any directory):
+Run `./setup.sh` to set up the bash config. This does the following:
 
-    ```sh
-    ln -s .ljc/bash $HOME/.bash
-    ```
+- Copies template configuration files to `~/.bashrc` and `~/.bash_profile`
+  (or does nothing if those files exist).
 
- 1. Copy the template files to `~/.bashrc` and `~/.bash_profile` if they don't exist:
+- Creates a directory for bash history at `~/.local/state/bash`, if it doesn't
+  exist, and sets the permissions to user-readable only (700).
 
-    ```sh
-    [ ! -e $HOME/.bashrc ] && cp -v $HOME/.bash/bashrc.local $HOME/.bashrc
-    [ ! -e $HOME/.bash_profile ] && cp -v $HOME/.bash/bash_profile.local $HOME/.bash_profile
-    ```
+Add machine-specific changes to `~/.bashrc` as needed.
 
- 1. Add machine-specific changes to `~/.bashrc`.
-    (See [examples](local_examples.bash).)
-
- 1. [Set up Readline](../readline/README.md).
+Next: [Set up Readline](../readline/README.md)
 
 ## Reload
 

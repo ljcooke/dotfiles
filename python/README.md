@@ -1,10 +1,6 @@
 # Python
 
-## Configure
+Python configuration file.
 
- 1. Create a symlink to the [`pythonrc.py`](pythonrc.py) file
-    (this can be run from any directory):
-
-    ```sh
-    ln -s .ljc/python/pythonrc.py $HOME/.pythonrc
-    ```
+This is configured to load via the `$PYTHONSTARTUP` environment variable.
+(See [xdg.bash](../bash/xdg.bash).)

@@ -20,6 +20,13 @@ except ImportError:
 PY = sys.version_info[0]
 
 
+# Ensure the directory exists for $PYTHON_HISTORY
+history_dir = os.path.dirname(os.environ['PYTHON_HISTORY'])
+if not os.path.exists(history_dir):
+    os.makedirs(history_dir, exist_ok=True)
+del history_dir
+
+
 class Term:
     RESET  = "\x1b[0m"
     BOLD   = "\x1b[1m"

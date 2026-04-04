@@ -23,6 +23,6 @@ case "$(uname -s)" in
         source "$HOME/.ljc/bash/platform_bsd.bash"
         ;;
     *)
-        source "$HOME/.ljc/bash/platform-linux.bash"
+        source "$HOME/.ljc/bash/platform_linux.bash"
         ;;
 esac

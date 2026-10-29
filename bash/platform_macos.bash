@@ -29,7 +29,7 @@ export HOMEBREW_NO_ANALYTICS=1
 # export HOMEBREW_NO_GITHUB_API=1
 export HOMEBREW_NO_INSECURE_REDIRECT=1
 
-export PATH="$PATH:$HOME/.ljc/macos/bin"
+export PATH="$PATH:$HOME/.local/opt/dotljc/macos/bin"
 
 # -----------------------------------------------------------------------------
 # Bash completion

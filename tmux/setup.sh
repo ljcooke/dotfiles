@@ -17,7 +17,7 @@ fi
 mkdir -p "$conf_dir"
 
 echo "Copying template to ${conf_path}"
-cp "$HOME/.ljc/tmux/local.tmux.conf" "$conf_path"
+cp "$HOME/.local/opt/dotljc/tmux/local.tmux.conf" "$conf_path"
 echo 'Done'
 
 sys=$(uname -s)

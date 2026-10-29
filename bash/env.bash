@@ -40,13 +40,13 @@ export LESSCHARSET=utf-8
 
 # Python
 # export PYTHONPATH="$HOME/lib/python"
-export PYTHONSTARTUP="$HOME"/.ljc/python/pythonrc.py
+export PYTHONSTARTUP="$HOME"/.local/opt/dotljc/python/pythonrc.py
 
 # Ruby
-export IRBRC="$HOME/.ljc/ruby/irbrc.rb"
+export IRBRC="$HOME/.local/opt/dotljc/ruby/irbrc.rb"
 
 # Paths
-export PATH="$PATH:$HOME/.ljc/bin"
+export PATH="$PATH:$HOME/.local/opt/dotljc/bin"
 
 # Paths to search when cd-ing to a directory.
 # Colon separated, e.g. ".:~/src"

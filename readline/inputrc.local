@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 # Readline configuration
-$include .ljc/readline/inputrc
+$include .local/opt/dotljc/readline/inputrc
 
 # Add machine-specific settings below:
 # -----------------------------------------------------------------------------

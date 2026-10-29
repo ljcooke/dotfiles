@@ -4,10 +4,11 @@ An accretion of configuration files.
 
 ## Install
 
-Clone the repository into `~/.ljc`:
+Clone the repository into `~/.local/opt/dotljc`:
 
 ```sh
-git clone https://codeberg.org/ljc/dotfiles.git ~/.ljc
+mkdir -p ~/.local/opt
+git clone https://codeberg.org/ljc/dotfiles.git ~/.local/opt/dotljc
 ```
 
 Refer to the *README* file in each subfolder to set up the rest:

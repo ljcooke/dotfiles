@@ -8,21 +8,25 @@
 # TODO Is this necessary?
 # source /etc/profile >/dev/null
 
+dotljc="$HOME"/.local/opt/dotljc
+
 # Load shared configs
-source "$HOME/.ljc/bash/xdg.bash"
-source "$HOME/.ljc/bash/env.bash"
-source "$HOME/.ljc/bash/functions.bash"
-source "$HOME/.ljc/bash/prompt.bash"
+source "$dotljc"/bash/xdg.bash
+source "$dotljc"/bash/env.bash
+source "$dotljc"/bash/functions.bash
+source "$dotljc"/bash/prompt.bash
 
 # Load platform-specific configs
 case "$(uname -s)" in
     Darwin)
-        source "$HOME/.ljc/bash/platform_macos.bash"
+        source "$dotljc"/bash/platform_macos.bash
         ;;
     FreeBSD)
-        source "$HOME/.ljc/bash/platform_bsd.bash"
+        source "$dotljc"/bash/platform_bsd.bash
         ;;
     *)
-        source "$HOME/.ljc/bash/platform_linux.bash"
+        source "$dotljc"/bash/platform_linux.bash
         ;;
 esac
+
+unset dotljc

@@ -1,10 +1,5 @@
 # macOS
 
-## See also
-
-- [Divvy](divvy.md)
-- [Hidden settings](config.sh)
-
 ## Install
 
 ### Configuration
@@ -30,7 +25,13 @@ to install the software listed in [Brewfile](Brewfile).
 
 Run `brew doctor` to diagnose problems with the Homebrew environment.
 
-### Set shell to Bash 5
+### Update Bash shell
+
+Recommendation: Set your shell to a modern version of Bash using Homebrew.
+
+- As of Oct 2026, Homebrew provides Bash 5.3 while MacOS still uses Bash 3.2 by default.
+
+Instructions for Apple silicon:
 
  1. Install Bash with Homebrew:
 
@@ -39,16 +40,20 @@ Run `brew doctor` to diagnose problems with the Homebrew environment.
     ```
 
  2. Add Homebrew's Bash build to the list of available shells.
-    To do this, run `sudo vim /etc/shells` and append the following line:
+
+    Run `sudo vim /etc/shells` to edit the list.
+    Append the following line:
 
     ```
-    /usr/local/bin/bash
+    /opt/homebrew/bin/bash
     ```
 
  3. Change the shell:
 
     ```sh
-    chsh -s /usr/local/bin/bash
+    chsh -s /opt/homebrew/bin/bash
     ```
 
  4. Restart the terminal session.
+
+For Intel, replace the path with `/usr/local/bin/bash` in steps 2 and 3.

@@ -23,5 +23,5 @@ echo 'Done'
 sys=$(uname -s)
 if [ "$sys" = Darwin ]; then
   echo ''
-  echo "Edit ${conf_path} and uncomment the 'macos.tmux.conf' line"
+  echo "Edit ${conf_path} to configure for macOS."
 fi

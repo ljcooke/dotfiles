@@ -29,6 +29,10 @@ shopt -s nocaseglob
 # Perform history expansion before inserting a space e.g. !!<space>
 bind 'Space: magic-space'
 
+# Go
+export PATH="$PATH:${GOPATH}/bin"
+export PATH="$PATH:${CARGO_HOME}/bin"
+
 # Less pager
 export PAGER=less
 export LESS='-FRX'
@@ -36,6 +40,7 @@ export LESSCHARSET=utf-8
 
 # Python
 # export PYTHONPATH="$HOME/lib/python"
+export PYTHONSTARTUP="$HOME"/.ljc/python/pythonrc.py
 
 # Ruby
 export IRBRC="$HOME/.ljc/ruby/irbrc.rb"

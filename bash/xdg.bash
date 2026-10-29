@@ -33,11 +33,14 @@ if [ -z "${XDG_OPT_HOME:-}" ]; then
   export XDG_OPT_HOME="$HOME"/.local/opt
 fi
 
-# ---
-# Go
-# ---
-export GOPATH="${XDG_OPT_HOME}/go"
-export PATH="${PATH}:${GOPATH}/bin"
+export GOPATH="$XDG_OPT_HOME"/go
+export PSQL_HISTORY="$XDG_DATA_HOME"/postgresql/psql_history
+export PYTHON_HISTORY="$XDG_STATE_HOME"/python/history
+export REDISCLI_HISTFILE="$XDG_STATE_HOME"/redis/rediscli_history
+export REDISCLI_RCFILE="$XDG_CONFIG_HOME"/redis/redisclirc
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/ripgreprc
+export SQLITE_HISTORY="$XDG_STATE_HOME"/sqlite/history
+export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
 
 # ---
 # Less pager
@@ -47,12 +50,6 @@ export PATH="${PATH}:${GOPATH}/bin"
 # ---
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 export LESSKEY="$XDG_CONFIG_HOME"/less
-
-# ---
-# Python
-# ---
-export PYTHONSTARTUP="$HOME"/.ljc/python/pythonrc.py
-export PYTHON_HISTORY="$XDG_STATE_HOME"/python_test/history
 
 # ---
 # Python - matplotlib library
@@ -71,12 +68,6 @@ export PYTHON_HISTORY="$XDG_STATE_HOME"/python_test/history
 export MPLCONFIGDIR="$XDG_CACHE_HOME"/matplotlib
 
 # ---
-# Redis
-# ---
-export REDISCLI_HISTFILE="$XDG_STATE_HOME"/redis/rediscli_history
-export REDISCLI_RCFILE="$XDG_CONFIG_HOME"/redis/redisclirc
-
-# ---
 # Ruby
 # ---
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
@@ -88,14 +79,3 @@ export RBENV_ROOT="$XDG_OPT_HOME"/rbenv
 # Rust
 # ---
 export CARGO_HOME="$XDG_OPT_HOME"/cargo
-export PATH="$PATH:${CARGO_HOME}/bin"
-
-# ---
-# SQLite
-# ---
-export SQLITE_HISTORY="${XDG_STATE_HOME}/sqlite/history"
-
-# ---
-# Wget
-# ---
-export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
